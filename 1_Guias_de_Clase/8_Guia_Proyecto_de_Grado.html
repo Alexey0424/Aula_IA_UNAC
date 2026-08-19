@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guía del Proyecto de Grado · Clase 04 · Diplomado en IA · UNAC</title>
+<style>
+:root{
+  --navy:#0E2036; --card-dark:#1B3453; --cream:#F6F5F0;
+  --orange:#E8792B; --blue:#3C7FD0; --red:#D54E48; --gold:#EAAD05; --teal:#29AC8A;
+  --bg:#F6F5F0; --surface:#FFFFFF; --surface-2:#FCFBF7;
+  --ink:#12233A; --ink-2:#4B5A6D; --ink-3:#7A8797;
+  --line:#DDD8CC; --line-soft:#EAE5DA;
+  --shadow:0 1px 2px rgba(14,32,54,.06), 0 6px 18px rgba(14,32,54,.05);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  font-size:15.5px; line-height:1.62; -webkit-font-smoothing:antialiased}
+.wrap{max-width:960px; margin:0 auto; padding:0 26px}
+h1,h2,h3,h4{margin:0; font-weight:600; line-height:1.22}
+p{margin:0 0 .8em}
+code{font-family:Consolas,"Cascadia Mono",monospace; font-size:.92em;
+  background:var(--surface-2); border:1px solid var(--line-soft);
+  border-radius:4px; padding:1px 5px}
+
+.hero{background:var(--navy); color:var(--cream); padding:42px 0 36px; position:relative; overflow:hidden}
+.hero::after{content:""; position:absolute; inset:auto 0 0 0; height:3px;
+  background:linear-gradient(90deg,var(--orange) 0 40%,var(--blue) 40% 72%,var(--red) 72% 100%)}
+.eyebrow{display:flex; align-items:center; gap:10px; font-size:11.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:15px}
+.eyebrow::before{content:""; width:3.5px; height:15px; background:var(--gold); border-radius:2px}
+.hero h1{font-size:clamp(28px,4.2vw,40px); font-family:"Segoe UI Light","Segoe UI",sans-serif;
+  font-weight:300; letter-spacing:-.01em}
+.hero h1 b{font-weight:600}
+.hero .sub{margin-top:14px; max-width:74ch; color:#A9BBD1; font-size:16px}
+.hero .sub b{color:var(--cream)}
+
+.paso{margin-top:44px; background:var(--surface); border:1px solid var(--line);
+  border-radius:12px; box-shadow:var(--shadow); overflow:hidden}
+.paso-h{display:flex; align-items:flex-start; gap:16px; padding:20px 26px 18px;
+  border-bottom:1px solid var(--line-soft); background:var(--surface-2)}
+.paso-n{flex:none; width:38px; height:38px; border-radius:50%; background:var(--gold);
+  color:var(--navy); font-weight:600; font-size:17px; display:flex;
+  align-items:center; justify-content:center; margin-top:1px}
+.paso-h h2{font-size:21px; font-family:"Segoe UI Light","Segoe UI",sans-serif; font-weight:300}
+.paso-h h2 b{font-weight:600}
+.paso-h .t{margin-top:5px; color:var(--ink-3); font-size:13.5px}
+.paso-c{padding:22px 26px 24px}
+
+.tbl{overflow-x:auto; border:1px solid var(--line); border-radius:9px;
+  background:var(--surface); margin:14px 0}
+table{border-collapse:collapse; width:100%; min-width:480px; font-size:13.8px}
+th,td{text-align:left; padding:9px 13px; border-bottom:1px solid var(--line-soft); vertical-align:top}
+th{background:var(--surface-2); font-size:10.5px; letter-spacing:.11em; text-transform:uppercase;
+  color:var(--ink-3); font-weight:600; white-space:nowrap}
+tr:last-child td{border-bottom:none}
+
+.nota{border-left:3px solid var(--orange); background:#FDF3EA; padding:12px 16px;
+  border-radius:0 8px 8px 0; margin:16px 0; font-size:14.5px; color:#6E4318}
+.nota b{color:#4A2C0C}
+.ok{border-left-color:var(--teal); background:#E8F6F1; color:#1B5546}
+.ok b{color:#0C3A2E}
+.alerta{border-left-color:var(--red); background:#FBEDEC; color:#6B2320}
+.alerta b{color:#471512}
+
+/* dos columnas sí / no */
+.sino{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:16px 0}
+.sino .col{border-radius:10px; padding:16px 18px; border:1.5px solid}
+.sino .si{border-color:var(--teal); background:#F2FAF7}
+.sino .no{border-color:var(--red); background:#FDF4F3}
+.sino h3{font-size:13px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:10px}
+.sino .si h3{color:#177A5F}
+.sino .no h3{color:#B03A34}
+.sino ul{margin:0; padding-left:1.15em; font-size:14px}
+.sino li{margin-bottom:8px}
+@media(max-width:640px){.sino{grid-template-columns:1fr}}
+
+.fecha{display:flex; gap:14px; align-items:baseline; padding:11px 0; border-bottom:1px dashed var(--line-soft)}
+.fecha:last-child{border-bottom:none}
+.fecha .f{flex:none; width:150px; font-weight:600; font-size:14px}
+.fecha .v{flex:none; width:52px; text-align:right; font-weight:600}
+.fecha .d{color:var(--ink-2); font-size:14px}
+
+ul,ol{margin:0 0 .9em; padding-left:1.3em}
+li{margin-bottom:6px}
+
+.pie{margin:56px 0 40px; padding-top:20px; border-top:1px solid var(--line);
+  font-size:12.8px; color:var(--ink-3); display:flex; flex-wrap:wrap; gap:10px 22px}
+@media print{ body{font-size:11.5pt} .hero{padding:26px 0 22px} .paso{break-inside:avoid; box-shadow:none} }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Diplomado en Inteligencia Artificial · UNAC · Clase 04 · Proyecto de grado</div>
+    <h1>El proyecto de grado, <b>completo y sin sorpresas</b></h1>
+    <p class="sub">Qué se entrega, <b>cuándo</b>, cuánto vale cada entrega, en qué formato va el
+    documento, y la regla que define si su trabajo <b>cuenta o no cuenta</b> como un trabajo de
+    inteligencia artificial.</p>
+    <p class="sub" style="margin-top:12px">Este documento resume el comunicado oficial de la
+    coordinación del Proyecto de Grado (Lorena Martínez Soto, agosto de 2026) más los criterios
+    del asesor temático del diplomado.</p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="nota" style="margin-top:34px">
+    <b>Quién es quién.</b> Su proyecto tiene dos asesores: el <b>asesor temático</b>
+    (Alexey Velásquez — el contenido, la técnica, la IA, y quien <b>califica las cuatro
+    entregas</b>) y la <b>asesora metodológica</b> (Lorena Martínez — normas APA, referencias
+    y escritura académica; acompaña pero no califica aparte).
+  </div>
+
+  <!-- ============================================ 1 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">1</div>
+      <div>
+        <h2>Qué tiene que ser el proyecto <b>para que valga</b></h2>
+        <div class="t">Tres condiciones del comunicado oficial. Las tres se evalúan.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <ol>
+        <li><b>En contexto organizacional real.</b> Atiende una necesidad o problemática
+        identificada en una empresa o entidad real — la suya o una a la que tengan acceso.</li>
+        <li><b>Mejora significativa y aplicable.</b> Que se pueda implementar y que se note.
+        Si nadie lo va a usar, no sirve.</li>
+        <li><b>Con alcance de producto de Desarrollo Tecnológico e Innovación (DTI).</b>
+        En particular, una <i>innovación en proceso administrativo</i>: el resultado es algo
+        que existe y funciona — un flujo, una skill, un tablero que se alimenta solo — no un
+        informe sobre lo que se podría hacer.</li>
+      </ol>
+      <div class="nota">
+        <b>Dos requisitos administrativos.</b> Los grupos son de <b>mínimo tres (3)
+        estudiantes</b>. Y si el proyecto se desarrolla dentro de una organización, el grupo debe
+        gestionar la firma de un <b>Convenio de Cooperación Académica</b> entre la organización y
+        la UNAC — empiece ese trámite temprano, porque no depende de ustedes sino de la empresa.
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ 2 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">2</div>
+      <div>
+        <h2>La regla de oro: la IA va <b>dentro del pipeline</b></h2>
+        <div class="t">Esto define si su proyecto es un trabajo de inteligencia artificial o no. Léalo dos veces.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <p>Un trabajo <b>hecho con ayuda de</b> inteligencia artificial no es lo mismo que un
+      trabajo <b>de</b> inteligencia artificial. Usar Claude para redactar el documento, armar la
+      presentación o escribir el código <b>no convierte</b> el proyecto en un proyecto de IA —
+      eso es lo mínimo que se espera de ustedes como gerentes que saben mandar sobre la IA.</p>
+      <p>El proyecto <b>es</b> de inteligencia artificial cuando la IA queda <b>adentro del proceso
+      que ustedes mejoran</b>: cuando el sistema que entregan <b>clasifica, agrupa, predice,
+      pronostica, transcribe, detecta o analiza</b> como parte del flujo de trabajo — y lo sigue
+      haciendo cuando ustedes ya se graduaron.</p>
+
+      <div class="sino">
+        <div class="col no">
+          <h3>✕ No cuenta</h3>
+          <ul>
+            <li>Un dashboard <b>hecho con ayuda de</b> IA (la IA lo construyó, pero el dashboard
+            solo muestra datos).</li>
+            <li>Un informe o manual redactado con Claude.</li>
+            <li>Una página web o una presentación generada con IA.</li>
+            <li>Una hoja de cálculo con fórmulas que le escribió la IA.</li>
+          </ul>
+        </div>
+        <div class="col si">
+          <h3>✓ Sí cuenta</h3>
+          <ul>
+            <li>Un dashboard cuyos <b>KPIs los analiza y comenta un LLM</b> cada semana, o que
+            incluye una <b>predicción de demanda</b>.</li>
+            <li>Un flujo que <b>clasifica</b> documentos, facturas o PQRS automáticamente.</li>
+            <li>Una lista de chequeo donde la IA <b>cruza y verifica</b> requisitos contra
+            documentos reales.</li>
+            <li>Un modelo que <b>pronostica</b> ventas, flujo de caja o citas, y alimenta
+            decisiones.</li>
+            <li>Un agente que <b>transcribe, resume y extrae compromisos</b> de reuniones o
+            llamadas dentro de un proceso.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ok nota">
+        <b>La prueba del borrado.</b> Pregúntense: si mañana le quitamos la IA al sistema que
+        entregamos, ¿el sistema deja de funcionar? Si la respuesta es <b>no</b> — porque la IA solo
+        ayudó a construirlo — el proyecto no es de IA. Si la respuesta es <b>sí</b> — porque la IA
+        clasifica, predice o analiza adentro — van bien.
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ 3 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">3</div>
+      <div>
+        <h2>Las cuatro entregas: <b>fechas, productos y porcentajes</b></h2>
+        <div class="t">Los porcentajes son textuales del comunicado oficial. Cada estudiante sube su entrega individualmente en Moodle.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <div class="fecha"><div class="f">Mié 26 de agosto</div><div class="v" style="color:#177A5F">20 %</div>
+        <div class="d"><b>Entrega 1 · Plan de trabajo</b> con visto bueno del asesor temático.
+        Se construye en la Clase 04: problema, objetivos, alcance, cronograma y — clave —
+        <b>dónde entra la IA en el pipeline</b>.</div></div>
+      <div class="fecha"><div class="f">Mié 23 de septiembre</div><div class="v" style="color:#2B66AC">20 %</div>
+        <div class="d"><b>Entrega 2 · Avance</b> de acuerdo con el plan de trabajo. Ya debe haber
+        datos reales y un primer prototipo corriendo, aunque sea feo.</div></div>
+      <div class="fecha"><div class="f">Mié 21 de octubre</div><div class="v" style="color:#5A44C4">20 %</div>
+        <div class="d"><b>Entrega 3 · Avance</b> de acuerdo con el plan de trabajo. El producto casi
+        completo y el documento en borrador avanzado.</div></div>
+      <div class="fecha"><div class="f">Mié 4 de noviembre</div><div class="v" style="color:#9A7B1E">40 %</div>
+        <div class="d"><b>Entrega 4 · Documento final y sustentación oral.</b> Se entrega el 4 para
+        alcanzar a revisar y dar el visto bueno antes de la <b>sustentación final del jueves 12 de
+        noviembre</b> ante jurados.</div></div>
+
+      <div class="alerta nota" style="margin-top:18px">
+        <b>Hagan la cuenta:</b> el 60 % de la nota se juega <b>antes</b> de la sustentación.
+        Este no es un trabajo de última semana. El que arranca tarde no lo recupera al final.
+      </div>
+      <div class="nota">
+        <b>Sobre las fechas.</b> Estas son las fechas acordadas en clase con el asesor temático.
+        La fecha oficial de cada entrega es la que quede publicada en <b>Moodle</b>; cualquier
+        ajuste se avisa por los canales del curso.
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ 4 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">4</div>
+      <div>
+        <h2>El documento: <b>formato y estructura</b></h2>
+        <div class="t">Lo metodológico lo acompaña Lorena Martínez. Esto es lo mínimo que debe cumplir desde la primera entrega.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <div class="tbl"><table>
+        <tr><th>Aspecto</th><th>Requisito</th></tr>
+        <tr><td><b>Formato de archivo</b></td><td>Word (<code>.docx</code>) o PDF, según lo que pida Moodle en cada entrega.</td></tr>
+        <tr><td><b>Normas de estilo</b></td><td><b>APA, séptima edición</b>: portada, citación en el texto, tablas, figuras y lista de referencias.</td></tr>
+        <tr><td><b>Referencias</b></td><td>Actualizadas y de alto nivel: artículos y libros de los últimos ~5 años donde sea posible. Nada de blogs sin autor ni "según internet".</td></tr>
+        <tr><td><b>Escritura</b></td><td>Claridad, coherencia, argumentación: cada afirmación fuerte lleva su fuente.</td></tr>
+      </table></div>
+
+      <p style="margin-top:16px"><b>Estructura orientadora del documento final</b> (la oficial la
+      comunica la asesora metodológica; esta es la lógica que su documento debe contar):</p>
+      <ol>
+        <li><b>Portada y resumen ejecutivo</b> — el proyecto en una página.</li>
+        <li><b>La organización y su contexto</b> — quiénes son, qué hacen, dónde duele.</li>
+        <li><b>Planteamiento del problema</b> — el proceso actual, con números: tiempos, costos, errores.</li>
+        <li><b>Objetivos</b> — uno general, tres o cuatro específicos, todos verificables.</li>
+        <li><b>Justificación</b> — por qué vale la pena resolverlo y por qué con IA.</li>
+        <li><b>Marco referencial</b> — los conceptos que usan (los de este diplomado), con fuentes APA.</li>
+        <li><b>Metodología</b> — cómo lo van a hacer: datos, herramientas, etapas.</li>
+        <li><b>Desarrollo de la solución</b> — el corazón: el pipeline, y <b>dónde queda la IA adentro</b>.</li>
+        <li><b>Resultados</b> — antes vs. después, con indicadores: tiempo, costo, errores, cobertura.</li>
+        <li><b>Conclusiones y recomendaciones</b> — qué queda funcionando y qué sigue.</li>
+        <li><b>Referencias</b> (APA 7) y <b>anexos</b>.</li>
+      </ol>
+
+      <div class="alerta nota">
+        <b>Advertencia sobre referencias con IA.</b> Los modelos de lenguaje <b>inventan
+        referencias</b> con total seguridad: autores reales, títulos plausibles, DOI falsos.
+        Pueden usar Claude para buscar y dar formato APA, pero <b>cada referencia se verifica</b>:
+        que el documento exista, que diga lo que ustedes citan. Una referencia inventada en el
+        documento final es falta grave, no un error de digitación.
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ 5 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">5</div>
+      <div>
+        <h2>Cómo trabajar el proyecto <b>con la IA</b> (y con su asesor)</h2>
+        <div class="t">El objetivo declarado del diplomado: que las 96 horas autónomas se reduzcan porque ustedes usan IA para hacerlas.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <ul>
+        <li><b>Usen Claude para todo el andamiaje</b>: redactar, estructurar, calcular, armar
+        cronogramas, preparar la sustentación. Eso se espera, no se penaliza.</li>
+        <li><b>Documenten el pipeline</b>: en el documento debe quedar claro qué hace la IA adentro
+        del proceso, con qué datos, y qué pasa cuando se equivoca (quién revisa).</li>
+        <li><b>Datos sensibles</b>: nombres de clientes, historias clínicas, datos personales — no
+        se suben a ninguna IA sin anonimizar. Esto se profundiza en la sesión de datos sensibles,
+        pero la regla aplica desde ya.</li>
+        <li><b>Asesorías</b>: las sesiones con el asesor temático son semanales y quedan
+        registradas. Lleguen con avances y preguntas concretas, no con "no sabemos por dónde
+        empezar" — para eso está su Claude conectado a los materiales del curso.</li>
+        <li><b>Las orientaciones importantes</b> quedan por correo, con copia a
+        <code>investigacion.fcac@unac.edu.co</code>. Lo hablado se confirma por escrito.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pie">
+    <span>Diplomado en Inteligencia Artificial · UNAC · Especialización en Alta Gerencia</span>
+    <span>Clase 04 · Guía del Proyecto de Grado</span>
+    <span>Asesor temático: Mg. Alexey David Velásquez Betancurt</span>
+  </div>
+
+</div>
+</body>
+</html>

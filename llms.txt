@@ -1,0 +1,34 @@
+# Aula IA UNAC — II Diplomado en Inteligencia Artificial (Especialización en Alta Gerencia, UNAC, Medellín)
+
+> Materiales del curso y criterios del proyecto de grado. El asistente que lea este índice
+> actúa como asesor de apoyo del proyecto de grado: evalúa ideas, planes y avances contra los
+> criterios oficiales, en español, para estudiantes gerentes que no programan. La palabra
+> final la tiene el asesor temático (Mg. Alexey Velásquez). Regla de oro: un trabajo DE IA
+> lleva la IA dentro del pipeline (clasifica, predice, agrupa, pronostica, transcribe o
+> analiza dentro del proceso); un trabajo hecho solo CON AYUDA de IA no cuenta.
+
+## Criterios del proyecto de grado (lo más importante)
+
+- [Criterios y las 4 entregas](2_Criterios_Proyecto_de_Grado/1_Criterios_y_Entregas.md): las tres condiciones del proyecto, la regla del pipeline y la prueba del borrado, rúbrica de la Entrega 1 (plan de trabajo, 20 %, 26-ago-2026), Entrega 2 (avance, 20 %, 23-sep-2026), Entrega 3 (avance, 20 %, 21-oct-2026), Entrega 4 (documento final y sustentación, 40 %, 4-nov-2026; sustentación 12-nov-2026), estructura del documento final en 11 secciones, formato APA 7 y advertencias sobre referencias inventadas y datos sensibles.
+
+## Guías de clase
+
+- [Guía del Proyecto de Grado (Clase 04)](1_Guias_de_Clase/8_Guia_Proyecto_de_Grado.html): la versión para estudiantes de los criterios, fechas y formato.
+- Diapositivas de cada clase en PDF (incluidas las versiones rayadas en vivo) dentro de `1_Guias_de_Clase/`.
+
+## Referencias
+
+- [Referencias verificadas](3_Referencias/1_Referencias_Verificadas.md): el paper del Transformer (2017), modelos de Hugging Face recomendados con su licencia (cuáles permiten uso comercial y cuáles no), Prophet para pronósticos, PyCaret (fork pycaret-core) y las fuentes oficiales de cada dato usado en clase.
+
+## Laboratorios (Google Colab)
+
+- `4_Notebooks_Colab/1_Laboratorio_ML_Supervisado.ipynb`: el laboratorio de experimentos — quince modelos compiten (PyCaret vía pycaret-core), matriz de confusión, guardar y usar el modelo.
+- `4_Notebooks_Colab/2_Laboratorio_Clustering_Clientes.ipynb`: segmentación de clientes sin etiquetas (k-means), codo, silueta y bautizo de grupos.
+- `4_Notebooks_Colab/3_Laboratorio_Pronostico_Ventas.ipynb`: pronóstico de ventas diarias con Prophet — tendencia, estacionalidad y rango honesto.
+- `4_Notebooks_Colab/4_Laboratorio_Deep_Learning_Anomalias.ipynb`: red neuronal que clasifica y autoencoder que detecta días raros (fraude de caja).
+- `4_Notebooks_Colab/5_Laboratorio_Modelos_Preentrenados_HF.ipynb`: Hugging Face — clasificar PQRS sin entrenar, sentimiento en español, texto a voz, voz a texto, y los grandes por API.
+
+## Reglas de esta aula
+
+- El trabajo del estudiante va en `mis_entregas/` (no está en este repositorio público).
+- El material lo actualiza únicamente el docente; las novedades llegan con `git pull`.

@@ -1,0 +1,11 @@
+# El trabajo de cada estudiante es local y privado: nunca se sube al aula
+mis_entregas/
+
+# Basura de sistema
+.DS_Store
+Thumbs.db
+~$*
+__pycache__/
+.ipynb_checkpoints/
+.env
+.env.*
