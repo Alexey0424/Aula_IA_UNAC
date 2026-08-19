@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taller de Colab · Clase 04 · Diplomado en IA · UNAC</title>
+<style>
+:root{
+  --navy:#0E2036; --card-dark:#1B3453; --cream:#F6F5F0;
+  --orange:#E8792B; --blue:#3C7FD0; --red:#D54E48; --gold:#EAAD05; --teal:#29AC8A;
+  --bg:#F6F5F0; --surface:#FFFFFF; --surface-2:#FCFBF7;
+  --ink:#12233A; --ink-2:#4B5A6D; --ink-3:#7A8797;
+  --line:#DDD8CC; --line-soft:#EAE5DA;
+  --shadow:0 1px 2px rgba(14,32,54,.06), 0 6px 18px rgba(14,32,54,.05);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  font-size:15.5px; line-height:1.62; -webkit-font-smoothing:antialiased}
+.wrap{max-width:960px; margin:0 auto; padding:0 26px}
+h1,h2,h3,h4{margin:0; font-weight:600; line-height:1.22}
+p{margin:0 0 .8em}
+code{font-family:Consolas,"Cascadia Mono",monospace; font-size:.92em;
+  background:var(--surface-2); border:1px solid var(--line-soft);
+  border-radius:4px; padding:1px 5px}
+.hero{background:var(--navy); color:var(--cream); padding:42px 0 36px; position:relative; overflow:hidden}
+.hero::after{content:""; position:absolute; inset:auto 0 0 0; height:3px;
+  background:linear-gradient(90deg,var(--orange) 0 40%,var(--blue) 40% 72%,var(--red) 72% 100%)}
+.eyebrow{display:flex; align-items:center; gap:10px; font-size:11.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:15px}
+.eyebrow::before{content:""; width:3.5px; height:15px; background:var(--gold); border-radius:2px}
+.hero h1{font-size:clamp(28px,4.2vw,40px); font-family:"Segoe UI Light","Segoe UI",sans-serif;
+  font-weight:300; letter-spacing:-.01em}
+.hero h1 b{font-weight:600}
+.hero .sub{margin-top:14px; max-width:74ch; color:#A9BBD1; font-size:16px}
+.hero .sub b{color:var(--cream)}
+.paso{margin-top:44px; background:var(--surface); border:1px solid var(--line);
+  border-radius:12px; box-shadow:var(--shadow); overflow:hidden}
+.paso-h{display:flex; align-items:flex-start; gap:16px; padding:20px 26px 18px;
+  border-bottom:1px solid var(--line-soft); background:var(--surface-2)}
+.paso-n{flex:none; width:38px; height:38px; border-radius:50%; background:var(--gold);
+  color:var(--navy); font-weight:600; font-size:17px; display:flex;
+  align-items:center; justify-content:center; margin-top:1px}
+.paso-h h2{font-size:21px; font-family:"Segoe UI Light","Segoe UI",sans-serif; font-weight:300}
+.paso-h h2 b{font-weight:600}
+.paso-h .t{margin-top:5px; color:var(--ink-3); font-size:13.5px}
+.paso-c{padding:22px 26px 24px}
+.pegar{margin:16px 0 6px; border:1.5px solid var(--navy); border-radius:10px; overflow:hidden}
+.pegar-h{background:var(--navy); color:var(--cream); padding:9px 16px; font-size:11.5px;
+  letter-spacing:.13em; text-transform:uppercase; font-weight:600}
+.pegar pre{margin:0; padding:18px 20px; background:#0B1A2C; color:#D6E2F0;
+  font-family:Consolas,"Cascadia Mono",monospace; font-size:13.2px; line-height:1.62;
+  overflow-x:auto; white-space:pre-wrap; word-break:break-word}
+.tbl{overflow-x:auto; border:1px solid var(--line); border-radius:9px;
+  background:var(--surface); margin:14px 0}
+table{border-collapse:collapse; width:100%; min-width:480px; font-size:13.8px}
+th,td{text-align:left; padding:9px 13px; border-bottom:1px solid var(--line-soft); vertical-align:top}
+th{background:var(--surface-2); font-size:10.5px; letter-spacing:.11em; text-transform:uppercase;
+  color:var(--ink-3); font-weight:600; white-space:nowrap}
+tr:last-child td{border-bottom:none}
+.nota{border-left:3px solid var(--orange); background:#FDF3EA; padding:12px 16px;
+  border-radius:0 8px 8px 0; margin:16px 0; font-size:14.5px; color:#6E4318}
+.nota b{color:#4A2C0C}
+.ok{border-left-color:var(--teal); background:#E8F6F1; color:#1B5546}
+.ok b{color:#0C3A2E}
+.alerta{border-left-color:var(--red); background:#FBEDEC; color:#6B2320}
+.alerta b{color:#471512}
+ul,ol{margin:0 0 .9em; padding-left:1.3em}
+li{margin-bottom:6px}
+.pie{margin:56px 0 40px; padding-top:20px; border-top:1px solid var(--line);
+  font-size:12.8px; color:var(--ink-3); display:flex; flex-wrap:wrap; gap:10px 22px}
+@media print{ body{font-size:11.5pt} .hero{padding:26px 0 22px} .paso{break-inside:avoid; box-shadow:none} }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Diplomado en Inteligencia Artificial · UNAC · Clase 04 · Taller</div>
+    <h1>Su laboratorio de Machine Learning, <b>corriendo en Colab</b></h1>
+    <p class="sub">Google Colab es <b>un computador prestado por Google</b> que vive en el
+    navegador. Ahí van a correr los cinco notebooks del aula: el laboratorio supervisado, el de
+    clustering, el de pronóstico, el de deep learning y el de modelos preentrenados.
+    <b>Nada se instala en su computador.</b></p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="nota" style="margin-top:34px">
+    <b>Antes de empezar</b> necesita dos cosas de clases pasadas: una <b>cuenta de Google</b>
+    (personal sirve; si su cuenta corporativa tiene Colab bloqueado, use la personal) y su
+    <b>token de Hugging Face</b> de la Clase 03 (está en su archivo <code>.env</code> como
+    <code>HF_TOKEN=hf_…</code>).
+  </div>
+
+  <!-- 1 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">1</div>
+      <div>
+        <h2>Entre a Colab y <b>compruebe que abre</b></h2>
+        <div class="t">2 minutos. Hágalo hoy, no el día que lo necesite.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <ol>
+        <li>Abra <code>colab.research.google.com</code> e inicie sesión con su cuenta de Google.</li>
+        <li>Cree un cuaderno nuevo (<i>Archivo → Nuevo cuaderno</i>).</li>
+        <li>Escriba <code>print("hola")</code> en la celda y oprima ▶️. Si responde
+        <code>hola</code>, está listo.</li>
+      </ol>
+      <div class="alerta nota"><b>Si no abre:</b> su cuenta corporativa puede tener Colab
+      apagado por el administrador. No hay arreglo en el momento: entre con una cuenta Gmail
+      personal.</div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">2</div>
+      <div>
+        <h2>Guarde su token de HF en <b>los Secretos</b> 🔑</h2>
+        <div class="t">Una sola vez. Sirve para todos sus cuadernos, para siempre.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <ol>
+        <li>En cualquier cuaderno de Colab, mire la <b>barra izquierda</b> y haga clic en el
+        icono de la <b>llave 🔑</b> (Secretos).</li>
+        <li><b>Agregar secreto nuevo</b>. Nombre: <code>HF_TOKEN</code> — exactamente así,
+        mayúsculas y guion bajo.</li>
+        <li>Valor: su token <code>hf_…</code> (cópielo de su archivo <code>.env</code> de la
+        Clase 03; si lo perdió, genere otro en <code>huggingface.co/settings/tokens</code>).</li>
+        <li>Active el interruptor <b>«Acceso desde el cuaderno»</b> (Notebook access).</li>
+      </ol>
+      <div class="ok nota"><b>Por qué así:</b> el token nunca se escribe dentro del notebook.
+      Queda en la caja fuerte de su cuenta, y <b>no viaja</b> si usted comparte el archivo —
+      cada persona usa el suyo. Además, por llamarse exactamente <code>HF_TOKEN</code>,
+      Hugging Face lo encuentra solo: no hay que pegarlo en ninguna parte.</div>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">3</div>
+      <div>
+        <h2>Abra los <b>notebooks del aula</b></h2>
+        <div class="t">Los cinco están en la carpeta 4_Notebooks_Colab del aula conectada.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <p>Dos caminos — use el que prefiera:</p>
+      <ul>
+        <li><b>Desde el aula (recomendado):</b> en Colab, <i>Archivo → Subir cuaderno</i> y
+        seleccione el <code>.ipynb</code> desde su carpeta local
+        <code>Aula_IA_UNAC\4_Notebooks_Colab\</code>.</li>
+        <li><b>Desde GitHub:</b> en Colab, <i>Archivo → Abrir cuaderno → pestaña GitHub</i>,
+        pegue la dirección del repositorio del aula y elija el notebook.</li>
+      </ul>
+      <p>Apenas lo abra: <i>Archivo → <b>Guardar una copia en Drive</b></i>. Esa copia es la
+      suya; el original no se toca.</p>
+      <div class="tbl"><table>
+        <tr><th>Notebook</th><th>Qué hace</th><th>Instala algo</th></tr>
+        <tr><td><code>1_Laboratorio_ML_Supervisado</code></td><td>Quince modelos compiten: ¿se agota el producto?</td><td>Sí — <b>con reinicio</b> ⬇️</td></tr>
+        <tr><td><code>2_Laboratorio_Clustering_Clientes</code></td><td>Los grupos que ya existen entre sus clientes</td><td>Sí — <b>con reinicio</b> ⬇️</td></tr>
+        <tr><td><code>3_Laboratorio_Pronostico_Ventas</code></td><td>Pronóstico con tendencia, estacionalidad y rango</td><td>No — corre directo</td></tr>
+        <tr><td><code>4_Laboratorio_Deep_Learning_Anomalias</code></td><td>La red que clasifica + el detector de días raros</td><td>No — corre directo</td></tr>
+        <tr><td><code>5_Laboratorio_Modelos_Preentrenados_HF</code></td><td>Clasificar PQRS, sentimiento, voz y los grandes por API</td><td>Sí — sin reinicio</td></tr>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">4</div>
+      <div>
+        <h2>El ritual del <b>reinicio</b> (notebooks 1 y 2)</h2>
+        <div class="t">Es normal, es obligatorio, y está señalizado adentro del notebook.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <ol>
+        <li>Corra la celda de instalación (<code>pip install pycaret-core</code>). Tarda 2–4 minutos.</li>
+        <li>Menú <b>Entorno de ejecución → Reiniciar sesión</b>. Confirme.</li>
+        <li>Siga <b>desde la celda de verificación</b> (✅). <b>No</b> vuelva a correr la instalación.</li>
+      </ol>
+      <div class="alerta nota"><b>Regla de convivencia de los laboratorios:</b> los notebooks
+      1 y 2 (PyCaret) y el 5 (Hugging Face) <b>no se corren en la misma sesión</b>. Cierre y
+      abra un entorno nuevo al cambiar de uno a otro — usan piezas internas incompatibles y
+      mezclados se dañan mutuamente.</div>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">5</div>
+      <div>
+        <h2>Correr, leer y <b>llevarse el informe</b></h2>
+        <div class="t">El objetivo no es correr celdas: es leer resultados como gerente.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <ul>
+        <li><b>Entorno de ejecución → Ejecutar todas</b>, y vaya leyendo cada sección: todas
+        dicen «<b>Qué mirar en el resultado</b>».</li>
+        <li>Lo único que usted cambia está en el <b>🎛️ PANEL DE CONTROL</b> de cada notebook.</li>
+        <li>Para entregar un informe: <i>Archivo → Imprimir → Guardar como PDF</i> (colapse
+        antes las celdas de código para que quede gerencial).</li>
+        <li>Todo corre en <b>CPU</b> a propósito: no pida GPU en clase — con 16 personas
+        pidiéndola a la vez, Google los bloquea a varios.</li>
+      </ul>
+      <div class="nota"><b>Si algo falla:</b> copie el error completo y péguéselo a su Claude
+      en la carpeta del aula. Él se sabe estos notebooks. Y si no sale, se resuelve en
+      asesoría — nadie se queda atascado solo.</div>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">6</div>
+      <div>
+        <h2>La tarea: <b>sus datos</b></h2>
+        <div class="t">Aquí es donde el laboratorio se vuelve suyo.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <p>Elija UN notebook (el que más le sirva a su proyecto) y cámbiele los datos de ejemplo
+      por un archivo de su empresa, siguiendo la sección <b>«🏁 Ahora con SUS datos»</b> del
+      propio notebook. Entre 300 y 5.000 filas funciona muy bien.</p>
+      <div class="alerta nota"><b>Datos sensibles:</b> nombres de clientes, historias clínicas,
+      datos personales — se <b>anonimizan antes</b> de subirlos a Colab. Colab también es un
+      servidor ajeno. En caso de duda, pregunte en asesoría.</div>
+    </div>
+  </div>
+
+  <div class="pie">
+    <span>Diplomado en Inteligencia Artificial · UNAC · Especialización en Alta Gerencia</span>
+    <span>Clase 04 · Guía del taller de Colab</span>
+  </div>
+
+</div>
+</body>
+</html>

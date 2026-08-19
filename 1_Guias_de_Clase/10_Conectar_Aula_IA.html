@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conectar el Aula IA · Clase 04 · Diplomado en IA · UNAC</title>
+<style>
+:root{
+  --navy:#0E2036; --card-dark:#1B3453; --cream:#F6F5F0;
+  --orange:#E8792B; --blue:#3C7FD0; --red:#D54E48; --gold:#EAAD05; --teal:#29AC8A;
+  --bg:#F6F5F0; --surface:#FFFFFF; --surface-2:#FCFBF7;
+  --ink:#12233A; --ink-2:#4B5A6D; --ink-3:#7A8797;
+  --line:#DDD8CC; --line-soft:#EAE5DA;
+  --shadow:0 1px 2px rgba(14,32,54,.06), 0 6px 18px rgba(14,32,54,.05);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  font-size:15.5px; line-height:1.62; -webkit-font-smoothing:antialiased}
+.wrap{max-width:960px; margin:0 auto; padding:0 26px}
+h1,h2,h3,h4{margin:0; font-weight:600; line-height:1.22}
+p{margin:0 0 .8em}
+code{font-family:Consolas,"Cascadia Mono",monospace; font-size:.92em;
+  background:var(--surface-2); border:1px solid var(--line-soft);
+  border-radius:4px; padding:1px 5px}
+.hero{background:var(--navy); color:var(--cream); padding:42px 0 36px; position:relative; overflow:hidden}
+.hero::after{content:""; position:absolute; inset:auto 0 0 0; height:3px;
+  background:linear-gradient(90deg,var(--orange) 0 40%,var(--blue) 40% 72%,var(--red) 72% 100%)}
+.eyebrow{display:flex; align-items:center; gap:10px; font-size:11.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:15px}
+.eyebrow::before{content:""; width:3.5px; height:15px; background:var(--gold); border-radius:2px}
+.hero h1{font-size:clamp(28px,4.2vw,40px); font-family:"Segoe UI Light","Segoe UI",sans-serif;
+  font-weight:300; letter-spacing:-.01em}
+.hero h1 b{font-weight:600}
+.hero .sub{margin-top:14px; max-width:74ch; color:#A9BBD1; font-size:16px}
+.hero .sub b{color:var(--cream)}
+.paso{margin-top:44px; background:var(--surface); border:1px solid var(--line);
+  border-radius:12px; box-shadow:var(--shadow); overflow:hidden}
+.paso-h{display:flex; align-items:flex-start; gap:16px; padding:20px 26px 18px;
+  border-bottom:1px solid var(--line-soft); background:var(--surface-2)}
+.paso-n{flex:none; width:38px; height:38px; border-radius:50%; background:var(--gold);
+  color:var(--navy); font-weight:600; font-size:17px; display:flex;
+  align-items:center; justify-content:center; margin-top:1px}
+.paso-h h2{font-size:21px; font-family:"Segoe UI Light","Segoe UI",sans-serif; font-weight:300}
+.paso-h h2 b{font-weight:600}
+.paso-h .t{margin-top:5px; color:var(--ink-3); font-size:13.5px}
+.paso-c{padding:22px 26px 24px}
+.pegar{margin:16px 0 6px; border:1.5px solid var(--navy); border-radius:10px; overflow:hidden}
+.pegar-h{background:var(--navy); color:var(--cream); padding:9px 16px; font-size:11.5px;
+  letter-spacing:.13em; text-transform:uppercase; font-weight:600}
+.pegar pre{margin:0; padding:18px 20px; background:#0B1A2C; color:#D6E2F0;
+  font-family:Consolas,"Cascadia Mono",monospace; font-size:13.2px; line-height:1.62;
+  overflow-x:auto; white-space:pre-wrap; word-break:break-word}
+.nota{border-left:3px solid var(--orange); background:#FDF3EA; padding:12px 16px;
+  border-radius:0 8px 8px 0; margin:16px 0; font-size:14.5px; color:#6E4318}
+.nota b{color:#4A2C0C}
+.ok{border-left-color:var(--teal); background:#E8F6F1; color:#1B5546}
+.ok b{color:#0C3A2E}
+.alerta{border-left-color:var(--red); background:#FBEDEC; color:#6B2320}
+.alerta b{color:#471512}
+ul,ol{margin:0 0 .9em; padding-left:1.3em}
+li{margin-bottom:6px}
+.pie{margin:56px 0 40px; padding-top:20px; border-top:1px solid var(--line);
+  font-size:12.8px; color:var(--ink-3); display:flex; flex-wrap:wrap; gap:10px 22px}
+@media print{ body{font-size:11.5pt} .hero{padding:26px 0 22px} .paso{break-inside:avoid; box-shadow:none} }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Diplomado en Inteligencia Artificial · UNAC · Clase 04 · El aula conectada</div>
+    <h1>Convierta su Claude en <b>su asesor del proyecto de grado</b></h1>
+    <p class="sub">El curso completo — guías, criterios de las 4 entregas, notebooks y
+    referencias — vive en un repositorio. Al conectarlo, <b>su Claude se lo aprende</b> y
+    queda de asesor 24 horas: revisa su plan contra los criterios reales, le sugiere el modelo
+    para su proyecto y le explica cualquier error de los laboratorios.</p>
+    <p class="sub" style="margin-top:12px">Se conecta <b>una sola vez, en cinco minutos</b>.
+    Y usted no va a escribir ni un comando de git: se lo pide a Claude, que para eso está.</p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="nota" style="margin-top:34px">
+    <b>Necesita lo de las clases pasadas:</b> Claude Code funcionando (Clase 02) y git/GitHub
+    configurados (Clase 03). La dirección del repositorio del aula la comparte el docente por
+    el grupo: aquí la llamamos <code>https://github.com/DOCENTE/Aula_IA_UNAC</code>.
+  </div>
+
+  <!-- 1 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">1</div>
+      <div>
+        <h2>Cree la carpeta y <b>pídale a Claude que clone el aula</b></h2>
+        <div class="t">Usted no teclea git. Eso ya lo hace su Claude.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <ol>
+        <li>Cree la carpeta <code>C:\Curso_IA_UNAC</code> — así, <b>sin acentos, sin espacios y
+        fuera de OneDrive</b> (no es capricho: los acentos y OneDrive causan fallas raras).</li>
+        <li>Abra Claude en esa carpeta: la <b>app de escritorio de Claude → pestaña Code →
+        Select folder</b>, o en la terminal: <code>cd C:\Curso_IA_UNAC</code> y luego
+        <code>claude</code>.</li>
+        <li>Escríbale esto, tal cual:</li>
+      </ol>
+      <div class="pegar">
+        <div class="pegar-h">Pegar en Claude</div>
+        <pre>Clona el repositorio https://github.com/DOCENTE/Aula_IA_UNAC dentro de esta carpeta y muéstrame qué archivos quedaron.</pre>
+      </div>
+      <div class="ok nota"><b>Fíjese en lo que acaba de pasar:</b> usó git sin aprender git.
+      Así es como se manda sobre la IA.</div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">2</div>
+      <div>
+        <h2>Abra el aula y <b>diga que sí confía</b></h2>
+        <div class="t">El diálogo de confianza sale una sola vez. Sepa qué le están preguntando.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <ol>
+        <li>Cierre esa sesión y abra una nueva <b>dentro</b> de la carpeta
+        <code>Aula_IA_UNAC</code> que quedó creada.</li>
+        <li>Claude preguntará si <b>confía en los archivos de esta carpeta</b>. Diga que sí.</li>
+      </ol>
+      <p><b>Por qué pregunta:</b> dentro del aula hay instrucciones escritas por el docente que
+      su Claude va a obedecer. Claude le está preguntando, con toda razón, si usted confía en
+      quien las escribió. Es la única vez que lo pregunta para esta carpeta.</p>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">3</div>
+      <div>
+        <h2>Compruebe que su Claude <b>ya se sabe el curso</b></h2>
+        <div class="t">El momento de la verdad, en dos comandos.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <ol>
+        <li>Escriba <code>/context</code> — en la lista <i>Memory files</i> debe aparecer el
+        <code>CLAUDE.md</code> del aula. Ese archivo es el que le enseña a su Claude a ser asesor.</li>
+        <li>Escriba <code>/entrega-1</code> — debe salir la rúbrica de la primera entrega.</li>
+        <li>Ahora sí, úselo:</li>
+      </ol>
+      <div class="pegar">
+        <div class="pegar-h">Pegar en Claude (con su idea real)</div>
+        <pre>Según los criterios de la Entrega 1, evalúa mi idea de proyecto: [escriba aquí su idea, con su empresa]. Dime qué me falta y en qué orden lo hago.</pre>
+      </div>
+      <p>Comandos del aula: <code>/entrega-1</code> a <code>/entrega-4</code> (criterios de cada
+      entrega) · <code>/asesor-proyecto</code> (revisión completa) ·
+      <code>/actualizar-curso</code> (traer lo nuevo).</p>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">4</div>
+      <div>
+        <h2>Las <b>dos reglas</b> del aula</h2>
+        <div class="t">Con esto no se daña nunca.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <ol>
+        <li><b>Su trabajo va en la carpeta <code>mis_entregas/</code></b> (su Claude la crea la
+        primera vez). No edite nada más dentro del aula: el material lo actualiza el docente.</li>
+        <li><b>Cada semana</b>, escriba <code>/actualizar-curso</code>: le llegan las guías
+        nuevas, los notebooks y <b>las diapositivas rayadas</b> de la clase anterior.</li>
+      </ol>
+      <div class="alerta nota"><b>El aula es pública en internet.</b> No guarde ahí (ni pida
+      guardar) datos de su empresa, contraseñas ni información personal. Para eso está
+      <code>mis_entregas/</code>, que se queda solo en su computador.</div>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">5</div>
+      <div>
+        <h2>Plan B — <b>sin clonar nada</b> (claude.ai o emergencias)</h2>
+        <div class="t">Para consultar el aula desde el navegador o el celular.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <p>Si el clone no le salió, o quiere consultar el material desde <code>claude.ai</code>:</p>
+      <ol>
+        <li>En claude.ai: <b>Configuración → Connectors → Add custom connector</b>.</li>
+        <li>Pegue esta dirección y guarde:
+        <code>https://gitmcp.io/DOCENTE/Aula_IA_UNAC</code></li>
+      </ol>
+      <p>Su Claude podrá <b>consultar</b> el material del aula (sin tener los archivos en su
+      computador). Es la versión de emergencia: sirve para preguntar por los criterios, no para
+      trabajar los laboratorios.</p>
+      <div class="nota"><b>Ojo, plan gratuito de claude.ai:</b> solo permite <b>un</b> conector
+      personalizado. Si ya tiene otro, tocará escoger.</div>
+    </div>
+  </div>
+
+  <div class="pie">
+    <span>Diplomado en Inteligencia Artificial · UNAC · Especialización en Alta Gerencia</span>
+    <span>Clase 04 · Conectar el Aula IA</span>
+  </div>
+
+</div>
+</body>
+</html>
