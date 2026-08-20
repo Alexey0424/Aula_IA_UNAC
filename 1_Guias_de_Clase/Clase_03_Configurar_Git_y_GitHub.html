@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Configurar Git y GitHub · Clase 03 · Diplomado en IA · UNAC</title>
+<style>
+:root{
+  --navy:#0E2036; --card-dark:#1B3453; --cream:#F6F5F0;
+  --orange:#E8792B; --blue:#3C7FD0; --red:#D54E48; --gold:#EAAD05; --teal:#29AC8A;
+  --bg:#F6F5F0; --surface:#FFFFFF; --surface-2:#FCFBF7;
+  --ink:#12233A; --ink-2:#4B5A6D; --ink-3:#7A8797;
+  --line:#DDD8CC; --line-soft:#EAE5DA;
+  --shadow:0 1px 2px rgba(14,32,54,.06), 0 6px 18px rgba(14,32,54,.05);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  font-size:15.5px; line-height:1.62; -webkit-font-smoothing:antialiased}
+.wrap{max-width:960px; margin:0 auto; padding:0 26px}
+h1,h2,h3,h4{margin:0; font-weight:600; line-height:1.22}
+p{margin:0 0 .8em}
+code{font-family:Consolas,"Cascadia Mono",monospace; font-size:.92em;
+  background:var(--surface-2); border:1px solid var(--line-soft);
+  border-radius:4px; padding:1px 5px}
+
+/* hero */
+.hero{background:var(--navy); color:var(--cream); padding:42px 0 36px; position:relative; overflow:hidden}
+.hero::after{content:""; position:absolute; inset:auto 0 0 0; height:3px;
+  background:linear-gradient(90deg,var(--orange) 0 40%,var(--blue) 40% 72%,var(--red) 72% 100%)}
+.eyebrow{display:flex; align-items:center; gap:10px; font-size:11.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:15px}
+.eyebrow::before{content:""; width:3.5px; height:15px; background:var(--gold); border-radius:2px}
+.hero h1{font-size:clamp(28px,4.2vw,40px); font-family:"Segoe UI Light","Segoe UI",sans-serif;
+  font-weight:300; letter-spacing:-.01em}
+.hero h1 b{font-weight:600}
+.hero .sub{margin-top:14px; max-width:74ch; color:#A9BBD1; font-size:16px}
+.hero .sub b{color:var(--cream)}
+
+/* pasos */
+.paso{margin-top:44px; background:var(--surface); border:1px solid var(--line);
+  border-radius:12px; box-shadow:var(--shadow); overflow:hidden}
+.paso-h{display:flex; align-items:flex-start; gap:16px; padding:20px 26px 18px;
+  border-bottom:1px solid var(--line-soft); background:var(--surface-2)}
+.paso-n{flex:none; width:38px; height:38px; border-radius:50%; background:var(--gold);
+  color:var(--navy); font-weight:600; font-size:17px; display:flex;
+  align-items:center; justify-content:center; margin-top:1px}
+.paso-h h2{font-size:21px; font-family:"Segoe UI Light","Segoe UI",sans-serif; font-weight:300}
+.paso-h h2 b{font-weight:600}
+.paso-h .t{margin-top:5px; color:var(--ink-3); font-size:13.5px}
+.paso-c{padding:22px 26px 24px}
+
+/* bloque para pegar */
+.pegar{margin:16px 0 6px; border:1.5px solid var(--navy); border-radius:10px; overflow:hidden}
+.pegar-h{background:var(--navy); color:var(--cream); padding:9px 16px; font-size:11.5px;
+  letter-spacing:.13em; text-transform:uppercase; font-weight:600;
+  display:flex; align-items:center; gap:10px; justify-content:space-between}
+.pegar-h span::before{content:"\25B8  "; color:var(--gold)}
+.pegar pre{margin:0; padding:18px 20px; background:#0B1A2C; color:#D6E2F0;
+  font-family:Consolas,"Cascadia Mono",monospace; font-size:13.2px; line-height:1.62;
+  overflow-x:auto; white-space:pre-wrap; word-break:break-word}
+.cp{background:transparent; border:1px solid rgba(255,255,255,.25); color:var(--cream);
+  border-radius:6px; padding:3px 11px; font-size:11px; font-family:inherit;
+  letter-spacing:.06em; cursor:pointer}
+.cp:hover{border-color:var(--gold); color:var(--gold)}
+
+pre.plain{background:var(--surface-2); border:1px solid var(--line-soft); border-radius:9px;
+  padding:15px 18px; overflow-x:auto; font-family:Consolas,"Cascadia Mono",monospace;
+  font-size:13px; line-height:1.6; color:var(--ink-2); margin:12px 0}
+
+.tbl{overflow-x:auto; border:1px solid var(--line); border-radius:9px;
+  background:var(--surface); margin:14px 0}
+table{border-collapse:collapse; width:100%; min-width:480px; font-size:13.8px}
+th,td{text-align:left; padding:9px 13px; border-bottom:1px solid var(--line-soft); vertical-align:top}
+th{background:var(--surface-2); font-size:10.5px; letter-spacing:.11em; text-transform:uppercase;
+  color:var(--ink-3); font-weight:600; white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td code{white-space:nowrap}
+
+.nota{border-left:3px solid var(--orange); background:#FDF3EA; padding:12px 16px;
+  border-radius:0 8px 8px 0; margin:16px 0; font-size:14.5px; color:#6E4318}
+.nota b{color:#4A2C0C}
+.ok{border-left-color:var(--teal); background:#E8F6F1; color:#1B5546}
+.ok b{color:#0C3A2E}
+.alerta{border-left-color:var(--red); background:#FBEDEC; color:#6E2A26}
+.alerta b{color:#4A1512}
+
+ul,ol{margin:0 0 .9em; padding-left:1.3em}
+li{margin-bottom:6px}
+
+.pie{margin:56px 0 40px; padding-top:20px; border-top:1px solid var(--line);
+  font-size:12.8px; color:var(--ink-3); display:flex; flex-wrap:wrap; gap:10px 22px}
+@media print{
+  .cp{display:none} body{font-size:11.5pt} .hero{padding:26px 0 22px}
+  .paso{break-inside:avoid; box-shadow:none}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Clase 03 · IA agéntica · Anexo</div>
+    <h1>Configurar <b>Git y GitHub</b></h1>
+    <div class="sub">Git es el cuaderno de versiones de su trabajo: guarda cada cambio y le
+    permite volver atrás. GitHub es donde ese cuaderno vive en internet. <b>Su agente necesita
+    las dos cosas</b> para traerse un proyecto, modificarlo y devolverlo. Este anexo es el
+    registro de cómo quedó configurado en el equipo del docente.</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="nota ok" style="margin-top:34px">
+    <b>Para qué le sirve a usted:</b> no es para volverse programador. Es para que cuando le
+    diga a Claude <i>«tráete ese proyecto y arréglalo»</i>, el agente tenga con qué. Sin git,
+    el agente ve archivos sueltos; con git, ve la historia completa y puede deshacer.
+  </div>
+
+  <!-- 1 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">1</div>
+      <div>
+        <h2>Instalar las <b>tres piezas</b></h2>
+        <div class="t">Git, Git LFS y la herramienta de GitHub</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <div class="pegar">
+        <div class="pegar-h"><span>Uno por uno, no los dos juntos</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+        <pre>winget install --id Git.Git -e --source winget
+winget install --id GitHub.cli -e --source winget</pre>
+      </div>
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Pieza</th><th>Para qué es</th></tr></thead>
+          <tbody>
+            <tr><td><b>git</b></td><td>El control de versiones. Lo esencial</td></tr>
+            <tr><td><b>git-lfs</b></td><td>Para repositorios con archivos pesados (modelos, videos, datos). Viene incluido con git</td></tr>
+            <tr><td><b>gh</b></td><td>Manejar GitHub desde la terminal: crear repos, ver <i>issues</i>, subir cambios</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="nota alerta"><b>Dos trampas que le van a pasar:</b>
+        <ul style="margin-top:8px; margin-bottom:0">
+          <li><b>winget solo acepta un programa por comando.</b> Si pega el comando y le deja
+              atrás cualquier cosa —hasta un comentario— lo toma como un segundo programa y
+              falla. Pegue la línea sola.</li>
+          <li><b>Git pide permiso de administrador.</b> Sale la ventana azul de Windows. Hay
+              que darle aceptar usted mismo; si lo lanza un proceso automático, se queda
+              esperando para siempre.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">2</div>
+      <div>
+        <h2>Cerrar la terminal <b>y abrir otra</b></h2>
+        <div class="t">El paso que todo el mundo se salta</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <p>Apenas termina de instalar, escribe <code>git --version</code> en la terminal que tenía
+      abierta y le dice <b>«no se reconoce»</b>. Y entonces uno cree que la instalación falló.</p>
+      <p>No falló. Windows le entrega a cada programa la lista de rutas <b>en el momento en que
+      arranca</b>. Su terminal arrancó antes de que git existiera, así que sigue con la lista
+      vieja. <b>Ciérrela y abra una nueva.</b></p>
+      <div class="nota"><b>Regla general:</b> instaló algo y «no se reconoce» → terminal nueva
+      antes de buscar cualquier otra explicación. Aplica a git, a Python, a todo.</div>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">3</div>
+      <div>
+        <h2>Decirle a git <b>quién es usted</b></h2>
+        <div class="t">Sin esto, sus cambios quedan sin firma</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <p>Cada cambio que guarde queda firmado con un nombre y un correo. Si no los configura,
+      git se niega a guardar o guarda sin autor.</p>
+      <div class="pegar">
+        <div class="pegar-h"><span>Cambie el nombre y el correo por los suyos</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+        <pre>git config --global user.name  "Su Nombre Completo"
+git config --global user.email "SU_ID+SU_USUARIO@users.noreply.github.com"
+
+git config --global init.defaultBranch main
+git config --global core.autocrlf true
+git config --global core.longpaths true
+git config --global credential.helper manager</pre>
+      </div>
+      <div class="nota"><b>¿Por qué un correo raro con <code>noreply</code>?</b> Porque el
+      historial de un repositorio <b>es público</b> apenas alguien lo copie, y su correo real
+      quedaría ahí en texto plano para siempre. GitHub le regala una dirección de reenvío:
+      le atribuye los cambios a su perfil igual —con foto y todo— pero sin exponer su correo.
+      La encuentra en GitHub, en <i>Settings → Emails</i>.</div>
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Ajuste</th><th>Qué evita</th></tr></thead>
+          <tbody>
+            <tr><td><code>core.longpaths</code></td>
+                <td>Windows corta las rutas a 260 caracteres. Sin esto, copiar proyectos con
+                    carpetas profundas falla con errores incomprensibles</td></tr>
+            <tr><td><code>core.autocrlf</code></td>
+                <td>Windows y Linux marcan el fin de línea distinto. Sin esto, un archivo
+                    parece «cambiado entero» sin que usted tocara nada</td></tr>
+            <tr><td><code>credential.helper</code></td>
+                <td>Que le pida la clave una sola vez y no en cada envío</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">4</div>
+      <div>
+        <h2>La llave de <b>GitHub</b></h2>
+        <div class="t">Y dónde NO ponerla</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <p>GitHub ya no acepta su contraseña desde la terminal. Se usa un <b>token</b>, que es una
+      clave larga con permisos limitados. Se crea en <i>Settings → Developer settings → Personal
+      access tokens</i>, tipo <b>fine-grained</b>.</p>
+      <p>Ese token va al archivo <code>.env</code>, igual que el de Hugging Face:</p>
+      <pre class="plain"># C:\1_Automatic_Workflows\.env
+GITHUB_TOKEN=github_pat_xxxxxxxxxxxx</pre>
+      <p>La herramienta <code>gh</code> lo lee sola del entorno. Por eso <b>no</b> se corrió
+      <code>gh auth login</code>: ese comando guardaría una segunda copia del token en otra
+      carpeta, y la regla es una sola copia.</p>
+      <div class="nota alerta"><b>Nunca meta el token dentro de la dirección del repositorio.</b>
+      Es decir, nada de <code>https://<i>token</i>@github.com/...</code>. Funciona, sí — y por eso
+      la gente lo hace. Pero queda escrito en texto plano dentro de la carpeta del proyecto y en
+      el historial de la terminal. Copie la dirección normal y deje que Windows le pida la clave
+      la primera vez.</div>
+      <div class="pegar">
+        <div class="pegar-h"><span>Traerse un proyecto</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+        <pre>git clone https://github.com/USUARIO/NOMBRE_DEL_REPO.git</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">5</div>
+      <div>
+        <h2>Comprobar que <b>quedó bien</b></h2>
+        <div class="t">Cuatro líneas</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <div class="pegar">
+        <div class="pegar-h"><span>En una terminal NUEVA</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+        <pre>git --version
+git config --global user.email
+gh api user --jq '.login'
+gh repo list --limit 5</pre>
+      </div>
+      <p>Si las cuatro responden, está listo. Si <code>gh</code> se queja de autenticación, es
+      que el <code>.env</code> no está cargado en esa terminal.</p>
+      <div class="nota ok"><b>Detalle técnico, por si automatiza la comprobación:</b> para saber
+      si <code>gh</code> está autenticado hay que mirar su <b>código de salida</b>, no el texto
+      que imprime. <code>gh</code> escribe ese mensaje por el canal de errores, y PowerShell
+      trata ese canal como si algo hubiera fallado — así que revisar el texto le haría ver como
+      error algo que está perfecto.</div>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">6</div>
+      <div>
+        <h2>Cuidar <b>el token</b></h2>
+        <div class="t">Lo que aplica igual al de Hugging Face</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <p>Un token es una llave de su casa. Dos preguntas antes de crearlo:</p>
+      <ul>
+        <li><b>¿Cuándo caduca?</b> Si le pone «sin caducidad», una fuga le sirve al que la
+        encuentre <i>para siempre</i>. Póngale fecha — hasta un año.</li>
+        <li><b>¿A qué alcanza?</b> Un token fine-grained se puede limitar a repositorios
+        concretos. Si lo deja abierto a toda la cuenta, pierde la ventaja de ser «fino».</li>
+      </ul>
+      <div class="nota alerta"><b>Si el token se le escapa</b> —lo pegó en un chat, en un correo,
+      o quedó dentro de un archivo que subió— <b>revóquelo y cree otro</b>. Borrar el mensaje no
+      sirve: ya quedó registrado en algún lado. Rotar toma treinta segundos; una cuenta
+      comprometida, no.</div>
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Síntoma</th><th>Qué pasó</th><th>Solución</th></tr></thead>
+          <tbody>
+            <tr><td>«git no se reconoce»</td><td>Terminal abierta antes de instalar</td>
+                <td>Abrir una nueva</td></tr>
+            <tr><td>Error 401</td><td>Token revocado o mal copiado</td>
+                <td>Token nuevo y cambiar la línea del <code>.env</code></td></tr>
+            <tr><td>Sus cambios salen sin autor</td><td>Falta la identidad</td>
+                <td>Volver al paso 3</td></tr>
+            <tr><td>Le pide la clave siempre</td><td>No quedó el ayudante de credenciales</td>
+                <td><code>credential.helper manager</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="nota ok" style="margin-top:40px">
+    <b>La idea de fondo:</b> git no es una herramienta de programadores, es una herramienta de
+    <i>versiones</i>. El mismo problema que usted resuelve con «Propuesta_v2_FINAL_ahora_sí.docx»,
+    git lo resuelve bien: cada cambio queda firmado, fechado y se puede deshacer. Que el agente
+    tenga acceso a eso es lo que le permite trabajar sin que usted pierda nada.
+  </div>
+
+  <div class="pie">
+    <span>Diplomado en Inteligencia Artificial · UNAC · Clase 03</span>
+    <span>Mg. Alexey David Velásquez Betancurt</span>
+    <span>13 de agosto de 2026</span>
+    <span>Verificado en Windows 10 · git 2.55.0 · git-lfs 3.7.1 · gh 2.97.0</span>
+  </div>
+</div>
+
+<script>
+function cp(b){
+  var t = b.parentElement.parentElement.querySelector('pre').innerText;
+  navigator.clipboard.writeText(t).then(function(){
+    var o = b.textContent; b.textContent = 'Copiado'; b.style.color = '#EAAD05';
+    setTimeout(function(){ b.textContent = o; b.style.color = ''; }, 1600);
+  });
+}
+</script>
+</body>
+</html>

@@ -1,12 +1,29 @@
 ---
 name: entrega-2
-description: Criterios de la Entrega 2 del proyecto de grado (primer avance, 20%, 23 de septiembre de 2026). Usar cuando el estudiante pregunte por la segunda entrega o pida revisar su primer avance.
+description: Criterios de la Entrega 2 del proyecto de grado (primer avance, 20%, cierra el 23 de septiembre de 2026 a las 11:59 p. m.). Usar cuando el estudiante pregunte por la segunda entrega o pida revisar su primer avance.
 ---
 
-# Entrega 2 · Avance según el plan · 20 % · miércoles 23 de septiembre de 2026
+# Entrega 2 · Avance según el plan · 20 % · semana del 21 al 25 de septiembre
+
+**Cierra el miércoles 23 de septiembre de 2026 a las 11:59 p. m.** (el día de la clase).
 
 **Producto oficial:** "Avance de acuerdo con el plan de trabajo" (comunicado EAG).
 Individual, en Moodle.
+
+
+## La estructura, en esta entrega
+
+Las **siete secciones** (ver `2_Criterios_Proyecto_de_Grado/1_Criterios_y_Entregas.md`):
+Resumen · Planteamiento del problema · Objetivos · **Metodología** · Resultados ·
+Conclusiones · Referencias APA 7.
+
+- La sección 4 **ya no se llama «Descripción del proceso metodológico» sino «Metodología»**, y
+  se escribe **en pasado**: lo que efectivamente se hizo y qué cambió frente al plan de la E1.
+- **Resultados y Conclusiones ya SÍ entran** (en la E1 no iban).
+- El **Resumen** sigue con su límite: máximo una página, 250 palabras recomendables.
+- Los **objetivos** siguen con sus tres reglas inmóviles — verbo en infinitivo + condición a
+  intervenir + medios — y **un solo verbo cada uno**, máximo tres específicos. Si el estudiante
+  reescribió objetivos, revíselos otra vez con esa regla.
 
 ## Qué se espera (revisar contra el plan aprobado en la E1)
 

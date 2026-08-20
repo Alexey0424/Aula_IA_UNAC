@@ -9,18 +9,31 @@
 
 ## Criterios del proyecto de grado (lo más importante)
 
-- [Criterios y las 4 entregas](2_Criterios_Proyecto_de_Grado/1_Criterios_y_Entregas.md): las tres condiciones del proyecto, la regla del pipeline y la prueba del borrado, rúbrica de la Entrega 1 (plan de trabajo, 20 %, 26-ago-2026), Entrega 2 (avance, 20 %, 23-sep-2026), Entrega 3 (avance, 20 %, 21-oct-2026), Entrega 4 (documento final y sustentación, 40 %, 4-nov-2026; sustentación 12-nov-2026), estructura del documento final en 11 secciones, formato APA 7 y advertencias sobre referencias inventadas y datos sensibles.
+- [Criterios y las 4 entregas](2_Criterios_Proyecto_de_Grado/1_Criterios_y_Entregas.md): las tres condiciones del proyecto, la regla del pipeline y la prueba del borrado, rúbrica de la Entrega 1 (plan de trabajo, 20 %, semana del 31 de agosto al 4 de septiembre, cierra mié 2-sep 11:59 p. m.), Entrega 2 (avance, 20 %, semana del 21 al 25 de septiembre, cierra mié 23-sep 11:59 p. m.), Entrega 3 (avance, 20 %, semana del 19 al 23 de octubre, cierra mié 21-oct 11:59 p. m.), Entrega 4 (documento final y sustentación, 40 %, semana del 2 al 6 de noviembre, cierra jue 5-nov 11:59 p. m.; sustentación jue 12-nov-2026), la estructura del documento en SIETE secciones con el límite de cada una (Resumen: máximo una página, 250 palabras recomendables · Planteamiento del problema: la necesidad que justifica el proyecto, con números · Objetivos: uno general y máximo tres específicos, cada uno con verbo en infinitivo + condición a intervenir + medios, y UN SOLO VERBO · Descripción del proceso metodológico, que de la Entrega 2 en adelante pasa a llamarse Metodología · Resultados y Conclusiones, que NO van en la Entrega 1 · Referencias APA 7, que SÍ van desde la Entrega 1), qué secciones lleva cada entrega, formato APA 7 y advertencias sobre referencias inventadas y datos sensibles.
 
 ## Guías de clase
 
-- [Guía del Proyecto de Grado (Clase 04)](1_Guias_de_Clase/8_Guia_Proyecto_de_Grado.html): la versión para estudiantes de los criterios, fechas y formato.
-- Diapositivas de cada clase en PDF (incluidas las versiones rayadas en vivo) dentro de `1_Guias_de_Clase/`.
+Las diapositivas de todas las clases dictadas, en PDF (las versiones rayadas en vivo se suben después de cada sesión):
+
+- `1_Guias_de_Clase/Clase_01_Presentacion.pdf`: Introducción a la Inteligencia Artificial — qué es y qué no es la IA, ML/DL/GenAI, mitos, cuándo sí y cuándo no.
+- `1_Guias_de_Clase/Clase_02_Presentacion.pdf`: Inteligencia Artificial Generativa — token, NLP, Transformer y atención, límites de los LLM.
+- `1_Guias_de_Clase/Clase_03_Presentacion.pdf`: Inteligencia Artificial Agéntica — qué es un agente, herramientas, skills, comandos y contexto.
+- `1_Guias_de_Clase/Clase_04_Presentacion.pdf`: Machine Learning 1 — tipos de ML, arquitecturas de supervised y unsupervised learning, Deep Learning, Transformers, modelos preentrenados en Hugging Face y Cloudflare.
+
+Guías para el estudiante, por la clase en que se entregaron:
+
+- [Configurar el entorno (Clase 03)](1_Guias_de_Clase/Clase_03_Configurar_Entorno.html): instalar y dejar funcionando Claude Code.
+- [Conectar Hugging Face (Clase 03)](1_Guias_de_Clase/Clase_03_Configurar_HuggingFace.html): el token, el `.env` y la CLI `hf`.
+- [Configurar git y GitHub (Clase 03)](1_Guias_de_Clase/Clase_03_Configurar_Git_y_GitHub.html): git, git-lfs y `gh`.
+- [Guía del Proyecto de Grado (Clase 04)](1_Guias_de_Clase/Clase_04_Guia_Proyecto_de_Grado.html): la versión para estudiantes de los criterios, las fechas y el formato.
+- [Cómo conectar el aula al Claude del estudiante (Clase 04)](1_Guias_de_Clase/Clase_04_Conectar_Aula_IA.html).
+- [Guía del taller de Colab (Clase 05)](1_Guias_de_Clase/Clase_05_Guia_Taller_Colab.html): abrir Colab, montar los secretos de Hugging Face y correr los notebooks de entrenamiento.
 
 ## Referencias
 
 - [Referencias verificadas](3_Referencias/1_Referencias_Verificadas.md): el paper del Transformer (2017), modelos de Hugging Face recomendados con su licencia (cuáles permiten uso comercial y cuáles no), Prophet para pronósticos, PyCaret (fork pycaret-core) y las fuentes oficiales de cada dato usado en clase.
 
-## Laboratorios (Google Colab)
+## Laboratorios (Google Colab) — se corren en el taller de la **Clase 05**
 
 - `4_Notebooks_Colab/1_Laboratorio_ML_Supervisado.ipynb`: el laboratorio de experimentos — quince modelos compiten (PyCaret vía pycaret-core), matriz de confusión, guardar y usar el modelo.
 - `4_Notebooks_Colab/2_Laboratorio_Clustering_Clientes.ipynb`: segmentación de clientes sin etiquetas (k-means), codo, silueta y bautizo de grupos.

@@ -18,7 +18,7 @@ las guías de clase, los notebooks de laboratorio y las referencias verificadas.
 1. Abra Claude (app de escritorio → pestaña **Code**, o `claude` en la terminal) en la carpeta
    `C:\Curso_IA_UNAC` (créela; sin acentos, sin espacios, fuera de OneDrive).
 2. Escríbale, tal cual:
-   > Clona el repositorio https://github.com/USUARIO_DOCENTE/Aula_IA_UNAC dentro de esta
+   > Clona el repositorio https://github.com/Alexey0424/Aula_IA_UNAC dentro de esta
    > carpeta y muéstrame qué archivos quedaron.
 3. Cierre esa sesión y abra una nueva **dentro** de la carpeta `Aula_IA_UNAC` que quedó creada.
 4. Cuando pregunte si confía en la carpeta, diga que sí (una única vez).
@@ -45,5 +45,5 @@ Para traer las novedades cada semana: escriba `/actualizar-curso`.
 ## Plan B — sin clonar (claude.ai o emergencias)
 
 Agregue el conector **GitMCP** en claude.ai (Configuración → Connectors → *Add custom
-connector*) con la URL: `https://gitmcp.io/USUARIO_DOCENTE/Aula_IA_UNAC` — su Claude podrá
+connector*) con la URL: `https://gitmcp.io/Alexey0424/Aula_IA_UNAC` — su Claude podrá
 consultar el material sin tener los archivos en su computador.

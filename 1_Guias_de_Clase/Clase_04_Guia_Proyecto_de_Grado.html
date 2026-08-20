@@ -77,9 +77,10 @@ tr:last-child td{border-bottom:none}
 .sino li{margin-bottom:8px}
 @media(max-width:640px){.sino{grid-template-columns:1fr}}
 
-.fecha{display:flex; gap:14px; align-items:baseline; padding:11px 0; border-bottom:1px dashed var(--line-soft)}
+.fecha{display:flex; gap:14px; align-items:flex-start; padding:11px 0; border-bottom:1px dashed var(--line-soft)}
 .fecha:last-child{border-bottom:none}
-.fecha .f{flex:none; width:150px; font-weight:600; font-size:14px}
+.fecha .f{flex:none; width:196px; font-weight:600; font-size:14px; line-height:1.34}
+.fecha .f small{display:block; font-weight:500; font-size:12.5px; color:var(--ink-2); margin-top:2px}
 .fecha .v{flex:none; width:52px; text-align:right; font-weight:600}
 .fecha .d{color:var(--ink-2); font-size:14px}
 
@@ -205,31 +206,32 @@ li{margin-bottom:6px}
       <div class="paso-n">3</div>
       <div>
         <h2>Las cuatro entregas: <b>fechas, productos y porcentajes</b></h2>
-        <div class="t">Los porcentajes son textuales del comunicado oficial. Cada estudiante sube su entrega individualmente en Moodle.</div>
+        <div class="t">Los porcentajes son textuales del comunicado oficial. Cada estudiante sube su entrega individualmente en Moodle. <b>Toda entrega cierra a las 11:59 p. m. del día indicado.</b></div>
       </div>
     </div>
     <div class="paso-c">
-      <div class="fecha"><div class="f">Mié 26 de agosto</div><div class="v" style="color:#177A5F">20 %</div>
+      <div class="fecha"><div class="f">Semana del 31 de agosto al 4 de septiembre<br><small>cierra mié 2 · 11:59 p. m.</small></div><div class="v" style="color:#177A5F">20 %</div>
         <div class="d"><b>Entrega 1 · Plan de trabajo</b> con visto bueno del asesor temático.
-        Se construye en la Clase 04: problema, objetivos, alcance, cronograma y — clave —
+        Se arma en la Clase 04 y se sube la semana siguiente: problema, objetivos, alcance, cronograma y — clave —
         <b>dónde entra la IA en el pipeline</b>.</div></div>
-      <div class="fecha"><div class="f">Mié 23 de septiembre</div><div class="v" style="color:#2B66AC">20 %</div>
+      <div class="fecha"><div class="f">Semana del 21 al 25 de septiembre<br><small>cierra mié 23 · 11:59 p. m.</small></div><div class="v" style="color:#2B66AC">20 %</div>
         <div class="d"><b>Entrega 2 · Avance</b> de acuerdo con el plan de trabajo. Ya debe haber
         datos reales y un primer prototipo corriendo, aunque sea feo.</div></div>
-      <div class="fecha"><div class="f">Mié 21 de octubre</div><div class="v" style="color:#5A44C4">20 %</div>
+      <div class="fecha"><div class="f">Semana del 19 al 23 de octubre<br><small>cierra mié 21 · 11:59 p. m.</small></div><div class="v" style="color:#5A44C4">20 %</div>
         <div class="d"><b>Entrega 3 · Avance</b> de acuerdo con el plan de trabajo. El producto casi
         completo y el documento en borrador avanzado.</div></div>
-      <div class="fecha"><div class="f">Mié 4 de noviembre</div><div class="v" style="color:#9A7B1E">40 %</div>
-        <div class="d"><b>Entrega 4 · Documento final y sustentación oral.</b> Se entrega el 4 para
-        alcanzar a revisar y dar el visto bueno antes de la <b>sustentación final del jueves 12 de
-        noviembre</b> ante jurados.</div></div>
+      <div class="fecha"><div class="f">Semana del 2 al 6 de noviembre<br><small>cierra jue 5 · 11:59 p. m.</small></div><div class="v" style="color:#9A7B1E">40 %</div>
+        <div class="d"><b>Entrega 4 · Documento final y sustentación oral.</b> Cierra el <b>jueves 5 de
+        noviembre</b> — el jueves anterior — para que el asesor y el jurado tengan una semana con el
+        documento antes de la <b>sustentación final del jueves 12 de noviembre</b> ante jurados.</div></div>
 
       <div class="alerta nota" style="margin-top:18px">
         <b>Hagan la cuenta:</b> el 60 % de la nota se juega <b>antes</b> de la sustentación.
         Este no es un trabajo de última semana. El que arranca tarde no lo recupera al final.
       </div>
       <div class="nota">
-        <b>Sobre las fechas.</b> Estas son las fechas acordadas en clase con el asesor temático.
+        <b>Sobre las fechas.</b> Las entregas 1, 2 y 3 caen el <b>día de la clase</b> (miércoles) a las
+        11:59 p. m.; la 4, el jueves anterior a la sustentación. Estas son las fechas acordadas en clase con el asesor temático.
         La fecha oficial de cada entrega es la que quede publicada en <b>Moodle</b>; cualquier
         ajuste se avisa por los canales del curso.
       </div>
@@ -254,21 +256,67 @@ li{margin-bottom:6px}
         <tr><td><b>Escritura</b></td><td>Claridad, coherencia, argumentación: cada afirmación fuerte lleva su fuente.</td></tr>
       </table></div>
 
-      <p style="margin-top:16px"><b>Estructura orientadora del documento final</b> (la oficial la
-      comunica la asesora metodológica; esta es la lógica que su documento debe contar):</p>
+      <p style="margin-top:16px"><b>Las siete secciones del documento</b> — siempre en este
+      orden, y con estos límites, que son los que revisa el asesor temático:</p>
       <ol>
-        <li><b>Portada y resumen ejecutivo</b> — el proyecto en una página.</li>
-        <li><b>La organización y su contexto</b> — quiénes son, qué hacen, dónde duele.</li>
-        <li><b>Planteamiento del problema</b> — el proceso actual, con números: tiempos, costos, errores.</li>
-        <li><b>Objetivos</b> — uno general, tres o cuatro específicos, todos verificables.</li>
-        <li><b>Justificación</b> — por qué vale la pena resolverlo y por qué con IA.</li>
-        <li><b>Marco referencial</b> — los conceptos que usan (los de este diplomado), con fuentes APA.</li>
-        <li><b>Metodología</b> — cómo lo van a hacer: datos, herramientas, etapas.</li>
-        <li><b>Desarrollo de la solución</b> — el corazón: el pipeline, y <b>dónde queda la IA adentro</b>.</li>
-        <li><b>Resultados</b> — antes vs. después, con indicadores: tiempo, costo, errores, cobertura.</li>
-        <li><b>Conclusiones y recomendaciones</b> — qué queda funcionando y qué sigue.</li>
-        <li><b>Referencias</b> (APA 7) y <b>anexos</b>.</li>
+        <li><b>Resumen (abstract)</b> — <b>máximo una página</b>; lo recomendable son
+        <b>250 palabras</b>. Va de primero pero <b>se escribe de último</b>. Debe poder leerse
+        solo: qué problema, qué se hizo, con qué y qué resultado dio.</li>
+
+        <li><b>Planteamiento del problema</b> — <b>la necesidad que justifica el porqué del
+        proyecto</b>. No es la historia de la empresa: es el dolor concreto que se va a
+        intervenir, <b>con números del proceso actual</b> (tiempos, costos, errores, volumen).
+        Sin números de partida no hay «antes vs. después» que mostrar al final.</li>
+
+        <li><b>Objetivos del proyecto</b> — <b>uno general y máximo tres específicos</b>.
+        Todo objetivo se construye con <b>tres reglas inmóviles</b>:
+          <ol style="margin:8px 0 8px 0">
+            <li>un <b>verbo en infinitivo</b> (termina en <b>-ar, -er, -ir</b>);</li>
+            <li>la <b>condición que se va a intervenir</b>;</li>
+            <li>los <b>medios, recursos y/o herramientas</b> que lo van a llevar al cumplimiento
+            de esa condición.</li>
+          </ol>
+          Y la regla dura: <b>un solo verbo por objetivo</b>, ni más ni menos — en el general y
+          en cada específico. Dos verbos son dos objetivos, o se devuelve.
+        </li>
+
+        <li><b>Descripción del proceso metodológico</b> — en la <b>Entrega 1</b> es el
+        <b>plan</b>, en futuro: cómo se va a hacer, con qué datos, en qué pasos. <b>De la Entrega
+        2 en adelante esta sección se llama «Metodología»</b> y se escribe en pasado: lo que
+        efectivamente se hizo y qué cambió frente al plan. Aquí va dibujado el pipeline y
+        <b>dónde queda la IA adentro</b>.</li>
+
+        <li><b>Resultados</b> — <b>no van en la Entrega 1</b> (todavía no existen). Antes vs.
+        después, con los mismos indicadores del planteamiento del problema.</li>
+
+        <li><b>Conclusiones</b> — <b>no van en la Entrega 1.</b> Responden a los objetivos, uno
+        por uno, y dicen qué se recomienda hacer con el resultado.</li>
+
+        <li><b>Referencias (APA 7)</b> — <b>sí van desde la Entrega 1.</b> Los anexos, después
+        de las referencias.</li>
       </ol>
+
+      <div class="alerta nota" style="margin-bottom:14px">
+        <b>Un objetivo, armado con las tres reglas.</b><br>
+        «<b>Reducir</b> <i>(1: verbo en infinitivo)</i> <b>el tiempo de revisión de facturas de
+        proveedores</b> <i>(2: la condición a intervenir)</i> <b>mediante un modelo de
+        clasificación entrenado con el histórico de la empresa</b> <i>(3: los medios)</i>.»<br>
+        <b>Mal:</b> «Analizar y mejorar el proceso de facturación» → dos verbos y sin medios.
+        <b>Mal:</b> «Implementar inteligencia artificial en la empresa» → sin condición concreta
+        y sin medios.
+      </div>
+
+      <p><b>Qué secciones lleva cada entrega:</b></p>
+      <div class="tbl"><table>
+        <tr><th>Sección</th><th>E1</th><th>E2</th><th>E3</th><th>E4</th></tr>
+        <tr><td>1. Resumen (abstract)</td><td>Sí</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
+        <tr><td>2. Planteamiento del problema</td><td>Sí</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
+        <tr><td>3. Objetivos del proyecto</td><td>Sí</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
+        <tr><td>4. Proceso metodológico / Metodología</td><td>Sí, como <b>plan</b></td><td>Sí, como <b>Metodología</b></td><td>Sí</td><td>Sí</td></tr>
+        <tr><td>5. Resultados</td><td><b>No</b></td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
+        <tr><td>6. Conclusiones</td><td><b>No</b></td><td>Preliminares</td><td>Sí</td><td>Sí</td></tr>
+        <tr><td>7. Referencias APA 7</td><td><b>Sí</b></td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
+      </table></div>
 
       <div class="alerta nota">
         <b>Advertencia sobre referencias con IA.</b> Los modelos de lenguaje <b>inventan

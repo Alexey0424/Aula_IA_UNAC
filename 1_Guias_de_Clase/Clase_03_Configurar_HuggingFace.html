@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conectar Hugging Face · Clase 03 · Diplomado en IA · UNAC</title>
+<style>
+:root{
+  --navy:#0E2036; --card-dark:#1B3453; --cream:#F6F5F0;
+  --orange:#E8792B; --blue:#3C7FD0; --red:#D54E48; --gold:#EAAD05; --teal:#29AC8A;
+  --bg:#F6F5F0; --surface:#FFFFFF; --surface-2:#FCFBF7;
+  --ink:#12233A; --ink-2:#4B5A6D; --ink-3:#7A8797;
+  --line:#DDD8CC; --line-soft:#EAE5DA;
+  --shadow:0 1px 2px rgba(14,32,54,.06), 0 6px 18px rgba(14,32,54,.05);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  font-size:15.5px; line-height:1.62; -webkit-font-smoothing:antialiased}
+.wrap{max-width:960px; margin:0 auto; padding:0 26px}
+h1,h2,h3,h4{margin:0; font-weight:600; line-height:1.22}
+p{margin:0 0 .8em}
+code{font-family:Consolas,"Cascadia Mono",monospace; font-size:.92em;
+  background:var(--surface-2); border:1px solid var(--line-soft);
+  border-radius:4px; padding:1px 5px}
+
+/* hero */
+.hero{background:var(--navy); color:var(--cream); padding:42px 0 36px; position:relative; overflow:hidden}
+.hero::after{content:""; position:absolute; inset:auto 0 0 0; height:3px;
+  background:linear-gradient(90deg,var(--orange) 0 40%,var(--blue) 40% 72%,var(--red) 72% 100%)}
+.eyebrow{display:flex; align-items:center; gap:10px; font-size:11.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:15px}
+.eyebrow::before{content:""; width:3.5px; height:15px; background:var(--gold); border-radius:2px}
+.hero h1{font-size:clamp(28px,4.2vw,40px); font-family:"Segoe UI Light","Segoe UI",sans-serif;
+  font-weight:300; letter-spacing:-.01em}
+.hero h1 b{font-weight:600}
+.hero .sub{margin-top:14px; max-width:74ch; color:#A9BBD1; font-size:16px}
+.hero .sub b{color:var(--cream)}
+
+/* pasos */
+.paso{margin-top:44px; background:var(--surface); border:1px solid var(--line);
+  border-radius:12px; box-shadow:var(--shadow); overflow:hidden}
+.paso-h{display:flex; align-items:flex-start; gap:16px; padding:20px 26px 18px;
+  border-bottom:1px solid var(--line-soft); background:var(--surface-2)}
+.paso-n{flex:none; width:38px; height:38px; border-radius:50%; background:var(--gold);
+  color:var(--navy); font-weight:600; font-size:17px; display:flex;
+  align-items:center; justify-content:center; margin-top:1px}
+.paso-h h2{font-size:21px; font-family:"Segoe UI Light","Segoe UI",sans-serif; font-weight:300}
+.paso-h h2 b{font-weight:600}
+.paso-h .t{margin-top:5px; color:var(--ink-3); font-size:13.5px}
+.paso-c{padding:22px 26px 24px}
+
+/* bloque para pegar */
+.pegar{margin:16px 0 6px; border:1.5px solid var(--navy); border-radius:10px; overflow:hidden}
+.pegar-h{background:var(--navy); color:var(--cream); padding:9px 16px; font-size:11.5px;
+  letter-spacing:.13em; text-transform:uppercase; font-weight:600;
+  display:flex; align-items:center; gap:10px; justify-content:space-between}
+.pegar-h span::before{content:"\25B8  "; color:var(--gold)}
+.pegar pre{margin:0; padding:18px 20px; background:#0B1A2C; color:#D6E2F0;
+  font-family:Consolas,"Cascadia Mono",monospace; font-size:13.2px; line-height:1.62;
+  overflow-x:auto; white-space:pre-wrap; word-break:break-word}
+.cp{background:transparent; border:1px solid rgba(255,255,255,.25); color:var(--cream);
+  border-radius:6px; padding:3px 11px; font-size:11px; font-family:inherit;
+  letter-spacing:.06em; cursor:pointer}
+.cp:hover{border-color:var(--gold); color:var(--gold)}
+
+pre.plain{background:var(--surface-2); border:1px solid var(--line-soft); border-radius:9px;
+  padding:15px 18px; overflow-x:auto; font-family:Consolas,"Cascadia Mono",monospace;
+  font-size:13px; line-height:1.6; color:var(--ink-2); margin:12px 0}
+
+.tbl{overflow-x:auto; border:1px solid var(--line); border-radius:9px;
+  background:var(--surface); margin:14px 0}
+table{border-collapse:collapse; width:100%; min-width:480px; font-size:13.8px}
+th,td{text-align:left; padding:9px 13px; border-bottom:1px solid var(--line-soft); vertical-align:top}
+th{background:var(--surface-2); font-size:10.5px; letter-spacing:.11em; text-transform:uppercase;
+  color:var(--ink-3); font-weight:600; white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td code{white-space:nowrap}
+
+.nota{border-left:3px solid var(--orange); background:#FDF3EA; padding:12px 16px;
+  border-radius:0 8px 8px 0; margin:16px 0; font-size:14.5px; color:#6E4318}
+.nota b{color:#4A2C0C}
+.ok{border-left-color:var(--teal); background:#E8F6F1; color:#1B5546}
+.ok b{color:#0C3A2E}
+.alerta{border-left-color:var(--red); background:#FBEDEC; color:#6E2A26}
+.alerta b{color:#4A1512}
+
+ul,ol{margin:0 0 .9em; padding-left:1.3em}
+li{margin-bottom:6px}
+
+.pie{margin:56px 0 40px; padding-top:20px; border-top:1px solid var(--line);
+  font-size:12.8px; color:var(--ink-3); display:flex; flex-wrap:wrap; gap:10px 22px}
+@media print{
+  .cp{display:none} body{font-size:11.5pt} .hero{padding:26px 0 22px}
+  .paso{break-inside:avoid; box-shadow:none}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Clase 03 · IA agéntica · Anexo</div>
+    <h1>Conectar <b>Hugging Face</b> a Claude Code</h1>
+    <div class="sub">Hugging Face es el repositorio más grande de modelos de IA abiertos.
+    Conectarlo le da a su agente <b>un banco de modelos que puede usar sin instalar nada</b>:
+    generar imágenes, editar fotos, extraer texto de un escaneo, hacer voz. Este anexo es el
+    registro de cómo quedó configurado y sirve para repetirlo en otro equipo.</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="nota ok" style="margin-top:34px">
+    <b>Antes de empezar:</b> esto no descarga ningún modelo a su computador. Todo corre en los
+    servidores de Hugging Face. Su equipo solo manda la orden y recibe el resultado.
+  </div>
+
+  <!-- 1 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">1</div>
+      <div>
+        <h2>Entender <b>las dos puertas de entrada</b></h2>
+        <div class="t">Son dos cosas distintas y se confunden todo el tiempo</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <p>Hay dos maneras de llegar a Hugging Face, con permisos y caducidades diferentes.
+      Conviene tener las dos, pero sabiendo para qué sirve cada una.</p>
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Puerta</th><th>Para qué sirve</th><th>Caduca</th></tr></thead>
+          <tbody>
+            <tr><td><b>Servidor MCP</b></td>
+                <td>Que el agente use el Hub por su cuenta: buscar modelos, leer archivos,
+                    ejecutar Spaces (imagen, video, OCR, voz)</td>
+                <td><b>Sí.</b> La sesión vence y toca volver a autenticar</td></tr>
+            <tr><td><b>Token de acceso</b></td>
+                <td>Que sus <i>scripts</i> y la terminal entren: descargar, subir, llamar la API</td>
+                <td>No, hasta que usted lo revoque</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><b>MCP</b> significa <i>Model Context Protocol</i>: es el enchufe estándar con el que un
+      agente se conecta a un servicio externo. Es lo mismo que vimos en clase con las demás
+      herramientas.</p>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">2</div>
+      <div>
+        <h2>Conectar el <b>servidor MCP</b></h2>
+        <div class="t">Una línea en la terminal, más un permiso en el navegador</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <div class="pegar">
+        <div class="pegar-h"><span>Pegue esto en la terminal</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+        <pre>claude mcp add hf-mcp-server -t http "https://huggingface.co/mcp?login"</pre>
+      </div>
+      <p>Después, <b>dentro de Claude Code</b>, escriba <code>/mcp</code>, elija
+      <code>hf-mcp-server</code> y dele <i>Authenticate</i>. Se le abre el navegador, entra con su
+      cuenta de Hugging Face y acepta.</p>
+      <div class="nota"><b>Si dice que ya existe:</b> es que quedó registrado de un intento
+      anterior. No es un error. Verifíquelo con <code>claude mcp get hf-mcp-server</code>; si sale
+      <i>Needs authentication</i>, solo le falta el <code>/mcp</code>.</div>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">3</div>
+      <div>
+        <h2>Crear el <b>token de acceso</b></h2>
+        <div class="t">Con permisos justos, no con todos</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <p>Vaya a <code>huggingface.co/settings/tokens</code> y cree uno de tipo
+      <b>fine-grained</b> (permisos finos). Póngale un nombre que diga para qué es —el de este
+      equipo se llama <code>Automatic_Workflows</code>— y marque solo lo que va a usar:</p>
+      <pre class="plain">repo.content.read      leer archivos de repositorios
+repo.write             subir cosas a SUS repositorios
+inference.serverless   llamar modelos por API (texto, voz, embeddings)
+job.write              lanzar trabajos en la nube de Hugging Face</pre>
+      <div class="nota"><b>Por qué "fine-grained" y no el clásico:</b> el token clásico puede hacer
+      todo lo que usted puede hacer. Si se filtra, se filtró la cuenta entera. El de permisos finos
+      solo puede hacer lo que usted marcó.</div>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">4</div>
+      <div>
+        <h2>Guardar el token <b>fuera del código</b></h2>
+        <div class="t">Esta es la parte que la gente hace mal</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <p>El token <b>nunca</b> se escribe dentro de un script ni se pega en un chat. Va en un
+      archivo aparte llamado <code>.env</code>, que se queda en su máquina:</p>
+      <pre class="plain"># C:\1_Automatic_Workflows\.env
+HF_TOKEN=hf_xxxxxxxxxxxxxxxxxxxx</pre>
+      <p>Y ese archivo se protege para que no se suba a ningún lado, con un
+      <code>.gitignore</code> que lo excluya:</p>
+      <pre class="plain">.env
+.env.*
+*.safetensors
+*.gguf</pre>
+      <div class="nota alerta"><b>Tres reglas que no se negocian:</b>
+        <ul style="margin-top:8px; margin-bottom:0">
+          <li><b>Una sola copia.</b> Si el token está en dos archivos, el día que lo rote uno queda
+              viejo y algo falla sin avisar.</li>
+          <li><b>Nunca en un chat.</b> Si lo pega en una conversación con una IA, queda en el
+              historial. Rótelo.</li>
+          <li><b>Nunca en la nube.</b> Ojo con carpetas sincronizadas con OneDrive o Drive.</li>
+        </ul>
+      </div>
+      <p>En este equipo se decidió <b>no</b> usar <code>hf auth login</code>, porque ese comando
+      guarda una segunda copia del token en otra carpeta. Con una sola copia, rotarlo es cambiar
+      una línea y ya.</p>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">5</div>
+      <div>
+        <h2>Instalar la <b>herramienta de terminal</b></h2>
+        <div class="t">Y un cargador para no repetir el token nunca</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <div class="pegar">
+        <div class="pegar-h"><span>Instalar</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+        <pre>pip install -U huggingface_hub</pre>
+      </div>
+      <p>Eso instala la librería y el comando <code>hf</code>. Ahora hace falta que la terminal
+      <i>vea</i> el token. En Windows con PowerShell se hace con un cargador —en este equipo está
+      en <code>tools\Load-Env.ps1</code>— que lee el <code>.env</code> y lo pone en memoria:</p>
+      <div class="pegar">
+        <div class="pegar-h"><span>Cargar el .env en la sesión</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+        <pre>. C:\1_Automatic_Workflows\tools\Load-Env.ps1</pre>
+      </div>
+      <div class="nota"><b>Ojo al punto del principio.</b> Ese punto y el espacio no son un error de
+      tipografía: le dicen a PowerShell que las variables se queden en la sesión. Sin el punto, el
+      script corre, carga todo… y al terminar se pierde.</div>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">6</div>
+      <div>
+        <h2>Comprobar que <b>de verdad quedó</b></h2>
+        <div class="t">Tres pruebas, de la más barata a la más real</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <div class="pegar">
+        <div class="pegar-h"><span>¿La terminal me reconoce?</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+        <pre>hf auth whoami</pre>
+      </div>
+      <p>Debe responder con su usuario. Si dice <i>Not logged in</i>, no cargó el <code>.env</code>.</p>
+
+      <div class="pegar">
+        <div class="pegar-h"><span>¿Qué permisos tiene el token?</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+        <pre>$r = Invoke-RestMethod -Uri "https://huggingface.co/api/whoami-v2" `
+     -Headers @{ Authorization = "Bearer $env:HF_TOKEN" }
+$r.name
+$r.auth.accessToken.fineGrained.scoped.permissions</pre>
+      </div>
+
+      <div class="pegar">
+        <div class="pegar-h"><span>¿Sirve para pedirle algo a un modelo?</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+        <pre>$body = @{
+  model      = "meta-llama/Llama-3.1-8B-Instruct"
+  messages   = @(@{ role = "user"; content = "Responde exactamente: funciona" })
+  max_tokens = 10
+} | ConvertTo-Json -Depth 5 -Compress
+
+Invoke-RestMethod -Uri "https://router.huggingface.co/v1/chat/completions" -Method Post `
+  -Headers @{ Authorization = "Bearer $env:HF_TOKEN"; "Content-Type" = "application/json" } `
+  -Body $body</pre>
+      </div>
+      <div class="nota ok"><b>Dato útil:</b> esa dirección habla el mismo idioma que la API de
+      OpenAI. O sea que cualquier programa hecho para OpenAI funciona con Hugging Face
+      cambiándole una sola línea: la <code>base_url</code>. No hay que reescribir nada.</div>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">7</div>
+      <div>
+        <h2>Enseñarle a su agente <b>a usarlo bien</b></h2>
+        <div class="t">Una skill, como las que vimos en clase</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <div class="pegar">
+        <div class="pegar-h"><span>Instalar la skill</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+        <pre>hf skills add -g --claude</pre>
+      </div>
+      <p>Esto le instala a Claude un manual del comando <code>hf</code>, para que no se lo invente.
+      La bandera <code>-g</code> es <i>global</i>: queda disponible en todos sus proyectos, no solo
+      en el de ahora. Se desinstala borrando la carpeta <code>.claude\skills\hf-cli</code>.</p>
+    </div>
+  </div>
+
+  <!-- 8 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">8</div>
+      <div>
+        <h2>Qué se puede hacer <b>y qué no</b></h2>
+        <div class="t">Con el plan gratuito, sin instalar nada</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Tarea</th><th>Sirve para</th></tr></thead>
+          <tbody>
+            <tr><td>Generar imágenes</td><td>Piezas de mercadeo, ilustraciones, bocetos de producto</td></tr>
+            <tr><td>Editar imágenes</td><td>Quitar objetos, cambiar el fondo, restaurar fotos viejas, ampliar el encuadre</td></tr>
+            <tr><td>Quitar el fondo</td><td>Fotos de producto, retratos para catálogo</td></tr>
+            <tr><td>OCR</td><td>Sacar el texto de un contrato escaneado o una factura, conservando la estructura</td></tr>
+            <tr><td>Voz</td><td>Narrar un texto para un video o una capacitación</td></tr>
+            <tr><td>Video corto</td><td>Animar una foto fija unos segundos</td></tr>
+            <tr><td>Texto y embeddings</td><td>Modelos de lenguaje por API, buscadores semánticos</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="nota alerta"><b>Los límites del plan gratuito, dichos claro:</b>
+        <ul style="margin-top:8px; margin-bottom:0">
+          <li>Las GPU compartidas tienen <b>cuota diaria</b> y la fila da prioridad a quien paga.</li>
+          <li>La API de texto trae un <b>crédito mensual muy pequeño</b>. Alcanza para probar,
+              no para producción.</li>
+          <li>El video es lo más pesado: a veces se demora tanto que se cae.</li>
+        </ul>
+        Sirve de sobra para aprender y para prototipos. Para volumen real, toca plan pago o
+        modelos locales.
+      </div>
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">9</div>
+      <div>
+        <h2>Si algún día lo corre <b>en su propio computador</b></h2>
+        <div class="t">Dos trampas que cuestan horas</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <p>Bajar un modelo y correrlo en su máquina es gratis, privado e ilimitado. Pero hay dos
+      cosas que casi nadie advierte:</p>
+      <ul>
+        <li><b>Las tarjetas nuevas necesitan PyTorch nuevo.</b> Una RTX 50xx (arquitectura
+        Blackwell) no funciona con la instalación normal de PyTorch: hay que pedir la versión de
+        CUDA 12.8 en adelante. Si no, sale el error <code>no kernel image is available</code> y
+        parece que la tarjeta estuviera dañada. No lo está.
+        <pre class="plain">pip install torch --index-url https://download.pytorch.org/whl/cu128</pre></li>
+        <li><b>La memoria RAM importa tanto como la tarjeta.</b> El modelo primero se carga en la
+        RAM del sistema y de ahí pasa a la tarjeta. Con 16 GB de RAM se queda corto aunque la
+        tarjeta sea buena.</li>
+      </ul>
+      <div class="nota"><b>Cuánto pesa esto:</b> un modelo de texto mediano son entre 8 y 30 GB en
+      disco. Si va a bajar varios, revise el espacio antes y déjelos fuera de las carpetas que
+      sincroniza con la nube.</div>
+    </div>
+  </div>
+
+  <!-- 10 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">10</div>
+      <div>
+        <h2><b>Mantenimiento</b></h2>
+        <div class="t">Lo que se rompe con el tiempo</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Síntoma</th><th>Qué pasó</th><th>Solución</th></tr></thead>
+          <tbody>
+            <tr><td>El agente ya no ve Hugging Face</td>
+                <td>Venció la sesión del MCP</td>
+                <td><code>/mcp</code> y autenticar otra vez</td></tr>
+            <tr><td><code>hf auth whoami</code> dice <i>Not logged in</i></td>
+                <td>No se cargó el <code>.env</code> en esta terminal</td>
+                <td>Correr el cargador con el punto adelante</td></tr>
+            <tr><td>Error 401 en los scripts</td>
+                <td>Token revocado o mal copiado</td>
+                <td>Crear uno nuevo y cambiar la línea del <code>.env</code></td></tr>
+            <tr><td>Error 402 o "quota"</td>
+                <td>Se acabó el crédito o la cuota diaria</td>
+                <td>Esperar al otro día o pasar a plan pago</td></tr>
+            <tr><td>El token quedó expuesto</td>
+                <td>Se pegó en un chat, un correo o un repositorio</td>
+                <td>Revocarlo <b>ya</b> y crear otro. No sirve borrar el mensaje</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="nota ok" style="margin-top:40px">
+    <b>La idea de fondo:</b> ninguno de estos pasos es programar. Es conectar servicios y guardar
+    bien una llave. Eso es exactamente lo que se espera de un gerente que manda sobre la IA:
+    saber qué se conecta con qué, qué cuesta, y dónde está el riesgo.
+  </div>
+
+  <div class="pie">
+    <span>Diplomado en Inteligencia Artificial · UNAC · Clase 03</span>
+    <span>Mg. Alexey David Velásquez Betancurt</span>
+    <span>13 de agosto de 2026</span>
+    <span>Verificado en Windows 10 · PowerShell 5.1 · huggingface_hub 1.27.0</span>
+  </div>
+</div>
+
+<script>
+function cp(b){
+  var t = b.parentElement.parentElement.querySelector('pre').innerText;
+  navigator.clipboard.writeText(t).then(function(){
+    var o = b.textContent; b.textContent = 'Copiado'; b.style.color = '#EAAD05';
+    setTimeout(function(){ b.textContent = o; b.style.color = ''; }, 1600);
+  });
+}
+</script>
+</body>
+</html>

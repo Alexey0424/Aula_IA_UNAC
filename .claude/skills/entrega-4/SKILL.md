@@ -1,18 +1,35 @@
 ---
 name: entrega-4
-description: Criterios de la Entrega 4 del proyecto de grado (documento final y sustentacion, 40%, 4 de noviembre de 2026, sustentacion el 12 de noviembre). Usar cuando el estudiante pregunte por la entrega final, el documento o la sustentacion.
+description: Criterios de la Entrega 4 del proyecto de grado (documento final y sustentacion, 40%, cierra el jueves 5 de noviembre de 2026 a las 11:59 p. m., sustentacion el jueves 12 de noviembre). Usar cuando el estudiante pregunte por la entrega final, el documento o la sustentacion.
 ---
 
-# Entrega 4 · Documento final y sustentación oral · 40 % · miércoles 4 de noviembre de 2026
+# Entrega 4 · Documento final y sustentación oral · 40 % · semana del 2 al 6 de noviembre
+
+**Cierra el jueves 5 de noviembre de 2026 a las 11:59 p. m.** — el jueves anterior a la sustentación.
 
 **Producto oficial:** "Documento final y sustentación oral" (comunicado EAG). Se entrega el
-4 de noviembre para que el asesor alcance a revisar y dar visto bueno antes de la
+jueves 5 de noviembre para que el asesor y el jurado tengan una semana antes de la
 **sustentación final del jueves 12 de noviembre** ante jurados.
+
+
+## La estructura, en esta entrega
+
+Las **siete secciones** (ver `2_Criterios_Proyecto_de_Grado/1_Criterios_y_Entregas.md`):
+Resumen · Planteamiento del problema · Objetivos · **Metodología** · Resultados ·
+Conclusiones · Referencias APA 7.
+
+- La sección 4 **ya no se llama «Descripción del proceso metodológico» sino «Metodología»**, y
+  se escribe **en pasado**: lo que efectivamente se hizo y qué cambió frente al plan de la E1.
+- **Resultados y Conclusiones ya SÍ entran** (en la E1 no iban).
+- El **Resumen** sigue con su límite: máximo una página, 250 palabras recomendables.
+- Los **objetivos** siguen con sus tres reglas inmóviles — verbo en infinitivo + condición a
+  intervenir + medios — y **un solo verbo cada uno**, máximo tres específicos. Si el estudiante
+  reescribió objetivos, revíselos otra vez con esa regla.
 
 ## El documento (Word o PDF, APA 7)
 
-Estructura completa — las 11 secciones de
-`2_Criterios_Proyecto_de_Grado/1_Criterios_y_Entregas.md`. Los tres capítulos que más pesan:
+Estructura completa — las **siete secciones** de
+`2_Criterios_Proyecto_de_Grado/1_Criterios_y_Entregas.md`, con sus límites. Los tres capítulos que más pesan:
 
 - **Planteamiento del problema con números** (sin esto no hay resultados medibles).
 - **Desarrollo de la solución**: el pipeline dibujado y explicado, con la IA adentro, qué

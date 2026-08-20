@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Configurar el entorno · Clase 03 · Diplomado en IA · UNAC</title>
+<style>
+:root{
+  --navy:#0E2036; --card-dark:#1B3453; --cream:#F6F5F0;
+  --orange:#E8792B; --blue:#3C7FD0; --red:#D54E48; --gold:#EAAD05; --teal:#29AC8A;
+  --bg:#F6F5F0; --surface:#FFFFFF; --surface-2:#FCFBF7;
+  --ink:#12233A; --ink-2:#4B5A6D; --ink-3:#7A8797;
+  --line:#DDD8CC; --line-soft:#EAE5DA;
+  --shadow:0 1px 2px rgba(14,32,54,.06), 0 6px 18px rgba(14,32,54,.05);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  font-size:15.5px; line-height:1.62; -webkit-font-smoothing:antialiased}
+.wrap{max-width:960px; margin:0 auto; padding:0 26px}
+h1,h2,h3,h4{margin:0; font-weight:600; line-height:1.22}
+p{margin:0 0 .8em}
+code{font-family:Consolas,"Cascadia Mono",monospace; font-size:.92em;
+  background:var(--surface-2); border:1px solid var(--line-soft);
+  border-radius:4px; padding:1px 5px}
+
+/* hero */
+.hero{background:var(--navy); color:var(--cream); padding:42px 0 36px; position:relative; overflow:hidden}
+.hero::after{content:""; position:absolute; inset:auto 0 0 0; height:3px;
+  background:linear-gradient(90deg,var(--orange) 0 40%,var(--blue) 40% 72%,var(--red) 72% 100%)}
+.eyebrow{display:flex; align-items:center; gap:10px; font-size:11.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:15px}
+.eyebrow::before{content:""; width:3.5px; height:15px; background:var(--gold); border-radius:2px}
+.hero h1{font-size:clamp(28px,4.2vw,40px); font-family:"Segoe UI Light","Segoe UI",sans-serif;
+  font-weight:300; letter-spacing:-.01em}
+.hero h1 b{font-weight:600}
+.hero .sub{margin-top:14px; max-width:74ch; color:#A9BBD1; font-size:16px}
+.hero .sub b{color:var(--cream)}
+
+/* pasos */
+.paso{margin-top:44px; background:var(--surface); border:1px solid var(--line);
+  border-radius:12px; box-shadow:var(--shadow); overflow:hidden}
+.paso-h{display:flex; align-items:flex-start; gap:16px; padding:20px 26px 18px;
+  border-bottom:1px solid var(--line-soft); background:var(--surface-2)}
+.paso-n{flex:none; width:38px; height:38px; border-radius:50%; background:var(--gold);
+  color:var(--navy); font-weight:600; font-size:17px; display:flex;
+  align-items:center; justify-content:center; margin-top:1px}
+.paso-h h2{font-size:21px; font-family:"Segoe UI Light","Segoe UI",sans-serif; font-weight:300}
+.paso-h h2 b{font-weight:600}
+.paso-h .t{margin-top:5px; color:var(--ink-3); font-size:13.5px}
+.paso-c{padding:22px 26px 24px}
+
+/* bloque para pegar */
+.pegar{margin:16px 0 6px; border:1.5px solid var(--navy); border-radius:10px; overflow:hidden}
+.pegar-h{background:var(--navy); color:var(--cream); padding:9px 16px; font-size:11.5px;
+  letter-spacing:.13em; text-transform:uppercase; font-weight:600;
+  display:flex; align-items:center; gap:10px; justify-content:space-between}
+.pegar-h span::before{content:"\25B8  "; color:var(--gold)}
+.pegar pre{margin:0; padding:18px 20px; background:#0B1A2C; color:#D6E2F0;
+  font-family:Consolas,"Cascadia Mono",monospace; font-size:13.2px; line-height:1.62;
+  overflow-x:auto; white-space:pre-wrap; word-break:break-word}
+.cp{background:transparent; border:1px solid rgba(255,255,255,.25); color:var(--cream);
+  border-radius:6px; padding:3px 11px; font-size:11px; font-family:inherit;
+  letter-spacing:.06em; cursor:pointer}
+.cp:hover{border-color:var(--gold); color:var(--gold)}
+
+pre.plain{background:var(--surface-2); border:1px solid var(--line-soft); border-radius:9px;
+  padding:15px 18px; overflow-x:auto; font-family:Consolas,"Cascadia Mono",monospace;
+  font-size:13px; line-height:1.6; color:var(--ink-2); margin:12px 0}
+
+.tbl{overflow-x:auto; border:1px solid var(--line); border-radius:9px;
+  background:var(--surface); margin:14px 0}
+table{border-collapse:collapse; width:100%; min-width:480px; font-size:13.8px}
+th,td{text-align:left; padding:9px 13px; border-bottom:1px solid var(--line-soft); vertical-align:top}
+th{background:var(--surface-2); font-size:10.5px; letter-spacing:.11em; text-transform:uppercase;
+  color:var(--ink-3); font-weight:600; white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td code{white-space:nowrap}
+
+.nota{border-left:3px solid var(--orange); background:#FDF3EA; padding:12px 16px;
+  border-radius:0 8px 8px 0; margin:16px 0; font-size:14.5px; color:#6E4318}
+.nota b{color:#4A2C0C}
+.ok{border-left-color:var(--teal); background:#E8F6F1; color:#1B5546}
+.ok b{color:#0C3A2E}
+
+ul,ol{margin:0 0 .9em; padding-left:1.3em}
+li{margin-bottom:6px}
+
+.pie{margin:56px 0 40px; padding-top:20px; border-top:1px solid var(--line);
+  font-size:12.8px; color:var(--ink-3); display:flex; flex-wrap:wrap; gap:10px 22px}
+@media print{
+  .cp{display:none} body{font-size:11.5pt} .hero{padding:26px 0 22px}
+  .paso{break-inside:avoid; box-shadow:none}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Diplomado en Inteligencia Artificial · UNAC · Clase 03</div>
+    <h1>Deje su computador <b>listo para trabajar</b></h1>
+    <p class="sub">Al terminar esta guía, Visual Studio Code le abre <b>Word, Excel, PowerPoint y
+    PDF</b> sin salirse, y la barra de abajo de Claude Code le dice en todo momento
+    <b>qué modelo está usando, cuánto contexto le queda y cuánta plata lleva gastada</b>.</p>
+    <p class="sub" style="margin-top:12px">Usted no va a configurar nada a mano.
+    <b>Se lo va a pedir a Claude Code</b>, que para eso lo instalamos.</p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="nota" style="margin-top:34px">
+    <b>Antes de empezar.</b> Necesita tener ya instalado lo de la Clase 02: Visual Studio Code y
+    Claude Code funcionando. Si escribe <code>claude --version</code> en la terminal y le responde
+    un número, está listo. Si no, primero eso.
+  </div>
+
+  <!-- ============================================ 1 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">1</div>
+      <div>
+        <h2>Abra Claude Code <b>adentro</b> de Visual Studio Code</h2>
+        <div class="t">Es donde va a vivir de aquí en adelante.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <ol>
+        <li>Abra Visual Studio Code.</li>
+        <li><b>Archivo → Abrir carpeta</b> y escoja una carpeta suya de verdad, con documentos de
+        trabajo. No el escritorio, y <b>no una carpeta sincronizada con OneDrive</b>: da problemas
+        de permisos.</li>
+        <li>Abra la terminal con <code>Ctrl</code> + <code>Ñ</code> (o <b>Terminal → Nueva
+        terminal</b>).</li>
+        <li>Escriba <code>claude</code> y Enter.</li>
+      </ol>
+      <div class="nota ok"><b>Cómo sabe que quedó bien:</b> la terminal deja de verse como una
+      terminal y aparece el cuadro donde usted le escribe a Claude.</div>
+    </div>
+  </div>
+
+  <!-- ============================================ 2 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">2</div>
+      <div>
+        <h2>Pídale que <b>instale las extensiones</b></h2>
+        <div class="t">Copie el bloque completo, péguelo en Claude Code y déle Enter.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <p>Esto es lo que hace que un <code>.xlsx</code> se vea como una hoja de cálculo y no como
+      un montón de símbolos raros.</p>
+
+      <div class="pegar">
+        <div class="pegar-h"><span>Pegue esto en Claude Code</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>Configurame Visual Studio Code para trabajar con documentos de oficina. Hacelo vos, paso a paso, y al final decime que quedo y que fallo.
+
+1. Instala estas extensiones desde la terminal, una por una, con  code --install-extension &lt;id&gt; --force
+   - cweijan.vscode-office                Word, Excel, PowerPoint y PDF adentro del editor
+   - ms-toolsai.jupyter                   cuadernos Jupyter
+   - ms-python.python                     el motor que necesitan los cuadernos
+   - MS-CEINTL.vscode-language-pack-es    la interfaz de VS Code en espanol
+
+   Si el comando  code  no existe en mi terminal, decimelo y me explicas como
+   instalarlas a mano desde el panel de extensiones. No adivines.
+
+2. Abri mi settings.json de usuario de Visual Studio Code. En Windows esta en
+   %APPDATA%\Code\User\settings.json
+   Si no existe, crealo. Si ya existe, NO borres nada de lo que tenga:
+   agregale unicamente estas claves, respetando el JSON que ya haya.
+
+   "workbench.editorAssociations": {
+     "*.docx": "cweijan.officeViewer",
+     "*.xlsx": "cweijan.officeViewer",
+     "*.xlsm": "cweijan.officeViewer",
+     "*.pptx": "cweijan.officeViewer",
+     "*.csv":  "cweijan.officeViewer",
+     "*.pdf":  "cweijan.officeViewer",
+     "*.md":   "default"
+   },
+   "files.autoSave": "afterDelay",
+   "files.autoSaveDelay": 1000,
+   "terminal.integrated.defaultProfile.windows": "PowerShell",
+   "explorer.confirmDragAndDrop": true,
+   "workbench.startupEditor": "none"
+
+3. Explicame en dos lineas para que sirve la clave  "*.md": "default"  que acabamos de poner.
+
+4. Decime que tengo que hacer yo para que los cambios se vean.</pre>
+      </div>
+
+      <p style="margin-top:18px">Le va a pedir permiso antes de tocar archivos. <b>Léalo y
+      apruébelo.</b> Ese es el punto de todo esto: usted sigue mandando.</p>
+
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Extensión</th><th>Qué le resuelve</th></tr></thead>
+          <tbody>
+          <tr><td><code>cweijan.vscode-office</code></td><td>Abre Word, Excel, PowerPoint, PDF y CSV
+            dentro de una pestaña. Una sola extensión reemplaza cuatro.</td></tr>
+          <tr><td><code>ms-toolsai.jupyter</code></td><td>Cuadernos Jupyter. Los vamos a usar más
+            adelante en el diplomado para análisis de datos.</td></tr>
+          <tr><td><code>ms-python.python</code></td><td>Sin esto, los cuadernos abren pero no
+            corren.</td></tr>
+          <tr><td><code>MS-CEINTL.…-pack-es</code></td><td>Los menús en español. Opcional, pero
+            quita fricción.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="nota"><b>Lo que le va a pasar y no es un error.</b> Al hacer doble clic sobre un
+      <code>.docx</code> ya no se ve texto plano: se ve el documento. Si algún archivo se le abre
+      todavía como símbolos, clic derecho sobre él → <b>Volver a abrir el editor con…</b> →
+      <b>Office Viewer</b> → marque <b>Configurar predeterminado</b>.</div>
+
+      <div class="nota"><b>Por qué le pusimos <code>"*.md": "default"</code>.</b> Esa extensión
+      también se apodera de los archivos <code>.md</code> y los abre en un editor visual. Los
+      <code>.md</code> son los archivos donde uno le escribe instrucciones a la IA, y ahí uno
+      quiere ver el texto tal cual. Con esa línea, los <code>.md</code> siguen abriendo normal.</div>
+    </div>
+  </div>
+
+  <!-- ============================================ 3 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">3</div>
+      <div>
+        <h2>Pídale que le arme <b>el tablero de la parte de abajo</b></h2>
+        <div class="t">La barra de estado. Es su tablero de instrumentos.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <p>Sin esto, usted no sabe con qué modelo está trabajando, ni cuánto contexto le queda, ni
+      cuánto lleva gastado. <b>Es como manejar sin tablero.</b></p>
+
+      <div class="pegar">
+        <div class="pegar-h"><span>Pegue esto en Claude Code</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>Armame la barra de estado de Claude Code. Quiero DOS lineas.
+
+Linea 1, en este orden: el modelo que estoy usando, el nivel de esfuerzo, y las
+tres ventanas — cuanto llevo de la ventana de contexto, cuanto llevo del limite
+de 5 horas y cuanto llevo del limite semanal. Cada una con una barrita y su
+porcentaje, y al lado cuanto falta para que se reinicie.
+
+Linea 2, en este orden: el nombre de la carpeta en la que estoy trabajando,
+cuanta plata llevo gastada en esta sesion, cuanto tiempo llevo, si tengo el
+pensamiento extendido prendido, y la version de Claude Code.
+
+Reglas de diseno, importantes:
+- Que se ADAPTE al ancho de la ventana. Lee la variable de entorno COLUMNS y si
+  la terminal es angosta, encoge las barras y quita lo opcional. No quiero que
+  se me monte una cosa sobre otra ni que se parta en varias lineas.
+- Colores tranquilos: maximo cuatro. Un dorado suave para el modelo y la
+  carpeta, grises para las etiquetas y las cifras, y el verde/ambar/rojo
+  UNICAMENTE para los medidores. Nada de azul brillante ni de morado.
+- Usa codigos de 256 colores, no los 8 basicos: los basicos los repinta el tema
+  de la terminal y quedan chillones.
+- El separador entre datos que sea corto.
+
+Es Windows con PowerShell. Dos advertencias que ya me costaron caro:
+- No escribas ningun caracter raro directo en el .ps1. PowerShell 5.1 lee los
+  archivos sin BOM como ANSI y los parte en dos. Todo simbolo va con [char]0xNNNN.
+- Escribi la salida como bytes UTF-8 directo a la salida estandar, no con
+  Write-Output, porque si no se danan las barritas.
+
+Cuando termines, probala con datos de mentiras a 120, a 90 y a 70 columnas y
+mostrame como se ve en cada ancho.</pre>
+      </div>
+
+      <div class="nota ok"><b>Cómo sabe que quedó bien:</b> abajo del cuadro donde usted escribe
+      aparecen dos renglones con su modelo, unas barritas de colores y un valor en dólares. Si no
+      aparece nada, salga con <code>/exit</code> y vuelva a entrar con <code>claude</code>.</div>
+
+      <p style="margin-top:16px">Si prefiere no pedírselo y ponerlo ya hecho, el archivo
+      <code>8_statusline.ps1</code> viene con el material de la clase. Se guarda en
+      <code>C:\Users\SU-USUARIO\.claude\statusline.ps1</code> y se agrega este bloque al
+      <code>settings.json</code> de <b>Claude Code</b> (que es otro archivo distinto, está en
+      <code>C:\Users\SU-USUARIO\.claude\settings.json</code>):</p>
+
+<pre class="plain">{
+  "statusLine": {
+    "type": "command",
+    "command": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"C:/Users/SU-USUARIO/.claude/statusline.ps1\"",
+    "padding": 0,
+    "refreshInterval": 60
+  }
+}</pre>
+
+      <div class="nota"><b>Ojo con las barras.</b> En esa ruta van barras <b>hacia adelante</b>
+      (<code>/</code>), no hacia atrás. Si tiene Git instalado, Claude Code corre este comando a
+      través de Git Bash, que se come las barras invertidas y falla <b>sin decir nada</b>.</div>
+    </div>
+  </div>
+
+  <!-- ============================================ 4 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">4</div>
+      <div>
+        <h2>Compruebe que <b>todo quedó</b></h2>
+        <div class="t">Cuatro pruebas de treinta segundos.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Prueba</th><th>Qué debe pasar</th><th>Si falla</th></tr></thead>
+          <tbody>
+          <tr><td>Doble clic a un <code>.xlsx</code> en el panel de la izquierda</td>
+              <td>Se ve la hoja de cálculo</td>
+              <td>Clic derecho → Volver a abrir con → Office Viewer</td></tr>
+          <tr><td>Doble clic a un <code>.pdf</code></td>
+              <td>Se ve el PDF</td>
+              <td>Igual que el anterior</td></tr>
+          <tr><td>Mire la parte de abajo</td>
+              <td>Dos renglones con modelo, barritas y dólares</td>
+              <td><code>/exit</code> y volver a entrar</td></tr>
+          <tr><td>Escriba <code>/doctor</code></td>
+              <td>Le hace una revisión completa y le dice si algo está mal</td>
+              <td>Léale el resultado a Claude y pídale que lo arregle</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="nota"><b>Si en diez minutos no le sale:</b> no se quede atrás. Pegue el error en
+      Claude Code y dígale <i>«esto me salió, arreglalo»</i>. Si sigue sin salir, avise en clase.
+      Nadie se pierde el taller por una configuración.</div>
+    </div>
+  </div>
+
+  <div class="pie">
+    <span>Diplomado en Inteligencia Artificial · UNAC · Clase 03</span>
+    <span>Mg. Alexey David Velásquez Betancurt</span>
+    <span>12 de agosto de 2026</span>
+    <span>Verificado contra Claude Code 2.1.229 y VS Code 1.133</span>
+  </div>
+</div>
+
+<script>
+function cp(b){
+  var t = b.parentElement.parentElement.querySelector('pre').innerText;
+  navigator.clipboard.writeText(t).then(function(){
+    var o = b.textContent; b.textContent = 'Copiado'; b.style.color = '#EAAD05';
+    setTimeout(function(){ b.textContent = o; b.style.color = ''; }, 1600);
+  });
+}
+</script>
+</body>
+</html>

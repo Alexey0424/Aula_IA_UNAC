@@ -17,10 +17,10 @@ El estudiante es un gerente, administrador, contador, arquitecto o profesional d
 
 | Carpeta | Contenido |
 |---|---|
-| `1_Guias_de_Clase/` | Guías y diapositivas de cada clase (incluidas las rayadas en vivo) |
+| `1_Guias_de_Clase/` | Guías y diapositivas de cada clase, con el prefijo de la clase en que se entregaron (`Clase_01_Presentacion.pdf`, `Clase_04_Guia_Proyecto_de_Grado.html`…), incluidas las rayadas en vivo |
 | `2_Criterios_Proyecto_de_Grado/` | Los criterios oficiales de las 4 entregas — **léalos antes de opinar** |
 | `3_Referencias/` | Referencias verificadas: papers, modelos, herramientas, con fuente y licencia |
-| `4_Notebooks_Colab/` | Las plantillas de laboratorio de Machine Learning (se corren en Google Colab) |
+| `4_Notebooks_Colab/` | Las plantillas de laboratorio de Machine Learning — se corren en Google Colab, en el taller de la **Clase 05** |
 | `mis_entregas/` | **La carpeta del estudiante.** Todo su trabajo va aquí |
 
 ## Las reglas de la casa
