@@ -15,19 +15,19 @@
 
 Las diapositivas de todas las clases dictadas, en PDF (las versiones rayadas en vivo se suben después de cada sesión):
 
-- `1_Guias_de_Clase/Clase_01_Presentacion.pdf`: Introducción a la Inteligencia Artificial — qué es y qué no es la IA, ML/DL/GenAI, mitos, cuándo sí y cuándo no.
-- `1_Guias_de_Clase/Clase_02_Presentacion.pdf`: Inteligencia Artificial Generativa — token, NLP, Transformer y atención, límites de los LLM.
-- `1_Guias_de_Clase/Clase_03_Presentacion.pdf`: Inteligencia Artificial Agéntica — qué es un agente, herramientas, skills, comandos y contexto.
-- `1_Guias_de_Clase/Clase_04_Presentacion.pdf`: Machine Learning 1 — tipos de ML, arquitecturas de supervised y unsupervised learning, Deep Learning, Transformers, modelos preentrenados en Hugging Face y Cloudflare.
+- `1_Guias_de_Clase/Docs_Clase_01/Clase_01_Presentacion.pdf`: Introducción a la Inteligencia Artificial — qué es y qué no es la IA, ML/DL/GenAI, mitos, cuándo sí y cuándo no.
+- `1_Guias_de_Clase/Docs_Clase_02/Clase_02_Presentacion.pdf`: Inteligencia Artificial Generativa — token, NLP, Transformer y atención, límites de los LLM.
+- `1_Guias_de_Clase/Docs_Clase_03/Clase_03_Presentacion.pdf`: Inteligencia Artificial Agéntica — qué es un agente, herramientas, skills, comandos y contexto.
+- `1_Guias_de_Clase/Docs_Clase_04/Clase_04_Presentacion.pdf`: Machine Learning 1 — tipos de ML, arquitecturas de supervised y unsupervised learning, Deep Learning, Transformers, modelos preentrenados en Hugging Face y Cloudflare.
 
 Guías para el estudiante, por la clase en que se entregaron:
 
-- [Configurar el entorno (Clase 03)](1_Guias_de_Clase/Clase_03_Configurar_Entorno.html): instalar y dejar funcionando Claude Code.
-- [Conectar Hugging Face (Clase 03)](1_Guias_de_Clase/Clase_03_Configurar_HuggingFace.html): el token, el `.env` y la CLI `hf`.
-- [Configurar git y GitHub (Clase 03)](1_Guias_de_Clase/Clase_03_Configurar_Git_y_GitHub.html): git, git-lfs y `gh`.
-- [Guía del Proyecto de Grado (Clase 04)](1_Guias_de_Clase/Clase_04_Guia_Proyecto_de_Grado.html): la versión para estudiantes de los criterios, las fechas y el formato.
-- [Cómo conectar el aula al Claude del estudiante (Clase 04)](1_Guias_de_Clase/Clase_04_Conectar_Aula_IA.html).
-- [Guía del taller de Colab (Clase 05)](1_Guias_de_Clase/Clase_05_Guia_Taller_Colab.html): abrir Colab, montar los secretos de Hugging Face y correr los notebooks de entrenamiento.
+- [Configurar el entorno (Clase 03)](1_Guias_de_Clase/Docs_Clase_03/Clase_03_Configurar_Entorno.html): instalar y dejar funcionando Claude Code.
+- [Conectar Hugging Face (Clase 03)](1_Guias_de_Clase/Docs_Clase_03/Clase_03_Configurar_HuggingFace.html): el token, el `.env` y la CLI `hf`.
+- [Configurar git y GitHub (Clase 03)](1_Guias_de_Clase/Docs_Clase_03/Clase_03_Configurar_Git_y_GitHub.html): git, git-lfs y `gh`.
+- [Guía del Proyecto de Grado (Clase 04)](1_Guias_de_Clase/Docs_Clase_04/Clase_04_Guia_Proyecto_de_Grado.html): la versión para estudiantes de los criterios, las fechas y el formato.
+- [Cómo conectar el aula al Claude del estudiante (Clase 04)](1_Guias_de_Clase/Docs_Clase_04/Clase_04_Conectar_Aula_IA.html).
+- [Guía del taller de Colab (Clase 05)](1_Guias_de_Clase/Docs_Clase_05/Clase_05_Guia_Taller_Colab.html): abrir Colab, montar los secretos de Hugging Face y correr los notebooks de entrenamiento.
 
 ## Referencias
 

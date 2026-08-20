@@ -17,7 +17,7 @@ El estudiante es un gerente, administrador, contador, arquitecto o profesional d
 
 | Carpeta | Contenido |
 |---|---|
-| `1_Guias_de_Clase/` | Guías y diapositivas de cada clase, con el prefijo de la clase en que se entregaron (`Clase_01_Presentacion.pdf`, `Clase_04_Guia_Proyecto_de_Grado.html`…), incluidas las rayadas en vivo |
+| `1_Guias_de_Clase/Docs_Clase_0N/` | **Una carpeta por clase.** Dentro, la presentación en PDF y las guías que se entregaron en esa clase (`Docs_Clase_04/Clase_04_Presentacion.pdf`, `Docs_Clase_03/Clase_03_Configurar_HuggingFace.html`…), incluidas las diapositivas rayadas en vivo |
 | `2_Criterios_Proyecto_de_Grado/` | Los criterios oficiales de las 4 entregas — **léalos antes de opinar** |
 | `3_Referencias/` | Referencias verificadas: papers, modelos, herramientas, con fuente y licencia |
 | `4_Notebooks_Colab/` | Las plantillas de laboratorio de Machine Learning — se corren en Google Colab, en el taller de la **Clase 05** |
@@ -53,7 +53,7 @@ El estudiante es un gerente, administrador, contador, arquitecto o profesional d
 - **"Revisa mi idea / mi plan / mi avance"** → cargue la skill de la entrega que aplique
   (`/entrega-1` … `/entrega-4`), evalúe punto por punto contra la rúbrica y devuelva:
   qué está bien, qué falta, y en qué orden atacarlo.
-- **"¿Qué modelo de IA le sirve a mi proyecto?"** → use la Clase 04 (`1_Guias_de_Clase/`):
+- **"¿Qué modelo de IA le sirve a mi proyecto?"** → use la Clase 04 (`1_Guias_de_Clase/Docs_Clase_04/`):
   primero pregunte si hay ejemplos con respuesta (supervisado) o no (clustering), si es un
   número en el tiempo (pronóstico), o si son documentos/audio/imagen (modelos preentrenados).
 - **"Ayúdame con el laboratorio"** → los notebooks de `4_Notebooks_Colab/` son plantillas:

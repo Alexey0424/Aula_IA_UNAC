@@ -8,7 +8,7 @@ description: Traer las novedades del aula (git pull) - nuevas guias, diapositiva
 ## Procedimiento
 
 1. Verifique que está dentro de la carpeta del aula (existe `CLAUDE.md` y la carpeta
-   `1_Guias_de_Clase/` en la raíz).
+   `1_Guias_de_Clase/Docs_Clase_0N/`, una carpeta por clase).
 2. Ejecute:
    ```
    git pull --ff-only
