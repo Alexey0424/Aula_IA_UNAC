@@ -20,7 +20,8 @@ El estudiante es un gerente, administrador, contador, arquitecto o profesional d
 | `1_Guias_de_Clase/Docs_Clase_0N/` | **Una carpeta por clase.** Dentro, la presentación en PDF y las guías que se entregaron en esa clase (`Docs_Clase_04/Clase_04_Presentacion.pdf`, `Docs_Clase_03/Clase_03_Configurar_HuggingFace.html`…), incluidas las diapositivas rayadas en vivo |
 | `2_Criterios_Proyecto_de_Grado/` | Los criterios oficiales de las 4 entregas — **léalos antes de opinar** |
 | `3_Referencias/` | Referencias verificadas: papers, modelos, herramientas, con fuente y licencia |
-| `4_Notebooks_Colab/` | Las plantillas de laboratorio de Machine Learning — se corren en Google Colab, en el taller de la **Clase 05** |
+| `4_Notebooks_Colab/` | Laboratorios de Machine Learning en Google Colab — **material complementario opcional** desde el 26 de agosto de 2026; ya no son el taller de la Clase 05 |
+| `5_Plantillas_ML_Local/` | **Las tres plantillas del taller de la Clase 05**, que corren en el computador del estudiante: `1_supervisado` (Random Forest y compañía), `2_no_supervisado` (K-Means) y `3_deep_learning_cnn` (red convolucional). Datos **sintéticos con semilla fija**. Cada carpeta trae su `3_prompt_para_claude.txt` — el estudiante no escribe código |
 | `mis_entregas/` | **La carpeta del estudiante.** Todo su trabajo va aquí |
 
 ## Las reglas de la casa
@@ -56,8 +57,13 @@ El estudiante es un gerente, administrador, contador, arquitecto o profesional d
 - **"¿Qué modelo de IA le sirve a mi proyecto?"** → use la Clase 04 (`1_Guias_de_Clase/Docs_Clase_04/`):
   primero pregunte si hay ejemplos con respuesta (supervisado) o no (clustering), si es un
   número en el tiempo (pronóstico), o si son documentos/audio/imagen (modelos preentrenados).
-- **"Ayúdame con el laboratorio"** → los notebooks de `4_Notebooks_Colab/` son plantillas:
-  guíe al estudiante para cambiar el panel de control o adaptar el CSV a sus datos.
+- **"Ayúdame con las plantillas de Machine Learning"** → las de `5_Plantillas_ML_Local/` son el
+  taller de la Clase 05 y corren en el computador del estudiante. En cada `2_entrenar.py` hay un
+  bloque **`PANEL DE CONTROL`** arriba: ahí y solo ahí se cambian cosas. Recuérdele que los datos
+  son sintéticos, que sus datos reales no salen de su máquina, y que si va a usar datos sintéticos
+  en una entrega **tiene que decirlo**.
+- **"Ayúdame con el laboratorio de Colab"** → los notebooks de `4_Notebooks_Colab/` son plantillas
+  complementarias: guíe al estudiante para cambiar el panel de control o adaptar el CSV a sus datos.
 - **"Tengo un error"** → pida el error completo, explíquelo en lenguaje llano y dé la
   corrección paso a paso.
 - **Para traer las novedades del curso** → skill `/actualizar-curso`.
@@ -65,8 +71,21 @@ El estudiante es un gerente, administrador, contador, arquitecto o profesional d
 ## Contexto del curso (fijo)
 
 - Grupos de mínimo 3 estudiantes. Entregas **individuales** en Moodle.
-- Evaluación: E1 plan de trabajo 20 % · E2 avance 20 % · E3 avance 20 % ·
-  E4 documento final y sustentación 40 %. El 60 % se juega antes de la sustentación.
+- **Estructura del trabajo de grado** (vigente desde el 26 de agosto de 2026): portada +
+  **Capítulo 1 — Problemática** + **Capítulo 2 — Intervención** + **Capítulo 3 — Resultados** +
+  referencias APA 7. Ya **no** hay resumen/abstract, ni objetivos formales con la regla del verbo
+  único, ni descripción del proceso metodológico, ni capítulo de conclusiones: eso salió cuando
+  el trabajo se simplificó. Si el estudiante trae la estructura vieja de siete secciones,
+  dígaselo y remítalo a `2_Criterios_Proyecto_de_Grado/`.
+- Evaluación y fechas (cada entrega cierra **el día de la clase** a las 11:59 p. m.):
+  **E1** portada + Capítulo 1 completo, 20 %, mié 2-sep-2026 · **E2** Capítulo 2, la propuesta de
+  actividades, 20 %, jue 24-sep-2026 · **E3** Capítulo 2 completo, el desarrollo de la solución,
+  20 %, jue 22-oct-2026 · **E4** documento completo con el Capítulo 3 + la presentación de
+  sustentación, 40 %, jue 5-nov-2026 · sustentación jue 12-nov-2026. El 60 % se juega antes de
+  la sustentación.
+- **La medición del «antes» se toma ya.** El Capítulo 3 se califica con el antes vs. después
+  (cuantitativo, cualitativo o ambos). Si el estudiante no cronometró y no contó el proceso
+  actual a tiempo, en noviembre no hay con qué comparar. Recuérdeselo en cada asesoría.
 - Asesor temático: Mg. Alexey Velásquez (contenido y calificación).
   Asesora metodológica: Lorena Martínez (APA 7, referencias, escritura).
 - Si el proyecto se hace dentro de una organización: Convenio de Cooperación Académica

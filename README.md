@@ -34,7 +34,8 @@ Para traer las novedades cada semana: escriba `/actualizar-curso`.
 | `1_Guias_de_Clase/` | Guías y diapositivas de cada clase (incluidas las rayadas en vivo) |
 | `2_Criterios_Proyecto_de_Grado/` | Criterios oficiales y rúbricas de las 4 entregas |
 | `3_Referencias/` | Referencias verificadas, con fuente y licencia |
-| `4_Notebooks_Colab/` | Plantillas de laboratorio para Google Colab |
+| `4_Notebooks_Colab/` | Plantillas de laboratorio para Google Colab — material complementario opcional |
+| `5_Plantillas_ML_Local/` | Las tres plantillas de Machine Learning que corren en su propio computador (taller de la Clase 05) |
 | `mis_entregas/` | **Su carpeta.** Todo su trabajo va aquí (no se sube a este repositorio) |
 
 ## Las dos reglas
