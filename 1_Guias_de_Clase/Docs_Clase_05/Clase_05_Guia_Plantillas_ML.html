@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tres plantillas de Machine Learning en su computador · Clase 05 · Diplomado en IA · UNAC</title>
+<style>
+:root{
+  --navy:#0E2036; --card-dark:#1B3453; --cream:#F6F5F0;
+  --orange:#E8792B; --blue:#3C7FD0; --red:#D54E48; --gold:#EAAD05; --teal:#29AC8A;
+  --bg:#F6F5F0; --surface:#FFFFFF; --surface-2:#FCFBF7;
+  --ink:#12233A; --ink-2:#4B5A6D; --ink-3:#7A8797;
+  --line:#DDD8CC; --line-soft:#EAE5DA;
+  --shadow:0 1px 2px rgba(14,32,54,.06), 0 6px 18px rgba(14,32,54,.05);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  font-size:15.5px; line-height:1.62; -webkit-font-smoothing:antialiased}
+.wrap{max-width:960px; margin:0 auto; padding:0 26px}
+h1,h2,h3,h4{margin:0; font-weight:600; line-height:1.22}
+p{margin:0 0 .8em}
+code{font-family:Consolas,"Cascadia Mono",monospace; font-size:.92em;
+  background:var(--surface-2); border:1px solid var(--line-soft);
+  border-radius:4px; padding:1px 5px}
+
+/* hero */
+.hero{background:var(--navy); color:var(--cream); padding:42px 0 36px; position:relative; overflow:hidden}
+.hero::after{content:""; position:absolute; inset:auto 0 0 0; height:3px;
+  background:linear-gradient(90deg,var(--red) 0 40%,var(--blue) 40% 72%,var(--orange) 72% 100%)}
+.eyebrow{display:flex; align-items:center; gap:10px; font-size:11.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:15px}
+.eyebrow::before{content:""; width:3.5px; height:15px; background:var(--gold); border-radius:2px}
+.hero h1{font-size:clamp(28px,4.2vw,40px); font-family:"Segoe UI Light","Segoe UI",sans-serif;
+  font-weight:300; letter-spacing:-.01em}
+.hero h1 b{font-weight:600}
+.hero .sub{margin-top:14px; max-width:74ch; color:#A9BBD1; font-size:16px}
+.hero .sub b{color:var(--cream)}
+
+/* pasos */
+.paso{margin-top:44px; background:var(--surface); border:1px solid var(--line);
+  border-radius:12px; box-shadow:var(--shadow); overflow:hidden}
+.paso-h{display:flex; align-items:flex-start; gap:16px; padding:20px 26px 18px;
+  border-bottom:1px solid var(--line-soft); background:var(--surface-2)}
+.paso-n{flex:none; width:38px; height:38px; border-radius:50%; background:var(--gold);
+  color:var(--navy); font-weight:600; font-size:17px; display:flex;
+  align-items:center; justify-content:center; margin-top:1px}
+.paso-n.tarea{background:var(--red); color:#fff}
+.paso-h h2{font-size:21px; font-family:"Segoe UI Light","Segoe UI",sans-serif; font-weight:300}
+.paso-h h2 b{font-weight:600}
+.paso-h .t{margin-top:5px; color:var(--ink-3); font-size:13.5px}
+.paso-c{padding:22px 26px 24px}
+h3.sub{font-size:15px; margin:22px 0 8px; color:var(--navy)}
+h3.sub:first-child{margin-top:0}
+
+/* seccion suelta */
+.bloque{margin-top:44px; background:var(--surface); border:1px solid var(--line);
+  border-radius:12px; box-shadow:var(--shadow); padding:24px 26px 26px}
+.bloque h2{font-size:21px; font-family:"Segoe UI Light","Segoe UI",sans-serif; font-weight:300;
+  margin-bottom:6px}
+.bloque h2 b{font-weight:600}
+.bloque .t{color:var(--ink-3); font-size:13.5px; margin-bottom:14px}
+
+/* bloque para pegar */
+.pegar{margin:16px 0 6px; border:1.5px solid var(--navy); border-radius:10px; overflow:hidden}
+.pegar-h{background:var(--navy); color:var(--cream); padding:9px 16px; font-size:11.5px;
+  letter-spacing:.13em; text-transform:uppercase; font-weight:600;
+  display:flex; align-items:center; gap:10px; justify-content:space-between}
+.pegar-h span::before{content:"\25B8  "; color:var(--gold)}
+.pegar pre{margin:0; padding:18px 20px; background:#0B1A2C; color:#D6E2F0;
+  font-family:Consolas,"Cascadia Mono",monospace; font-size:13.2px; line-height:1.62;
+  overflow-x:auto; white-space:pre-wrap; word-break:break-word}
+.cp{background:transparent; border:1px solid rgba(255,255,255,.25); color:var(--cream);
+  border-radius:6px; padding:3px 11px; font-size:11px; font-family:inherit;
+  letter-spacing:.06em; cursor:pointer}
+.cp:hover{border-color:var(--gold); color:var(--gold)}
+.pegar.corto pre{font-size:14.5px; padding:16px 20px}
+
+pre.plain{background:var(--surface-2); border:1px solid var(--line-soft); border-radius:9px;
+  padding:15px 18px; overflow-x:auto; font-family:Consolas,"Cascadia Mono",monospace;
+  font-size:13px; line-height:1.6; color:var(--ink-2); margin:12px 0}
+
+.tbl{overflow-x:auto; border:1px solid var(--line); border-radius:9px;
+  background:var(--surface); margin:14px 0}
+table{border-collapse:collapse; width:100%; min-width:480px; font-size:13.8px}
+th,td{text-align:left; padding:9px 13px; border-bottom:1px solid var(--line-soft); vertical-align:top}
+th{background:var(--surface-2); font-size:10.5px; letter-spacing:.11em; text-transform:uppercase;
+  color:var(--ink-3); font-weight:600; white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td code{white-space:nowrap}
+
+.nota{border-left:3px solid var(--orange); background:#FDF3EA; padding:12px 16px;
+  border-radius:0 8px 8px 0; margin:16px 0; font-size:14.5px; color:#6E4318}
+.nota b{color:#4A2C0C}
+.ok{border-left-color:var(--teal); background:#E8F6F1; color:#1B5546}
+.ok b{color:#0C3A2E}
+.alto{border-left-color:var(--red); background:#FBECEB; color:#7A2C28}
+.alto b{color:#5A1C18}
+
+ul,ol{margin:0 0 .9em; padding-left:1.3em}
+li{margin-bottom:6px}
+
+.chip{display:inline-block; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+  font-weight:600; padding:3px 9px; border-radius:20px; margin-left:8px; vertical-align:2px}
+.chip.clase{background:#E8F6F1; color:#0C3A2E; border:1px solid #B6E0D3}
+.chip.casa{background:#FBECEB; color:#5A1C18; border:1px solid #EEC4C1}
+
+.pie{margin:56px 0 40px; padding-top:20px; border-top:1px solid var(--line);
+  font-size:12.8px; color:var(--ink-3); display:flex; flex-wrap:wrap; gap:10px 22px}
+@media print{
+  .cp{display:none} body{font-size:11.5pt} .hero{padding:26px 0 22px}
+  .paso,.bloque{break-inside:avoid; box-shadow:none}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Diplomado en Inteligencia Artificial · UNAC · Clase 05</div>
+    <h1>Tres plantillas de <b>Machine Learning</b><br>en su propio computador</h1>
+    <p class="sub">En la Clase 04 se explicaron los tipos de Machine Learning y las métricas.
+    Esto es el paso siguiente: <b>el modelo entrenando en su máquina</b>, sin internet, sin
+    cuenta de Google y <b>sin que sus datos salgan a ningún lado</b>.</p>
+    <p class="sub" style="margin-top:12px"><b>Usted no escribe código.</b> Cada plantilla trae el
+    prompt exacto que se copia y se pega en Claude Code. Claude corre la plantilla y le explica
+    el resultado.</p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="bloque" style="margin-top:34px">
+    <h2>Las tres plantillas, <b>de un vistazo</b></h2>
+    <div class="t">Cada una responde una pregunta de gerente en una frase.</div>
+    <div class="tbl">
+      <table>
+        <thead><tr><th></th><th>Plantilla</th><th>La pregunta</th><th>Qué usa</th><th>Corre en</th><th>Cuándo</th></tr></thead>
+        <tbody>
+        <tr><td>1</td><td><b>Supervisado</b><br><code>1_supervisado</code></td>
+            <td><i>«¿Esta factura se va a pagar tarde?»</i></td>
+            <td>Random Forest · Logistic Regression · Decision Tree</td>
+            <td>&lt; 1 segundo</td>
+            <td><span class="chip clase">En clase</span></td></tr>
+        <tr><td>2</td><td><b>No supervisado</b><br><code>2_no_supervisado</code></td>
+            <td><i>«Agrúpeme mis productos en familias que yo no había visto.»</i></td>
+            <td>K-Means</td>
+            <td>~2 segundos</td>
+            <td><span class="chip clase">En clase</span></td></tr>
+        <tr><td>3</td><td><b>Deep Learning</b><br><code>3_deep_learning_cnn</code></td>
+            <td><i>«Clasifíqueme estas imágenes.»</i></td>
+            <td>Convolutional Neural Network (CNN)</td>
+            <td>5 a 6 segundos</td>
+            <td><span class="chip casa">Tarea, en casa</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="nota ok"><b>Todo está en la carpeta <code>3_Plantillas_ML_Local</code></b>, la que
+    le pasó el docente. Ahí adentro está también el <code>LEEME.md</code> (el detalle completo de
+    cada plantilla) y el <code>0_instalar.txt</code> (las líneas de instalación, con los pesos y
+    los tiempos medidos). <b>Esta guía es el camino corto:</b> si solo va a leer una cosa, lea
+    esta.</div>
+  </div>
+
+  <!-- ============================================ 1 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">1</div>
+      <div>
+        <h2>Verifique que <b>tiene Python</b></h2>
+        <div class="t">Diez segundos. Es el único requisito previo.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <p>Abra <b>PowerShell</b>: tecla <code>Windows</code> → escriba <code>powershell</code> →
+      Enter. Copie y pegue esta línea:</p>
+
+      <div class="pegar corto">
+        <div class="pegar-h"><span>Pegue esto en PowerShell</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>py --version</pre>
+      </div>
+
+      <div class="nota ok" style="margin-top:18px"><b>Si responde algo como <code>Python
+      3.12.10</code>, ya está.</b> Siga al paso 2.</div>
+
+      <div class="nota alto"><b>Si dice que no reconoce el comando, o si se le ABRE LA TIENDA DE
+      MICROSOFT:</b> usted no tiene Python instalado. Eso que se abrió es la tienda ofreciéndole
+      instalarlo — <b>ciérrela</b>, no instale de ahí. Baje el instalador oficial de
+      <code>https://www.python.org/downloads/windows/</code> y, en la <b>primera pantalla</b> del
+      instalador, <b>marque la casilla «Add python.exe to PATH»</b> antes de darle
+      <i>Install</i>. Es la casilla que todo el mundo se salta y es la que causa el 90 % de los
+      problemas.</div>
+    </div>
+  </div>
+
+  <!-- ============================================ 2 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">2</div>
+      <div>
+        <h2>Corra la <b>línea de instalación obligatoria</b></h2>
+        <div class="t">Una sola línea. Es lo primero que se hace en clase y se deja corriendo.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <div class="pegar corto">
+        <div class="pegar-h"><span>Pegue esto en PowerShell — LÍNEA 1</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>py -m pip install scikit-learn pandas matplotlib</pre>
+      </div>
+
+      <p style="margin-top:18px">Con esto corren las <b>plantillas 1 y 2</b>. Es todo lo que
+      necesita para la clase.</p>
+
+      <div class="tbl">
+        <table>
+          <thead><tr><th></th><th>Descarga</th><th>Tiempo</th><th>Disco</th><th>Para qué</th></tr></thead>
+          <tbody>
+          <tr><td><b>LÍNEA 1</b> (obligatoria)</td><td>84 MB · 18 paquetes</td><td>47 a 53 s</td>
+              <td>395 MB</td><td>Plantillas 1 y 2</td></tr>
+          <tr><td><b>LÍNEA 2</b> (solo la CNN)</td><td>127 MB</td><td>~53 s</td>
+              <td>+640 MB (total 1,0 GB)</td><td>Plantilla 3 — <b>en casa</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:13.5px; color:var(--ink-3)">Los números son <b>medidos</b>, no
+      estimados: Windows 10 Pro con Python 3.12.10, el 26 de agosto de 2026.</p>
+
+      <div class="nota"><b>¿Por qué 18 paquetes?</b> Porque <code>scikit-learn</code> arrastra
+      <code>scipy</code> (36 MB) y <code>numpy</code> (12 MB). Es normal, es una sola vez, y no se
+      puede evitar.</div>
+
+      <h3 class="sub">Compruebe que quedó bien (5 segundos)</h3>
+      <div class="pegar corto">
+        <div class="pegar-h"><span>Pegue esto en PowerShell</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>py -c "import sklearn, pandas, matplotlib; print('LINEA 1 OK')"</pre>
+      </div>
+      <div class="nota ok" style="margin-top:16px">Debe responder <code>LINEA 1 OK</code> y nada
+      más. Si responde eso, ya puede correr las plantillas 1 y 2.</div>
+    </div>
+  </div>
+
+  <!-- ============================================ 3 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">3</div>
+      <div>
+        <h2>Cómo se corre <b>cualquiera de las tres</b></h2>
+        <div class="t">Son los mismos cuatro pasos siempre. Cambia solo el prompt que pega.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <ol>
+        <li>En el explorador de Windows, <b>clic derecho sobre la carpeta
+        <code>3_Plantillas_ML_Local</code></b> → <b>Abrir en Terminal</b>.</li>
+        <li>Escriba <code>claude</code> y Enter.</li>
+        <li>Abra el archivo <code>3_prompt_para_claude.txt</code> de la plantilla que quiera,
+        <b>copie el PROMPT 1 completo</b> y péguelo en Claude. (En esta guía se lo dejamos ya
+        copiable en cada paso, con el botón <i>Copiar</i>.)</li>
+        <li>Cuando Claude le pida <b>permiso para ejecutar el script</b>, dígale que sí.</li>
+      </ol>
+      <div class="nota ok"><b>Cada plantilla imprime el resultado en español, explicado, y guarda
+      una gráfica PNG</b> que se abre con doble clic. Pídale a Claude que se la abra y se la
+      explique: para eso está.</div>
+      <div class="nota"><b>Una sola cosa se toca en los scripts.</b> Arriba de cada
+      <code>2_entrenar.py</code> hay un bloque marcado <b><code>PANEL DE CONTROL</code></b>. Ahí y
+      solo ahí se cambian cosas. Todo lo demás corre solo — y si quiere cambiar algo del panel,
+      dígaselo a Claude en palabras y él lo cambia.</div>
+    </div>
+  </div>
+
+  <!-- ============================================ 4 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">4</div>
+      <div>
+        <h2>Plantilla 1 · <b>Machine Learning supervisado</b><span class="chip clase">En clase</span></h2>
+        <div class="t">Carpeta <code>1_supervisado</code> · ¿esta factura se va a pagar tarde?</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <p>Una cartera de <b>4.000 facturas</b> de una distribuidora que le vende a cadenas,
+      mayoristas, tiendas de barrio e instituciones. De cada factura <b>ya se sabe</b> si se pagó
+      a tiempo o si se atrasó — por eso es <b>supervisado</b>: los ejemplos vienen respondidos.</p>
+
+      <p>Tres modelos compiten con el mismo examen:</p>
+      <ul>
+        <li><b>Logistic Regression</b> — la línea recta, de 1958, y todavía manda en los bancos.</li>
+        <li><b>Decision Tree</b> — preguntas en cascada; se puede leer y auditar.</li>
+        <li><b>Random Forest</b> — 300 árboles votando.</li>
+      </ul>
+
+      <h3 class="sub">El prompt exacto</h3>
+      <div class="pegar">
+        <div class="pegar-h"><span>Pegue esto en Claude Code</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>Estoy en el Diplomado en Inteligencia Artificial de la UNAC y soy gerente, no
+programador. En la carpeta 1_supervisado hay una plantilla de Machine Learning
+supervisado sobre datos sinteticos de cartera.
+
+Haz esto, en este orden:
+
+1. Corre 1_generar_datos.py y luego 2_entrenar.py con el Python de mi
+   computador. Si falta alguna libreria, dime la linea exacta de pip install
+   antes de seguir; no instales nada sin avisarme.
+
+2. Cuando termine, explicame el resultado como si yo fuera el gerente de cartera
+   y tuviera cinco minutos:
+   - Que pregunta de negocio respondio el modelo.
+   - Cual de los tres modelos gano y por que gano ese (no la matematica: la razon).
+   - Que significan Accuracy, Precision, Recall y F1 Score en MI operacion,
+     con los numeros que salieron, traducidos a facturas y a llamadas de cobranza.
+   - Que dice la matriz de confusion casilla por casilla, y cual de los dos
+     errores me cuesta mas plata.
+   - Que umbral me recomiendas de la tabla de umbrales, y por que.
+
+3. Abre resultado_supervisado.png y dime si la grafica me sirve para mostrarsela
+   a mi jefe. Si algo no se entiende, dimelo.
+
+4. Al final, dime en una sola frase: si yo tuviera esta cartera de verdad,
+   que decision distinta tomaria manana por la manana con este modelo.
+
+No cambies el codigo todavia. Primero quiero entender lo que salio.</pre>
+      </div>
+
+      <h3 class="sub">Cómo leer el resultado</h3>
+      <p>Como la semilla es fija, <b>a todo el salón le van a salir los mismos números</b>. Esto
+      es lo que va a ver:</p>
+
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Modelo</th><th>Accuracy</th><th>Precision</th><th>Recall</th><th>F1 Score</th></tr></thead>
+          <tbody>
+          <tr><td><b>Random Forest</b> — el campeón</td><td><b>0,813</b></td><td>0,851</td><td>0,502</td><td>0,631</td></tr>
+          <tr><td>Logistic Regression</td><td>0,797</td><td>0,754</td><td>0,539</td><td>0,629</td></tr>
+          <tr><td>Decision Tree</td><td>0,802</td><td>0,807</td><td>0,498</td><td>0,616</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ul>
+        <li><b>train/test split:</b> estudia con 3.000 facturas (75 %) y se examina con 1.000
+        (25 %) que <b>nunca vio</b>.</li>
+        <li><b>Control de overfitting:</b> acierta 0,840 en estudio y 0,813 en examen. Brecha de
+        0,027 — pequeña. Está aprendiendo, no memorizando.</li>
+        <li><b>Matriz de confusión</b> sobre las 1.000 del examen: 160 aciertos útiles · 653
+        aciertos tranquilos · <b>28 falsas alarmas</b> (una llamada de cobranza de más) ·
+        <b>159 que se le escaparon</b> (plata quieta). Son dos errores distintos y cuestan
+        distinto.</li>
+      </ul>
+
+      <div class="nota"><b>El momento gerencial: la tabla de umbrales.</b> Es el <b>mismo modelo</b>
+      en todas las filas — lo único que se mueve es la perilla. Con umbral <code>0,50</code> alerta
+      <b>188</b> facturas y se le escapan <b>159</b>. Con umbral <code>0,20</code> alerta <b>581</b>
+      y solo se le escapan <b>47</b>. ¿Cuál escoge? <b>Cuántas llamadas de cobranza puedo pagar al
+      mes no es una pregunta técnica</b>, es una decisión de presupuesto. Ahí está la clase
+      entera.</div>
+
+      <p style="font-size:13.5px; color:var(--ink-3)"><b>A quién le sirve directo:</b> cartera y
+      pagos de la clínica, cuentas de cadenas, certificación de pagos en la Alcaldía, el surtido y
+      la cartera de Supermo.</p>
+    </div>
+  </div>
+
+  <!-- ============================================ 5 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">5</div>
+      <div>
+        <h2>Plantilla 2 · <b>Machine Learning no supervisado</b><span class="chip clase">En clase</span></h2>
+        <div class="t">Carpeta <code>2_no_supervisado</code> · ¿qué familias hay en mi surtido que yo no había visto?</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <p><b>600 referencias</b> de un supermercado con su comportamiento comercial: rotación,
+      margen, cuánto vende en promoción, devoluciones, quiebres de stock. <b>Nadie etiquetó nada.
+      No hay columna de respuesta.</b> El modelo propone los grupos.</p>
+
+      <h3 class="sub">El prompt exacto</h3>
+      <div class="pegar">
+        <div class="pegar-h"><span>Pegue esto en Claude Code</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>Estoy en el Diplomado en Inteligencia Artificial de la UNAC y soy gerente, no
+programador. En la carpeta 2_no_supervisado hay una plantilla de clustering con
+K-Means sobre datos sinteticos del surtido de un supermercado.
+
+Haz esto, en este orden:
+
+1. Corre 1_generar_datos.py y luego 2_entrenar.py con el Python de mi
+   computador. Si falta alguna libreria, dime la linea exacta de pip install
+   antes de seguir; no instales nada sin avisarme.
+
+2. Cuando termine, explicame como si yo fuera el comprador de categoria y
+   tuviera cinco minutos:
+   - En que se diferencia esto de la plantilla 1, en una frase.
+   - Por que aqui NO hay Accuracy, y que se mira entonces.
+   - Que dice el metodo del codo (Elbow) y por que escogimos k = 4 si la
+     metrica preferia otro numero.
+   - La ficha de los cuatro grupos: describeme cada grupo como se lo
+     describiria a mi jefe, y dime que haria yo con cada uno el lunes.
+   - Explicame la "leccion incomoda" del Silhouette bajo con recuperacion
+     alta. Quiero entender eso bien porque me huele a que me va a pasar con
+     mis datos.
+
+3. Abre resultado_clusters.png y dime que se ve en cada una de las dos
+   graficas. Senala en la grafica de la derecha donde se ve que los grupos
+   se tocan.
+
+4. Abre surtido_con_grupo.csv y dime como lo filtro en Excel para sacar la
+   lista de referencias candidatas a salir del surtido.</pre>
+      </div>
+
+      <h3 class="sub">Cómo leer el resultado</h3>
+      <ul>
+        <li>El <b>método del codo (Elbow)</b> y el <b>Silhouette Score</b> para cada
+        <code>k</code> de 2 a 8: aquí no hay Accuracy, porque no hay respuesta contra la cual
+        comparar.</li>
+        <li>La <b>ficha de cada grupo</b> con promedios y un nombre comercial propuesto:
+        <i>Locomotora de tráfico · Joya de margen · Adicto a la promoción · Cola larga dormida</i>
+        — con qué haría un comprador con cada uno el lunes.</li>
+        <li>La <b>verificación</b>: como los datos son sintéticos, sabemos qué familias se
+        sembraron. K-Means las redescubrió solo, con <b>92,8 % de coincidencia</b>.</li>
+        <li>Un CSV <code>surtido_con_grupo.csv</code> para abrir en Excel y filtrar.</li>
+      </ul>
+
+      <div class="nota"><b>La lección incómoda — es lo más valioso de esta plantilla.</b> El
+      Silhouette Score dio <b>0,34</b> (una nota mediocre) y sin embargo la recuperación real fue
+      del <b>93 %</b>. La métrica midió geometría; el negocio vive en las fronteras. Quien hubiera
+      botado ese modelo por su métrica habría botado un modelo que acierta 9 de cada 10.</div>
+
+      <div class="nota ok"><b>Y hágale el ejercicio.</b> El archivo
+      <code>3_prompt_para_claude.txt</code> de esta carpeta trae un <b>PROMPT 2</b> que le pide a
+      Claude correrla con <code>k = 3</code> y con <code>k = 6</code> y comparar. Es donde se
+      entiende de verdad qué hace el número de grupos.</div>
+
+      <p style="font-size:13.5px; color:var(--ink-3)"><b>A quién le sirve directo:</b> categorías y
+      compras en retail, surtido de tienda, referencias de un taller de confección.</p>
+    </div>
+  </div>
+
+  <!-- ============================================ 6 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n tarea">6</div>
+      <div>
+        <h2>Plantilla 3 · <b>Deep Learning con red convolucional (CNN)</b><span class="chip casa">Tarea, en casa</span></h2>
+        <div class="t">Carpeta <code>3_deep_learning_cnn</code> · ¿esta lámina de vidrio pasa, o en qué falló?</div>
+      </div>
+    </div>
+    <div class="paso-c">
+
+      <div class="nota alto"><b>Esta es la pesada, y NO se instala en clase.</b> Necesita
+      <b>PyTorch</b>: <b>127 MB</b> de descarga (medido) y ~640 MB de disco. Con 16 personas
+      bajando 127 MB al mismo tiempo, el salón se queda sin internet. <b>Esta plantilla es la
+      tarea:</b> se hace en casa, con calma, con la wifi de uno solo.</div>
+
+      <div class="pegar corto">
+        <div class="pegar-h"><span>En casa, en PowerShell — LÍNEA 2</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>py -m pip install torch</pre>
+      </div>
+
+      <h3 class="sub">Tres cosas verificadas que le ahorran dolores de cabeza</h3>
+      <ol>
+        <li><b>En Windows esa línea trae la versión de CPU y nada más.</b> No necesita tarjeta
+        gráfica, no necesita CUDA y <b>no</b> necesita el famoso
+        <code>--index-url https://download.pytorch.org/whl/cpu</code> que sale en los tutoriales.
+        Todas las dependencias de NVIDIA de PyTorch están marcadas «solo Linux», así que en
+        Windows no se bajan. Verificado el 26 de agosto de 2026.</li>
+        <li><b>Si le sale un error que menciona «long paths» o «ruta demasiado larga»:</b>
+        <b>mueva la carpeta de las plantillas a una ruta corta</b>, por ejemplo
+        <code>C:\ia\</code>, y vuelva a intentar. Windows tiene un límite de 260 caracteres en las
+        rutas y PyTorch tiene nombres de archivo muy largos por dentro. <b>Nos pasó en las
+        pruebas:</b> la instalación falla en una carpeta profunda y funciona perfecto en
+        <code>C:\ia\</code>. Es la causa más probable de que le falle.</li>
+        <li><b>Si prefiere no instalar PyTorch nunca, no pasa nada.</b> Las plantillas 1 y 2 son
+        completas por sí solas y le sirven igual para el proyecto de grado.</li>
+      </ol>
+
+      <div class="pegar corto">
+        <div class="pegar-h"><span>Compruebe que quedó — después de la LÍNEA 2</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>py -c "import torch; print('LINEA 2 OK - torch', torch.__version__)"</pre>
+      </div>
+      <p style="margin-top:14px">Debe decir algo como <code>torch 2.13.0+cpu</code>. Ese
+      <code>+cpu</code> del final es la confirmación de que quedó la versión liviana.</p>
+
+      <h3 class="sub">Qué hace la plantilla</h3>
+      <p><b>2.400 imágenes</b> simuladas de 28 × 28 píxeles de láminas de vidrio saliendo de la
+      línea de corte, en cuatro clases: <b>OK · Rayón · Burbuja · Astillado</b>. Y lo que la hace
+      especial: <b>corre dos modelos y los compara con el mismo examen.</b></p>
+
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Modelo</th><th>Cómo mira la imagen</th><th>Accuracy medido</th></tr></thead>
+          <tbody>
+          <tr><td>Logistic Regression</td><td>los 784 píxeles como columnas sueltas</td><td><b>0,66</b></td></tr>
+          <tr><td>CNN (2 capas convolucionales)</td><td>vecindarios de píxeles (convolución)</td><td><b>0,97</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><b>31,5 puntos de diferencia.</b> Los dos vieron las mismas imágenes. Lo único que cambió
+      fue mirar vecindarios en vez de píxeles sueltos. Ahí está toda la lección: un rayón movido
+      tres píxeles a la derecha es, para el modelo clásico, una fila de datos completamente
+      distinta; para la convolución sigue siendo un rayón.</p>
+
+      <h3 class="sub">El prompt exacto</h3>
+      <div class="pegar">
+        <div class="pegar-h"><span>Pegue esto en Claude Code</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>Estoy en el Diplomado en Inteligencia Artificial de la UNAC y soy gerente, no
+programador. En la carpeta 3_deep_learning_cnn hay una plantilla de Deep
+Learning con una red convolucional que clasifica imagenes de laminas de vidrio
+en cuatro clases: OK, rayon, burbuja y borde astillado. Las imagenes son
+sinteticas.
+
+Haz esto, en este orden:
+
+1. Verifica primero si tengo PyTorch instalado. Si NO lo tengo, dime cuanto
+   pesa la descarga y preguntame si quiero seguir ANTES de instalar nada.
+
+2. Corre 1_generar_datos.py. Abre muestras_vidrio.png y describeme las cuatro
+   clases: quiero ver con mis propios ojos con que esta trabajando la red
+   antes de creerle un solo numero.
+
+3. Corre 2_entrenar.py.
+
+4. Explicame el resultado como si yo fuera el jefe de planta:
+   - Por que el modelo clasico (pixel por pixel) saca tan poquito y la CNN
+     tanto. Explicame que es una convolucion con el ejemplo del rayon movido
+     tres pixeles a la derecha. Sin matematicas.
+   - Que significa cada linea de la tabla de epocas. Por que el acierto sube
+     y por que a veces baja un poquito.
+   - Cual defecto confunde con cual, y por que ESE justamente.
+   - Que dice la "letra menuda" sobre imagenes sinteticas, y que tendria que
+     hacer yo distinto para llevar esto a una planta de verdad.
+
+5. Abre resultado_cnn.png y dime que se ve en cada uno de los tres paneles.
+   Del tercer panel dime si a MI ojo humano tambien se me confundirian esas
+   laminas.
+
+6. Al final: en una sola frase, cuantas fotos por clase tendria que conseguir
+   para intentar esto con imagenes de verdad, y por donde empezaria.</pre>
+      </div>
+
+      <div class="nota ok" style="margin-top:18px"><b>El archivo de imágenes lo genera el propio
+      script.</b> Si en su carpeta no aparece <code>imagenes_vidrio.npz</code>, es normal: el paso
+      2 del prompt (<code>1_generar_datos.py</code>) lo crea en segundos, junto con
+      <code>muestras_vidrio.png</code>. <b>Ábrala:</b> nunca entrene con datos que no ha mirado.</div>
+
+      <div class="nota"><b>Y el argumento gerencial, que la plantilla también imprime:</b> con una
+      tabla de Excel de 2.000 filas, el Random Forest le gana a la red — y es más barato y más
+      explicable. Con imágenes, audio o texto, la red gana y no hay discusión. <b>No se deje vender
+      redes neuronales para problemas de Excel.</b></div>
+
+      <div class="nota alto"><b>La letra menuda, que también la imprime.</b> Ese 0,97 es sobre
+      imágenes <b>sintéticas</b>, limpias y parecidas entre sí. Con fotos de verdad —reflejos,
+      polvo en el lente, la luz del turno de la noche— el número baja, y baja harto. No lleve ese
+      0,97 a una reunión como si fuera una promesa de planta.</div>
+
+      <p><b>Tiempo de la corrida:</b> 1,5 s de entrenamiento; 5 a 6 s el script completo (cargar
+      PyTorch se demora más que entrenar la red).</p>
+    </div>
+  </div>
+
+  <!-- ============================================ datos sinteticos -->
+  <div class="bloque">
+    <h2>Los datos son <b>sintéticos</b>, y eso se dice siempre</h2>
+    <div class="t">No son datos de ninguna empresa real. De ninguna.</div>
+    <p>Los tres conjuntos de datos los <b>inventa un script con semilla fija</b>. No son datos de
+    Supermo, ni de Distintores, ni de la clínica, ni de Coti Vidrios, ni de ninguna entidad.</p>
+    <ol>
+      <li><b>Corren sin internet.</b> En clase no se descarga ni un byte de datos.</li>
+      <li><b>Son reproducibles.</b> Semilla fija: todo el salón obtiene los mismos números y se
+      puede comparar.</li>
+      <li><b>No exponen a nadie.</b> Ningún dato de ninguna empresa sale de ninguna parte.</li>
+    </ol>
+    <p>Cada carpeta tiene su <code>1_generar_datos.py</code>. Si borra el CSV, el script de
+    entrenamiento lo vuelve a generar solo. Y si quiere ver de dónde salen los datos, ábralo:
+    <b>la regla oculta que el modelo tiene que descubrir está escrita ahí</b>, con comentarios.</p>
+    <div class="nota alto"><b>Para el proyecto de grado:</b> si usa datos sintéticos en una
+    entrega, <b>dígalo</b>. Hacer pasar datos inventados por reales es una falta grave, y se
+    nota.</div>
+  </div>
+
+  <!-- ============================================ reglas de la casa -->
+  <div class="bloque">
+    <h2>Las <b>dos reglas de la casa</b></h2>
+    <div class="t">Estas dos no se negocian.</div>
+    <ol>
+      <li><b>Sus datos se quedan en su computador.</b> Eso es la mitad del sentido de correr esto
+      en local y no en la nube. Ningún script sube nada a ninguna parte, y los prompts para Claude
+      se lo dicen explícitamente.</li>
+      <li><b>Nunca entrene con datos que no ha mirado.</b> Por eso la plantilla 3 genera
+      <code>muestras_vidrio.png</code> <i>antes</i> de entrenar, y la plantilla 1 le muestra las
+      primeras cinco filas. Ábralos.</li>
+    </ol>
+    <div class="nota ok"><b>Cuando se anime a poner sus propios datos</b>, cada
+    <code>3_prompt_para_claude.txt</code> trae un prompt adicional para eso. Ese prompt le hace
+    revisar antes de entrenar: qué columnas son identificadores (cédulas, NIT, números de factura)
+    y hay que sacar, y si hay <b>fuga de información</b> — una columna que ya contenga la
+    respuesta. Es el error número uno y da resultados hermosos y falsos.</div>
+  </div>
+
+  <!-- ============================================ si algo falla -->
+  <div class="bloque">
+    <h2>Si algo <b>falla</b></h2>
+    <div class="t">No adivine. Y no se quede atrás.</div>
+    <p><b>La regla de los diez minutos:</b> si lleva diez minutos peleando con lo mismo,
+    <b>pare</b>. Abra Claude Code en la carpeta de las plantillas, péguele el error completo con
+    esta frase, y siga mirando la clase. Lo suyo se resuelve en asesoría.</p>
+
+    <div class="pegar">
+      <div class="pegar-h"><span>Pegue esto en Claude Code, con su error debajo</span>
+        <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>Me salio este error corriendo las plantillas del diplomado. Estoy en Windows
+y no soy programador. Dime en pasos numerados que hago, y no instales nada
+sin avisarme primero.
+
+&lt;pegue aqui el error completo, tal cual, sin recortarlo&gt;</pre>
+    </div>
+
+    <h3 class="sub">Los tres tropiezos más probables</h3>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Lo que ve</th><th>Qué es</th><th>Qué hace</th></tr></thead>
+        <tbody>
+        <tr><td>Se le abre la <b>Tienda de Microsoft</b> al escribir <code>py --version</code></td>
+            <td>No tiene Python</td>
+            <td>Ciérrela. Instale de <code>python.org</code> marcando <b>«Add python.exe to
+            PATH»</b></td></tr>
+        <tr><td>Un error que menciona <b>«long paths»</b> o <b>ruta demasiado larga</b></td>
+            <td>El límite de 260 caracteres de Windows, con los nombres largos de PyTorch</td>
+            <td>Mueva la carpeta a <code>C:\ia\</code> y repita</td></tr>
+        <tr><td><code>ModuleNotFoundError</code> con <code>sklearn</code>, <code>pandas</code> o
+            <code>matplotlib</code></td>
+            <td>Falta la LÍNEA 1</td>
+            <td>Corra el paso 2 de esta guía y vuelva a intentar</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="nota"><b>Plan B si el internet del salón se cae.</b> El docente lleva los paquetes
+    en una memoria USB. Copie la carpeta de paquetes a su computador y corra la línea que él le
+    dé en el momento: instala en 41 segundos, sin descargar nada, y los resultados salen
+    idénticos. Está probada y está escrita en <code>0_instalar.txt</code>.</div>
+  </div>
+
+  <div class="pie">
+    <span>Diplomado en Inteligencia Artificial · UNAC · Clase 05</span>
+    <span>Mg. Alexey David Velásquez Betancurt</span>
+    <span>26 de agosto de 2026</span>
+    <span>Todos los pesos y tiempos de esta guía son medidos, no estimados: Windows 10 Pro, Python 3.12.10</span>
+  </div>
+</div>
+
+<script>
+function cp(b){
+  var t = b.parentElement.parentElement.querySelector('pre').innerText;
+  navigator.clipboard.writeText(t).then(function(){
+    var o = b.textContent; b.textContent = 'Copiado'; b.style.color = '#EAAD05';
+    setTimeout(function(){ b.textContent = o; b.style.color = ''; }, 1600);
+  });
+}
+</script>
+</body>
+</html>

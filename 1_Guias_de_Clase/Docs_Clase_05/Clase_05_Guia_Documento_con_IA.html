@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redactar el trabajo de grado con inteligencia artificial · Clase 05 · Diplomado en IA · UNAC</title>
+<style>
+:root{
+  --navy:#0E2036; --card-dark:#1B3453; --cream:#F6F5F0;
+  --orange:#E8792B; --blue:#3C7FD0; --red:#D54E48; --gold:#EAAD05; --teal:#29AC8A;
+  --bg:#F6F5F0; --surface:#FFFFFF; --surface-2:#FCFBF7;
+  --ink:#12233A; --ink-2:#4B5A6D; --ink-3:#7A8797;
+  --line:#DDD8CC; --line-soft:#EAE5DA;
+  --shadow:0 1px 2px rgba(14,32,54,.06), 0 6px 18px rgba(14,32,54,.05);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  font-size:15.5px; line-height:1.62; -webkit-font-smoothing:antialiased}
+.wrap{max-width:960px; margin:0 auto; padding:0 26px}
+h1,h2,h3,h4{margin:0; font-weight:600; line-height:1.22}
+p{margin:0 0 .8em}
+code{font-family:Consolas,"Cascadia Mono",monospace; font-size:.92em;
+  background:var(--surface-2); border:1px solid var(--line-soft);
+  border-radius:4px; padding:1px 5px}
+
+/* hero */
+.hero{background:var(--navy); color:var(--cream); padding:42px 0 36px; position:relative; overflow:hidden}
+.hero::after{content:""; position:absolute; inset:auto 0 0 0; height:3px;
+  background:linear-gradient(90deg,var(--gold) 0 40%,var(--teal) 40% 72%,var(--red) 72% 100%)}
+.eyebrow{display:flex; align-items:center; gap:10px; font-size:11.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:15px}
+.eyebrow::before{content:""; width:3.5px; height:15px; background:var(--gold); border-radius:2px}
+.hero h1{font-size:clamp(28px,4.2vw,40px); font-family:"Segoe UI Light","Segoe UI",sans-serif;
+  font-weight:300; letter-spacing:-.01em}
+.hero h1 b{font-weight:600}
+.hero .sub{margin-top:14px; max-width:74ch; color:#A9BBD1; font-size:16px}
+.hero .sub b{color:var(--cream)}
+
+/* indice */
+.indice{margin-top:30px; background:var(--surface); border:1px solid var(--line);
+  border-radius:12px; box-shadow:var(--shadow); padding:18px 24px 20px}
+.indice h4{font-size:10.5px; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--ink-3); margin-bottom:10px}
+.indice ol{margin:0; padding-left:1.35em; font-size:14.5px}
+.indice li{margin-bottom:4px}
+.indice a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line)}
+.indice a:hover{color:var(--navy); border-bottom-color:var(--gold)}
+
+/* pasos */
+.paso{margin-top:44px; background:var(--surface); border:1px solid var(--line);
+  border-radius:12px; box-shadow:var(--shadow); overflow:hidden}
+.paso-h{display:flex; align-items:flex-start; gap:16px; padding:20px 26px 18px;
+  border-bottom:1px solid var(--line-soft); background:var(--surface-2)}
+.paso-n{flex:none; width:38px; height:38px; border-radius:50%; background:var(--gold);
+  color:var(--navy); font-weight:600; font-size:17px; display:flex;
+  align-items:center; justify-content:center; margin-top:1px}
+.paso-h h2{font-size:21px; font-family:"Segoe UI Light","Segoe UI",sans-serif; font-weight:300}
+.paso-h h2 b{font-weight:600}
+.paso-h .t{margin-top:5px; color:var(--ink-3); font-size:13.5px}
+.paso-c{padding:22px 26px 24px}
+
+h3.sub{font-size:16.5px; margin:26px 0 10px; padding-left:11px;
+  border-left:3.5px solid var(--navy)}
+h3.sub:first-child{margin-top:0}
+h4.mini{font-size:11px; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--ink-3); margin:20px 0 8px}
+
+/* bloque para pegar */
+.pegar{margin:16px 0 6px; border:1.5px solid var(--navy); border-radius:10px; overflow:hidden}
+.pegar-h{background:var(--navy); color:var(--cream); padding:9px 16px; font-size:11.5px;
+  letter-spacing:.13em; text-transform:uppercase; font-weight:600;
+  display:flex; align-items:center; gap:10px; justify-content:space-between}
+.pegar-h span::before{content:"\25B8  "; color:var(--gold)}
+.pegar pre{margin:0; padding:18px 20px; background:#0B1A2C; color:#D6E2F0;
+  font-family:Consolas,"Cascadia Mono",monospace; font-size:13.2px; line-height:1.62;
+  overflow-x:auto; white-space:pre-wrap; word-break:break-word}
+.cp{background:transparent; border:1px solid rgba(255,255,255,.25); color:var(--cream);
+  border-radius:6px; padding:3px 11px; font-size:11px; font-family:inherit;
+  letter-spacing:.06em; cursor:pointer}
+.cp:hover{border-color:var(--gold); color:var(--gold)}
+
+pre.plain{background:var(--surface-2); border:1px solid var(--line-soft); border-radius:9px;
+  padding:15px 18px; overflow-x:auto; font-family:Consolas,"Cascadia Mono",monospace;
+  font-size:13px; line-height:1.6; color:var(--ink-2); margin:12px 0; white-space:pre-wrap}
+
+.tbl{overflow-x:auto; border:1px solid var(--line); border-radius:9px;
+  background:var(--surface); margin:14px 0}
+table{border-collapse:collapse; width:100%; min-width:480px; font-size:13.8px}
+th,td{text-align:left; padding:9px 13px; border-bottom:1px solid var(--line-soft); vertical-align:top}
+th{background:var(--surface-2); font-size:10.5px; letter-spacing:.11em; text-transform:uppercase;
+  color:var(--ink-3); font-weight:600; white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td code{white-space:normal}
+
+.nota{border-left:3px solid var(--orange); background:#FDF3EA; padding:12px 16px;
+  border-radius:0 8px 8px 0; margin:16px 0; font-size:14.5px; color:#6E4318}
+.nota b{color:#4A2C0C}
+.ok{border-left-color:var(--teal); background:#E8F6F1; color:#1B5546}
+.ok b{color:#0C3A2E}
+.peligro{border-left-color:var(--red); background:#FBEBEA; color:#7A2A26}
+.peligro b{color:#5A1714}
+
+/* antes / despues */
+.par{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:16px 0}
+@media (max-width:760px){ .par{grid-template-columns:1fr} }
+.caja{border:1px solid var(--line); border-radius:10px; overflow:hidden; background:var(--surface)}
+.caja-h{padding:8px 15px; font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  font-weight:600; display:flex; align-items:center; gap:8px}
+.caja-mal .caja-h{background:#FBEBEA; color:#7A2A26; border-bottom:1px solid #F0D3D1}
+.caja-bien .caja-h{background:#E8F6F1; color:#0C3A2E; border-bottom:1px solid #CDE9E0}
+.caja-c{padding:14px 16px; font-size:14.3px; line-height:1.66}
+.caja-c em{background:#FFF3C4; font-style:normal; padding:0 2px; border-radius:2px}
+.caja-bien .caja-c em{background:#D6F0E6}
+
+/* marcas de verificacion */
+.mk{display:inline-block; font-size:10px; letter-spacing:.1em; text-transform:uppercase;
+  font-weight:600; padding:2px 7px; border-radius:4px; vertical-align:2px; white-space:nowrap}
+.mk-v{background:#E8F6F1; color:#0C3A2E; border:1px solid #CDE9E0}
+.mk-s{background:#FDF3EA; color:#6E4318; border:1px solid #F2DCC5}
+
+/* ficha APA */
+.ficha{border:1px solid var(--line); border-radius:10px; background:var(--surface-2);
+  padding:14px 17px; margin:12px 0}
+.ficha .tipo{font-size:10.5px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink-3); font-weight:600; margin-bottom:7px}
+.ficha .plantilla{font-family:Consolas,"Cascadia Mono",monospace; font-size:12.6px;
+  color:var(--ink-2); margin-bottom:9px; line-height:1.55}
+.ficha .ej{font-size:14.2px; padding-left:2.1em; text-indent:-2.1em; line-height:1.6}
+.ficha .ej i{font-style:italic}
+.ficha .txt{margin-top:8px; font-size:13.3px; color:var(--ink-3)}
+.ficha .txt b{color:var(--ink-2)}
+
+ul,ol{margin:0 0 .9em; padding-left:1.3em}
+li{margin-bottom:6px}
+.lista-limpia{list-style:none; padding-left:0}
+.lista-limpia li{padding-left:1.5em; position:relative}
+.lista-limpia li::before{content:"\25B8"; position:absolute; left:0; color:var(--gold)}
+
+.pie{margin:56px 0 40px; padding-top:20px; border-top:1px solid var(--line);
+  font-size:12.8px; color:var(--ink-3); display:flex; flex-wrap:wrap; gap:10px 22px}
+@media print{
+  .cp{display:none} body{font-size:11pt} .hero{padding:26px 0 22px}
+  .paso{break-inside:avoid; box-shadow:none} .indice{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Diplomado en Inteligencia Artificial · UNAC · Clase 05</div>
+    <h1>Redactar el trabajo de grado <b>con inteligencia artificial</b></h1>
+    <p class="sub">Esta guía es el método que va a usar los próximos dos meses para producir
+    <b>las cuatro entregas</b>. No es «pedirle a la IA que escriba el capítulo»: eso es
+    justamente lo que no funciona y lo que el jurado detecta.</p>
+    <p class="sub" style="margin-top:12px">Cuatro cosas: <b>el orden correcto de trabajo</b>,
+    <b>cómo se quita el olor a IA del texto</b>, <b>referencias en APA 7 sin citas inventadas</b>
+    y <b>cómo se produce el Word y el PDF de verdad</b>.</p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="indice">
+    <h4>Lo que hay aquí</h4>
+    <ol>
+      <li><a href="#p1">El orden correcto de trabajo</a> — contexto, estructura, partes, revisión. Con los prompts listos.</li>
+      <li><a href="#p2">Cómo no se nota que lo escribió una IA</a> — las siete marcas y un antes/después.</li>
+      <li><a href="#p3">Referencias en APA 7</a> — y el riesgo grave de las citas inventadas.</li>
+      <li><a href="#p4">Producir el archivo</a> — el Word y el PDF, probados.</li>
+    </ol>
+  </div>
+
+  <div class="nota" style="margin-top:26px">
+    <b>Su primera entrega es el Capítulo 1.</b> Cierra el <b>miércoles 2 de septiembre de 2026
+    a las 11:59 p. m.</b> y vale el 20 %. Adentro va: portada, descripción de la empresa, misión
+    y visión, la problemática, el área o departamento a intervenir, y las referencias.
+    Todos los prompts de esta guía están escritos para ese capítulo.
+  </div>
+
+  <div class="nota peligro">
+    <b>La regla que manda sobre todo lo demás.</b> El documento lo firma usted. Si la IA se
+    inventó una cifra, un proceso o una referencia y usted no lo revisó, <b>el que responde es
+    usted</b>, no la IA. Todo lo que sigue existe para que eso no pase.
+  </div>
+
+  <!-- ================================================================= 1 -->
+  <div class="paso" id="p1">
+    <div class="paso-h">
+      <div class="paso-n">1</div>
+      <div>
+        <h2>El orden correcto <b>de trabajo</b></h2>
+        <div class="t">La trampa que todos cometen, y los cuatro pasos que sí funcionan.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+
+      <div class="nota peligro" style="margin-top:0">
+        <b>La trampa.</b> Abrir Claude y escribir <i>«escríbeme el capítulo 1 de mi trabajo de
+        grado»</i>. Lo que sale es un texto que suena bien, tiene la longitud correcta y no dice
+        <b>nada</b> de su empresa. Suena a folleto. Y el jurado, que lleva años leyendo trabajos,
+        lo huele en el primer párrafo.
+      </div>
+
+      <p>La razón es simple y hay que tenerla clara: <b>la IA no conoce su empresa.</b> No sabe
+      cuántos puntos de venta tiene, ni cuánto se demora su analista armando el consolidado, ni
+      cuál es la misión que está colgada en la pared de la recepción. Si usted no le da esa
+      información, ella la rellena con lo más probable. Y lo más probable no es lo verdadero.</p>
+
+      <p>El método es al revés de como todos lo intentan: <b>usted aporta la realidad, la IA
+      aporta la forma.</b> Cuatro pasos, en este orden.</p>
+
+      <!-- 1.1 -->
+      <h3 class="sub">Paso 1 · Primero el contexto real</h3>
+      <p>Antes de pedirle una sola línea de texto, usted le entrega lo que solo usted sabe. No
+      se lo cuente por encima: escríbalo. Vale más media página de datos crudos y mal redactados
+      que el prompt más elegante del mundo.</p>
+
+      <p>Lo que tiene que reunir antes de sentarse:</p>
+      <ul class="lista-limpia">
+        <li>Nombre legal de la empresa, año de fundación, ciudad, a qué se dedica.</li>
+        <li><b>Misión y visión, copiadas textualmente.</b> No de memoria: cópielas de la página
+        web o del documento oficial. Si están mal escritas, van mal escritas.</li>
+        <li>Cuánta gente hay, y cuánta en el área que va a intervenir.</li>
+        <li><b>El proceso que le duele, contado como se lo contaría a un amigo.</b> Quién lo hace,
+        con qué herramienta, cuánto se demora, qué sale mal.</li>
+        <li><b>Los números que ya tenga.</b> Aunque sean tres. Aunque sean aproximados —y si son
+        aproximados, dígalo: «unas 9 horas», no «9,3 horas».</li>
+      </ul>
+
+      <div class="nota">
+        <b>Si no tiene los números, mídalos esta semana.</b> Cronometre el proceso tres veces con
+        un reloj. Ese dato es el «antes» de su Capítulo 3, y si no lo toma ahora, en noviembre no
+        lo va a poder reconstruir. Es el error más caro del proyecto.
+      </div>
+
+      <p>Y ahora sí, el prompt. Note que <b>no le pide texto todavía</b>: le pide que le diga qué
+      le falta. Ese es el truco.</p>
+
+      <div class="pegar">
+        <div class="pegar-h"><span>Prompt 1 · Cargar el contexto</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>Vamos a escribir juntos el Capitulo 1 (Problematica) de mi trabajo de grado de
+la Especializacion en Alta Gerencia de la UNAC. Es un trabajo academico con
+normas APA 7 y lo firmo yo, asi que no quiero que inventes nada.
+
+REGLA NUMERO UNO, no la rompas en ninguna respuesta:
+Si te falta un dato, me lo PREGUNTAS. No lo completas, no lo estimas, no pones
+un ejemplo "para que yo lo reemplace". Preferis dejar un hueco marcado asi
+[FALTA: cuantos empleados tiene el area] antes que inventar.
+
+Aca esta lo que se de mi empresa. Es crudo y esta desordenado a proposito:
+
+--- EMPRESA ---
+Nombre:
+Ano de fundacion:
+Ciudad y sedes:
+A que se dedica:
+Cuanta gente trabaja:
+Mision (copiada textual):
+Vision (copiada textual):
+
+--- EL PROBLEMA ---
+Que area o departamento sufre:
+Quien hace el trabajo hoy y con que herramienta:
+Cuanto se demora (si lo medi, cuantas veces lo medi):
+Que sale mal cuando sale mal:
+Que numeros tengo del problema:
+Que pasa si no se arregla:
+
+--- LO QUE QUIERO INTERVENIR ---
+Que actividades pienso cambiar con inteligencia artificial:
+Que NO voy a tocar:
+
+AHORA NO ESCRIBAS EL CAPITULO. Hace tres cosas y para:
+1. Repetime en tus palabras lo que entendiste de mi empresa, en un parrafo.
+   Si entendiste algo distinto de lo que quise decir, ahi me doy cuenta.
+2. Decime QUE INFORMACION TE FALTA para escribir un Capitulo 1 solido. En una
+   lista, de lo mas importante a lo menos.
+3. Decime cuales de esos huecos puedo llenar yo esta semana y cuales no.</pre>
+      </div>
+
+      <div class="nota ok"><b>Cómo sabe que le está funcionando:</b> le devuelve una lista de
+      preguntas incómodas —«¿el 7 % de agotados es promedio mensual o del semestre?»,
+      «¿esa hoja de cálculo la usa una persona o varias?»—. Si en vez de eso le entrega
+      el capítulo escrito, <b>le desobedeció</b>. Dígaselo: <i>«te dije que no escribieras
+      todavía. Volvé al paso 1.»</i></div>
+
+      <!-- 1.2 -->
+      <h3 class="sub">Paso 2 · La estructura, antes del texto</h3>
+      <p>El segundo paso no produce ni un párrafo. Produce <b>el esqueleto</b>: los títulos, en
+      qué orden van y qué va adentro de cada uno. Es el paso que todos se saltan y es el que
+      evita reescribir el capítulo completo tres veces.</p>
+
+      <p>Piénselo así: si el esqueleto está mal, todo el texto que le cuelgue encima está mal.
+      Y corregir un esqueleto cuesta cinco minutos; corregir seis páginas cuesta una tarde.</p>
+
+      <div class="pegar">
+        <div class="pegar-h"><span>Prompt 2 · Armar el esqueleto</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>Con lo que ya sabes de mi empresa, armame la ESTRUCTURA del Capitulo 1. Solo la
+estructura: titulos y, debajo de cada uno, dos o tres lineas que digan que va a
+ir ahi y con que dato mio se sostiene. NO escribas el capitulo.
+
+El capitulo tiene que cubrir estos apartados, que son los que exige el
+diplomado:
+  1.1 Descripcion de la empresa
+  1.2 Mision y vision
+  1.3 Planteamiento de la problematica
+  1.4 Area o departamento a intervenir
+  1.5 Contexto y antecedentes (con referencias)
+
+Para cada apartado quiero tres cosas:
+  a) El titulo, tal como va a quedar.
+  b) Que va adentro, en dos o tres lineas.
+  c) DE DONDE SALE: cual de mis datos lo sostiene. Si un apartado no se sostiene
+     con ningun dato mio, MARCALO como [SIN RESPALDO] y decime que necesito
+     conseguir.
+
+Al final decime una sola cosa: cual de los cinco apartados esta mas flojo y por
+que. Se directo, no me endulces la respuesta.</pre>
+      </div>
+
+      <p>Cuando el esqueleto le guste —y solo entonces— pase al paso siguiente.</p>
+
+      <!-- 1.3 -->
+      <h3 class="sub">Paso 3 · Escribir por partes, nunca el capítulo entero</h3>
+      <p>Un apartado a la vez. <b>Uno.</b> Hay tres razones y las tres importan:</p>
+      <ul>
+        <li><b>Usted puede revisar 200 palabras. No puede revisar 2.000.</b> Cuando le llega el
+        capítulo completo, lo lee en diagonal, le parece que está bien y lo entrega. Ahí es donde
+        entran los errores.</li>
+        <li><b>Cuando el texto es corto, usted nota lo que falta.</b> En un párrafo se ve
+        inmediatamente que dice «se presentan demoras» donde debería decir «nueve horas y veinte
+        minutos».</li>
+        <li><b>Se corrige barato.</b> Si un apartado quedó con el tono equivocado, se reescribe
+        ese apartado y nada más.</li>
+      </ul>
+
+      <div class="pegar">
+        <div class="pegar-h"><span>Prompt 3 · Escribir un apartado</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>Ahora si escribi UNICAMENTE el apartado 1.3 Planteamiento de la problematica.
+Solo ese. Cuando termine ese, seguimos con el que viene.
+
+COMO LO QUIERO:
+- Entre 250 y 350 palabras. Tres parrafos maximo.
+- Parrafos de verdad, redactados. NADA de listas con vinetas ni de negritas
+  sueltas: esto es un documento academico, no una presentacion.
+- Cada afirmacion tiene que apoyarse en un dato MIO. Si escribis una frase que
+  no puedo respaldar con algo que te di, no la escribas.
+- Espanol de Colombia, formal pero directo. Frases de largo distinto: si todas
+  miden lo mismo, se siente escrito por maquina.
+- Terminos tecnicos en ingles cuando asi se usan en el sector (retail, punto de
+  venta, dashboard). No los traduzcas a la fuerza.
+
+LO QUE NO QUIERO, y esto es lo que mas me molesta:
+- Arranques de relleno: "En el mundo actual", "Hoy mas que nunca", "En un
+  entorno cada vez mas competitivo". Empeza por el hecho concreto.
+- Muletillas: "es importante destacar", "cabe senalar", "no obstante" cada dos
+  frases, "en conclusion" en la mitad del texto.
+- Adjetivos sin dato detras: "significativo", "considerable", "notable",
+  "sustancial". Si es significativo, pone el numero.
+- Frases que suenan a folleto de la empresa.
+
+CUANDO TERMINES, en una linea aparte, decime:
+- Que dato tuviste que asumir, si tuviste que asumir alguno.
+- Cual es la frase mas debil de lo que escribiste.</pre>
+      </div>
+
+      <!-- 1.4 -->
+      <h3 class="sub">Paso 4 · Revisar como gerente, no como corrector</h3>
+      <p>Este es el paso que separa un trabajo aprobado de un trabajo bueno, y <b>no lo puede
+      hacer la IA</b>. Usted lee el párrafo y se hace una sola pregunta, frase por frase:</p>
+
+      <div class="nota ok" style="font-size:16px">
+        <b>«¿Esto es cierto en mi empresa?»</b>
+      </div>
+
+      <p>No «¿está bien escrito?». No «¿suena profesional?». <b>¿Es cierto?</b> Y la variante
+      que caza el 90 % de los problemas: <b>«¿de dónde salió este número?»</b> Si no sabe de
+      dónde salió, no salió de usted: lo puso la IA.</p>
+
+      <p>Cuatro cosas concretas que tiene que hacer con el texto en la mano:</p>
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Qué revisa</th><th>Cómo lo revisa</th><th>Qué hace si falla</th></tr></thead>
+          <tbody>
+          <tr><td><b>Cada cifra</b></td>
+              <td>Búsquela en lo que usted le entregó. Si no está ahí, la inventó.</td>
+              <td>La borra o la reemplaza por el dato real. Nunca la deja «porque se ve bien».</td></tr>
+          <tr><td><b>Cada nombre propio</b></td>
+              <td>Áreas, cargos, sistemas, proveedores. ¿Se llaman así de verdad?</td>
+              <td>Lo corrige al nombre que se usa en la empresa, aunque sea feo.</td></tr>
+          <tr><td><b>Cada proceso descrito</b></td>
+              <td>Léalo en voz alta imaginando que se lo lee a la persona que hace ese trabajo.
+              ¿Se reiría?</td>
+              <td>Lo vuelve a contar como es. Pídale a esa persona que lo lea.</td></tr>
+          <tr><td><b>Cada afirmación general</b></td>
+              <td>«El sector enfrenta desafíos…» ¿Quién lo dice? ¿Hay referencia?</td>
+              <td>O consigue la referencia, o borra la frase. No hay tercera opción.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pegar">
+        <div class="pegar-h"><span>Prompt 4 · Que se audite a sí misma</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>Antes de que yo revise, quiero que audites lo que acabas de escribir. Se
+implacable con tu propio texto: es mas barato que me lo devuelva el jurado.
+
+Hacete una tabla con estas cuatro columnas:
+
+  AFIRMACION | DE DONDE SALE | ES DATO MIO O LO PUSISTE VOS | QUE RIESGO TIENE
+
+Una fila por cada afirmacion factual del texto: cada cifra, cada fecha, cada
+nombre, cada porcentaje, cada "toma X horas", cada "el sector...".
+
+Reglas de la tabla:
+- Si el dato salio de algo que yo te di, en la tercera columna pone MIO.
+- Si lo pusiste vos —lo inferiste, lo estimaste, lo sacaste de tu conocimiento
+  general— pone TUYO. No lo disimules: es exactamente lo que necesito ver.
+- Si es TUYO y aparece en el texto como si fuera un hecho de mi empresa, en la
+  cuarta columna pone RIESGO ALTO.
+
+Despues de la tabla, decime en tres lineas: si yo entrego esto tal como esta,
+¿por donde me lo tumban?</pre>
+      </div>
+
+      <!-- regla dura -->
+      <h3 class="sub">La regla dura: lo que la IA no puede saber, se lo da usted</h3>
+      <p>No es una recomendación de estilo. Es una frontera. A un lado están las cosas que la IA
+      hace mejor que usted; al otro, las que <b>no puede hacer de ninguna manera</b>, por más
+      buena que sea.</p>
+
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Lo pone usted, siempre</th><th>Lo puede hacer la IA</th></tr></thead>
+          <tbody>
+          <tr><td>La misión y la visión, textuales</td><td>Redactar el párrafo que las presenta</td></tr>
+          <tr><td>Cualquier cifra de la empresa</td><td>Ordenarlas, compararlas, presentarlas en una tabla</td></tr>
+          <tr><td>Nombres de personas, áreas, cargos, sistemas</td><td>Sugerir cómo estructurar el apartado</td></tr>
+          <tr><td>Cómo funciona el proceso de verdad, hoy</td><td>Pasarlo a lenguaje académico</td></tr>
+          <tr><td>Qué salió mal y cuándo</td><td>Encontrar la palabra precisa que usted no recuerda</td></tr>
+          <tr><td>Qué se puede y qué no se puede cambiar en la empresa</td><td>Revisar ortografía, coherencia, APA</td></tr>
+          <tr><td><b>La decisión de entregar</b></td><td>Señalarle qué está flojo</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="nota peligro">
+        <b>Dicho de la manera más corta que se puede decir:</b> la inteligencia artificial le
+        presta la forma. La verdad la pone usted. Y su firma va debajo de las dos.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================================================================= 2 -->
+  <div class="paso" id="p2">
+    <div class="paso-h">
+      <div class="paso-n">2</div>
+      <div>
+        <h2>Cómo <b>no se nota</b> que lo escribió una IA</h2>
+        <div class="t">Y por qué importa: no es para engañar a nadie.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+
+      <p><b>Aclaremos primero para qué es esto.</b> No es para esconder que usó inteligencia
+      artificial —de hecho, más adelante en esta guía va a aprender a <b>declararlo</b> en el
+      documento, como manda la norma—. Es por algo mucho más simple:</p>
+
+      <div class="nota ok" style="font-size:15.5px">
+        <b>El texto de IA sin trabajar suena hueco.</b> Tiene todas las palabras y ninguna
+        sustancia. No es que el jurado detecte «una máquina»: es que detecta que <b>usted no
+        sabe de qué está hablando</b>. Y eso sí le cuesta la nota.
+      </div>
+
+      <p>Un texto que pasó por sus manos se nota, y se nota bien: tiene datos raros que solo
+      alguien de adentro conocería, tiene frases de largo desigual, y tiene detalles que a nadie
+      se le ocurrirían desde afuera. Eso es lo que estamos buscando.</p>
+
+      <h3 class="sub">Las siete marcas — y cómo se corrige cada una</h3>
+
+      <div class="tbl">
+        <table>
+          <thead><tr><th>La marca</th><th>Cómo suena</th><th>La corrección</th></tr></thead>
+          <tbody>
+          <tr>
+            <td><b>1. Arranque de relleno</b></td>
+            <td>«En el mundo actual…», «Hoy más que nunca…», «En un entorno cada vez más
+            competitivo…»</td>
+            <td>Bórrelo y empiece por el hecho. Casi siempre la segunda frase del párrafo era
+            el verdadero comienzo.</td></tr>
+          <tr>
+            <td><b>2. Muletillas de transición</b></td>
+            <td>«Es importante destacar que», «cabe señalar», «resulta fundamental
+            mencionar»</td>
+            <td>Bórrelas completas. La frase funciona igual sin ellas y queda más firme.</td></tr>
+          <tr>
+            <td><b>3. Adjetivo sin dato</b></td>
+            <td>«Un aumento significativo», «demoras considerables», «impacto sustancial»</td>
+            <td>Reemplace el adjetivo por el número. Si no tiene el número, quite la
+            afirmación.</td></tr>
+          <tr>
+            <td><b>4. Lista donde iba un párrafo</b></td>
+            <td>Tres viñetas de seis palabras cada una en medio de la problemática</td>
+            <td>Vuélvalo párrafo redactado. Las viñetas son para presentaciones; el documento
+            académico va en prosa.</td></tr>
+          <tr>
+            <td><b>5. El mismo ritmo en todas las frases</b></td>
+            <td>Cinco frases seguidas de 18 palabras cada una, todas con la misma estructura</td>
+            <td>Parta una en dos. Deje una frase corta de seis palabras. Eso solo ya cambia el
+            texto.</td></tr>
+          <tr>
+            <td><b>6. Párrafo que no dice nada de SU empresa</b></td>
+            <td>Si le quita el nombre de la empresa, sirve igual para cualquier otra</td>
+            <td>La prueba: tape el nombre. Si el párrafo sigue teniendo sentido para el negocio
+            del vecino, sobra. Métale un detalle que solo usted sabe.</td></tr>
+          <tr>
+            <td><b>7. Simetría perfecta</b></td>
+            <td>Tres causas, tres consecuencias, tres soluciones. Todo en tríos ordenaditos.</td>
+            <td>La realidad no es simétrica. Si tiene dos causas, ponga dos. Si una es más
+            grande que la otra, dedíquele más espacio.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub">Antes y después, con un caso de verdad</h3>
+      <p>Misma información. Lo de la izquierda es lo que sale de pedir «escríbeme la
+      problemática». Lo de la derecha es lo que queda después de aplicar las siete marcas y de
+      meter los datos reales.</p>
+
+      <p style="font-size:13.5px; color:var(--ink-3)">Empresa de retail de alimentos del Valle de
+      Aburrá. <b>Datos sintéticos:</b> la empresa y las cifras no existen, son de ejemplo.</p>
+
+      <div class="par">
+        <div class="caja caja-mal">
+          <div class="caja-h">Antes · lo que escupe la IA</div>
+          <div class="caja-c">
+            <em>En el mundo actual</em>, las empresas del sector retail enfrentan
+            <em>desafíos cada vez más complejos</em> en la gestión de sus inventarios.
+            <em>Es importante destacar que</em> la falta de herramientas tecnológicas
+            adecuadas genera <em>demoras considerables</em> en la toma de decisiones,
+            lo cual impacta <em>significativamente</em> la operación. La empresa presenta
+            <em>diversas problemáticas</em> asociadas a este proceso, entre las cuales se
+            destacan la <em>demora en la consolidación de la información</em>, la
+            <em>dependencia de procesos manuales</em> y la <em>falta de oportunidad en los
+            datos</em>. <em>Resulta fundamental mencionar que</em> esta situación
+            <em>afecta negativamente</em> la competitividad de la organización en un
+            <em>mercado cada vez más exigente</em>.
+          </div>
+        </div>
+        <div class="caja caja-bien">
+          <div class="caja-h">Después · con datos y sin relleno</div>
+          <div class="caja-c">
+            El área de abastecimiento decide los pedidos a proveedor con una hoja de cálculo
+            que consolida a mano las ventas de la semana anterior de los <em>14 puntos de
+            venta</em>. El ciclo completo —descargar los reportes del punto de venta,
+            consolidarlos, revisarlos y emitir la sugerencia de pedido— toma <em>9 horas y
+            20 minutos</em> de una analista. <em>Lo medimos seis semanas seguidas.</em>
+            Como el consolidado se cierra los viernes, las decisiones se toman con información
+            de hasta ocho días de antigüedad.<br><br>
+            El costo se ve en dos indicadores. Los agotados en las 200 referencias de mayor
+            rotación llegaron al <em>7,4 % promedio mensual</em> en el primer semestre de 2026,
+            contra una meta interna del 3 %. Al otro lado, 480 referencias lentas acumularon
+            más de 45 días de cobertura, con <em>214 millones de pesos inmovilizados</em>.
+            <em>El problema no es que falten datos: el punto de venta los registra todos.</em>
+            Es que el análisis vive en una hoja de cálculo, en la cabeza de una sola persona,
+            y llega tarde.
+          </div>
+        </div>
+      </div>
+
+      <h3 class="sub">Qué cambió, exactamente</h3>
+      <div class="tbl">
+        <table>
+          <thead><tr><th>#</th><th>Lo que se hizo</th></tr></thead>
+          <tbody>
+          <tr><td>1</td><td>Se borró «En el mundo actual» y el texto arranca por el hecho: quién
+            decide y con qué.</td></tr>
+          <tr><td>2</td><td>Se borraron «es importante destacar» y «resulta fundamental
+            mencionar». Nada se perdió.</td></tr>
+          <tr><td>3</td><td>«Demoras considerables» → <b>9 horas y 20 minutos</b>. «Impacta
+            significativamente» → <b>7,4 % contra meta de 3 %</b>.</td></tr>
+          <tr><td>4</td><td>La lista de tres problemáticas se volvió prosa. Y se le agregó lo
+            que la lista no decía: <i>por qué</i> llega tarde.</td></tr>
+          <tr><td>5</td><td>Se metieron dos frases cortas —«Lo medimos seis semanas seguidas»,
+            «y llega tarde»— para romper el ritmo parejo.</td></tr>
+          <tr><td>6</td><td>Ahora el párrafo <b>no sirve para otra empresa</b>: 14 puntos,
+            viernes, 200 referencias, 480 referencias lentas.</td></tr>
+          <tr><td>7</td><td>Se rompió la simetría: dos indicadores, no tres, y uno lleva más
+            texto que el otro porque importa más.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="nota">
+        <b>El detalle que más peso tiene, y es gratis.</b> «Lo medimos seis semanas seguidas.»
+        Esa frase le dice al jurado que usted fue y midió. Ninguna IA la puede escribir por
+        usted, porque solo usted sabe si es cierta.
+      </div>
+
+      <div class="pegar">
+        <div class="pegar-h"><span>Prompt 5 · Quitarle el olor a IA a un texto que ya tiene</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>Te voy a pasar un texto mio y quiero que lo limpies. No lo reescribas de cero:
+corregilo, marcandome cada cambio y por que.
+
+Busca estas siete marcas, una por una:
+1. Arranques de relleno: "en el mundo actual", "hoy mas que nunca", "en un
+   entorno cada vez mas competitivo". Se borran y se arranca por el hecho.
+2. Muletillas: "es importante destacar", "cabe senalar", "resulta fundamental
+   mencionar". Se borran completas.
+3. Adjetivos sin dato: significativo, considerable, notable, sustancial,
+   diverso. Cada uno que encuentres, me PREGUNTAS el numero que va ahi. Si no
+   tengo el numero, me proponés borrar la afirmacion.
+4. Listas con vinetas donde deberia ir un parrafo redactado.
+5. Frases todas del mismo largo. Rompe el ritmo: parti alguna, deja alguna
+   corta.
+6. Parrafos que servirian para cualquier otra empresa. Hace la prueba: tapa el
+   nombre de la empresa. Si el parrafo sigue teniendo sentido, MARCALO y decime
+   que dato mio le falta.
+7. Simetrias inventadas: tres causas, tres consecuencias, tres soluciones. La
+   realidad no viene en trios.
+
+Devolveme DOS cosas:
+- El texto corregido.
+- Una lista de los cambios: que quitaste, que pusiste, y donde necesitas que yo
+  te de un dato.
+
+NO INVENTES ningun dato para llenar los huecos. Los huecos me los senalas y yo
+los lleno.
+
+--- MI TEXTO ---
+[pegue aqui su texto]</pre>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================================================================= 3 -->
+  <div class="paso" id="p3">
+    <div class="paso-h">
+      <div class="paso-n">3</div>
+      <div>
+        <h2>Referencias en <b>normas APA 7</b></h2>
+        <div class="t">Y el riesgo grave: los modelos de lenguaje inventan citas que no existen.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+
+      <div class="nota peligro" style="margin-top:0">
+        <b>Esto es lo más grave de toda la guía.</b> Un modelo de lenguaje le puede entregar una
+        referencia con autor real, año verosímil, título creíble y revista que sí existe… y que
+        <b>nunca se publicó</b>. Se ve perfecta. Es falsa. Si el jurado la busca y no aparece,
+        usted no tiene un error de forma: tiene un problema de honestidad académica, y esos no se
+        arreglan con una corrección.
+      </div>
+
+      <h3 class="sub">Por qué pasa — y por qué va a seguir pasando</h3>
+      <p>No es un defecto que se vaya a arreglar con la próxima versión. Es cómo funciona la
+      herramienta.</p>
+
+      <p>Un modelo de lenguaje <b>predice texto plausible</b>. No consulta una base
+      bibliográfica: no está mirando un catálogo de bibliotecas ni la base de datos de una
+      editorial. Cuando usted le pide «tres referencias sobre transformación digital en retail»,
+      él no <i>busca</i>: <b>construye</b>. Y arma algo que se <i>parece</i> muchísimo a una
+      referencia real, porque ha visto cientos de miles de referencias reales y sabe perfectamente
+      qué forma tienen.</p>
+
+      <p>Es exactamente como si usted le pidiera a alguien que inventara el nombre de una calle de
+      Medellín que no conoce. Le va a decir «Carrera 43 con la 12 Sur» — suena bien, tiene la
+      forma correcta, y puede no existir.</p>
+
+      <div class="nota">
+        <b>La regla operativa, y no tiene excepciones.</b> Toda referencia que salga de una IA es
+        <b>una hipótesis</b> hasta que usted la vea con sus ojos en la fuente. Sin excepción. Sin
+        «esta se ve muy real». Sin «esta la conozco».
+      </div>
+
+      <h3 class="sub">Cómo se verifica una referencia, una por una</h3>
+      <p>Cinco minutos por referencia. Si tiene ocho referencias, son cuarenta minutos. Es el
+      mejor rato que va a invertir en todo el trabajo.</p>
+
+      <div class="tbl">
+        <table>
+          <thead><tr><th>#</th><th>Qué hace</th><th>Cómo</th><th>Si falla</th></tr></thead>
+          <tbody>
+          <tr><td>1</td>
+            <td><b>Busque el título exacto</b></td>
+            <td>Copie el título completo <b>entre comillas</b> en Google y en Google Scholar.
+            Con comillas: eso obliga a la coincidencia exacta.</td>
+            <td>Si no aparece nada, casi seguro no existe. <b>Bórrela.</b></td></tr>
+          <tr><td>2</td>
+            <td><b>Busque el DOI</b></td>
+            <td>Si tiene DOI, péguelo en <code>https://doi.org/</code> + el número. Debe abrir
+            la página del artículo.</td>
+            <td>Si el DOI no resuelve o abre otro artículo, la referencia está mal o es
+            falsa.</td></tr>
+          <tr><td>3</td>
+            <td><b>Verifique que el autor exista</b></td>
+            <td>Busque el nombre del autor. ¿Es investigador real? ¿En qué trabaja?</td>
+            <td>Autor inexistente: fuera.</td></tr>
+          <tr><td>4</td>
+            <td><b>Verifique que ese autor escribió eso</b></td>
+            <td>Es el paso que todos se saltan. Autor real + título real ≠ autor real que
+            escribió ese título. Mire su lista de publicaciones.</td>
+            <td>Si el autor existe pero no escribió eso, la referencia está fabricada.</td></tr>
+          <tr><td>5</td>
+            <td><b>Ábrala y lea el resumen</b></td>
+            <td>¿Dice de verdad lo que usted está afirmando que dice?</td>
+            <td>Si el artículo existe pero no dice eso, cambie su frase o cambie la
+            referencia.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="nota ok">
+        <b>Truco de los cinco segundos.</b> Pegue el título entre comillas en Google. Si el único
+        resultado es su propia conversación con la IA, o no hay resultados, ya sabe. Este solo
+        filtro caza la mayoría.
+      </div>
+
+      <h3 class="sub">Las reglas de APA 7 que de verdad va a usar</h3>
+      <p>Nada de teoría de APA. Solo los casos que le van a aparecer, con un ejemplo real de cada
+      uno. Todos los ejemplos de abajo son <b>referencias reales verificadas el 26 de agosto de
+      2026</b> — a propósito: en una guía sobre no inventar citas no puede haber citas inventadas.</p>
+
+      <h4 class="mini">A · La cita dentro del texto</h4>
+      <div class="ficha">
+        <div class="tipo">Parentética — el apellido y el año entre paréntesis, al final</div>
+        <div class="ej">La ganancia de productividad se concentra en los trabajadores menos
+        experimentados (Brynjolfsson et al., 2025).</div>
+        <div class="txt"><b>Tres autores o más:</b> el primer apellido + <i>et al.</i> Con dos
+        autores van los dos: (Brynjolfsson &amp; Li, 2025).</div>
+      </div>
+      <div class="ficha">
+        <div class="tipo">Narrativa — el autor es parte de la frase</div>
+        <div class="ej">Brynjolfsson et al. (2025) encontraron que la ganancia se concentra en
+        los trabajadores menos experimentados.</div>
+        <div class="txt">El año va justo después del autor, entre paréntesis. Úsela cuando quiera
+        darle peso al autor; la parentética, cuando le importa el dato y no quién lo dijo.</div>
+      </div>
+      <div class="nota">
+        <b>Regla de oro de las citas en el texto:</b> todo lo que esté citado en el texto tiene
+        que estar en la lista de referencias, y todo lo que esté en la lista tiene que estar
+        citado en el texto. <b>Las dos direcciones.</b> Una referencia que nadie cita es una
+        bandera roja: se ve como puesta para engordar la lista.
+      </div>
+
+      <h4 class="mini">B · La lista de referencias</h4>
+      <ul class="lista-limpia">
+        <li>Va al final, en página aparte, con el título <b>Referencias</b> centrado y en negrita.</li>
+        <li><b>Orden alfabético</b> por el apellido del primer autor. No numeradas, no con viñetas.</li>
+        <li><b>Sangría francesa de 0,5 pulgadas:</b> la primera línea al margen y las siguientes
+        corridas hacia dentro. Es lo primero que mira quien sabe de APA.</li>
+        <li>Interlineado doble, igual que el resto del documento.</li>
+        <li>El script de la sección 4 de esta guía ya lo hace así. No lo tiene que armar a mano.</li>
+      </ul>
+
+      <h4 class="mini">C · Un libro</h4>
+      <div class="ficha">
+        <div class="tipo">Libro</div>
+        <div class="plantilla">Autor, A. A. (Año). <i>Título del libro en cursiva</i> (edición). Editorial. DOI o URL</div>
+        <div class="ej">American Psychological Association. (2020). <i>Publication manual of the
+        American Psychological Association</i> (7.ª ed.). https://doi.org/10.1037/0000165-000</div>
+        <div class="txt">Cursiva en el título del libro. El DOI se escribe como enlace completo
+        <code>https://doi.org/…</code>, sin poner «DOI:» delante y <b>sin punto al final</b>.
+        <span class="mk mk-v">Verificado</span> DOI resuelto en Crossref el 26-ago-2026.</div>
+      </div>
+
+      <h4 class="mini">D · Un artículo de revista con DOI</h4>
+      <div class="ficha">
+        <div class="tipo">Artículo de revista científica</div>
+        <div class="plantilla">Autor, A. A., Autor, B. B., &amp; Autor, C. C. (Año). Título del artículo sin cursiva. <i>Nombre de la Revista, volumen</i>(número), páginas. https://doi.org/…</div>
+        <div class="ej">Brynjolfsson, E., Li, D., &amp; Raymond, L. (2025). Generative AI at work.
+        <i>The Quarterly Journal of Economics, 140</i>(2), 889–942.
+        https://doi.org/10.1093/qje/qjae044</div>
+        <div class="txt">Ojo con la cursiva, que es donde todos se equivocan: va en el
+        <b>nombre de la revista y el volumen</b>, <b>no</b> en el título del artículo y
+        <b>no</b> en el número entre paréntesis. El <code>&amp;</code> antes del último autor.
+        <span class="mk mk-v">Verificado</span> DOI resuelto en Crossref: autores, revista,
+        volumen, número y páginas coinciden.</div>
+      </div>
+
+      <h4 class="mini">E · Una página web, con fecha de consulta</h4>
+      <div class="ficha">
+        <div class="tipo">Página web</div>
+        <div class="plantilla">Autor o entidad. (Año, día de mes). <i>Título de la página</i>. Nombre del sitio. Recuperado el DD de mes de AAAA, de URL</div>
+        <div class="ej">APA Style. (2025, 9 de septiembre). <i>Citing generative AI in APA Style:
+        Part 1—Reference formats</i>. American Psychological Association. Recuperado el 26 de
+        agosto de 2026, de https://apastyle.apa.org/blog/cite-generative-ai-references</div>
+        <div class="txt"><b>La fecha de consulta no siempre va.</b> APA 7 la pide solo cuando el
+        contenido puede cambiar sin dejar versión archivada — una página institucional que se
+        actualiza, una estadística en vivo. Si la página tiene fecha de publicación fija (un
+        artículo, un informe), <b>no ponga «Recuperado el…»</b>: sobra.</div>
+      </div>
+
+      <h4 class="mini">F · Un informe institucional</h4>
+      <div class="ficha">
+        <div class="tipo">Informe de una entidad</div>
+        <div class="plantilla">Entidad. (Año). <i>Título del informe en cursiva</i> (número de informe, si tiene). URL</div>
+        <div class="ej">Departamento Administrativo Nacional de Estadística. (2025).
+        <i>Encuesta anual de comercio 2024</i>. DANE. https://www.dane.gov.co/…</div>
+        <div class="txt">Cuando la entidad es el autor <b>y</b> la editorial, no se repite: se
+        pone una sola vez. La primera vez que la cite en el texto, escriba el nombre completo con
+        la sigla entre paréntesis —(Departamento Administrativo Nacional de Estadística [DANE],
+        2025)— y de ahí en adelante ya puede usar (DANE, 2025).
+        <span class="mk mk-s">Sin verificar</span> Este ejemplo es <b>ilustrativo del formato</b>:
+        el título y la URL exactos del informe del DANE hay que confirmarlos en
+        <code>dane.gov.co</code> antes de citarlo. No lo copie tal cual.</div>
+      </div>
+
+      <h4 class="mini">G · Una norma o ley colombiana</h4>
+      <div class="ficha">
+        <div class="tipo">Ley, decreto o resolución</div>
+        <div class="plantilla">Entidad que la emite. (Año, día de mes). <i>Ley/Decreto N.º</i>. Nombre o asunto de la norma. URL</div>
+        <div class="ej">Congreso de la República de Colombia. (2012, 17 de octubre).
+        <i>Ley 1581 de 2012</i>. Por la cual se dictan disposiciones generales para la protección
+        de datos personales.
+        https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981</div>
+        <div class="txt">En el texto se cita como cualquier otra fuente: (Congreso de la
+        República de Colombia, 2012). Y si va a citar el articulado, dígalo en la frase: «el
+        artículo 5 de la Ley 1581 de 2012 clasifica como sensibles…».
+        <span class="mk mk-v">Verificado</span> URL de Función Pública consultada el 26-ago-2026;
+        el título coincide.
+        <br><br><b>Para los que trabajan con contratación estatal:</b> APA 7 no tiene una
+        plantilla oficial para normativa colombiana —su capítulo de fuentes legales está armado
+        sobre el sistema estadounidense—. Lo que se usa en Colombia es esta adaptación al
+        formato general de APA, y es lo que aceptan las universidades del país.
+        <span class="mk mk-s">Sin verificar</span> No hay pronunciamiento oficial de la APA
+        sobre normativa colombiana. <b>Si la profesora Lady tiene un formato institucional para
+        normas, ese manda sobre esto.</b></div>
+      </div>
+
+      <h3 class="sub">El prompt para que <i>verifique</i>, no para que <i>genere</i></h3>
+      <p>Esa diferencia lo es todo. <b>Nunca le pida referencias.</b> Pídale que revise las que
+      usted ya encontró.</p>
+
+      <div class="pegar">
+        <div class="pegar-h"><span>Prompt 6 · Verificar referencias, no generarlas</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>NO me generes referencias. Te lo digo de entrada porque es lo primero que
+tienden a hacer. Vamos a hacer lo contrario: yo te paso las que YA encontre y
+vos las revisas.
+
+Para cada referencia de mi lista, hace esto y armame una tabla:
+
+  REFERENCIA | ¿EXISTE? | QUE COMPROBASTE | QUE ME FALTA | FORMATO APA 7 CORREGIDO
+
+Instrucciones, en este orden:
+1. Si tenes acceso a busqueda web, BUSCA cada referencia: el titulo exacto entre
+   comillas, el DOI, y el autor. Contame que encontraste y donde.
+2. Si NO tenes acceso a busqueda web, decimelo de una y no adivines. En la
+   columna "¿EXISTE?" pone NO PUEDO VERIFICAR. Eso es una respuesta valida y
+   util; inventar que la verificaste no lo es.
+3. Revisa el FORMATO contra APA 7, que es lo que si podes hacer sin buscar:
+   - orden de los elementos: autor, ano, titulo, fuente
+   - donde va la cursiva (libro: el titulo | articulo: la revista y el volumen,
+     nunca el titulo del articulo)
+   - el & antes del ultimo autor
+   - el DOI como enlace completo https://doi.org/... , sin "DOI:" y sin punto
+     final
+   - las mayusculas del titulo
+4. Decime si falta algun dato: numero de volumen, paginas, editorial, DOI.
+5. Al final, ordename la lista alfabeticamente por apellido del primer autor.
+
+REGLA QUE NO PODES ROMPER: no agregues referencias que yo no te pase, ni
+"completes" un dato que no encontraste. Si falta, escribi [FALTA] y ya.
+
+--- MIS REFERENCIAS ---
+[pegue aqui su lista]</pre>
+      </div>
+
+      <div class="nota peligro">
+        <b>Y ahora la advertencia que no se puede saltar.</b> Que la IA le diga «esta referencia
+        existe» <b>no es verificación</b>. Puede tener búsqueda web y aun así leer mal el
+        resultado, o confundir un artículo con otro parecido. <b>Las referencias se comprueban a
+        mano, una por una, con los cinco pasos de la tabla de arriba.</b> No hay atajo. Son cinco
+        minutos cada una y le pueden salvar la nota.
+      </div>
+
+      <h3 class="sub">Cómo se declara el uso de IA en un trabajo académico</h3>
+
+      <p>La APA sí tiene posición sobre esto, y es más razonable de lo que la gente cree:
+      <b>usar la herramienta está bien; lo que no está bien es presentar como suyo algo que no
+      revisó.</b> Y hay que decir que se usó.</p>
+
+      <div class="nota ok">
+        <b><span class="mk mk-v">Verificado</span> — ojo, la guía cambió.</b> La APA publicó una
+        <b>nueva guía el 9 de septiembre de 2025</b>, en una serie de tres entradas del APA Style
+        Blog, que <b>reemplaza</b> a la que circulaba antes («How to cite ChatGPT», del 7 de abril
+        de 2023, que la APA mantiene solo por archivo). Si usted encuentra en internet el formato
+        viejo —el de <i>ChatGPT</i> (versión) [Large language model]—, está mirando la guía
+        anterior. Esta es la vigente.
+        <br><br>
+        Fuentes, consultadas el <b>26 de agosto de 2026</b>:
+        <br>· <code>https://apastyle.apa.org/blog/cite-generative-ai-references</code> — Parte 1, formatos de referencia
+        <br>· <code>https://apastyle.apa.org/blog/cite-generative-ai-search-software</code> — Parte 2, la IA como buscador
+        <br>· <code>https://apastyle.apa.org/blog/cite-generative-ai-allowed</code> — Parte 3, ¿está «permitida»?
+        <br>· <code>https://apastyle.apa.org/style-grammar-guidelines/references/examples/ai-references</code> — la página de referencia permanente
+      </div>
+
+      <div class="nota">
+        <b>Nota de transparencia sobre esta verificación.</b> El sitio
+        <code>apastyle.apa.org</code> está protegido con un sistema anti-robots y no se pudo abrir
+        de forma automática al preparar esta guía. Los formatos de abajo se confirmaron por
+        búsqueda contra el propio sitio oficial y se cruzaron con dos guías universitarias que
+        citan esas mismas entradas —Universidad de British Columbia (actualizada el 31 de julio de
+        2026) y McMaster University (12 de agosto de 2026)—, y coinciden. <b>Antes de entregar,
+        abra usted la URL en su navegador</b> y confirme que sigue igual: es cuestión de un
+        minuto, y es exactamente la disciplina que esta guía le está enseñando.
+      </div>
+
+      <h4 class="mini">Los dos formatos de la guía vigente</h4>
+
+      <div class="ficha">
+        <div class="tipo">1 · Citar la herramienta como tal — el caso normal para su trabajo</div>
+        <div class="plantilla">Empresa de la IA. (Año). <i>Nombre del modelo</i> [Descripción, p. ej. Modelo de lenguaje grande]. URL de la herramienta</div>
+        <div class="ej">Anthropic. (2026). <i>Claude Opus 5</i> [Modelo de lenguaje grande].
+        https://claude.ai/</div>
+        <div class="ej" style="margin-top:8px">OpenAI. (2025). <i>ChatGPT</i> (GPT-5) [Modelo de
+        lenguaje grande]. https://chatgpt.com/</div>
+        <div class="txt"><b>El autor es la empresa</b>, no el modelo. Y el nombre del modelo lo
+        escribe usted <b>exactamente como se lo muestre la herramienta</b> — la barra de estado de
+        Claude Code se lo dice. Los modelos cambian de versión cada pocos meses; no copie el
+        nombre de esta guía sin mirar el suyo.</div>
+      </div>
+
+      <div class="ficha">
+        <div class="tipo">2 · Citar una conversación puntual, cuando tiene enlace para compartir</div>
+        <div class="plantilla">Empresa de la IA. (Año, día de mes). <i>Título de la conversación</i> [Generative AI chat]. Nombre del modelo. URL de la conversación</div>
+        <div class="ej">Anthropic. (2025, 20 de mayo). <i>Essential grammar topics for high school
+        graduates</i> [Generative AI chat]. Claude Sonnet 4.
+        https://claude.ai/share/329173b2-ec93-4663-ac68-4f65ea4f166d</div>
+        <div class="txt">Este formato es el que <b>cambió</b> en septiembre de 2025: ahora se
+        puede citar la conversación específica, con su fecha y su enlace compartible, y el modelo
+        pasa al lugar de la fuente. La descripción entre corchetes es flexible: escriba la que
+        mejor le explique al lector qué es.
+        <br><b>Úselo solo si de verdad va a compartir el enlace.</b> Si el chat no se puede
+        compartir, el lector no puede llegar a él: use el formato 1 y describa el uso en el
+        texto.</div>
+      </div>
+
+      <div class="ficha">
+        <div class="tipo">La cita en el texto</div>
+        <div class="ej">Parentética: (Anthropic, 2026) &nbsp;·&nbsp; Narrativa: Anthropic (2026)</div>
+        <div class="txt">Es una cita normal: <b>empresa y año</b>. No se cita «Claude» como autor
+        ni «la inteligencia artificial».</div>
+      </div>
+
+      <h4 class="mini">Y lo más importante: describir el uso en el texto</h4>
+      <p>La referencia sola no basta. La APA pide que usted <b>explique cómo usó la
+      herramienta</b>, en el apartado que corresponda —en un trabajo de investigación, la sección
+      de método; en el suyo, un apartado corto dentro del Capítulo 1 funciona bien—.</p>
+
+      <div class="ficha">
+        <div class="tipo">Ejemplo de declaración, listo para adaptar</div>
+        <div class="ej" style="text-indent:0; padding-left:0">Se utilizó Claude Opus 5 (Anthropic,
+        2026), una herramienta de inteligencia artificial generativa, para estructurar el índice
+        de este capítulo y para revisar la redacción y la ortografía. El contenido factual —la
+        descripción de la empresa, la misión, la visión y las cifras del diagnóstico— fue aportado
+        y verificado por los autores. Todas las referencias bibliográficas se comprobaron una por
+        una contra la fuente original antes de la entrega.</div>
+        <div class="txt">Tres partes, y las tres importan: <b>qué herramienta</b>, <b>para
+        qué exactamente</b>, y <b>qué puso y verificó usted</b>. Esa última frase es la que lo
+        protege.</div>
+      </div>
+
+      <div class="nota">
+        <b>Un cambio de la guía de 2025 que le sirve mucho:</b> la APA aclara que cuando usted usa
+        la IA <b>como buscador</b> —para que le indique dónde encontrar algo— lo que se cita no es
+        la IA: es <b>la fuente original</b>, que usted va a buscar, abre y lee. La IA fue el
+        camino, no la fuente. Es la Parte 2 de la serie
+        (<code>cite-generative-ai-search-software</code>).
+      </div>
+
+      <div class="nota peligro">
+        <b>Antes de entregar, pregúntele a la profesora Lady.</b> Cada programa puede tener su
+        propio requisito de declaración de uso de IA, y el de la UNAC manda sobre esta guía.
+        <span class="mk mk-s">Sin verificar</span> No se consultó una política institucional de
+        la UNAC sobre uso de IA en trabajos de grado; no consta que exista una publicada.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================================================================= 4 -->
+  <div class="paso" id="p4">
+    <div class="paso-h">
+      <div class="paso-n">4</div>
+      <div>
+        <h2>Producir el archivo: <b>Word y PDF de verdad</b></h2>
+        <div class="t">Probado en Windows. Un <code>pip install</code> de 4 MB y dos comandos.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+
+      <p>Hasta aquí usted tiene el texto. Falta que se vea como un trabajo de grado: portada,
+      tabla de contenido con los números de página bien, márgenes, interlineado doble y las
+      referencias con su sangría francesa. <b>Eso no se hace a mano en Word.</b> Se lo pide a
+      Claude Code una vez y de ahí en adelante es un comando.</p>
+
+      <h3 class="sub">Con qué se hace, y por qué con eso</h3>
+      <p>Se probaron las opciones en un equipo Windows con Office instalado el 26 de agosto de
+      2026. <span class="mk mk-v">Verificado</span></p>
+
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Herramienta</th><th>Qué resuelve</th><th>Cuánto pesa instalar</th><th>Veredicto</th></tr></thead>
+          <tbody>
+          <tr>
+            <td><b><code>python-docx</code></b></td>
+            <td>Genera el <code>.docx</code>. Controla margen por margen, estilo por estilo.</td>
+            <td><b>4,1 MB de descarga</b> (con sus dependencias <code>lxml</code> y
+            <code>typing_extensions</code>). <b>≈ 11 MB</b> en disco.</td>
+            <td><b>Esta es la que usamos.</b> Liviana y sale exactamente APA 7.</td></tr>
+          <tr>
+            <td><b>Word por COM</b><br>(desde PowerShell)</td>
+            <td>Llena la tabla de contenido y exporta el PDF.</td>
+            <td><b>0 MB.</b> PowerShell ya viene en Windows y ya sabe hablarle a Word.</td>
+            <td><b>Esta es la que usamos</b> para el PDF. Nada que instalar.</td></tr>
+          <tr>
+            <td>Pandoc</td>
+            <td>Markdown → Word y PDF</td>
+            <td>~30 MB, y para PDF necesita además un motor LaTeX de <b>más de 100 MB</b>.</td>
+            <td>Descartada. Demasiado peso para un equipo de oficina, y la tabla de contenido
+            automática de Word queda menos controlable.</td></tr>
+          <tr>
+            <td>LibreOffice</td>
+            <td>Convierte a PDF sin Word</td>
+            <td>~350 MB</td>
+            <td>Solo tiene sentido si <b>no</b> tiene Microsoft Word.
+            <span class="mk mk-s">Sin verificar</span> No estaba instalado en el equipo de prueba;
+            no se probó.</td></tr>
+          <tr>
+            <td><code>docx2pdf</code></td>
+            <td>Paquete de Python para exportar PDF</td>
+            <td>~1 MB + <code>pywin32</code></td>
+            <td>Descartada: por debajo hace exactamente lo mismo que el script de PowerShell
+            —llama a Word—, pero agrega dos dependencias.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="nota ok">
+        <b>Lo que hay que instalar, completo:</b> una línea.
+        <code>pip install python-docx</code> · 4,1 MB · unos veinte segundos.
+        El PDF no necesita nada más.
+      </div>
+
+      <h3 class="sub">El ejemplo, ya construido y funcionando</h3>
+      <p>En la carpeta <code>4_Ejemplo_Documento</code> del material de esta clase está un
+      Capítulo 1 completo hecho con este método: <b>7 páginas</b>, en <code>.docx</code> (34 KB)
+      y en <code>.pdf</code> (203 KB). Ábralo antes de empezar el suyo: es más rápido ver cómo
+      queda que leer cómo debería quedar.</p>
+
+      <div class="nota peligro">
+        <b>Los datos de ese ejemplo son SINTÉTICOS.</b> «Supermercados La Aurora S.A.S.» no
+        existe y todas las cifras están inventadas. Están ahí para mostrar el formato, no para
+        copiarlas. Lo único real de ese documento son las cinco referencias — a propósito.
+      </div>
+
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Archivo</th><th>Qué es</th></tr></thead>
+          <tbody>
+          <tr><td><code>1_generar_documento.py</code></td><td>Genera el <code>.docx</code>.
+            Comentado en español, línea por línea.</td></tr>
+          <tr><td><code>2_exportar_pdf.ps1</code></td><td>Llena la tabla de contenido y saca el
+            <code>.pdf</code>.</td></tr>
+          <tr><td><code>3_Prompt_Reutilizable.md</code></td><td>El encargo para que Claude Code le
+            haga el suyo desde cero.</td></tr>
+          <tr><td><code>Capitulo_1_Ejemplo.docx</code> y <code>.pdf</code></td><td>El resultado,
+            para que lo vea.</td></tr>
+          <tr><td><code>LEEME.md</code></td><td>Qué hace cada cosa y cómo se verificó cada
+            referencia.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub">Cómo lo corre</h3>
+      <p>En la terminal de Visual Studio Code, dentro de la carpeta:</p>
+<pre class="plain">pip install python-docx
+python 1_generar_documento.py
+powershell -ExecutionPolicy Bypass -File .\2_exportar_pdf.ps1</pre>
+      <div class="nota ok"><b>Cómo sabe que quedó bien:</b> le imprime las dos rutas y los dos
+      pesos, y en la carpeta aparecen el <code>.docx</code> y el <code>.pdf</code>. Abra el PDF y
+      vaya a la página 2: la tabla de contenido tiene que tener los números de página, no un texto
+      que dice «presione F9».</div>
+
+      <h3 class="sub">El prompt, si prefiere pedirlo desde cero</h3>
+      <p>Deje su texto en un archivo <code>mi_capitulo_1.md</code> en la carpeta —texto plano, sin
+      formato— y pegue esto.</p>
+
+      <div class="pegar">
+        <div class="pegar-h"><span>Prompt 7 · Que Claude Code le arme el Word y el PDF</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>Necesito que me armes el documento del trabajo de grado en Word y en PDF, con
+normas APA 7. Yo no programo: haces todo vos y me avisas que quedo.
+
+CONTEXTO
+- Es el Capitulo 1 (Problematica) del trabajo de grado del II Diplomado en
+  Inteligencia Artificial de la Especializacion en Alta Gerencia de la UNAC.
+- El contenido esta en  mi_capitulo_1.md  de esta carpeta. LEELO PRIMERO. No
+  inventes ni completes nada que no este ahi: si te falta un dato, paras y me lo
+  preguntas.
+- Es Windows con PowerShell y tengo Microsoft Word instalado.
+
+QUE QUIERO, EXACTAMENTE
+1. Un archivo  Capitulo_1.docx  hecho con la libreria python-docx. Si no esta
+   instalada, instalala con  pip install python-docx  y me lo decis.
+2. Formato APA 7, sin excepciones:
+   - Times New Roman 12, interlineado doble, margenes de 1 pulgada por los
+     cuatro lados, tamano carta.
+   - Numero de pagina arriba a la derecha, en el encabezado.
+   - Sangria de primera linea de 0.5 pulgadas en cada parrafo del cuerpo.
+   - Titulos APA: nivel 1 centrado y en negrita; nivel 2 al margen izquierdo y
+     en negrita; nivel 3 al margen y en negrita cursiva. Todos en Times New
+     Roman 12 y en negro. OJO: los estilos Heading de Word traen fuente de tema
+     (asciiTheme) y te van a ignorar la fuente; hay que borrar esos atributos.
+   - Lista de referencias con sangria francesa de 0.5 pulgadas, en orden
+     alfabetico, con el titulo del libro y el nombre de la revista en cursiva.
+3. Portada con: titulo, capitulo, nombres de los integrantes, equipo, programa,
+   nombre del diplomado, docente, institucion, ciudad y fecha de entrega. Todo
+   centrado.
+4. Una tabla de contenido AUTOMATICA, insertada como campo TOC de Word
+   (TOC \o "1-3" \h \z \u), en su propia pagina.
+5. Un script de PowerShell aparte que abra el .docx con Word por COM, actualice
+   los campos para que la tabla de contenido se llene con los numeros de pagina
+   de verdad, guarde el .docx y exporte  Capitulo_1.pdf  con
+   ExportAsFixedFormat. Sin instalar nada mas.
+6. Corre las dos cosas y mostrame el resultado. Si algo falla, lo arreglas vos y
+   me contas que era.
+
+REGLAS DURAS
+- No inventes referencias. Usa unicamente las que estan en mi archivo.
+- No inventes cifras, nombres, fechas ni datos de la empresa.
+- Si el .docx esta abierto en Word el script no lo puede sobrescribir. Antes de
+  correr, avisame que lo cierre, y si te sale PermissionError me lo decis claro.
+- Los comentarios del codigo en espanol, para que yo los entienda si tengo que
+  volver.</pre>
+      </div>
+
+      <h3 class="sub">Las dos trampas · le van a pasar a todos</h3>
+
+      <div class="nota peligro">
+        <b>Trampa 1 · El archivo abierto en Word.</b> Si el <code>.docx</code> está abierto en
+        Word, el script <b>no lo puede sobrescribir</b>: Word lo bloquea y Python se cae con
+        <code>PermissionError</code>. Con el PDF pasa igual si lo tiene abierto en un lector.
+        <br><br><b>Cierre Word y el lector de PDF antes de correr.</b> Es la causa número uno de
+        «no me funcionó», y no tiene nada que ver con el código. Si le pasa: cierre, vuelva a
+        correr, listo.
+      </div>
+
+      <div class="nota">
+        <b>Trampa 2 · La tabla de contenido sale vacía.</b> Python <b>inserta</b> el campo de la
+        tabla de contenido, pero no lo puede <b>calcular</b>: los números de página los sabe Word,
+        no Python. Por eso el <code>.docx</code> recién generado muestra un texto que dice «ponga
+        el cursor aquí y presione F9».
+        <br><br>Se arregla de dos formas:
+        <br>· <b>Automática:</b> corra <code>2_exportar_pdf.ps1</code>. Abre Word sin ventana,
+        actualiza los campos dos veces —la segunda porque al llenarse la tabla cambia la
+        paginación—, guarda y exporta el PDF.
+        <br>· <b>Manual:</b> abra el <code>.docx</code> en Word, <code>Ctrl + E</code> para
+        seleccionar todo, <code>F9</code>, y escoja <b>Actualizar toda la tabla</b>.
+      </div>
+
+      <div class="nota">
+        <b>Si no tiene Microsoft Word.</b> Genere el <code>.docx</code> igual —eso no necesita
+        Word— y para el PDF use el Word en línea, o Google Docs, o instale LibreOffice.
+        <span class="mk mk-s">Sin verificar</span> Esos caminos no se probaron en el equipo de
+        prueba. Si le toca ese caso, avísele al docente en clase.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================================================================= cierre -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">✓</div>
+      <div>
+        <h2>La lista de chequeo <b>antes de entregar</b></h2>
+        <div class="t">Diez minutos. Recórrala completa antes de subir el archivo a Moodle.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Reviso</th><th>Ya está si…</th></tr></thead>
+          <tbody>
+          <tr><td>Cada cifra del documento</td><td>Sé de dónde salió cada una, y puedo mostrar
+            de dónde.</td></tr>
+          <tr><td>Cada referencia</td><td>La busqué, la abrí y la vi. Los cinco pasos. Una por
+            una.</td></tr>
+          <tr><td>Misión y visión</td><td>Están copiadas textuales del documento oficial de la
+            empresa.</td></tr>
+          <tr><td>La prueba del nombre tapado</td><td>Tapé el nombre de la empresa y el texto
+            <b>dejó</b> de servir para cualquier otra.</td></tr>
+          <tr><td>Frases de relleno</td><td>Busqué «en el mundo actual», «es importante
+            destacar», «cabe señalar» con <code>Ctrl+B</code>. Cero resultados.</td></tr>
+          <tr><td>Adjetivos sin dato</td><td>Busqué «significativo», «considerable», «notable».
+            Cada uno tiene su número al lado, o ya no está.</td></tr>
+          <tr><td>Citas y lista</td><td>Todo lo citado está en la lista, y todo lo de la lista
+            está citado. Las dos direcciones.</td></tr>
+          <tr><td>Declaración de uso de IA</td><td>Está escrita, dice qué herramienta y para qué,
+            y dice qué verifiqué yo.</td></tr>
+          <tr><td>Tabla de contenido</td><td>Tiene números de página de verdad, no el texto
+            «presione F9».</td></tr>
+          <tr><td>Formato</td><td>Times New Roman 12, interlineado doble, márgenes de 1 pulgada,
+            referencias con sangría francesa.</td></tr>
+          <tr><td>Los dos archivos</td><td>El <code>.docx</code> y el <code>.pdf</code> abren
+            bien, con doble clic, en un computador con Windows.</td></tr>
+          <tr><td>La fecha</td><td>Falta más de un día para las <b>11:59 p. m.</b> del día de
+            cierre.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="nota ok">
+        <b>Y la pregunta con la que se cierra todo.</b> Si el jurado le señala cualquier frase del
+        documento y le pregunta «¿de dónde sacó esto?», ¿usted tiene la respuesta? Si la tiene
+        para todas, entregue tranquilo. Si hay una sola para la que no, arréglela antes de subir.
+      </div>
+    </div>
+  </div>
+
+  <div class="pie">
+    <span>Diplomado en Inteligencia Artificial · UNAC · Clase 05</span>
+    <span>Mg. Alexey David Velásquez Betancurt</span>
+    <span>26 de agosto de 2026</span>
+    <span>Word y PDF probados en Windows 10, Python 3.12, Microsoft Word 16.0</span>
+    <span>APA 7 · guía de IA generativa del 9 de septiembre de 2025</span>
+  </div>
+</div>
+
+<script>
+function cp(b){
+  var t = b.parentElement.parentElement.querySelector('pre').innerText;
+  navigator.clipboard.writeText(t).then(function(){
+    var o = b.textContent; b.textContent = 'Copiado'; b.style.color = '#EAAD05';
+    setTimeout(function(){ b.textContent = o; b.style.color = ''; }, 1600);
+  });
+}
+</script>
+</body>
+</html>

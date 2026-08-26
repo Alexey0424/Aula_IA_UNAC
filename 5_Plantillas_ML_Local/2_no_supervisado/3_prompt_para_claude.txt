@@ -1,0 +1,99 @@
+===============================================================================
+ PLANTILLA 2 - MACHINE LEARNING NO SUPERVISADO (K-Means)
+ Copie el bloque de abajo y peguelo en Claude Code. Nada mas.
+===============================================================================
+
+COMO SE USA
+  1. Abra PowerShell en la carpeta 3_Plantillas_ML_Local
+  2. Escriba:  claude
+  3. Copie el PROMPT 1 completo y peguelo.
+  4. Cuando Claude le pida permiso para ejecutar el script, diga que si.
+
+  Usted NO escribe codigo. Usted da la orden y lee el resultado.
+
+
+-------------------------------------------------------------------------------
+ PROMPT 1 - CORRER LA PLANTILLA Y EXPLICARME EL RESULTADO
+-------------------------------------------------------------------------------
+
+Estoy en el Diplomado en Inteligencia Artificial de la UNAC y soy gerente, no
+programador. En la carpeta 2_no_supervisado hay una plantilla de clustering con
+K-Means sobre datos sinteticos del surtido de un supermercado.
+
+Haz esto, en este orden:
+
+1. Corre 1_generar_datos.py y luego 2_entrenar.py con el Python de mi
+   computador. Si falta alguna libreria, dime la linea exacta de pip install
+   antes de seguir; no instales nada sin avisarme.
+
+2. Cuando termine, explicame como si yo fuera el comprador de categoria y
+   tuviera cinco minutos:
+   - En que se diferencia esto de la plantilla 1, en una frase.
+   - Por que aqui NO hay Accuracy, y que se mira entonces.
+   - Que dice el metodo del codo (Elbow) y por que escogimos k = 4 si la
+     metrica preferia otro numero.
+   - La ficha de los cuatro grupos: descrribeme cada grupo como se lo
+     describiria a mi jefe, y digame que haria yo con cada uno el lunes.
+   - Explicame la "leccion incomoda" del Silhouette bajo con recuperacion
+     alta. Quiero entender eso bien porque me huele a que me va a pasar con
+     mis datos.
+
+3. Abre resultado_clusters.png y dime que se ve en cada una de las dos
+   graficas. Senala en la grafica de la derecha donde se ve que los grupos
+   se tocan.
+
+4. Abre surtido_con_grupo.csv y dime como lo filtro en Excel para sacar la
+   lista de referencias candidatas a salir del surtido.
+
+
+-------------------------------------------------------------------------------
+ PROMPT 2 - JUGAR CON EL NUMERO DE GRUPOS (hagalo, es el ejercicio)
+-------------------------------------------------------------------------------
+
+Cambia NUMERO_DE_GRUPOS a 3 y corre otra vez. Despues cambialo a 6 y corre otra
+vez. Muestrame los dos resultados uno al lado del otro y dime:
+ - Con k = 3, cuales dos familias se fusionaron y tiene sentido comercial que
+   se fusionen.
+ - Con k = 6, en que se partieron los grupos y si esos grupos nuevos me sirven
+   para algo o son picar el pelo.
+ - Con cual me quedaria yo si tuviera que presentarle esto a un comite de
+   compras, y por que.
+
+Al final devuelve el archivo con NUMERO_DE_GRUPOS = 4 como estaba.
+
+
+-------------------------------------------------------------------------------
+ PROMPT 3 - CUANDO SE ANIME A PONER SUS PROPIOS DATOS
+-------------------------------------------------------------------------------
+
+Quiero agrupar mis datos reales. Mi archivo se llama
+<PONGA_AQUI_EL_NOMBRE.csv>.
+
+Antes de agrupar nada:
+1. Abre mi archivo y muestrame las primeras cinco filas.
+2. Dime cuales columnas son identificadores o texto y hay que poner en
+   COLUMNAS_A_IGNORAR (K-Means solo trabaja con numeros).
+3. Avisame si alguna columna esta en una escala tan distinta a las otras que
+   se va a comer el agrupamiento, y confirmame que la plantilla estandariza.
+4. Dime si tengo columnas vacias y como las vas a tratar.
+
+Despues corre la plantilla con mis datos y proponme un nombre comercial para
+cada grupo. Ojo: la funcion bautizar() del script tiene reglas hechas para el
+ejemplo del supermercado; reescribela para MI negocio.
+
+IMPORTANTE: mis datos se quedan en mi computador. No los subas a ningun lado.
+
+
+-------------------------------------------------------------------------------
+ PROMPT 4 - PARA EL PROYECTO DE GRADO
+-------------------------------------------------------------------------------
+
+Ayudame a escribir, en lenguaje de gerente, como defiendo ante un jurado que
+estos grupos sirven, sabiendo que en no supervisado no hay Accuracy que mostrar.
+Maximo 200 palabras, en espanol, sin jerga. Incluye que evidencia debo llevar
+ademas de la metrica.
+
+===============================================================================
+ Diplomado en Inteligencia Artificial - UNAC - Clase 05
+ Datos sinteticos con semilla fija. No son datos de ninguna empresa real.
+===============================================================================

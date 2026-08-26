@@ -1,0 +1,129 @@
+===============================================================================
+ INSTALACION - Plantillas de Machine Learning local
+ Diplomado en Inteligencia Artificial - UNAC - Clase 05
+ Probado en Windows 10 Pro con Python 3.12.10 el 26 de agosto de 2026
+===============================================================================
+
+  Todo esto se escribe en PowerShell. Para abrir PowerShell:
+  tecla Windows -> escriba "powershell" -> Enter.
+
+
+-------------------------------------------------------------------------------
+ PASO 0 - VERIFICAR QUE TIENE PYTHON  (10 segundos)
+-------------------------------------------------------------------------------
+
+Copie y pegue esta linea:
+
+    py --version
+
+  Si responde algo como "Python 3.12.10", ya esta. Siga al PASO 1.
+
+  Si dice que no reconoce el comando, o si se le ABRE LA TIENDA DE MICROSOFT,
+  no tiene Python instalado. Baje el instalador de:
+
+      https://www.python.org/downloads/windows/
+
+  y en la primera pantalla del instalador MARQUE la casilla
+  "Add python.exe to PATH" antes de darle Install. Es la casilla que todo el
+  mundo se salta y es la que causa el 90 % de los problemas.
+
+
+-------------------------------------------------------------------------------
+ LINEA 1 - LA OBLIGATORIA  (para las plantillas 1 y 2)
+-------------------------------------------------------------------------------
+
+    py -m pip install scikit-learn pandas matplotlib
+
+  Descarga  : 84 MB       (medido: 18 paquetes)
+  Tiempo    : 47 a 53 segundos con internet decente  (medido)
+  Disco     : 395 MB
+
+  Con esto corren la plantilla 1 (supervisado) y la plantilla 2 (no
+  supervisado). Es todo lo que necesita para la clase.
+
+  Nota: se instalan 18 paquetes porque scikit-learn arrastra scipy (36 MB)
+  y numpy (12 MB). Es normal y es una sola vez.
+
+
+-------------------------------------------------------------------------------
+ LINEA 2 - LA OPCIONAL, PESADA  (solo para la plantilla 3, la CNN)
+-------------------------------------------------------------------------------
+
+    py -m pip install torch
+
+  Descarga  : 127 MB      (medido)
+  Tiempo    : ~53 segundos con internet decente  (medido)
+  Disco     : +640 MB     (el total sube a 1,0 GB)
+
+  *** NO CORRA ESTA LINEA EN CLASE. ***
+  Con 16 personas bajando 127 MB al mismo tiempo, el salon se queda sin
+  internet. La plantilla 3 es TAREA para la casa.
+
+  Tres cosas verificadas que le van a ahorrar dolores de cabeza:
+
+  1. En WINDOWS esa linea trae la version de CPU y nada mas. NO necesita
+     tarjeta grafica, NO necesita CUDA y NO necesita el famoso
+     "--index-url https://download.pytorch.org/whl/cpu" que sale en los
+     tutoriales. Todas las dependencias de NVIDIA de PyTorch estan marcadas
+     "solo Linux", asi que en Windows no se bajan. Verificado el 26-ago-2026.
+
+  2. Si le sale un error que menciona "long paths" o "ruta demasiado larga":
+     mueva la carpeta de las plantillas a una ruta CORTA, por ejemplo
+     C:\ia\ , y vuelva a intentar. Windows tiene un limite de 260 caracteres
+     en las rutas y PyTorch tiene nombres de archivo muy largos por dentro.
+     Nos paso en las pruebas: la instalacion falla en una carpeta profunda
+     y funciona perfecto en C:\ . Es la causa mas probable de que le falle.
+
+  3. Si prefiere no instalar PyTorch nunca, no pasa nada: las plantillas 1 y 2
+     son completas por si solas y le sirven igual para el proyecto de grado.
+
+
+-------------------------------------------------------------------------------
+ VERIFICAR QUE TODO QUEDO BIEN  (5 segundos)
+-------------------------------------------------------------------------------
+
+Despues de la LINEA 1:
+
+    py -c "import sklearn, pandas, matplotlib; print('LINEA 1 OK')"
+
+Despues de la LINEA 2 (si la corrio):
+
+    py -c "import torch; print('LINEA 2 OK - torch', torch.__version__)"
+
+  Debe decir algo como "torch 2.13.0+cpu". Ese "+cpu" al final es la
+  confirmacion de que quedo la version liviana.
+
+
+-------------------------------------------------------------------------------
+ PLAN B - SI EL INTERNET DEL SALON SE CAE  (verificado)
+-------------------------------------------------------------------------------
+
+El docente lleva los paquetes en una memoria USB. Si eso pasa, copie la
+carpeta de paquetes a su computador y corra:
+
+    py -m pip install --no-index --find-links C:\ruta\a\la\carpeta_paquetes scikit-learn pandas matplotlib
+
+  Probado sin internet: instala en 41 segundos y los resultados salen
+  identicos. Cero descargas.
+
+  (Para el docente: la carpeta se arma con
+   py -m pip download --no-cache-dir -d carpeta_paquetes scikit-learn pandas matplotlib
+   desde un equipo con internet y el MISMO Windows/Python de los estudiantes.
+   Ojo: los paquetes son especificos de la version de Python. Si un estudiante
+   tiene Python 3.13 y los wheels son de 3.12, no le sirven. Por eso el USB es
+   plan B y no plan A.)
+
+
+-------------------------------------------------------------------------------
+ SI ALGO FALLA
+-------------------------------------------------------------------------------
+
+No adivine. Abra Claude Code en la carpeta de las plantillas y peguele el
+error completo con esta frase:
+
+    Me salio este error instalando las plantillas del diplomado. Estoy en
+    Windows y no soy programador. Dime en pasos numerados que hago, y no
+    instales nada sin avisarme primero.
+    <pegue aqui el error completo, tal cual, sin recortarlo>
+
+===============================================================================

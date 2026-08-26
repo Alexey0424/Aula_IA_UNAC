@@ -1,0 +1,601 @@
+﻿sku,categoria,precio_unitario,unidades_mes,rotacion_dias,margen_pct,pct_venta_en_promocion,devoluciones_pct,quiebres_stock_mes,proveedores_activos,familia_real
+SKU-0262,Cuidado personal,10440,461,11.0,14.0,65.1,5.5,0.7,2,Adicto a la promocion
+SKU-0133,Panaderia,36790,137,44.1,52.9,9.3,0.9,0.5,1,Joya de margen
+SKU-0576,Cuidado personal,4820,27,98.0,18.2,0.0,2.34,0.5,3,Cola larga dormida
+SKU-0455,Panaderia,4390,70,59.7,17.5,2.8,2.8,0.3,2,Cola larga dormida
+SKU-0338,Panaderia,4770,360,21.4,10.9,58.8,3.6,1.7,2,Adicto a la promocion
+SKU-0581,Cuidado personal,6020,17,83.8,17.6,3.8,0.76,0.5,4,Cola larga dormida
+SKU-0317,Aseo hogar,10940,1156,20.2,15.9,75.5,4.57,3.3,2,Adicto a la promocion
+SKU-0440,Despensa,15760,73,106.3,20.1,4.0,2.61,0.4,4,Cola larga dormida
+SKU-0054,Aseo hogar,9020,1588,6.1,12.7,15.8,0.42,1.4,4,Locomotora
+SKU-0398,Bebidas,9240,3,23.0,17.3,67.6,6.17,3.1,4,Adicto a la promocion
+SKU-0061,Mascotas,4410,2196,3.4,5.4,15.2,0.72,2.7,4,Locomotora
+SKU-0586,Lacteos,12610,43,57.3,35.4,6.3,3.53,0.2,4,Cola larga dormida
+SKU-0497,Cuidado personal,5460,39,64.6,22.9,5.8,0.0,0.3,3,Cola larga dormida
+SKU-0273,Aseo hogar,3420,1018,25.3,12.0,48.7,6.23,1.7,2,Adicto a la promocion
+SKU-0279,Despensa,4820,624,18.5,14.8,74.9,3.87,2.5,1,Adicto a la promocion
+SKU-0278,Mascotas,5990,1140,9.9,9.7,66.1,4.48,0.2,3,Adicto a la promocion
+SKU-0405,Despensa,7600,445,16.7,15.7,61.4,6.32,0.5,2,Adicto a la promocion
+SKU-0355,Cuidado personal,11240,1218,13.6,17.3,49.2,6.4,1.4,4,Adicto a la promocion
+SKU-0370,Lacteos,5150,1034,7.1,10.2,51.8,3.29,0.5,4,Adicto a la promocion
+SKU-0307,Aseo hogar,3620,1485,25.2,11.8,56.9,2.55,1.8,4,Adicto a la promocion
+SKU-0244,Lacteos,14130,226,44.3,33.9,7.1,0.17,0.0,1,Joya de margen
+SKU-0539,Bebidas,15560,71,106.7,16.9,6.0,1.57,0.5,4,Cola larga dormida
+SKU-0389,Panaderia,6080,1651,19.6,13.2,71.3,5.44,1.1,3,Adicto a la promocion
+SKU-0545,Lacteos,20690,22,47.6,30.6,6.8,2.77,0.0,3,Cola larga dormida
+SKU-0098,Cuidado personal,7550,3205,5.9,12.7,8.1,0.73,2.2,1,Locomotora
+SKU-0553,Panaderia,10670,42,167.6,19.3,1.6,1.98,0.8,2,Cola larga dormida
+SKU-0471,Aseo hogar,11220,52,78.7,22.3,11.1,0.0,0.3,3,Cola larga dormida
+SKU-0423,Lacteos,9160,32,136.5,25.7,5.1,1.33,0.0,2,Cola larga dormida
+SKU-0345,Lacteos,8990,289,16.0,14.4,49.5,3.45,3.3,3,Adicto a la promocion
+SKU-0552,Cuidado personal,15910,60,100.6,15.8,4.2,0.96,0.7,2,Cola larga dormida
+SKU-0546,Lacteos,21460,17,98.3,22.8,2.4,2.16,0.6,1,Cola larga dormida
+SKU-0071,Panaderia,3780,2975,4.2,8.9,5.1,1.06,1.1,1,Locomotora
+SKU-0540,Panaderia,17340,56,66.3,22.0,5.2,1.66,0.7,1,Cola larga dormida
+SKU-0309,Mascotas,10910,622,14.8,15.4,56.0,3.18,2.3,2,Adicto a la promocion
+SKU-0188,Panaderia,14200,222,67.0,37.8,2.5,0.68,0.0,2,Joya de margen
+SKU-0599,Despensa,8110,60,151.1,22.6,8.7,1.52,0.1,3,Cola larga dormida
+SKU-0494,Despensa,18430,55,151.3,42.1,2.3,3.16,0.5,4,Cola larga dormida
+SKU-0292,Mascotas,11690,759,9.0,19.9,61.2,6.23,2.9,1,Adicto a la promocion
+SKU-0431,Bebidas,5190,53,87.7,9.3,2.9,3.24,0.1,3,Cola larga dormida
+SKU-0194,Snacks,18280,193,60.3,35.1,3.6,2.42,0.3,1,Joya de margen
+SKU-0285,Mascotas,8980,920,23.4,18.1,76.7,4.13,0.6,2,Adicto a la promocion
+SKU-0500,Lacteos,4280,24,90.7,7.8,5.3,2.71,0.2,2,Cola larga dormida
+SKU-0306,Bebidas,8960,635,27.5,16.6,44.8,4.61,2.2,2,Adicto a la promocion
+SKU-0282,Despensa,9250,1285,13.6,11.5,60.1,4.62,0.7,1,Adicto a la promocion
+SKU-0541,Bebidas,2550,38,85.5,4.0,4.6,1.52,0.0,2,Cola larga dormida
+SKU-0205,Aseo hogar,9370,306,46.3,36.7,2.1,1.73,1.9,2,Joya de margen
+SKU-0328,Snacks,6940,1144,17.9,12.3,71.9,5.71,0.0,3,Adicto a la promocion
+SKU-0014,Bebidas,6350,1731,6.0,7.9,16.7,1.06,2.4,4,Locomotora
+SKU-0515,Despensa,5270,91,97.0,21.2,8.2,2.08,0.1,1,Cola larga dormida
+SKU-0004,Despensa,3830,1294,5.5,5.8,13.1,0.86,2.2,2,Locomotora
+SKU-0100,Panaderia,9140,3023,7.0,10.2,10.1,1.21,2.1,1,Locomotora
+SKU-0501,Despensa,5620,23,52.4,16.9,8.5,3.13,0.1,3,Cola larga dormida
+SKU-0236,Aseo hogar,23030,321,60.2,42.5,5.9,1.15,0.8,2,Joya de margen
+SKU-0542,Panaderia,4730,55,113.7,16.1,3.9,0.94,0.6,4,Cola larga dormida
+SKU-0559,Bebidas,10680,51,70.7,37.5,7.7,3.24,0.0,1,Cola larga dormida
+SKU-0359,Bebidas,6670,895,22.7,13.0,58.9,4.33,2.0,1,Adicto a la promocion
+SKU-0223,Aseo hogar,13080,187,51.4,29.5,4.6,0.63,0.9,4,Joya de margen
+SKU-0053,Snacks,5200,3314,6.5,10.4,19.8,0.72,1.7,4,Locomotora
+SKU-0210,Panaderia,30900,243,43.4,36.0,12.1,1.0,0.0,1,Joya de margen
+SKU-0442,Despensa,3730,61,63.9,16.9,0.0,3.34,0.0,4,Cola larga dormida
+SKU-0173,Cuidado personal,39970,184,44.5,36.2,9.3,0.55,1.2,3,Joya de margen
+SKU-0260,Cuidado personal,6510,430,6.6,8.8,53.1,4.08,1.1,2,Adicto a la promocion
+SKU-0051,Panaderia,6730,2398,4.0,10.2,20.1,0.7,2.2,2,Locomotora
+SKU-0572,Snacks,15490,70,148.3,27.5,7.3,0.99,0.0,3,Cola larga dormida
+SKU-0203,Aseo hogar,27500,68,59.3,34.4,8.9,1.31,0.0,4,Joya de margen
+SKU-0323,Bebidas,6870,499,29.6,11.1,31.5,4.4,1.5,2,Adicto a la promocion
+SKU-0418,Bebidas,5830,55,81.1,15.2,6.4,0.91,1.1,3,Cola larga dormida
+SKU-0470,Aseo hogar,7920,44,54.5,30.8,2.8,2.56,0.3,3,Cola larga dormida
+SKU-0031,Lacteos,3450,2898,7.8,7.9,18.1,0.3,3.4,1,Locomotora
+SKU-0354,Bebidas,3590,954,14.3,11.9,67.4,4.88,0.6,1,Adicto a la promocion
+SKU-0565,Lacteos,3640,73,146.8,10.5,9.7,1.69,0.9,1,Cola larga dormida
+SKU-0352,Snacks,3660,1226,17.0,12.8,59.5,4.32,1.0,3,Adicto a la promocion
+SKU-0237,Panaderia,48400,59,55.1,55.9,1.3,1.81,0.7,1,Joya de margen
+SKU-0116,Aseo hogar,5170,1994,8.9,8.9,11.7,0.68,2.5,1,Locomotora
+SKU-0409,Mascotas,8360,1063,18.4,14.7,49.7,7.06,2.2,4,Adicto a la promocion
+SKU-0052,Despensa,2450,1773,6.6,5.9,7.6,1.31,1.3,1,Locomotora
+SKU-0102,Bebidas,6640,1846,6.1,8.1,15.7,0.55,1.9,1,Locomotora
+SKU-0569,Snacks,8660,32,40.0,33.5,6.8,0.71,0.3,2,Cola larga dormida
+SKU-0171,Aseo hogar,7410,165,39.4,42.5,5.8,0.94,0.0,1,Joya de margen
+SKU-0180,Aseo hogar,9560,145,36.1,28.2,4.2,1.52,0.5,2,Joya de margen
+SKU-0368,Bebidas,12980,1173,18.4,12.8,56.7,3.9,2.3,4,Adicto a la promocion
+SKU-0432,Despensa,8200,29,122.0,29.9,8.0,1.13,0.3,3,Cola larga dormida
+SKU-0147,Panaderia,12830,150,59.4,39.3,9.7,1.92,0.8,3,Joya de margen
+SKU-0284,Despensa,7610,1088,15.9,11.4,41.6,2.71,1.9,4,Adicto a la promocion
+SKU-0385,Cuidado personal,5840,937,24.5,13.9,33.1,6.74,1.7,1,Adicto a la promocion
+SKU-0480,Cuidado personal,7050,12,54.5,32.8,7.1,2.11,0.1,4,Cola larga dormida
+SKU-0142,Lacteos,10110,214,39.7,25.2,9.7,1.62,0.6,1,Joya de margen
+SKU-0434,Mascotas,9180,10,65.6,20.9,6.8,1.84,0.0,2,Cola larga dormida
+SKU-0483,Bebidas,11960,19,135.1,25.0,12.4,1.17,0.2,4,Cola larga dormida
+SKU-0141,Snacks,14150,278,48.2,34.0,7.8,1.64,0.5,1,Joya de margen
+SKU-0056,Bebidas,5980,2523,5.8,10.3,19.5,1.04,2.5,1,Locomotora
+SKU-0110,Cuidado personal,8900,2810,1.9,10.6,11.2,0.97,3.2,1,Locomotora
+SKU-0337,Panaderia,11980,951,28.2,16.5,54.2,2.0,0.3,3,Adicto a la promocion
+SKU-0330,Mascotas,3380,1012,20.9,19.1,46.2,7.11,0.8,4,Adicto a la promocion
+SKU-0221,Bebidas,29080,229,42.0,42.8,7.9,1.37,0.8,1,Joya de margen
+SKU-0218,Panaderia,24770,270,45.5,45.3,4.7,1.0,1.0,3,Joya de margen
+SKU-0566,Aseo hogar,8610,38,48.7,26.0,7.8,4.31,1.0,1,Cola larga dormida
+SKU-0436,Cuidado personal,3580,22,82.9,8.8,2.8,1.19,0.7,4,Cola larga dormida
+SKU-0347,Lacteos,7370,763,23.4,10.4,75.4,6.87,1.7,2,Adicto a la promocion
+SKU-0155,Cuidado personal,15040,150,70.3,40.2,12.3,1.78,0.2,4,Joya de margen
+SKU-0415,Snacks,14640,59,97.8,30.2,8.1,1.63,0.6,2,Cola larga dormida
+SKU-0047,Lacteos,4630,3307,7.1,8.9,9.7,0.55,4.3,1,Locomotora
+SKU-0395,Aseo hogar,3390,801,17.7,11.0,52.7,4.34,3.0,1,Adicto a la promocion
+SKU-0507,Mascotas,13130,32,65.3,31.6,9.0,2.3,0.0,1,Cola larga dormida
+SKU-0491,Snacks,7170,25,124.6,21.8,10.0,2.81,0.6,4,Cola larga dormida
+SKU-0579,Snacks,8350,57,130.2,19.0,1.8,0.0,0.4,1,Cola larga dormida
+SKU-0249,Lacteos,13430,130,39.7,44.6,5.8,1.02,0.6,3,Joya de margen
+SKU-0083,Despensa,2460,1582,6.1,5.6,9.5,0.68,0.0,3,Locomotora
+SKU-0356,Cuidado personal,3050,643,14.8,10.9,60.3,4.88,1.6,3,Adicto a la promocion
+SKU-0024,Despensa,3400,1983,5.3,7.6,12.0,0.65,2.0,4,Locomotora
+SKU-0305,Lacteos,6160,681,16.6,16.5,67.8,4.06,1.6,3,Adicto a la promocion
+SKU-0272,Cuidado personal,3250,1629,17.4,11.4,67.6,7.48,2.0,2,Adicto a la promocion
+SKU-0160,Mascotas,23550,302,48.3,38.7,4.1,1.55,0.4,1,Joya de margen
+SKU-0039,Cuidado personal,1070,1984,2.1,0.9,9.9,1.33,2.5,1,Locomotora
+SKU-0286,Cuidado personal,13090,1226,18.9,18.5,58.1,6.51,2.4,1,Adicto a la promocion
+SKU-0293,Aseo hogar,7060,1159,15.6,13.7,57.0,4.6,2.6,4,Adicto a la promocion
+SKU-0380,Panaderia,11320,1041,19.5,17.7,49.4,3.65,0.9,2,Adicto a la promocion
+SKU-0011,Aseo hogar,2080,2939,8.3,5.7,8.8,1.06,0.0,2,Locomotora
+SKU-0243,Lacteos,14780,138,69.8,38.0,3.5,0.91,0.9,4,Joya de margen
+SKU-0474,Mascotas,29010,52,136.6,28.5,2.0,1.3,0.4,4,Cola larga dormida
+SKU-0448,Snacks,9170,57,69.1,28.5,1.6,1.7,0.7,3,Cola larga dormida
+SKU-0033,Mascotas,3820,1790,6.0,11.1,5.4,0.0,2.7,2,Locomotora
+SKU-0023,Cuidado personal,3590,2024,3.4,12.1,11.4,1.19,2.4,2,Locomotora
+SKU-0509,Bebidas,11670,27,62.5,25.0,5.3,1.12,0.1,1,Cola larga dormida
+SKU-0428,Despensa,31540,86,71.3,38.1,5.3,1.72,0.2,2,Cola larga dormida
+SKU-0026,Bebidas,2840,1527,5.6,7.4,5.0,1.09,2.4,4,Locomotora
+SKU-0420,Snacks,12620,65,57.8,31.5,2.6,2.14,0.5,2,Cola larga dormida
+SKU-0167,Despensa,15770,102,42.8,36.6,7.5,1.36,0.4,1,Joya de margen
+SKU-0531,Mascotas,21260,38,82.4,33.8,9.3,0.0,0.0,3,Cola larga dormida
+SKU-0250,Despensa,22360,255,18.8,32.9,3.9,0.53,0.1,2,Joya de margen
+SKU-0454,Lacteos,23410,56,89.0,31.5,3.8,1.69,0.1,4,Cola larga dormida
+SKU-0143,Aseo hogar,18300,252,40.5,33.8,6.4,1.91,0.0,2,Joya de margen
+SKU-0271,Aseo hogar,3630,622,16.0,8.5,41.0,6.17,1.0,3,Adicto a la promocion
+SKU-0090,Aseo hogar,5490,2177,6.5,13.4,18.4,0.76,2.1,1,Locomotora
+SKU-0066,Snacks,3840,2990,3.5,11.7,13.3,0.38,1.8,4,Locomotora
+SKU-0446,Aseo hogar,17680,3,77.5,34.4,0.0,1.24,0.6,3,Cola larga dormida
+SKU-0450,Mascotas,5390,46,72.7,16.7,5.2,1.22,0.7,4,Cola larga dormida
+SKU-0156,Cuidado personal,17650,153,51.2,38.4,7.1,1.03,0.0,2,Joya de margen
+SKU-0383,Despensa,7860,905,17.1,16.8,52.3,6.4,2.0,3,Adicto a la promocion
+SKU-0452,Panaderia,8710,63,124.1,39.0,8.9,2.27,0.2,2,Cola larga dormida
+SKU-0230,Cuidado personal,16540,251,77.9,43.1,6.9,1.1,0.1,4,Joya de margen
+SKU-0593,Panaderia,12680,49,78.0,20.7,6.8,1.14,0.7,2,Cola larga dormida
+SKU-0358,Bebidas,4240,775,15.9,13.5,51.4,3.67,0.8,2,Adicto a la promocion
+SKU-0041,Mascotas,11640,2883,7.1,9.5,7.8,1.0,1.6,3,Locomotora
+SKU-0417,Bebidas,13750,27,118.5,22.6,3.5,3.05,0.0,1,Cola larga dormida
+SKU-0193,Snacks,12920,254,50.1,23.3,5.0,0.93,0.0,3,Joya de margen
+SKU-0246,Bebidas,34800,228,41.6,42.5,8.3,0.67,0.5,1,Joya de margen
+SKU-0259,Snacks,10050,1277,10.7,20.1,68.1,3.88,2.3,4,Adicto a la promocion
+SKU-0584,Snacks,3990,36,77.9,16.1,6.7,1.41,0.0,1,Cola larga dormida
+SKU-0430,Despensa,8030,66,128.8,13.4,8.2,2.53,1.0,4,Cola larga dormida
+SKU-0057,Cuidado personal,2840,2632,2.1,5.5,15.4,1.08,2.2,2,Locomotora
+SKU-0233,Lacteos,16070,284,43.0,42.3,15.1,0.47,1.1,1,Joya de margen
+SKU-0072,Lacteos,6240,1316,5.9,11.8,5.9,0.36,1.5,4,Locomotora
+SKU-0387,Despensa,4020,772,28.5,9.8,31.0,4.71,1.3,3,Adicto a la promocion
+SKU-0240,Bebidas,5150,228,44.7,22.1,7.0,0.54,0.3,3,Joya de margen
+SKU-0091,Despensa,13360,1983,6.9,10.0,12.4,1.2,1.5,3,Locomotora
+SKU-0290,Lacteos,8910,579,19.1,16.7,79.6,3.49,2.1,4,Adicto a la promocion
+SKU-0055,Panaderia,5220,2575,5.6,9.5,13.2,0.68,2.4,2,Locomotora
+SKU-0329,Panaderia,10940,434,23.4,24.0,51.8,4.72,1.4,2,Adicto a la promocion
+SKU-0281,Aseo hogar,7570,1617,19.2,10.7,66.8,2.71,2.6,3,Adicto a la promocion
+SKU-0201,Snacks,21800,165,47.0,39.1,5.4,1.18,1.3,1,Joya de margen
+SKU-0067,Panaderia,1650,2370,4.9,6.9,10.8,0.39,0.9,3,Locomotora
+SKU-0472,Lacteos,5740,59,64.4,11.0,11.5,1.59,1.1,2,Cola larga dormida
+SKU-0189,Snacks,18800,271,48.7,28.9,9.0,1.96,0.3,2,Joya de margen
+SKU-0441,Cuidado personal,10950,92,103.7,22.1,9.4,3.13,0.3,3,Cola larga dormida
+SKU-0222,Panaderia,8290,139,41.1,27.7,5.7,0.35,0.4,3,Joya de margen
+SKU-0121,Despensa,2790,2224,4.7,10.3,8.3,0.0,2.0,4,Locomotora
+SKU-0320,Snacks,2250,935,17.1,11.4,45.9,2.39,3.3,2,Adicto a la promocion
+SKU-0550,Snacks,6470,44,86.7,10.9,3.3,3.58,0.4,3,Cola larga dormida
+SKU-0319,Snacks,2690,901,14.8,11.0,43.7,4.7,0.0,1,Adicto a la promocion
+SKU-0456,Panaderia,15340,48,45.6,21.3,0.6,2.34,0.4,4,Cola larga dormida
+SKU-0498,Bebidas,6270,64,101.1,14.4,8.8,1.24,0.0,4,Cola larga dormida
+SKU-0519,Lacteos,11860,19,92.0,23.8,3.8,2.11,0.0,4,Cola larga dormida
+SKU-0408,Cuidado personal,8930,1479,18.7,18.9,45.7,2.37,2.9,4,Adicto a la promocion
+SKU-0119,Mascotas,4110,3332,4.6,9.2,9.9,1.4,0.1,2,Locomotora
+SKU-0120,Bebidas,5270,1997,4.9,10.7,14.4,1.36,0.5,4,Locomotora
+SKU-0304,Mascotas,5060,695,14.0,7.7,58.4,2.55,0.5,3,Adicto a la promocion
+SKU-0518,Lacteos,11580,58,99.2,25.6,8.4,3.11,0.5,1,Cola larga dormida
+SKU-0301,Bebidas,5120,853,10.8,16.8,59.2,4.34,1.9,2,Adicto a la promocion
+SKU-0139,Snacks,20390,192,33.3,44.8,13.9,2.41,0.4,4,Joya de margen
+SKU-0146,Bebidas,16420,204,45.6,34.8,5.5,1.24,0.5,1,Joya de margen
+SKU-0149,Lacteos,21420,112,54.0,42.7,9.2,1.16,0.7,1,Joya de margen
+SKU-0561,Panaderia,7460,48,110.4,16.6,6.5,1.22,0.7,2,Cola larga dormida
+SKU-0447,Cuidado personal,16150,115,18.3,33.5,9.7,3.01,0.2,2,Cola larga dormida
+SKU-0163,Bebidas,18780,118,41.1,44.0,4.5,0.79,0.9,1,Joya de margen
+SKU-0412,Snacks,5170,5,111.1,12.5,2.5,2.6,0.2,4,Cola larga dormida
+SKU-0492,Mascotas,21410,53,102.3,27.2,7.8,1.22,0.5,2,Cola larga dormida
+SKU-0468,Snacks,10750,50,90.4,26.5,5.5,2.73,0.1,1,Cola larga dormida
+SKU-0151,Despensa,15020,163,35.3,40.2,4.3,0.65,0.0,2,Joya de margen
+SKU-0504,Snacks,5110,85,83.3,16.2,8.7,3.56,0.4,2,Cola larga dormida
+SKU-0361,Panaderia,10510,1368,23.5,16.1,53.2,8.37,2.0,3,Adicto a la promocion
+SKU-0528,Lacteos,10580,45,83.2,37.6,0.0,2.4,0.6,4,Cola larga dormida
+SKU-0032,Panaderia,5860,2696,7.7,13.7,17.9,0.34,0.4,4,Locomotora
+SKU-0331,Cuidado personal,4320,1270,21.3,10.2,49.6,3.86,1.6,3,Adicto a la promocion
+SKU-0274,Mascotas,13070,547,14.7,11.0,61.6,4.78,2.6,4,Adicto a la promocion
+SKU-0021,Mascotas,1490,2867,6.3,5.2,17.0,1.38,2.3,2,Locomotora
+SKU-0114,Aseo hogar,2440,1493,6.6,8.7,10.7,0.77,1.8,1,Locomotora
+SKU-0589,Aseo hogar,16690,3,100.8,26.3,4.8,0.63,0.0,3,Cola larga dormida
+SKU-0001,Panaderia,3430,2579,5.5,6.8,10.2,0.4,2.5,3,Locomotora
+SKU-0396,Panaderia,11850,1379,15.4,20.4,57.5,5.21,2.4,2,Adicto a la promocion
+SKU-0314,Aseo hogar,2320,1323,10.1,8.6,62.2,3.55,0.0,1,Adicto a la promocion
+SKU-0557,Cuidado personal,8320,10,97.5,23.0,1.6,1.31,0.0,1,Cola larga dormida
+SKU-0214,Panaderia,23910,101,57.5,45.4,9.9,1.29,0.0,4,Joya de margen
+SKU-0486,Panaderia,17560,71,97.8,25.6,4.0,0.45,0.0,4,Cola larga dormida
+SKU-0521,Snacks,7620,50,89.3,23.0,2.0,2.74,0.0,2,Cola larga dormida
+SKU-0003,Panaderia,4340,2382,7.4,5.6,10.2,0.04,0.9,2,Locomotora
+SKU-0573,Lacteos,22150,87,137.8,40.5,5.9,2.22,0.7,3,Cola larga dormida
+SKU-0059,Lacteos,4570,1697,5.9,8.6,7.4,0.85,1.0,4,Locomotora
+SKU-0544,Lacteos,4990,47,108.2,13.8,6.0,3.37,0.7,2,Cola larga dormida
+SKU-0372,Mascotas,4430,1086,17.3,12.2,45.0,4.87,1.9,1,Adicto a la promocion
+SKU-0005,Panaderia,2370,2076,5.9,9.3,5.9,0.61,1.2,2,Locomotora
+SKU-0257,Panaderia,6270,776,14.4,13.0,55.3,5.25,0.5,2,Adicto a la promocion
+SKU-0324,Mascotas,6390,1512,15.0,13.9,65.1,7.14,1.5,3,Adicto a la promocion
+SKU-0075,Mascotas,6180,2495,6.1,13.8,7.8,0.18,1.2,2,Locomotora
+SKU-0192,Cuidado personal,31540,243,41.7,32.4,11.3,1.6,0.6,3,Joya de margen
+SKU-0547,Bebidas,5750,20,32.6,19.9,5.5,1.71,0.1,2,Cola larga dormida
+SKU-0598,Aseo hogar,8450,40,105.6,19.6,3.5,3.82,0.2,3,Cola larga dormida
+SKU-0325,Panaderia,7010,1065,15.2,14.3,58.3,3.13,2.7,1,Adicto a la promocion
+SKU-0081,Despensa,2610,1954,5.9,6.4,14.4,0.76,2.7,2,Locomotora
+SKU-0341,Despensa,4860,547,15.3,13.1,49.7,7.69,0.0,4,Adicto a la promocion
+SKU-0027,Despensa,5970,1948,6.9,7.7,11.4,0.36,0.9,4,Locomotora
+SKU-0386,Bebidas,3920,525,15.8,10.5,83.2,5.4,0.2,2,Adicto a la promocion
+SKU-0217,Aseo hogar,15510,60,47.1,32.1,6.5,1.13,1.5,4,Joya de margen
+SKU-0381,Despensa,2710,868,8.3,9.8,64.9,4.49,1.9,3,Adicto a la promocion
+SKU-0479,Aseo hogar,7990,72,116.8,26.8,8.0,3.21,0.3,4,Cola larga dormida
+SKU-0058,Aseo hogar,4540,1373,5.3,7.3,14.5,1.7,2.7,1,Locomotora
+SKU-0465,Panaderia,8540,50,122.9,10.8,0.3,2.85,0.0,1,Cola larga dormida
+SKU-0109,Mascotas,2720,2696,7.3,7.7,19.7,1.48,3.1,3,Locomotora
+SKU-0410,Snacks,11000,1061,19.3,18.2,64.1,5.79,0.5,1,Adicto a la promocion
+SKU-0148,Cuidado personal,11350,338,36.1,42.9,6.0,2.31,1.4,3,Joya de margen
+SKU-0229,Bebidas,21510,232,53.8,34.5,4.3,1.37,0.4,1,Joya de margen
+SKU-0015,Lacteos,4140,2196,8.1,9.0,14.3,0.28,2.8,3,Locomotora
+SKU-0175,Despensa,12220,125,18.7,33.6,1.0,1.18,1.0,2,Joya de margen
+SKU-0241,Bebidas,27430,99,32.9,46.9,7.4,2.15,0.7,3,Joya de margen
+SKU-0115,Panaderia,6380,1390,5.9,13.6,19.9,1.33,3.2,3,Locomotora
+SKU-0166,Aseo hogar,11280,261,37.0,32.3,6.7,0.24,1.2,2,Joya de margen
+SKU-0520,Snacks,10920,87,160.6,18.9,6.2,1.74,0.8,3,Cola larga dormida
+SKU-0506,Bebidas,5480,31,135.7,21.4,8.1,1.29,0.0,2,Cola larga dormida
+SKU-0060,Bebidas,10400,3067,8.1,11.7,10.1,1.01,2.2,1,Locomotora
+SKU-0514,Lacteos,11750,20,101.8,16.3,1.8,2.26,0.5,3,Cola larga dormida
+SKU-0087,Snacks,6880,2007,5.5,10.6,13.7,0.88,0.6,2,Locomotora
+SKU-0165,Cuidado personal,18640,135,51.8,49.2,10.5,0.51,0.9,1,Joya de margen
+SKU-0099,Cuidado personal,5750,3027,3.0,6.7,13.3,0.54,0.6,2,Locomotora
+SKU-0502,Lacteos,24460,79,86.3,34.1,6.5,1.5,0.6,4,Cola larga dormida
+SKU-0169,Aseo hogar,18890,135,55.5,40.1,5.0,2.42,1.7,4,Joya de margen
+SKU-0295,Bebidas,3620,718,16.3,11.6,82.0,6.73,2.0,4,Adicto a la promocion
+SKU-0042,Bebidas,4620,3056,3.5,8.7,12.0,0.27,4.5,3,Locomotora
+SKU-0365,Lacteos,7540,1209,20.7,16.4,60.6,5.66,2.9,1,Adicto a la promocion
+SKU-0466,Despensa,9130,40,93.1,18.1,3.6,3.53,0.0,1,Cola larga dormida
+SKU-0322,Mascotas,12570,601,15.2,18.2,62.0,7.8,1.1,1,Adicto a la promocion
+SKU-0174,Lacteos,25470,182,37.0,35.1,5.0,1.3,0.1,1,Joya de margen
+SKU-0245,Snacks,21390,145,50.6,45.5,9.0,1.21,1.6,4,Joya de margen
+SKU-0080,Bebidas,3560,2376,8.6,13.7,11.5,0.49,2.3,3,Locomotora
+SKU-0481,Snacks,4850,48,85.9,16.4,11.5,2.25,0.1,3,Cola larga dormida
+SKU-0029,Cuidado personal,8710,2218,5.7,9.1,16.7,1.07,2.9,4,Locomotora
+SKU-0510,Snacks,2950,88,67.2,14.7,4.3,1.23,0.1,3,Cola larga dormida
+SKU-0508,Bebidas,17170,44,75.4,33.6,5.9,2.54,0.1,3,Cola larga dormida
+SKU-0294,Cuidado personal,16730,939,16.1,12.9,62.1,3.17,1.1,1,Adicto a la promocion
+SKU-0404,Lacteos,6090,937,16.0,9.6,60.6,4.66,1.2,2,Adicto a la promocion
+SKU-0302,Mascotas,5940,821,7.7,16.4,61.5,4.35,2.5,2,Adicto a la promocion
+SKU-0085,Bebidas,4050,2068,6.2,6.0,12.9,0.86,2.2,3,Locomotora
+SKU-0063,Despensa,1340,2526,3.6,6.7,15.2,0.99,0.1,3,Locomotora
+SKU-0596,Aseo hogar,3450,48,109.3,10.6,2.6,1.88,0.5,3,Cola larga dormida
+SKU-0137,Bebidas,10970,232,40.8,39.8,6.2,1.27,0.4,3,Joya de margen
+SKU-0112,Bebidas,3150,1014,8.4,9.6,16.4,1.59,2.4,2,Locomotora
+SKU-0195,Panaderia,13970,196,51.1,33.8,9.4,0.91,0.0,3,Joya de margen
+SKU-0371,Panaderia,10330,823,19.3,12.3,61.7,3.4,1.6,4,Adicto a la promocion
+SKU-0044,Snacks,3280,2449,3.8,8.3,11.3,1.28,2.8,3,Locomotora
+SKU-0459,Mascotas,9900,17,150.7,24.0,0.7,2.38,0.2,3,Cola larga dormida
+SKU-0130,Aseo hogar,5170,1139,3.1,8.0,12.6,0.73,0.3,3,Locomotora
+SKU-0535,Panaderia,17920,33,111.2,36.4,9.0,1.95,0.1,4,Cola larga dormida
+SKU-0219,Despensa,17420,160,30.1,38.7,11.9,0.75,0.6,2,Joya de margen
+SKU-0097,Panaderia,3720,2375,7.8,13.9,11.4,0.78,2.6,3,Locomotora
+SKU-0125,Aseo hogar,4810,2654,6.8,10.0,6.2,0.73,2.1,1,Locomotora
+SKU-0563,Panaderia,2150,50,87.5,10.9,3.4,2.72,0.9,3,Cola larga dormida
+SKU-0597,Bebidas,8050,44,125.1,33.3,7.3,3.4,0.1,2,Cola larga dormida
+SKU-0178,Cuidado personal,8900,105,46.6,32.3,6.8,1.26,1.7,4,Joya de margen
+SKU-0340,Snacks,1960,455,8.5,15.9,88.8,3.01,2.5,4,Adicto a la promocion
+SKU-0575,Bebidas,11690,76,65.1,28.7,0.2,1.52,0.8,4,Cola larga dormida
+SKU-0562,Despensa,6960,77,123.4,26.1,6.9,0.0,0.6,2,Cola larga dormida
+SKU-0104,Lacteos,5410,1814,6.2,10.1,8.7,0.14,0.7,2,Locomotora
+SKU-0082,Aseo hogar,4730,2290,4.5,6.6,11.1,0.58,2.7,3,Locomotora
+SKU-0334,Bebidas,4740,816,15.3,10.1,35.6,3.99,1.0,1,Adicto a la promocion
+SKU-0344,Bebidas,7410,449,16.3,10.8,51.0,6.15,0.9,3,Adicto a la promocion
+SKU-0265,Cuidado personal,3790,868,25.6,14.7,59.0,3.13,1.3,3,Adicto a la promocion
+SKU-0402,Snacks,6230,797,17.8,17.2,50.3,2.74,2.5,1,Adicto a la promocion
+SKU-0228,Cuidado personal,18230,114,52.4,37.6,3.9,0.99,0.2,1,Joya de margen
+SKU-0276,Snacks,4540,595,22.6,9.7,32.1,6.24,0.9,1,Adicto a la promocion
+SKU-0376,Snacks,8560,1530,21.2,15.1,72.2,6.23,3.1,3,Adicto a la promocion
+SKU-0264,Despensa,3240,1008,23.2,15.4,70.6,4.81,2.7,2,Adicto a la promocion
+SKU-0533,Lacteos,4880,39,82.3,24.7,2.6,1.68,0.2,2,Cola larga dormida
+SKU-0254,Panaderia,13010,632,13.9,22.7,53.1,3.75,1.1,1,Adicto a la promocion
+SKU-0172,Mascotas,25120,176,35.3,36.9,10.1,1.42,0.8,2,Joya de margen
+SKU-0238,Snacks,14840,171,62.9,30.7,7.5,2.1,0.4,3,Joya de margen
+SKU-0382,Snacks,5610,295,12.3,11.8,58.4,3.66,2.4,2,Adicto a la promocion
+SKU-0140,Bebidas,17410,231,47.5,38.6,11.6,0.41,1.0,4,Joya de margen
+SKU-0268,Aseo hogar,7340,1178,5.9,16.8,55.2,5.89,0.8,1,Adicto a la promocion
+SKU-0591,Aseo hogar,16980,34,91.5,39.0,5.6,2.97,0.1,3,Cola larga dormida
+SKU-0360,Snacks,4760,1164,18.4,11.3,48.6,7.25,1.3,3,Adicto a la promocion
+SKU-0213,Aseo hogar,14750,30,42.6,42.5,11.7,0.0,1.8,1,Joya de margen
+SKU-0199,Cuidado personal,21780,254,64.2,39.0,2.5,0.49,0.0,3,Joya de margen
+SKU-0384,Panaderia,9810,949,17.3,16.1,70.2,6.11,1.9,1,Adicto a la promocion
+SKU-0016,Despensa,5470,1387,1.9,8.2,8.4,0.87,5.1,2,Locomotora
+SKU-0164,Despensa,19580,240,41.5,31.3,2.4,0.78,0.0,4,Joya de margen
+SKU-0424,Mascotas,7980,17,81.6,20.2,6.1,2.61,0.4,2,Cola larga dormida
+SKU-0391,Mascotas,6920,400,8.9,12.0,51.8,4.72,2.6,1,Adicto a la promocion
+SKU-0499,Lacteos,7800,47,125.6,31.3,5.6,0.69,0.0,1,Cola larga dormida
+SKU-0038,Bebidas,2690,2845,5.8,9.2,10.8,1.26,2.4,3,Locomotora
+SKU-0505,Cuidado personal,9310,32,114.4,22.1,9.7,0.5,0.6,4,Cola larga dormida
+SKU-0207,Mascotas,12600,199,56.6,40.5,8.2,0.74,0.0,4,Joya de margen
+SKU-0296,Bebidas,10250,882,30.1,15.3,57.0,5.09,1.9,4,Adicto a la promocion
+SKU-0427,Lacteos,14030,21,97.2,37.1,3.0,3.28,0.9,2,Cola larga dormida
+SKU-0074,Snacks,2850,1817,3.6,4.4,19.4,0.67,2.7,4,Locomotora
+SKU-0379,Bebidas,15370,1177,17.6,20.7,80.5,2.67,2.5,3,Adicto a la promocion
+SKU-0105,Panaderia,3620,1944,5.7,9.5,14.5,0.67,3.0,4,Locomotora
+SKU-0327,Despensa,7080,1137,18.7,18.0,51.3,4.98,0.2,4,Adicto a la promocion
+SKU-0017,Snacks,3810,2025,6.4,10.2,11.3,0.72,3.2,4,Locomotora
+SKU-0092,Snacks,3120,2366,7.5,10.5,16.3,0.96,2.0,3,Locomotora
+SKU-0089,Cuidado personal,2240,880,6.8,5.3,6.8,0.55,3.9,4,Locomotora
+SKU-0437,Panaderia,5840,27,55.8,12.6,4.8,1.76,0.8,3,Cola larga dormida
+SKU-0206,Aseo hogar,14430,230,61.2,41.3,4.0,2.0,0.0,1,Joya de margen
+SKU-0103,Mascotas,3040,3743,10.0,9.2,12.9,1.41,2.3,4,Locomotora
+SKU-0239,Lacteos,34660,188,40.5,47.5,4.2,1.74,0.0,3,Joya de margen
+SKU-0549,Bebidas,7230,21,58.2,19.4,8.6,2.21,0.9,1,Cola larga dormida
+SKU-0247,Lacteos,6880,38,43.9,36.3,5.6,0.19,0.3,4,Joya de margen
+SKU-0158,Bebidas,13870,79,25.0,31.6,0.9,0.62,1.3,1,Joya de margen
+SKU-0134,Bebidas,17910,202,60.5,35.1,1.8,1.03,0.5,3,Joya de margen
+SKU-0388,Bebidas,3360,766,4.2,15.7,78.1,1.55,2.7,3,Adicto a la promocion
+SKU-0406,Lacteos,6580,417,18.4,15.8,83.4,5.59,0.8,2,Adicto a la promocion
+SKU-0019,Mascotas,8070,2983,6.4,9.2,9.6,0.75,0.0,1,Locomotora
+SKU-0462,Lacteos,6650,44,88.0,10.4,3.6,4.22,0.0,3,Cola larga dormida
+SKU-0478,Bebidas,4330,66,19.8,23.1,4.0,2.75,0.3,1,Cola larga dormida
+SKU-0343,Snacks,4070,1121,4.8,19.9,85.3,6.17,2.5,1,Adicto a la promocion
+SKU-0275,Despensa,2940,399,19.4,17.6,63.5,6.25,1.1,3,Adicto a la promocion
+SKU-0451,Snacks,6560,73,94.7,28.8,3.4,1.44,0.0,1,Cola larga dormida
+SKU-0529,Snacks,14270,31,109.0,35.0,2.2,0.26,0.7,4,Cola larga dormida
+SKU-0312,Aseo hogar,6150,975,6.5,9.8,69.7,7.34,1.9,4,Adicto a la promocion
+SKU-0393,Despensa,3670,1045,17.1,8.6,59.4,3.37,2.2,2,Adicto a la promocion
+SKU-0564,Panaderia,21230,31,68.9,33.6,2.4,4.28,0.3,2,Cola larga dormida
+SKU-0269,Panaderia,5300,1617,12.0,11.2,54.7,2.96,2.7,2,Adicto a la promocion
+SKU-0035,Cuidado personal,7360,1413,7.0,8.8,13.6,0.4,1.6,1,Locomotora
+SKU-0182,Panaderia,18890,99,65.4,24.9,6.0,1.33,0.3,2,Joya de margen
+SKU-0185,Panaderia,11410,259,62.7,37.1,6.5,1.7,0.0,2,Joya de margen
+SKU-0208,Mascotas,16970,184,37.5,30.2,3.2,0.91,0.0,2,Joya de margen
+SKU-0095,Mascotas,5000,2039,6.0,10.9,1.0,0.75,3.1,3,Locomotora
+SKU-0512,Mascotas,9860,39,126.1,18.3,4.6,2.0,0.3,3,Cola larga dormida
+SKU-0407,Despensa,14630,629,8.1,24.4,61.9,5.74,2.1,3,Adicto a la promocion
+SKU-0123,Bebidas,2430,1946,4.2,6.0,13.7,0.54,0.0,2,Locomotora
+SKU-0460,Aseo hogar,3560,3,27.3,9.2,5.8,1.95,0.2,2,Cola larga dormida
+SKU-0079,Lacteos,4370,2163,5.9,8.8,11.6,0.35,2.3,2,Locomotora
+SKU-0351,Lacteos,3040,583,17.6,12.7,45.2,5.22,1.4,1,Adicto a la promocion
+SKU-0062,Bebidas,3480,3001,2.5,7.0,12.7,0.96,1.9,4,Locomotora
+SKU-0252,Lacteos,6700,1436,19.0,11.4,57.2,3.1,1.8,2,Adicto a la promocion
+SKU-0126,Lacteos,6690,2524,3.3,13.1,12.4,0.32,0.3,1,Locomotora
+SKU-0429,Mascotas,24670,49,90.7,32.3,2.8,0.85,0.6,4,Cola larga dormida
+SKU-0426,Cuidado personal,7430,15,62.7,21.2,5.3,1.28,0.5,4,Cola larga dormida
+SKU-0590,Mascotas,13070,15,102.5,28.6,8.1,1.19,0.4,2,Cola larga dormida
+SKU-0348,Lacteos,10760,1106,21.5,20.2,45.4,6.49,1.3,4,Adicto a la promocion
+SKU-0473,Mascotas,7840,49,110.3,27.1,8.5,2.48,0.4,2,Cola larga dormida
+SKU-0543,Bebidas,22450,39,154.5,22.4,6.4,1.84,0.0,1,Cola larga dormida
+SKU-0378,Despensa,3480,226,13.0,5.9,58.8,4.61,0.1,3,Adicto a la promocion
+SKU-0068,Despensa,1970,2371,7.8,5.2,12.0,0.54,1.2,3,Locomotora
+SKU-0025,Snacks,5830,1915,9.3,7.3,7.8,0.93,4.1,2,Locomotora
+SKU-0443,Lacteos,5840,26,66.6,20.4,5.8,2.67,1.0,2,Cola larga dormida
+SKU-0485,Despensa,14460,74,125.8,24.6,5.1,1.72,0.5,1,Cola larga dormida
+SKU-0595,Lacteos,15250,53,130.7,32.1,3.5,3.46,0.5,1,Cola larga dormida
+SKU-0127,Panaderia,2350,2346,4.6,9.2,9.4,1.02,1.5,2,Locomotora
+SKU-0534,Bebidas,8640,81,107.2,21.1,6.6,2.45,0.7,1,Cola larga dormida
+SKU-0335,Lacteos,5380,428,25.6,15.1,55.0,3.46,0.9,4,Adicto a la promocion
+SKU-0578,Snacks,11140,7,118.2,29.9,0.0,0.09,0.5,2,Cola larga dormida
+SKU-0179,Despensa,20850,76,35.8,37.3,6.5,1.46,1.0,1,Joya de margen
+SKU-0411,Despensa,8770,104,80.4,21.0,7.7,3.05,0.5,3,Cola larga dormida
+SKU-0567,Panaderia,7220,41,80.4,19.6,2.5,1.7,0.0,4,Cola larga dormida
+SKU-0136,Snacks,10360,234,49.0,38.9,12.4,0.64,0.4,3,Joya de margen
+SKU-0224,Snacks,10450,299,56.2,35.9,11.4,0.29,1.2,2,Joya de margen
+SKU-0588,Lacteos,8670,6,128.6,17.8,3.6,3.9,0.7,2,Cola larga dormida
+SKU-0554,Cuidado personal,9590,43,114.4,22.8,3.9,5.47,0.3,4,Cola larga dormida
+SKU-0488,Lacteos,7990,32,90.5,23.0,2.0,2.52,0.7,1,Cola larga dormida
+SKU-0094,Panaderia,5920,2180,4.8,6.8,3.0,0.67,3.5,3,Locomotora
+SKU-0467,Cuidado personal,10650,107,96.7,21.8,7.2,4.01,0.0,4,Cola larga dormida
+SKU-0070,Mascotas,3320,2752,5.7,10.5,11.8,0.37,2.3,4,Locomotora
+SKU-0037,Snacks,6680,1564,7.8,8.8,11.9,0.22,1.8,2,Locomotora
+SKU-0297,Mascotas,4080,893,29.6,10.5,66.3,3.0,3.2,1,Adicto a la promocion
+SKU-0161,Lacteos,14500,176,66.9,26.1,6.1,1.73,0.3,4,Joya de margen
+SKU-0363,Panaderia,3510,525,8.4,12.7,40.5,6.04,2.6,3,Adicto a la promocion
+SKU-0012,Despensa,4740,2122,5.8,12.1,14.8,0.67,2.0,4,Locomotora
+SKU-0145,Panaderia,16600,245,60.3,35.4,8.2,1.63,0.2,4,Joya de margen
+SKU-0511,Aseo hogar,8080,93,42.6,21.9,5.1,1.91,0.2,2,Cola larga dormida
+SKU-0128,Snacks,3660,2376,8.0,15.4,8.0,0.61,1.4,2,Locomotora
+SKU-0530,Panaderia,5310,87,85.9,4.3,9.4,1.78,0.7,2,Cola larga dormida
+SKU-0303,Despensa,4550,550,12.3,20.2,75.0,3.42,0.5,3,Adicto a la promocion
+SKU-0010,Despensa,4510,1994,6.4,7.8,12.5,0.33,1.7,2,Locomotora
+SKU-0516,Panaderia,11260,105,63.8,21.2,7.5,0.82,0.3,2,Cola larga dormida
+SKU-0177,Panaderia,17910,351,61.6,38.8,8.1,1.57,0.2,3,Joya de margen
+SKU-0232,Lacteos,27010,152,43.6,30.7,11.9,1.5,1.4,2,Joya de margen
+SKU-0211,Aseo hogar,23720,203,49.7,29.8,4.0,1.52,0.8,1,Joya de margen
+SKU-0129,Bebidas,4040,1711,5.0,8.9,8.1,0.42,1.8,3,Locomotora
+SKU-0144,Lacteos,14330,263,38.3,31.4,10.8,1.14,0.0,2,Joya de margen
+SKU-0242,Aseo hogar,16740,116,45.2,45.6,9.9,1.2,0.5,3,Joya de margen
+SKU-0008,Cuidado personal,11800,2915,6.2,7.4,20.0,1.1,1.0,2,Locomotora
+SKU-0594,Despensa,2910,22,42.6,13.9,0.0,0.49,0.8,4,Cola larga dormida
+SKU-0299,Aseo hogar,6220,943,16.4,12.6,49.8,3.98,0.9,3,Adicto a la promocion
+SKU-0311,Lacteos,8970,1129,14.7,15.0,44.6,6.7,2.6,2,Adicto a la promocion
+SKU-0255,Despensa,14760,1109,18.1,22.2,60.6,6.92,1.8,2,Adicto a la promocion
+SKU-0582,Lacteos,4140,53,107.0,18.0,8.9,2.21,0.0,1,Cola larga dormida
+SKU-0464,Panaderia,13710,18,77.7,21.1,7.1,2.69,0.3,1,Cola larga dormida
+SKU-0009,Snacks,4810,2746,5.6,10.7,11.7,1.07,4.1,3,Locomotora
+SKU-0157,Mascotas,8600,24,50.5,33.6,4.9,1.07,0.6,3,Joya de margen
+SKU-0028,Snacks,3670,3201,5.0,9.7,11.9,0.62,1.8,4,Locomotora
+SKU-0267,Aseo hogar,6720,1107,12.4,14.4,29.5,5.67,1.0,2,Adicto a la promocion
+SKU-0315,Lacteos,14750,949,14.1,22.5,59.7,3.39,1.7,4,Adicto a la promocion
+SKU-0065,Snacks,5510,2294,9.2,7.4,12.7,0.13,1.9,1,Locomotora
+SKU-0587,Snacks,7240,87,98.8,23.1,5.2,2.71,0.5,3,Cola larga dormida
+SKU-0256,Mascotas,5360,1093,8.3,13.5,57.2,4.21,0.0,3,Adicto a la promocion
+SKU-0493,Snacks,10160,45,88.3,16.5,0.7,3.31,0.3,4,Cola larga dormida
+SKU-0154,Bebidas,10710,116,58.3,35.6,8.4,0.7,0.7,1,Joya de margen
+SKU-0049,Cuidado personal,4030,2263,5.6,9.3,5.6,0.71,1.4,4,Locomotora
+SKU-0209,Snacks,14490,65,48.2,40.4,13.0,0.3,0.2,2,Joya de margen
+SKU-0522,Cuidado personal,13620,61,99.9,30.8,4.9,3.13,0.0,3,Cola larga dormida
+SKU-0288,Despensa,6930,1455,16.4,17.9,56.9,4.21,3.4,1,Adicto a la promocion
+SKU-0002,Snacks,5700,3204,5.0,7.4,14.0,0.94,2.5,2,Locomotora
+SKU-0342,Cuidado personal,2470,1021,19.0,11.7,59.8,6.0,1.7,2,Adicto a la promocion
+SKU-0270,Panaderia,5280,1452,12.8,7.1,72.1,6.37,2.3,1,Adicto a la promocion
+SKU-0266,Aseo hogar,6120,1148,9.1,16.6,62.2,5.04,0.0,1,Adicto a la promocion
+SKU-0537,Despensa,14770,68,57.4,30.3,3.4,2.43,0.5,2,Cola larga dormida
+SKU-0453,Lacteos,8510,47,139.9,29.6,2.5,1.24,0.8,4,Cola larga dormida
+SKU-0568,Despensa,11210,52,95.1,42.5,7.3,1.47,0.5,1,Cola larga dormida
+SKU-0369,Mascotas,3340,994,14.6,8.1,68.9,2.91,2.2,2,Adicto a la promocion
+SKU-0096,Cuidado personal,4040,2809,9.4,11.8,13.3,0.92,3.3,2,Locomotora
+SKU-0571,Cuidado personal,34870,26,62.4,31.2,2.2,3.18,0.4,4,Cola larga dormida
+SKU-0353,Lacteos,4620,1139,20.9,19.1,37.7,3.97,1.2,4,Adicto a la promocion
+SKU-0043,Snacks,5500,2121,7.5,9.9,1.5,0.9,2.3,2,Locomotora
+SKU-0362,Panaderia,3230,1075,16.0,8.3,42.0,5.25,2.0,1,Adicto a la promocion
+SKU-0438,Cuidado personal,9400,31,127.8,24.1,5.0,0.0,0.0,1,Cola larga dormida
+SKU-0592,Aseo hogar,9340,49,44.6,21.8,8.6,4.31,0.8,1,Cola larga dormida
+SKU-0117,Mascotas,3930,2349,3.8,8.1,21.1,0.77,2.1,1,Locomotora
+SKU-0425,Despensa,10630,21,31.4,17.8,2.1,1.28,0.2,2,Cola larga dormida
+SKU-0046,Bebidas,1960,2950,7.3,9.3,12.9,0.7,2.2,3,Locomotora
+SKU-0162,Snacks,16010,124,42.8,29.7,7.4,2.66,1.1,2,Joya de margen
+SKU-0556,Despensa,7560,61,86.7,19.7,0.6,1.37,0.0,1,Cola larga dormida
+SKU-0118,Despensa,4450,2719,7.4,6.2,11.2,1.17,2.7,2,Locomotora
+SKU-0289,Mascotas,3280,491,12.7,12.7,83.9,4.93,2.4,1,Adicto a la promocion
+SKU-0078,Despensa,9310,1496,4.0,12.5,15.3,0.64,1.4,2,Locomotora
+SKU-0527,Cuidado personal,3600,53,77.4,16.0,9.4,0.78,0.0,2,Cola larga dormida
+SKU-0390,Bebidas,2910,1127,13.9,6.8,82.4,4.04,1.1,3,Adicto a la promocion
+SKU-0560,Mascotas,7110,19,128.4,20.4,4.2,2.37,0.0,2,Cola larga dormida
+SKU-0413,Mascotas,13250,129,119.3,27.8,2.3,1.29,0.0,1,Cola larga dormida
+SKU-0064,Snacks,7990,3208,7.2,12.4,10.5,0.68,1.0,2,Locomotora
+SKU-0339,Snacks,3450,680,15.0,10.8,68.5,2.96,0.6,1,Adicto a la promocion
+SKU-0316,Aseo hogar,7620,567,12.4,15.5,51.3,3.88,3.1,3,Adicto a la promocion
+SKU-0300,Panaderia,6790,1069,26.1,6.3,56.6,3.93,2.0,4,Adicto a la promocion
+SKU-0400,Aseo hogar,5400,1015,15.9,10.7,63.2,3.95,0.2,4,Adicto a la promocion
+SKU-0231,Mascotas,7250,285,35.1,32.0,5.8,0.94,0.9,3,Joya de margen
+SKU-0298,Mascotas,8090,794,16.7,17.7,73.1,2.82,1.3,1,Adicto a la promocion
+SKU-0187,Aseo hogar,11750,249,45.0,36.9,4.5,1.44,0.4,2,Joya de margen
+SKU-0469,Bebidas,10350,30,76.1,20.9,4.6,0.71,0.9,1,Cola larga dormida
+SKU-0200,Snacks,54280,291,35.8,45.4,8.8,2.23,1.0,4,Joya de margen
+SKU-0421,Snacks,10490,3,144.6,26.5,3.7,0.87,0.0,1,Cola larga dormida
+SKU-0366,Cuidado personal,2970,559,14.3,8.4,77.4,6.67,2.3,1,Adicto a la promocion
+SKU-0524,Despensa,1920,9,132.2,6.2,2.0,0.16,1.0,3,Cola larga dormida
+SKU-0397,Lacteos,3810,1672,18.5,9.2,73.7,3.94,1.3,2,Adicto a la promocion
+SKU-0122,Lacteos,5050,1501,4.7,9.9,13.2,1.43,2.2,4,Locomotora
+SKU-0574,Despensa,3300,48,94.1,13.6,8.0,0.82,0.5,2,Cola larga dormida
+SKU-0248,Cuidado personal,13220,177,47.3,31.0,9.0,0.45,0.4,4,Joya de margen
+SKU-0308,Bebidas,5740,948,33.2,14.4,32.9,3.52,1.7,2,Adicto a la promocion
+SKU-0570,Panaderia,11210,72,110.9,25.1,2.4,1.3,0.3,2,Cola larga dormida
+SKU-0364,Mascotas,4540,1805,22.3,11.6,47.5,0.0,1.1,4,Adicto a la promocion
+SKU-0159,Mascotas,34730,225,29.5,39.8,6.0,1.16,0.8,4,Joya de margen
+SKU-0086,Aseo hogar,3420,2136,7.1,4.8,13.8,0.9,2.7,4,Locomotora
+SKU-0226,Bebidas,9780,187,28.2,33.9,8.4,1.33,1.1,4,Joya de margen
+SKU-0377,Lacteos,6340,862,18.6,14.7,61.6,4.92,0.9,1,Adicto a la promocion
+SKU-0263,Mascotas,1440,605,19.7,5.9,72.9,3.82,0.9,3,Adicto a la promocion
+SKU-0332,Bebidas,12810,1267,9.2,15.9,65.3,5.49,2.0,2,Adicto a la promocion
+SKU-0234,Despensa,31000,298,51.1,42.6,10.8,0.8,0.7,3,Joya de margen
+SKU-0077,Snacks,7130,708,7.1,6.3,16.2,0.37,2.1,3,Locomotora
+SKU-0476,Despensa,13090,101,93.7,47.5,8.0,2.55,0.1,1,Cola larga dormida
+SKU-0526,Bebidas,9160,72,85.1,22.1,3.8,2.38,1.1,2,Cola larga dormida
+SKU-0150,Lacteos,21440,225,45.1,44.2,0.2,1.58,0.0,3,Joya de margen
+SKU-0088,Bebidas,6870,2722,8.3,11.5,12.9,0.18,3.5,2,Locomotora
+SKU-0458,Panaderia,11580,76,57.0,30.4,6.5,3.06,0.5,4,Cola larga dormida
+SKU-0422,Cuidado personal,13310,12,112.3,19.3,1.6,1.42,0.9,3,Cola larga dormida
+SKU-0600,Bebidas,18880,30,91.7,36.7,1.5,3.8,0.0,4,Cola larga dormida
+SKU-0183,Panaderia,6580,175,45.9,37.5,1.4,1.11,0.1,1,Joya de margen
+SKU-0477,Bebidas,16950,43,101.3,37.4,0.9,4.1,0.2,4,Cola larga dormida
+SKU-0106,Cuidado personal,3910,1865,5.3,6.4,16.5,0.79,1.5,1,Locomotora
+SKU-0333,Cuidado personal,6260,1056,22.1,16.3,79.5,1.56,2.8,3,Adicto a la promocion
+SKU-0439,Snacks,13290,84,102.2,28.1,3.8,1.59,0.0,4,Cola larga dormida
+SKU-0050,Panaderia,5190,2930,4.5,10.4,18.1,0.67,1.7,2,Locomotora
+SKU-0336,Panaderia,5320,538,13.7,14.0,55.9,2.34,1.4,1,Adicto a la promocion
+SKU-0006,Despensa,4490,1914,8.1,7.0,11.9,1.15,1.7,3,Locomotora
+SKU-0018,Cuidado personal,3680,2711,3.9,8.8,12.1,0.38,2.7,3,Locomotora
+SKU-0235,Bebidas,18330,131,38.4,37.1,7.4,1.48,0.0,1,Joya de margen
+SKU-0487,Lacteos,12150,59,143.7,22.4,7.6,3.46,0.7,2,Cola larga dormida
+SKU-0532,Bebidas,7390,94,85.0,11.1,5.0,1.88,0.3,4,Cola larga dormida
+SKU-0373,Mascotas,7170,653,20.3,23.9,54.4,5.14,1.9,4,Adicto a la promocion
+SKU-0111,Snacks,3190,1385,6.7,7.1,10.7,0.56,2.0,4,Locomotora
+SKU-0107,Aseo hogar,4250,2266,7.4,5.0,7.9,0.65,5.4,2,Locomotora
+SKU-0444,Bebidas,3900,57,122.4,17.2,7.1,2.17,0.1,4,Cola larga dormida
+SKU-0419,Panaderia,6520,99,63.2,26.8,1.4,0.52,0.4,1,Cola larga dormida
+SKU-0489,Bebidas,13970,99,87.3,20.4,4.3,1.22,0.5,3,Cola larga dormida
+SKU-0135,Snacks,17360,272,49.8,42.9,3.7,1.72,1.5,4,Joya de margen
+SKU-0013,Cuidado personal,2510,3314,5.1,8.2,13.4,0.75,2.2,1,Locomotora
+SKU-0227,Panaderia,23950,344,37.4,39.6,1.3,0.45,1.2,1,Joya de margen
+SKU-0215,Bebidas,31070,129,15.7,55.0,9.1,2.29,0.0,4,Joya de margen
+SKU-0191,Mascotas,18880,275,53.9,28.8,6.6,1.39,0.3,3,Joya de margen
+SKU-0253,Panaderia,6960,631,15.7,18.5,51.9,4.91,0.7,2,Adicto a la promocion
+SKU-0321,Cuidado personal,4120,1398,20.6,12.5,44.1,6.27,3.2,2,Adicto a la promocion
+SKU-0283,Aseo hogar,4050,246,14.4,12.4,54.7,5.09,0.5,4,Adicto a la promocion
+SKU-0030,Aseo hogar,9650,2061,3.2,11.4,15.9,0.74,3.1,1,Locomotora
+SKU-0170,Cuidado personal,28380,77,49.6,53.1,9.4,1.33,0.4,2,Joya de margen
+SKU-0490,Snacks,9100,48,145.8,26.9,6.6,1.76,0.0,4,Cola larga dormida
+SKU-0181,Cuidado personal,25120,153,46.4,41.0,5.2,1.05,0.0,3,Joya de margen
+SKU-0101,Bebidas,4920,1853,4.3,9.5,9.2,1.07,2.7,2,Locomotora
+SKU-0198,Cuidado personal,16950,203,38.8,34.8,8.5,1.55,1.2,2,Joya de margen
+SKU-0496,Panaderia,14900,71,109.9,24.6,10.3,2.56,0.3,2,Cola larga dormida
+SKU-0577,Mascotas,8800,62,72.1,14.0,5.0,1.25,1.2,4,Cola larga dormida
+SKU-0374,Bebidas,3430,78,17.7,11.2,74.6,4.19,0.9,4,Adicto a la promocion
+SKU-0461,Lacteos,8380,63,32.9,19.6,2.5,0.64,0.1,3,Cola larga dormida
+SKU-0414,Panaderia,6220,34,63.2,16.7,4.4,0.9,0.0,4,Cola larga dormida
+SKU-0132,Snacks,27570,98,36.4,46.7,7.7,1.9,0.3,2,Joya de margen
+SKU-0040,Cuidado personal,2680,1696,4.1,11.8,12.6,0.82,2.3,1,Locomotora
+SKU-0435,Mascotas,8200,22,94.6,16.9,13.0,2.9,0.0,3,Cola larga dormida
+SKU-0216,Cuidado personal,12250,282,65.1,47.3,6.9,0.48,0.4,1,Joya de margen
+SKU-0475,Bebidas,5700,38,67.3,19.9,6.3,3.09,0.3,2,Cola larga dormida
+SKU-0457,Aseo hogar,19460,101,111.8,26.8,5.4,1.79,0.7,2,Cola larga dormida
+SKU-0261,Panaderia,3450,216,20.0,8.3,50.1,3.94,0.6,4,Adicto a la promocion
+SKU-0036,Lacteos,2620,1800,4.2,9.5,8.9,0.94,2.8,1,Locomotora
+SKU-0310,Bebidas,4120,727,14.0,8.5,48.6,5.64,0.1,4,Adicto a la promocion
+SKU-0277,Cuidado personal,8800,452,9.0,9.4,53.7,5.19,0.0,2,Adicto a la promocion
+SKU-0394,Despensa,5190,861,12.1,17.7,66.7,3.65,2.6,2,Adicto a la promocion
+SKU-0108,Mascotas,8310,2973,5.8,10.8,20.2,0.71,2.0,1,Locomotora
+SKU-0558,Panaderia,21320,71,20.2,19.3,0.0,1.53,0.6,2,Cola larga dormida
+SKU-0525,Bebidas,5040,50,79.9,7.6,4.0,2.73,0.2,1,Cola larga dormida
+SKU-0048,Mascotas,10810,2704,6.1,8.1,7.6,0.77,3.4,4,Locomotora
+SKU-0204,Snacks,10900,127,48.6,47.3,7.9,1.35,0.0,4,Joya de margen
+SKU-0022,Lacteos,4400,2235,5.7,6.6,16.4,0.58,2.3,2,Locomotora
+SKU-0403,Despensa,5680,1018,13.3,15.6,59.3,5.94,0.5,4,Adicto a la promocion
+SKU-0084,Mascotas,6500,2454,6.3,8.6,10.3,0.65,1.2,4,Locomotora
+SKU-0131,Cuidado personal,17970,235,52.7,37.5,4.3,1.58,0.2,4,Joya de margen
+SKU-0416,Aseo hogar,20640,10,164.5,31.6,4.4,0.72,0.5,2,Cola larga dormida
+SKU-0287,Mascotas,12300,1061,19.4,14.9,60.7,6.18,1.1,2,Adicto a la promocion
+SKU-0124,Despensa,4110,2818,5.8,9.9,12.4,1.05,2.4,2,Locomotora
+SKU-0034,Cuidado personal,5070,2426,5.5,9.1,8.6,0.19,2.2,4,Locomotora
+SKU-0517,Lacteos,6990,110,69.2,21.6,7.0,2.09,0.0,4,Cola larga dormida
+SKU-0020,Despensa,1730,1721,6.7,3.7,15.4,0.1,3.3,4,Locomotora
+SKU-0548,Bebidas,10370,30,117.5,21.6,5.4,0.93,0.1,2,Cola larga dormida
+SKU-0220,Cuidado personal,24820,117,32.2,30.6,11.4,2.62,0.7,2,Joya de margen
+SKU-0482,Lacteos,10880,14,74.2,27.8,7.3,1.76,0.3,2,Cola larga dormida
+SKU-0357,Mascotas,2240,3,17.6,6.4,60.9,6.41,1.8,1,Adicto a la promocion
+SKU-0225,Despensa,24560,3,77.8,47.5,3.9,1.3,0.4,2,Joya de margen
+SKU-0093,Despensa,4250,1798,2.7,10.5,11.8,0.92,0.4,4,Locomotora
+SKU-0152,Panaderia,15080,178,52.0,44.1,6.6,1.83,0.5,2,Joya de margen
+SKU-0583,Snacks,10760,46,125.0,19.6,4.2,1.27,0.6,3,Cola larga dormida
+SKU-0318,Snacks,1900,595,15.5,8.5,53.9,5.43,2.9,1,Adicto a la promocion
+SKU-0449,Bebidas,6020,38,100.9,11.3,8.5,2.37,0.0,4,Cola larga dormida
+SKU-0523,Mascotas,5850,42,101.8,22.6,7.8,0.0,0.4,2,Cola larga dormida
+SKU-0280,Bebidas,5350,662,23.7,10.9,53.7,7.63,1.9,1,Adicto a la promocion
+SKU-0350,Despensa,11310,1528,20.9,18.7,51.8,4.48,1.9,3,Adicto a la promocion
+SKU-0375,Aseo hogar,7580,953,13.6,13.8,41.8,4.24,2.3,3,Adicto a la promocion
+SKU-0401,Mascotas,3320,1466,7.9,14.9,65.3,5.62,0.5,1,Adicto a la promocion
+SKU-0258,Bebidas,3720,602,18.7,14.6,53.5,3.68,0.8,4,Adicto a la promocion
+SKU-0073,Mascotas,6580,2627,4.4,7.2,14.3,0.5,2.9,2,Locomotora
+SKU-0196,Lacteos,8670,192,55.2,34.2,8.0,1.14,1.9,2,Joya de margen
+SKU-0484,Despensa,8300,70,88.6,10.9,2.2,2.11,0.4,1,Cola larga dormida
+SKU-0138,Lacteos,14510,100,45.7,43.3,4.1,1.06,0.8,3,Joya de margen
+SKU-0495,Snacks,19280,60,95.4,34.7,6.8,2.38,0.8,3,Cola larga dormida
+SKU-0551,Aseo hogar,9990,66,95.7,20.4,5.4,2.74,0.5,3,Cola larga dormida
+SKU-0463,Despensa,10780,55,113.9,25.7,1.6,3.1,0.0,2,Cola larga dormida
+SKU-0202,Panaderia,16250,60,49.1,32.6,7.6,1.7,0.5,1,Joya de margen
+SKU-0313,Bebidas,5620,705,15.9,14.0,63.1,2.15,2.4,2,Adicto a la promocion
+SKU-0291,Bebidas,12870,573,16.9,12.9,30.1,5.56,2.1,4,Adicto a la promocion
+SKU-0190,Aseo hogar,8600,132,42.0,39.7,8.9,1.91,1.1,2,Joya de margen
+SKU-0113,Mascotas,3840,1863,3.6,7.7,12.3,0.0,2.8,1,Locomotora
+SKU-0184,Panaderia,19320,141,48.7,41.8,9.7,0.9,1.0,4,Joya de margen
+SKU-0153,Cuidado personal,38740,220,58.7,36.0,6.3,1.1,0.5,1,Joya de margen
+SKU-0326,Snacks,10960,456,24.0,17.8,56.9,3.38,1.4,3,Adicto a la promocion
+SKU-0045,Lacteos,6640,3317,4.9,8.0,4.7,1.43,3.6,1,Locomotora
+SKU-0445,Bebidas,7570,46,101.7,25.2,3.5,1.19,0.6,1,Cola larga dormida
+SKU-0007,Lacteos,2240,2466,6.1,5.9,12.3,1.34,0.5,2,Locomotora
+SKU-0251,Snacks,5620,998,11.5,14.5,62.9,3.4,1.7,1,Adicto a la promocion
+SKU-0076,Despensa,4300,1599,7.5,11.1,8.2,0.24,2.0,2,Locomotora
+SKU-0513,Panaderia,11210,73,95.7,23.4,4.8,0.9,0.0,2,Cola larga dormida
+SKU-0392,Panaderia,4770,748,20.0,16.4,45.0,4.97,0.8,3,Adicto a la promocion
+SKU-0433,Panaderia,14950,30,73.5,28.6,9.7,0.73,0.0,4,Cola larga dormida
+SKU-0069,Despensa,5750,2089,9.0,7.1,13.5,0.71,1.5,1,Locomotora
+SKU-0168,Aseo hogar,22880,259,20.3,38.0,4.9,1.28,0.6,3,Joya de margen
+SKU-0555,Cuidado personal,16930,35,107.4,25.3,7.3,2.16,0.0,2,Cola larga dormida
+SKU-0367,Lacteos,7440,955,15.6,14.3,55.7,5.43,1.2,4,Adicto a la promocion
+SKU-0346,Mascotas,2370,512,10.7,10.8,72.4,7.96,1.9,4,Adicto a la promocion
+SKU-0585,Aseo hogar,6360,29,106.7,25.0,8.6,3.15,0.1,4,Cola larga dormida
+SKU-0536,Bebidas,10660,70,111.5,21.2,0.6,0.0,0.4,3,Cola larga dormida
+SKU-0399,Lacteos,3690,1200,12.5,12.6,70.7,5.23,0.4,1,Adicto a la promocion
+SKU-0186,Cuidado personal,8190,194,39.6,35.8,1.8,0.67,0.5,4,Joya de margen
+SKU-0349,Aseo hogar,3630,932,15.7,10.1,38.8,3.09,2.9,1,Adicto a la promocion
+SKU-0212,Bebidas,23400,134,53.5,41.4,1.7,1.01,0.7,4,Joya de margen
+SKU-0580,Mascotas,9660,23,105.4,23.9,0.8,3.9,0.7,2,Cola larga dormida
+SKU-0503,Bebidas,12580,23,52.5,24.1,4.8,1.92,0.1,2,Cola larga dormida
+SKU-0538,Despensa,2880,27,78.3,5.4,2.2,0.02,0.5,4,Cola larga dormida
+SKU-0197,Snacks,19200,276,45.4,37.2,9.2,1.74,1.1,4,Joya de margen
+SKU-0176,Lacteos,9730,225,29.9,33.4,12.3,1.39,0.5,1,Joya de margen

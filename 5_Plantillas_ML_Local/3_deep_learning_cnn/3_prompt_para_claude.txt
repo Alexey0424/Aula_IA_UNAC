@@ -1,0 +1,126 @@
+===============================================================================
+ PLANTILLA 3 - DEEP LEARNING CON RED CONVOLUCIONAL (CNN)
+ Copie el bloque de abajo y peguelo en Claude Code. Nada mas.
+===============================================================================
+
+  *** LEA ESTO PRIMERO - ES LA PLANTILLA PESADA ***
+
+  Esta es la UNICA de las tres que necesita una instalacion extra: PyTorch.
+     Descarga  : ~127 MB   (medido, no estimado)
+     Instalacion: ~1 minuto en un portatil normal
+     Disco     : deja ~640 MB ocupados
+
+  NO la instale en clase con el internet compartido del salon. Esta plantilla
+  es la TAREA: se hace en casa, con calma, con la wifi de uno solo.
+
+  La linea es (PowerShell):     pip install torch
+
+  En Windows esa linea trae la version de CPU. No necesita tarjeta grafica,
+  no necesita CUDA, y NO necesita --index-url. Ya lo verificamos.
+
+
+COMO SE USA
+  1. Ya debe tener instalada la linea 1 de 0_instalar.txt (scikit-learn,
+     pandas, matplotlib) y ademas torch.
+  2. Abra PowerShell en la carpeta 3_Plantillas_ML_Local
+  3. Escriba:  claude
+  4. Copie el PROMPT 1 completo y peguelo.
+
+  Usted NO escribe codigo. Usted da la orden y lee el resultado.
+
+
+-------------------------------------------------------------------------------
+ PROMPT 1 - CORRER LA PLANTILLA Y EXPLICARME EL RESULTADO
+-------------------------------------------------------------------------------
+
+Estoy en el Diplomado en Inteligencia Artificial de la UNAC y soy gerente, no
+programador. En la carpeta 3_deep_learning_cnn hay una plantilla de Deep
+Learning con una red convolucional que clasifica imagenes de laminas de vidrio
+en cuatro clases: OK, rayon, burbuja y borde astillado. Las imagenes son
+sinteticas.
+
+Haz esto, en este orden:
+
+1. Verifica primero si tengo PyTorch instalado. Si NO lo tengo, dime cuanto
+   pesa la descarga y preguntame si quiero seguir ANTES de instalar nada.
+
+2. Corre 1_generar_datos.py. Abre muestras_vidrio.png y describeme las cuatro
+   clases: quiero ver con mis propios ojos con que esta trabajando la red
+   antes de creerle un solo numero.
+
+3. Corre 2_entrenar.py.
+
+4. Explicame el resultado como si yo fuera el jefe de planta:
+   - Por que el modelo clasico (pixel por pixel) saca tan poquito y la CNN
+     tanto. Explicame que es una convolucion con el ejemplo del rayon movido
+     tres pixeles a la derecha. Sin matematicas.
+   - Que significa cada linea de la tabla de epocas. Por que el acierto sube
+     y por que a veces baja un poquito.
+   - Cual defecto confunde con cual, y por que ESE justamente.
+   - Que dice la "letra menuda" sobre imagenes sinteticas, y que tendria que
+     hacer yo distinto para llevar esto a una planta de verdad.
+
+5. Abre resultado_cnn.png y dime que se ve en cada uno de los tres paneles.
+   Del tercer panel dime si a MI ojo humano tambien se me confundirian esas
+   laminas.
+
+6. Al final: en una sola frase, cuantas fotos por clase tendria que conseguir
+   para intentar esto con imagenes de verdad, y por donde empezaria.
+
+
+-------------------------------------------------------------------------------
+ PROMPT 2 - MOVER LAS PERILLAS (el ejercicio de verdad)
+-------------------------------------------------------------------------------
+
+Quiero entender el sobreajuste (overfitting) VIENDOLO, no leyendolo.
+
+1. Pon EPOCAS = 3 y corre. Muestrame el acierto.
+2. Pon EPOCAS = 60 y corre. Muestrame el acierto en estudio y en examen, y la
+   brecha entre los dos.
+3. Explicame con esos dos numeros mios que fue lo que paso: en cual me quede
+   corto, en cual me pase, y como se ve el sobreajuste en la grafica.
+4. Deja EPOCAS en 15 como estaba.
+
+Si con 60 epocas se demora mas de dos minutos en mi maquina, avisame y bajale.
+
+
+-------------------------------------------------------------------------------
+ PROMPT 3 - CUANDO SE ANIME A PONER SUS PROPIAS IMAGENES
+-------------------------------------------------------------------------------
+
+Tengo una carpeta con mis propias fotos, organizadas en subcarpetas (una
+subcarpeta por clase). La ruta es <PONGA_AQUI_LA_RUTA>.
+
+Escribeme un script que las convierta al mismo formato .npz que usa esta
+plantilla: escala de grises, 28x28, y la etiqueta sacada del nombre de la
+subcarpeta. Antes de correrlo dime:
+ - Cuantas fotos hay por clase y si estan muy desbalanceadas.
+ - Si 28x28 es suficiente para MI defecto o si se me va a perder al encoger
+   (si mi defecto es una grieta finita, avisame).
+ - Cuantas fotos por clase necesito como minimo para que esto no sea un chiste.
+
+Despues corre el entrenamiento y comparame el resultado con el de las
+imagenes sinteticas.
+
+IMPORTANTE: mis fotos se quedan en mi computador. No las subas a ningun lado,
+no las mandes a ninguna API y no las pegues en internet.
+
+
+-------------------------------------------------------------------------------
+ PROMPT 4 - PARA EL PROYECTO DE GRADO
+-------------------------------------------------------------------------------
+
+Con base en lo que hace esta plantilla, ayudame a decidir HONESTAMENTE si mi
+proyecto de grado deberia usar una red convolucional o no. Preguntame:
+ - Que tipo de dato tengo (tabla, imagen, audio, texto).
+ - Cuantos ejemplos etiquetados puedo conseguir de verdad.
+ - Si tengo con que etiquetarlos.
+
+Y si la respuesta honesta es "para su caso un Random Forest sobre una tabla
+es mejor", digamelo sin adornos. Prefiero un proyecto que funcione a un
+proyecto que suene moderno.
+
+===============================================================================
+ Diplomado en Inteligencia Artificial - UNAC - Clase 05
+ Imagenes sinteticas con semilla fija. No son fotos de ninguna planta real.
+===============================================================================

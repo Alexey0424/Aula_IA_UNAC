@@ -1,0 +1,88 @@
+===============================================================================
+ PLANTILLA 1 - MACHINE LEARNING SUPERVISADO
+ Copie el bloque de abajo y peguelo en Claude Code. Nada mas.
+===============================================================================
+
+COMO SE USA
+  1. Abra PowerShell en la carpeta 3_Plantillas_ML_Local
+  2. Escriba:  claude
+  3. Copie el PROMPT 1 completo (desde "Estoy en" hasta el final) y peguelo.
+  4. Cuando Claude le pida permiso para ejecutar el script, diga que si.
+
+  Usted NO escribe codigo. Usted da la orden y lee el resultado.
+
+
+-------------------------------------------------------------------------------
+ PROMPT 1 - CORRER LA PLANTILLA Y EXPLICARME EL RESULTADO
+-------------------------------------------------------------------------------
+
+Estoy en el Diplomado en Inteligencia Artificial de la UNAC y soy gerente, no
+programador. En la carpeta 1_supervisado hay una plantilla de Machine Learning
+supervisado sobre datos sinteticos de cartera.
+
+Haz esto, en este orden:
+
+1. Corre 1_generar_datos.py y luego 2_entrenar.py con el Python de mi
+   computador. Si falta alguna libreria, dime la linea exacta de pip install
+   antes de seguir; no instales nada sin avisarme.
+
+2. Cuando termine, explicame el resultado como si yo fuera el gerente de cartera
+   y tuviera cinco minutos:
+   - Que pregunta de negocio respondio el modelo.
+   - Cual de los tres modelos gano y por que gano ese (no la matematica: la razon).
+   - Que significan Accuracy, Precision, Recall y F1 Score en MI operacion,
+     con los numeros que salieron, traducidos a facturas y a llamadas de cobranza.
+   - Que dice la matriz de confusion casilla por casilla, y cual de los dos
+     errores me cuesta mas plata.
+   - Que umbral me recomiendas de la tabla de umbrales, y por que.
+
+3. Abre resultado_supervisado.png y dime si la grafica me sirve para mostrarsela
+   a mi jefe. Si algo no se entiende, dimelo.
+
+4. Al final, dime en una sola frase: si yo tuviera esta cartera de verdad,
+   que decision distinta tomaria manana por la manana con este modelo.
+
+No cambies el codigo todavia. Primero quiero entender lo que salio.
+
+
+-------------------------------------------------------------------------------
+ PROMPT 2 - CUANDO SE ANIME A PONER SUS PROPIOS DATOS
+-------------------------------------------------------------------------------
+
+Quiero cambiar los datos sinteticos por los mios. Mi archivo se llama
+<PONGA_AQUI_EL_NOMBRE.csv> y la columna que quiero predecir se llama
+<PONGA_AQUI_LA_COLUMNA>.
+
+Antes de entrenar nada:
+1. Abre mi archivo, dime cuantas filas y columnas tiene y muestrame las
+   primeras cinco filas.
+2. Dime que columnas hay que sacar porque son identificadores (cedulas, NIT,
+   numeros de factura, nombres) - esas nunca entran al modelo.
+3. Avisame si hay FUGA DE INFORMACION: alguna columna que ya contenga la
+   respuesta, o que solo se conozca DESPUES del hecho que quiero predecir.
+   Es el error numero uno y da resultados hermosos y falsos.
+4. Dime si mis clases estan muy desbalanceadas y si eso me va a enganar el
+   Accuracy.
+
+Solo despues de eso, ajusta el panel de control de 2_entrenar.py y correlo.
+Explicame el resultado igual que la vez pasada.
+
+IMPORTANTE: mis datos se quedan en mi computador. No los subas a ningun lado,
+no los pegues en internet y no los mandes a ningun servicio.
+
+
+-------------------------------------------------------------------------------
+ PROMPT 3 - PARA EL PROYECTO DE GRADO
+-------------------------------------------------------------------------------
+
+Lee lo que hace 2_entrenar.py y ayudame a escribir, en lenguaje de gerente,
+el parrafo del Capitulo 2 (desarrollo de la solucion) de mi proyecto de
+grado: que tipo de problema es,
+como parti los datos, que modelos compiti, con que metrica los compare y por
+que esa metrica y no otra. Maximo 200 palabras, en espanol, sin jerga.
+Marca con [POR VERIFICAR] cualquier cifra que yo tenga que confirmar.
+
+===============================================================================
+ Diplomado en Inteligencia Artificial - UNAC - Clase 05
+ Datos sinteticos con semilla fija. No son datos de ninguna empresa real.
+===============================================================================

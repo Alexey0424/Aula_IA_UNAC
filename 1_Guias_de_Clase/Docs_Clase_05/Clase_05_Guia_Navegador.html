@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude manejando su navegador · Clases 05 y 06 · Diplomado en IA · UNAC</title>
+<style>
+:root{
+  --navy:#0E2036; --card-dark:#1B3453; --cream:#F6F5F0;
+  --orange:#E8792B; --blue:#3C7FD0; --red:#D54E48; --gold:#EAAD05; --teal:#29AC8A;
+  --bg:#F6F5F0; --surface:#FFFFFF; --surface-2:#FCFBF7;
+  --ink:#12233A; --ink-2:#4B5A6D; --ink-3:#7A8797;
+  --line:#DDD8CC; --line-soft:#EAE5DA;
+  --shadow:0 1px 2px rgba(14,32,54,.06), 0 6px 18px rgba(14,32,54,.05);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  font-size:15.5px; line-height:1.62; -webkit-font-smoothing:antialiased}
+.wrap{max-width:960px; margin:0 auto; padding:0 26px}
+h1,h2,h3,h4{margin:0; font-weight:600; line-height:1.22}
+p{margin:0 0 .8em}
+code{font-family:Consolas,"Cascadia Mono",monospace; font-size:.92em;
+  background:var(--surface-2); border:1px solid var(--line-soft);
+  border-radius:4px; padding:1px 5px}
+
+/* hero */
+.hero{background:var(--navy); color:var(--cream); padding:42px 0 36px; position:relative; overflow:hidden}
+.hero::after{content:""; position:absolute; inset:auto 0 0 0; height:3px;
+  background:linear-gradient(90deg,var(--orange) 0 40%,var(--blue) 40% 72%,var(--red) 72% 100%)}
+.eyebrow{display:flex; align-items:center; gap:10px; font-size:11.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:15px}
+.eyebrow::before{content:""; width:3.5px; height:15px; background:var(--gold); border-radius:2px}
+.hero h1{font-size:clamp(28px,4.2vw,40px); font-family:"Segoe UI Light","Segoe UI",sans-serif;
+  font-weight:300; letter-spacing:-.01em}
+.hero h1 b{font-weight:600}
+.hero .sub{margin-top:14px; max-width:74ch; color:#A9BBD1; font-size:16px}
+.hero .sub b{color:var(--cream)}
+
+/* pasos */
+.paso{margin-top:44px; background:var(--surface); border:1px solid var(--line);
+  border-radius:12px; box-shadow:var(--shadow); overflow:hidden}
+.paso-h{display:flex; align-items:flex-start; gap:16px; padding:20px 26px 18px;
+  border-bottom:1px solid var(--line-soft); background:var(--surface-2)}
+.paso-n{flex:none; width:38px; height:38px; border-radius:50%; background:var(--gold);
+  color:var(--navy); font-weight:600; font-size:17px; display:flex;
+  align-items:center; justify-content:center; margin-top:1px}
+.paso-h h2{font-size:21px; font-family:"Segoe UI Light","Segoe UI",sans-serif; font-weight:300}
+.paso-h h2 b{font-weight:600}
+.paso-h .t{margin-top:5px; color:var(--ink-3); font-size:13.5px}
+.paso-c{padding:22px 26px 24px}
+
+/* bloque para pegar */
+.pegar{margin:16px 0 6px; border:1.5px solid var(--navy); border-radius:10px; overflow:hidden}
+.pegar-h{background:var(--navy); color:var(--cream); padding:9px 16px; font-size:11.5px;
+  letter-spacing:.13em; text-transform:uppercase; font-weight:600;
+  display:flex; align-items:center; gap:10px; justify-content:space-between}
+.pegar-h span::before{content:"\25B8  "; color:var(--gold)}
+.pegar pre{margin:0; padding:18px 20px; background:#0B1A2C; color:#D6E2F0;
+  font-family:Consolas,"Cascadia Mono",monospace; font-size:13.2px; line-height:1.62;
+  overflow-x:auto; white-space:pre-wrap; word-break:break-word}
+.cp{background:transparent; border:1px solid rgba(255,255,255,.25); color:var(--cream);
+  border-radius:6px; padding:3px 11px; font-size:11px; font-family:inherit;
+  letter-spacing:.06em; cursor:pointer}
+.cp:hover{border-color:var(--gold); color:var(--gold)}
+
+pre.plain{background:var(--surface-2); border:1px solid var(--line-soft); border-radius:9px;
+  padding:15px 18px; overflow-x:auto; font-family:Consolas,"Cascadia Mono",monospace;
+  font-size:13px; line-height:1.6; color:var(--ink-2); margin:12px 0}
+
+.tbl{overflow-x:auto; border:1px solid var(--line); border-radius:9px;
+  background:var(--surface); margin:14px 0}
+table{border-collapse:collapse; width:100%; min-width:480px; font-size:13.8px}
+th,td{text-align:left; padding:9px 13px; border-bottom:1px solid var(--line-soft); vertical-align:top}
+th{background:var(--surface-2); font-size:10.5px; letter-spacing:.11em; text-transform:uppercase;
+  color:var(--ink-3); font-weight:600; white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td code{white-space:nowrap}
+
+.nota{border-left:3px solid var(--orange); background:#FDF3EA; padding:12px 16px;
+  border-radius:0 8px 8px 0; margin:16px 0; font-size:14.5px; color:#6E4318}
+.nota b{color:#4A2C0C}
+.ok{border-left-color:var(--teal); background:#E8F6F1; color:#1B5546}
+.ok b{color:#0C3A2E}
+.stop{border-left-color:var(--red); background:#FBEDEC; color:#7A2B26}
+.stop b{color:#571B17}
+
+/* frase para repetir en voz alta */
+.frase{margin:18px 0; background:var(--navy); color:var(--cream); border-radius:10px;
+  padding:18px 22px; font-size:16.5px; line-height:1.5; position:relative}
+.frase::before{content:""; position:absolute; left:0; top:0; bottom:0; width:4px;
+  background:var(--gold); border-radius:10px 0 0 10px}
+.frase b{color:var(--gold)}
+
+ul,ol{margin:0 0 .9em; padding-left:1.3em}
+li{margin-bottom:6px}
+
+.pie{margin:56px 0 40px; padding-top:20px; border-top:1px solid var(--line);
+  font-size:12.8px; color:var(--ink-3); display:flex; flex-wrap:wrap; gap:10px 22px}
+@media print{
+  .cp{display:none} body{font-size:11.5pt} .hero{padding:26px 0 22px}
+  .paso{break-inside:avoid; box-shadow:none}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Diplomado en Inteligencia Artificial · UNAC · Clases 05 y 06</div>
+    <h1>Que Claude <b>maneje su navegador</b></h1>
+    <p class="sub">Hasta hoy usted le pedia cosas y Claude le <b>contestaba</b>. De aqui en adelante
+    Claude <b>abre el navegador, hace clic, escribe y llena</b>. Se llama
+    <b>agente de navegador</b> — en ingles, <i>browser use</i>.</p>
+    <p class="sub" style="margin-top:12px">La extension se llama <b>Claude in Chrome</b> y funciona
+    tambien en Brave y en Edge. Al terminar esta guia usted le va a decir
+    <i>«abri esta pagina y escribime el resultado en la hoja»</i>, y va a pasar.</p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="nota" style="margin-top:34px">
+    <b>Antes de empezar.</b> Necesita Claude Code funcionando (Clase 02) y haber entrado con
+    <code>/login</code>. Si entro con una <b>API key</b>, esto <b>no va a funcionar</b> y no es culpa
+    suya: la extension no puede autenticarse con API key. Avise en clase.
+  </div>
+
+  <!-- ============================================ 1 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">1</div>
+      <div>
+        <h2>Instale la extension <b>en UN solo navegador</b></h2>
+        <div class="t">Escoja uno. Chrome, Brave o Edge. Uno.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <ol>
+        <li>Abra el navegador que va a usar y entre a la Chrome Web Store:
+          <code>chromewebstore.google.com</code></li>
+        <li>Busque la extension llamada <b>Claude</b>, publicada por <b>Anthropic</b>.</li>
+        <li><b>Añadir a Chrome</b> (en Brave dice lo mismo).</li>
+        <li><b>Inicie sesion</b> en la extension con la cuenta de Claude.</li>
+        <li>Anclela: el icono de la <b>pieza de rompecabezas</b> arriba a la derecha, y el chinche.</li>
+        <li><b>Cierre el navegador y abralo otra vez.</b> No es opcional.</li>
+      </ol>
+
+      <div class="nota stop"><b>Lo mas importante de todo esta guia:</b> instalela en
+      <b>UN solo navegador</b>. Si la pone en Chrome y en Brave, su computador se registra
+      <b>dos veces</b> y despues Claude le va a preguntar «¿el 1 o el 2?» toda la clase.
+      Si ya la tiene en varios, <b>quitela de los que no va a usar.</b></div>
+
+      <div class="nota"><b>¿Por que hay que reiniciar el navegador?</b> Porque el navegador lee la
+      configuracion de la conexion <b>solo al arrancar</b>. Si no lo reinicia, Claude Code le va a
+      decir que no encuentra la extension y usted va a pensar que quedo mal instalada.</div>
+    </div>
+  </div>
+
+  <!-- ============================================ 2 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">2</div>
+      <div>
+        <h2>Conectela a <b>Claude Code</b></h2>
+        <div class="t">Una bandera y un comando.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <p>En la terminal de Visual Studio Code, en vez de escribir <code>claude</code>, escriba:</p>
+
+      <div class="pegar">
+        <div class="pegar-h"><span>Escriba esto en la terminal</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>claude --chrome</pre>
+      </div>
+
+      <p style="margin-top:18px">La primera vez le sale un aviso que le explica como funcionan los
+      permisos por sitio. <b>Lealo</b> y dele Enter.</p>
+
+      <p>Ahora, adentro de Claude Code, escriba:</p>
+
+      <div class="pegar">
+        <div class="pegar-h"><span>Escriba esto adentro de Claude Code</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>/chrome</pre>
+      </div>
+
+      <div class="nota ok"><b>Como sabe que quedo bien:</b> el panel le muestra
+      <code>Status: Enabled</code> y <code>Extension: Installed</code>. Esas dos lineas. Si dice
+      <code>Not detected</code>, vuelva al paso 1 y reinicie el navegador.</div>
+
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Comando</th><th>Para que sirve</th></tr></thead>
+          <tbody>
+          <tr><td><code>claude --chrome</code></td><td>Arranca la sesion con el navegador conectado</td></tr>
+          <tr><td><code>/chrome</code></td><td>Ver el estado, reconectar, escoger navegador</td></tr>
+          <tr><td><code>/chrome</code> → <i>Reconnect extension</i></td>
+              <td>Cuando dejo de responder. <b>Este es el que va a usar mas</b></td></tr>
+          <tr><td><code>/chrome</code> → <i>Select browser…</i></td><td>Fijar cual navegador usa</td></tr>
+          <tr><td><code>/mcp</code> → <code>claude-in-chrome</code></td>
+              <td>Ver todas las herramientas del navegador, por curiosidad</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="nota"><b>Un consejo de plata.</b> Hay una opcion en <code>/chrome</code> que dice
+      <i>«Enabled by default»</i>, para no escribir la bandera cada vez. <b>No la active todavia.</b>
+      Deja las herramientas del navegador cargadas siempre y <b>le come contexto</b> aunque no las
+      use. Mejor escriba <code>claude --chrome</code> los dias que lo necesite.</div>
+    </div>
+  </div>
+
+  <!-- ============================================ 3 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">3</div>
+      <div>
+        <h2>Compruebe que funciona <b>de verdad</b></h2>
+        <div class="t">Tres minutos. Si esto sale, todo lo demas sale.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <div class="pegar">
+        <div class="pegar-h"><span>Pegue esto en Claude Code</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>Abri https://www.unac.edu.co en una pestaña nueva y decime tres cosas:
+1. Que dice el titulo de la pestaña.
+2. Que hay en el menu principal.
+3. Si la consola del navegador muestra algun error al cargar.
+
+No hagas clic en nada mas. Solo mira y contame.</pre>
+      </div>
+
+      <p style="margin-top:18px">Le va a pedir permiso. El aviso empieza con
+      <code>Claude in Chrome wants to</code> y le ofrece permitir todo en <b>ese sitio</b> por lo que
+      queda de la sesion. <b>Lealo y apruebelo.</b></p>
+
+      <div class="nota ok"><b>Como sabe que quedo bien:</b> se abre una pestaña <b>sola</b>, usted
+      ve el sitio de la UNAC cargando <b>en vivo</b>, y Claude le responde las tres preguntas. Los
+      permisos son <b>por sitio</b>: para el siguiente sitio le vuelve a preguntar. Eso es correcto,
+      no es un error.</div>
+    </div>
+  </div>
+
+  <!-- ============================================ 4 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">4</div>
+      <div>
+        <h2>Si le pregunta <b>«¿cual navegador?»</b></h2>
+        <div class="t">Lea esto ANTES de que le pase. Le va a pasar.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <p>Compartimos <b>una sola cuenta</b> de Claude en el salon. Y la lista de navegadores
+      conectados va <b>por cuenta</b>, no por computador. Traduccion: en su lista <b>pueden aparecer
+      navegadores de sus compañeros</b>, con nombres inutiles como <code>Browser 1</code> y
+      <code>Browser 2</code>.</p>
+
+      <div class="nota stop"><b>No adivine y no escoja de una.</b> Si escoge el equivocado, le va a
+      abrir pestañas <b>en el computador de un compañero</b>. Nadie se muere, pero es un desorden y
+      perdemos la clase.</div>
+
+      <p><b>Lo que hace en vez de adivinar.</b> Pidale la lista completa:</p>
+
+      <div class="pegar">
+        <div class="pegar-h"><span>Pegue esto cuando le pregunte cual navegador</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>Corre list_connected_browsers y mostrame el resultado completo.
+Despues usa el que tenga "isLocal": true, que ese es mi computador.
+No corras switch_browser.</pre>
+      </div>
+
+      <p style="margin-top:18px">Le va a salir algo asi. <b>Mire el ultimo dato de cada linea:</b></p>
+
+      <pre class="plain">[{"deviceId":"1b433774-a436-4024-b4bf-f377abbe2c64",
+  "name":"Browser 1","osPlatform":"Windows",
+  "connectedAt":1787716247447,<b>"isLocal":true</b>}]</pre>
+
+      <div class="frase">
+        El suyo es el que dice <b>"isLocal": true</b>. Punto.
+        Y <b>nadie</b> corre <b>switch_browser</b>.
+      </div>
+
+      <div class="nota stop"><b>Y esto es lo mas importante del paso: el numero CAMBIA.</b>
+      <code>Browser 1</code> y <code>Browser 2</code> no son nombres, son <b>el puesto en la fila</b>.
+      Se reparten otra vez cada vez que se conecta o se desconecta alguien. <b>El «Browser 1» de hoy
+      puede ser el navegador de un compañero mañana.</b> Por eso nunca escoja por el numero:
+      <b>escoja por <code>isLocal</code></b>.</div>
+
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Dato</th><th>¿Sirve para saber si es el suyo?</th></tr></thead>
+          <tbody>
+          <tr><td><code>"isLocal": true</code></td><td><b>SI. Es el unico que sirve. Mire este.</b></td></tr>
+          <tr><td><code>name</code></td><td><b>NO, y menos.</b> Dice <code>Browser 1</code>,
+            <code>Browser 2</code>… y <b>el numero cambia de un dia a otro</b>. Es el puesto en la
+            fila, no un nombre. No se puede cambiar</td></tr>
+          <tr><td><code>osPlatform</code></td><td>NO. Todos estamos en Windows</td></tr>
+          <tr><td><code>deviceId</code></td><td>Solo para señalarlo. Es un codigo, no dice de quien es</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="nota"><b>¿Le salieron DOS con <code>isLocal: true</code>?</b> Entonces tiene la
+      extension en <b>dos navegadores del mismo computador</b>. Quitela del que no usa
+      (<code>brave://extensions</code> o <code>chrome://extensions</code>), corra
+      <code>/chrome</code> → <i>Reconnect extension</i>, y liste otra vez.</div>
+
+      <div class="nota stop"><b>Por que se prohibe <code>switch_browser</code>.</b> Ese comando le
+      manda una <b>ventana emergente a TODOS</b> los navegadores conectados a la cuenta, y se queda
+      esperando hasta dos minutos. Si usted lo corre, les aparece a los otros quince. <b>No lo corra.</b></div>
+
+      <h3 style="margin:26px 0 8px; font-size:17px">La vacuna: digaselo una sola vez y no vuelve a preguntar</h3>
+      <p>Pidale a Claude que le deje la regla escrita. Asi no tiene que repetirlo cada clase:</p>
+
+      <div class="pegar">
+        <div class="pegar-h"><span>Pegue esto UNA vez en Claude Code</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>Crea el archivo  %USERPROFILE%\.claude\CLAUDE.md  (si ya existe, agregale
+esto al final sin borrar lo que tenga) con este contenido:
+
+## Navegador
+Cuando vayas a usar el navegador:
+1. Corre list_connected_browsers.
+2. Escoge SIEMPRE el que tenga "isLocal": true. Ese es mi computador.
+3. Llama select_browser con ese deviceId. No me preguntes.
+4. Si hay mas de uno con isLocal true, ahi si preguntame.
+5. Nunca uses switch_browser: eso le manda una ventana emergente a
+   los navegadores de mis compañeros.
+
+Al terminar, mostrame el archivo para yo revisarlo.</pre>
+      </div>
+
+      <div class="nota ok"><b>Por que en <code>%USERPROFILE%\.claude\CLAUDE.md</code> y no en la
+      carpeta del proyecto:</b> porque ahi aplica en <b>cualquier</b> carpeta donde usted trabaje. Si
+      lo pone en una carpeta sola, al cambiar de proyecto se le olvida la regla.</div>
+    </div>
+  </div>
+
+  <!-- ============================================ 5 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">5</div>
+      <div>
+        <h2>El ejercicio: <b>audite su propio sitio</b></h2>
+        <div class="t">Y que el resultado quede reportado en el formulario del curso.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <p>Esto ya no es leer y resumir. Aqui Claude <b>lee, revisa contra una lista, y despues escribe
+      en otra parte</b>. Es la tarea que usted va a repetir en su empresa.</p>
+
+      <p><b>Antes:</b> tenga a mano <b>dos cosas</b>: la direccion del sitio web de su empresa (si
+      no tiene, use <code>https://www.unac.edu.co</code>) y el <b>enlace del formulario</b> que le
+      pasa el profesor.</p>
+
+      <div class="pegar">
+        <div class="pegar-h"><span>Pegue esto y cambie lo que esta entre corchetes</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>Vas a auditar el sitio web de mi empresa. Trabaja en una pestaña nueva.
+
+Sitio: [PEGUE AQUI LA DIRECCION DE SU EMPRESA]
+Si no tiene sitio, use https://www.unac.edu.co
+
+Revisa estas seis cosas en la pagina de inicio y dame para cada una
+"cumple" o "no cumple", con una frase de por que:
+
+1. ¿Hay un telefono visible sin tener que hacer clic?
+2. ¿Hay un correo de contacto?
+3. ¿Hay direccion fisica?
+4. ¿El titulo de la pestaña dice a que se dedica la empresa?
+5. ¿Hay un boton claro de que quieren que uno haga?
+6. ¿La consola del navegador muestra errores al cargar?
+
+Cuando termines, mostrame la tabla y esperame.
+No escribas en ninguna parte todavia.</pre>
+      </div>
+
+      <p style="margin-top:18px"><b>Lea la tabla.</b> Si esta bien, entonces si:</p>
+
+      <div class="pegar">
+        <div class="pegar-h"><span>Segundo paso: que lo reporte en el formulario</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>Bien. Ahora abri este formulario:
+
+[PEGUE AQUI EL ENLACE DEL FORMULARIO]
+
+Llenalo con los resultados: mi nombre, la direccion del sitio,
+cuantos de los seis puntos cumplen, y en observaciones los que NO.
+
+Cuando lo tengas lleno, NO le des enviar: avisame y yo reviso.</pre>
+      </div>
+
+      <p style="margin-top:18px">Revise lo que escribio. Si esta bien, dele <b>Enviar</b>
+      <b>usted mismo</b>. Ese clic no lo da Claude.</p>
+
+      <div class="nota ok"><b>Como sabe que quedo bien:</b> usted ve el formulario <b>llenandose
+      solo</b>, campo por campo. Y el boton de enviar sigue esperando a que usted lo toque.</div>
+
+      <div class="nota"><b>¿Por que un formulario y no una hoja de calculo?</b> Porque las hojas de
+      calculo de la web <b>dibujan las celdas como si fueran una imagen</b>, no como campos de
+      verdad. Claude puede escribir ahi, pero a los tropezones. Un <b>formulario si tiene campos
+      reales</b>, y ahi no se equivoca. Es la primera leccion practica del dia: <b>el agente es tan
+      bueno como la pagina se lo permita.</b></div>
+
+      <div class="nota"><b>Por que en dos pasos y no en uno.</b> Porque usted revisa <b>antes</b> de
+      que escriba. Esa es la regla de toda la clase: <b>Claude propone, usted aprueba.</b> Si le
+      manda todo de una y se equivoco en el punto 3, ya quedo escrito.</div>
+    </div>
+  </div>
+
+  <!-- ============================================ 6 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">6</div>
+      <div>
+        <h2>Que <b>NO</b> intentar</h2>
+        <div class="t">Ni de prueba, ni «para ver que pasa».</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <div class="nota stop"><b>Nada de banca. Nada de nomina. Nada de historias clinicas. Nada de
+      cedulas.</b> Anthropic bloquea las paginas de adultos y de contenido pirata, y las financieras
+      le piden permiso aparte. Pero <b>el bloqueo no es completo</b> — ellos mismos lo dicen. La
+      ultima linea de defensa es usted.</div>
+
+      <div class="tbl">
+        <table>
+          <thead><tr><th>No haga esto</th><th>Por que</th></tr></thead>
+          <tbody>
+          <tr><td>Banca, inversiones, cripto, pagos</td>
+              <td>Bloqueado o restringido. Y a Claude le esta <b>prohibido</b> hacer operaciones de bolsa</td></tr>
+          <tr><td>Enviar correos o mensajes reales</td>
+              <td>Enviar pide confirmacion, pero un correo enviado no se devuelve</td></tr>
+          <tr><td>Comprar cualquier cosa</td>
+              <td>Pide confirmacion. Igual: prohibido en clase</td></tr>
+          <tr><td>Usar su perfil personal del navegador</td>
+              <td>Claude <b>toma capturas de la pestaña</b> y no puede filtrar lo sensible.
+                  Lo que este visible, lo ve</td></tr>
+          <tr><td>Pedirle que resuelva un CAPTCHA</td>
+              <td>Le esta <b>prohibido</b>. Se detiene y se lo pide a usted. Es lo correcto</td></tr>
+          <tr><td>Pedirle que se loguee en un sitio</td>
+              <td>No lo hace. Se detiene en el login y usted entra a mano</td></tr>
+          <tr><td>«Leeme toda la consola»</td>
+              <td>Los logs son larguisimos y le queman el contexto. Digale <b>que</b> buscar</td></tr>
+          <tr><td>Grabar un GIF con su correo abierto</td>
+              <td>La grabacion captura <b>todo lo visible</b>, cuentas incluidas</td></tr>
+          <tr><td><code>switch_browser</code></td>
+              <td>Le manda una ventana emergente a los quince compañeros</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="nota"><b>Recomendacion del propio Anthropic:</b> use <b>un perfil de navegador
+      aparte</b>, sin su correo personal ni sus cuentas de trabajo. Un perfil limpio, solo para esto.
+      Es el consejo mas barato y el que mas le sirve.</div>
+    </div>
+  </div>
+
+  <!-- ============================================ 7 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">7</div>
+      <div>
+        <h2>Cuando algo <b>se dañe</b></h2>
+        <div class="t">Se va a dañar. Aqui esta la salida de cada caso.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+
+      <div class="nota stop"><b>El caso numero uno, y el que nadie adivina.</b> Si en la pagina se
+      abre <b>una ventanita del navegador</b> — de esas de <i>Aceptar / Cancelar</i> — <b>Claude
+      queda congelado</b>. No esta pensando ni esta lento: no puede recibir ordenes mientras esa
+      ventanita este abierta. <b>Usted le da Aceptar con el mouse</b> y despues le escribe
+      <i>«ya, segui»</i>.</div>
+
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Lo que ve</th><th>Que es</th><th>Que hace</th></tr></thead>
+          <tbody>
+          <tr><td>Claude no responde y la pagina esta quieta</td>
+              <td>Hay un modal abierto</td>
+              <td>Cierrelo con el mouse y digale <i>«ya, segui»</i></td></tr>
+          <tr><td><code>Browser extension is not connected</code></td>
+              <td>Perdio el puente</td>
+              <td>Reinicie el navegador <b>y</b> Claude Code, y corra <code>/chrome</code></td></tr>
+          <tr><td><code>/chrome</code> dice <code>Not detected</code></td>
+              <td>No esta instalada o esta apagada</td>
+              <td><code>chrome://extensions</code> y activela</td></tr>
+          <tr><td><code>Receiving end does not exist</code></td>
+              <td>La extension se durmio</td>
+              <td><code>/chrome</code> → <i>Reconnect extension</i></td></tr>
+          <tr><td><code>No tab available</code></td>
+              <td>Actuo antes de tener pestaña</td>
+              <td><i>«Abri una pestaña nueva y volve a intentar»</i></td></tr>
+          <tr><td><code>EADDRINUSE</code></td>
+              <td>Tiene otra sesion de Claude Code abierta</td>
+              <td>Cierre las otras sesiones</td></tr>
+          <tr><td>Se queda en una pagina de login</td>
+              <td><b>Correcto.</b> No se loguea solo</td>
+              <td>Entre usted a mano y digale que siga</td></tr>
+          <tr><td>En un sitio no pasa nada</td>
+              <td>Categoria bloqueada o falta permiso de dominio</td>
+              <td>Cambie de sitio. <b>Ese bloqueo no se puede quitar</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="nota"><b>Si en diez minutos no le sale:</b> no se quede atras. Pegue el error en
+      Claude Code y digale <i>«esto me salio, arreglalo»</i>. Si sigue sin salir, avise en clase.
+      Nadie se pierde el taller por una conexion.</div>
+    </div>
+  </div>
+
+  <!-- ============================================ 8 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">8</div>
+      <div>
+        <h2>Lo que se lleva de hoy</h2>
+        <div class="t">Cuatro frases.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <div class="frase">Esto se llama <b>browser use</b>: un <b>agente de navegador</b>.
+        El producto se llama <b>Claude in Chrome</b>.</div>
+      <div class="frase">El navegador suyo es el que dice <b>"isLocal": true</b>.</div>
+      <div class="frase">Si Claude se congela, <b>busque la ventanita</b> del navegador y cierrela.</div>
+      <div class="frase"><b>Claude propone. Usted aprueba.</b> El clic final es suyo, siempre.</div>
+    </div>
+  </div>
+
+  <div class="pie">
+    <span>Diplomado en Inteligencia Artificial · UNAC · Clases 05 y 06</span>
+    <span>Mg. Alexey David Velásquez Betancurt</span>
+    <span>26 de agosto de 2026</span>
+    <span>Verificado contra Claude Code 2.1.246 y extension Claude 1.0.85</span>
+  </div>
+</div>
+
+<script>
+function cp(b){
+  var t = b.parentElement.parentElement.querySelector('pre').innerText;
+  navigator.clipboard.writeText(t).then(function(){
+    var o = b.textContent; b.textContent = 'Copiado'; b.style.color = '#EAAD05';
+    setTimeout(function(){ b.textContent = o; b.style.color = ''; }, 1600);
+  });
+}
+</script>
+</body>
+</html>
