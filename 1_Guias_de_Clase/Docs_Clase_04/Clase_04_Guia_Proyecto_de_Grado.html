@@ -3,11 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Guía del Proyecto de Grado · Clase 04 · Diplomado en IA · UNAC</title>
+<title>Guía del Proyecto de Grado · Diplomado en IA · UNAC</title>
 <style>
 :root{
   --navy:#0E2036; --card-dark:#1B3453; --cream:#F6F5F0;
   --orange:#E8792B; --blue:#3C7FD0; --red:#D54E48; --gold:#EAAD05; --teal:#29AC8A;
+  --purple:#6B52E1;
   --bg:#F6F5F0; --surface:#FFFFFF; --surface-2:#FCFBF7;
   --ink:#12233A; --ink-2:#4B5A6D; --ink-3:#7A8797;
   --line:#DDD8CC; --line-soft:#EAE5DA;
@@ -37,6 +38,29 @@ code{font-family:Consolas,"Cascadia Mono",monospace; font-size:.92em;
 .hero .sub{margin-top:14px; max-width:74ch; color:#A9BBD1; font-size:16px}
 .hero .sub b{color:var(--cream)}
 
+/* aviso de cambio — lo primero que se ve */
+.cambio{margin-top:-18px; position:relative; z-index:2; background:var(--surface);
+  border:2px solid var(--red); border-radius:12px; box-shadow:0 8px 24px rgba(14,32,54,.10);
+  overflow:hidden}
+.cambio-h{background:var(--red); color:#fff; padding:11px 24px; font-weight:600;
+  font-size:15.5px; display:flex; align-items:center; gap:11px; flex-wrap:wrap}
+.cambio-h .tag{background:rgba(255,255,255,.20); border-radius:999px; padding:2px 11px;
+  font-size:11px; letter-spacing:.13em; text-transform:uppercase}
+.cambio-c{padding:18px 24px 20px; font-size:15px}
+.cambio-c p:last-child{margin-bottom:0}
+.cambio-c b{color:#8A2B26}
+.antesdespues{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:16px 0 4px}
+.antesdespues div{border-radius:9px; padding:13px 16px; font-size:14px; border:1.5px solid}
+.antesdespues .vieja{border-color:var(--line); background:var(--surface-2); color:var(--ink-3)}
+.antesdespues .vieja h4{font-size:11.5px; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--ink-3); margin-bottom:8px}
+.antesdespues .nueva{border-color:var(--teal); background:#F2FAF7; color:#1B5546}
+.antesdespues .nueva h4{font-size:11.5px; letter-spacing:.13em; text-transform:uppercase;
+  color:#177A5F; margin-bottom:8px}
+.antesdespues ul{margin:0; padding-left:1.15em}
+.antesdespues li{margin-bottom:5px}
+@media(max-width:640px){.antesdespues{grid-template-columns:1fr}}
+
 .paso{margin-top:44px; background:var(--surface); border:1px solid var(--line);
   border-radius:12px; box-shadow:var(--shadow); overflow:hidden}
 .paso-h{display:flex; align-items:flex-start; gap:16px; padding:20px 26px 18px;
@@ -65,6 +89,21 @@ tr:last-child td{border-bottom:none}
 .alerta{border-left-color:var(--red); background:#FBEDEC; color:#6B2320}
 .alerta b{color:#471512}
 
+/* capítulos del documento */
+.cap{border:1px solid var(--line); border-radius:10px; background:var(--surface-2);
+  margin:16px 0; overflow:hidden}
+.cap-h{display:flex; align-items:center; gap:13px; padding:13px 18px;
+  background:var(--surface); border-bottom:1px solid var(--line-soft)}
+.cap-h .num{flex:none; font-size:11px; letter-spacing:.13em; text-transform:uppercase;
+  font-weight:600; color:#fff; border-radius:999px; padding:3px 11px}
+.cap-h h3{font-size:17px; font-weight:600}
+.cap-h .en{margin-left:auto; font-size:12.5px; color:var(--ink-3); text-align:right}
+.cap-c{padding:15px 18px 17px}
+.cap-c > ul{margin:0 0 .2em; padding-left:1.25em}
+.cap-c li{margin-bottom:7px; font-size:14.6px}
+.cap-c li b{color:var(--ink)}
+.cap-c li small{display:block; color:var(--ink-2); font-size:13.3px; margin-top:1px}
+
 /* dos columnas sí / no */
 .sino{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:16px 0}
 .sino .col{border-radius:10px; padding:16px 18px; border:1.5px solid}
@@ -77,43 +116,91 @@ tr:last-child td{border-bottom:none}
 .sino li{margin-bottom:8px}
 @media(max-width:640px){.sino{grid-template-columns:1fr}}
 
-.fecha{display:flex; gap:14px; align-items:flex-start; padding:11px 0; border-bottom:1px dashed var(--line-soft)}
+.fecha{display:flex; gap:14px; align-items:flex-start; padding:13px 0; border-bottom:1px dashed var(--line-soft)}
 .fecha:last-child{border-bottom:none}
-.fecha .f{flex:none; width:196px; font-weight:600; font-size:14px; line-height:1.34}
+.fecha .f{flex:none; width:206px; font-weight:600; font-size:14px; line-height:1.34}
 .fecha .f small{display:block; font-weight:500; font-size:12.5px; color:var(--ink-2); margin-top:2px}
 .fecha .v{flex:none; width:52px; text-align:right; font-weight:600}
 .fecha .d{color:var(--ink-2); font-size:14px}
+.nuevo{display:inline-block; background:#FBEDEC; color:#B03A34; border:1px solid #E9BDB9;
+  border-radius:999px; font-size:10px; letter-spacing:.10em; text-transform:uppercase;
+  font-weight:600; padding:1px 7px; margin-left:6px; vertical-align:1px}
 
 ul,ol{margin:0 0 .9em; padding-left:1.3em}
 li{margin-bottom:6px}
 
 .pie{margin:56px 0 40px; padding-top:20px; border-top:1px solid var(--line);
   font-size:12.8px; color:var(--ink-3); display:flex; flex-wrap:wrap; gap:10px 22px}
-@media print{ body{font-size:11.5pt} .hero{padding:26px 0 22px} .paso{break-inside:avoid; box-shadow:none} }
+@media print{ body{font-size:11.5pt} .hero{padding:26px 0 22px} .paso{break-inside:avoid; box-shadow:none} .cambio{break-inside:avoid} }
 </style>
 </head>
 <body>
 
 <div class="hero">
   <div class="wrap">
-    <div class="eyebrow">Diplomado en Inteligencia Artificial · UNAC · Clase 04 · Proyecto de grado</div>
-    <h1>El proyecto de grado, <b>completo y sin sorpresas</b></h1>
-    <p class="sub">Qué se entrega, <b>cuándo</b>, cuánto vale cada entrega, en qué formato va el
-    documento, y la regla que define si su trabajo <b>cuenta o no cuenta</b> como un trabajo de
-    inteligencia artificial.</p>
-    <p class="sub" style="margin-top:12px">Este documento resume el comunicado oficial de la
-    coordinación del Proyecto de Grado (Lorena Martínez Soto, agosto de 2026) más los criterios
-    del asesor temático del diplomado.</p>
+    <div class="eyebrow">Diplomado en Inteligencia Artificial · UNAC · Proyecto de grado · Versión del 26 de agosto de 2026</div>
+    <h1>El proyecto de grado, <b>como quedó</b></h1>
+    <p class="sub">Qué lleva el documento <b>capítulo por capítulo</b>, qué se entrega en cada una
+    de las cuatro entregas y <b>cuándo</b>, cómo se miden los resultados, y la regla que define si
+    su trabajo <b>cuenta o no cuenta</b> como un trabajo de inteligencia artificial.</p>
+    <p class="sub" style="margin-top:12px">Esta versión <b>reemplaza</b> la guía que recibieron en
+    la Clase 04. Si tienen la anterior abierta, ciérrenla: la estructura del documento cambió.</p>
   </div>
 </div>
 
 <div class="wrap">
 
-  <div class="nota" style="margin-top:34px">
+  <!-- ============================================ AVISO -->
+  <div class="cambio">
+    <div class="cambio-h">
+      <span class="tag">Léalo primero</span>
+      Esto cambió el 26 de agosto de 2026
+    </div>
+    <div class="cambio-c">
+      <p>El trabajo de grado <b>se simplificó</b>: el docente lo negoció con la profesora Lady y se
+      quitó una parte grande de lo que había que entregar. El documento queda en <b>portada + tres
+      capítulos + referencias</b>, y ya no lleva resumen, objetivos formales, marco metodológico
+      extenso ni capítulo de conclusiones.</p>
+      <p>La razón, dicha tal cual: <b>ustedes están pagando extra por estar viendo este
+      diplomado</b>, así que el nivel de exigencia baja y la idea es que simplemente
+      <b>muestren el cambio que ocurrió en la empresa</b> con el proyecto que implementaron.</p>
+
+      <div class="antesdespues">
+        <div class="vieja">
+          <h4>Versión vieja — ya no aplica</h4>
+          <ul>
+            <li>Siete secciones</li>
+            <li>Resumen (abstract) de 250 palabras</li>
+            <li>Objetivo general y tres específicos</li>
+            <li>Descripción del proceso metodológico</li>
+            <li>Conclusiones</li>
+          </ul>
+        </div>
+        <div class="nueva">
+          <h4>Versión vigente — esta</h4>
+          <ul>
+            <li>Portada</li>
+            <li>Capítulo 1 — Problemática</li>
+            <li>Capítulo 2 — Intervención</li>
+            <li>Capítulo 3 — Resultados</li>
+            <li>Referencias (APA 7)</li>
+          </ul>
+        </div>
+      </div>
+
+      <p style="margin-top:14px"><b>Y dos fechas se movieron.</b> Como el horario del diplomado pasa
+      de miércoles a jueves desde el 17 de septiembre, y la regla es que cada entrega cierra el día
+      de la clase, la <b>Entrega 2 pasó del miércoles 23 al jueves 24 de septiembre</b> y la
+      <b>Entrega 3 del miércoles 21 al jueves 22 de octubre</b>. La Entrega 1 (miércoles 2 de
+      septiembre) y la Entrega 4 (jueves 5 de noviembre) <b>no se movieron</b>.</p>
+    </div>
+  </div>
+
+  <div class="nota" style="margin-top:26px">
     <b>Quién es quién.</b> Su proyecto tiene dos asesores: el <b>asesor temático</b>
     (Alexey Velásquez — el contenido, la técnica, la IA, y quien <b>califica las cuatro
-    entregas</b>) y la <b>asesora metodológica</b> (Lorena Martínez — normas APA, referencias
-    y escritura académica; acompaña pero no califica aparte).
+    entregas</b>) y la <b>asesora metodológica</b> (Lorena Martínez — normas APA, referencias y
+    escritura académica; acompaña pero no califica aparte).
   </div>
 
   <!-- ============================================ 1 -->
@@ -121,26 +208,137 @@ li{margin-bottom:6px}
     <div class="paso-h">
       <div class="paso-n">1</div>
       <div>
-        <h2>Qué tiene que ser el proyecto <b>para que valga</b></h2>
-        <div class="t">Tres condiciones del comunicado oficial. Las tres se evalúan.</div>
+        <h2>La estructura del documento: <b>qué va adentro de cada capítulo</b></h2>
+        <div class="t">Portada, tres capítulos y referencias. Nada más, nada menos. Esto es lo que se califica.</div>
       </div>
     </div>
     <div class="paso-c">
-      <ol>
-        <li><b>En contexto organizacional real.</b> Atiende una necesidad o problemática
-        identificada en una empresa o entidad real — la suya o una a la que tengan acceso.</li>
-        <li><b>Mejora significativa y aplicable.</b> Que se pueda implementar y que se note.
-        Si nadie lo va a usar, no sirve.</li>
-        <li><b>Con alcance de producto de Desarrollo Tecnológico e Innovación (DTI).</b>
-        En particular, una <i>innovación en proceso administrativo</i>: el resultado es algo
-        que existe y funciona — un flujo, una skill, un tablero que se alimenta solo — no un
-        informe sobre lo que se podría hacer.</li>
-      </ol>
+
+      <div class="tbl"><table>
+        <tr><th>Parte</th><th>Qué va adentro</th></tr>
+        <tr><td><b>Portada</b></td><td>Según el formato institucional UNAC.</td></tr>
+        <tr><td><b>Capítulo 1 — Problemática</b></td><td>Descripción de la empresa · misión y visión · la problemática · el área o departamento a intervenir · el contexto y las referencias.</td></tr>
+        <tr><td><b>Capítulo 2 — Intervención</b></td><td>La propuesta de actividades · el desarrollo de la solución.</td></tr>
+        <tr><td><b>Capítulo 3 — Resultados</b></td><td>Los resultados <b>en relación con la intervención</b>: qué cambió. Medible de forma cuantitativa, cualitativa o ambas.</td></tr>
+        <tr><td><b>Referencias</b></td><td>Normas APA, séptima edición.</td></tr>
+      </table></div>
+
+      <!-- Capítulo 1 -->
+      <div class="cap">
+        <div class="cap-h">
+          <span class="num" style="background:#D54E48">Capítulo 1</span>
+          <h3>Problemática</h3>
+          <span class="en">Se entrega completo en la <b>E1</b></span>
+        </div>
+        <div class="cap-c">
+          <ul>
+            <li><b>Descripción de la empresa</b>
+              <small>Qué hace, desde cuándo, de qué tamaño, en qué sector, dónde opera, cómo está organizada. Quien lee no sabe nada de ella.</small></li>
+            <li><b>Misión y visión</b>
+              <small>Las de la empresa, tal como están declaradas. Si la empresa no las tiene escritas, se dice y se describe en su lugar el propósito del negocio.</small></li>
+            <li><b>La problemática</b>
+              <small>El dolor concreto que van a intervenir — no la historia del sector. Con los números del proceso de hoy: cuánto se demora, cuántas veces se hace, cuántos errores o reprocesos deja.</small></li>
+            <li><b>El área o departamento a intervenir</b>
+              <small>Nombrado con nombre propio: cartera, compras, contratación, facturación, admisiones, calidad. Un área, no «toda la empresa».</small></li>
+            <li><b>El contexto</b>
+              <small>Qué hay alrededor del problema: quién lo sufre, qué se ha intentado antes, qué restricciones existen (presupuesto, personal, normatividad, datos disponibles).</small></li>
+            <li><b>Las referencias</b>
+              <small>Las fuentes que sostienen lo que afirman del sector, del problema o de la tecnología. En APA 7, y desde esta primera entrega.</small></li>
+          </ul>
+
+          <div class="ok nota" style="margin-bottom:0">
+            <b>La misión y la visión no son relleno. Léalo dos veces.</b> Quien califica su trabajo
+            <b>no conoce su empresa</b>: no sabe a qué se dedica, ni a quién le vende, ni qué se
+            propone lograr. Ese apartado es <b>el que pone al lector en contexto</b> — es lo que le
+            permite entender por qué el problema que ustedes escogieron importa y por qué la
+            solución que proponen tiene sentido ahí y no en otra parte. Un capítulo 1 que arranca
+            directo en el problema deja al calificador adivinando.
+          </div>
+        </div>
+      </div>
+
+      <!-- Capítulo 2 -->
+      <div class="cap">
+        <div class="cap-h">
+          <span class="num" style="background:#3C7FD0">Capítulo 2</span>
+          <h3>Intervención</h3>
+          <span class="en">Se entrega en dos tiempos: <b>E2</b> y <b>E3</b></span>
+        </div>
+        <div class="cap-c">
+          <ul>
+            <li><b>La propuesta de actividades</b> — <span style="color:#2B66AC">va en la Entrega 2</span>
+              <small>Qué van a hacer, en qué orden, quién de cada equipo hace qué y en qué semana. Es el plan de la intervención: actividades concretas y verificables, no intenciones. Aquí queda dicho <b>en qué punto del proceso entra la inteligencia artificial</b>.</small></li>
+            <li><b>El desarrollo de la solución</b> — <span style="color:#5A44C4">va en la Entrega 3</span>
+              <small>Lo que efectivamente se construyó y se puso a andar: el proceso rediseñado paso a paso, con qué datos trabaja, qué hace la IA adentro, qué pasa cuando se equivoca y quién revisa. Va con evidencia — pantallazos, el flujo dibujado, el archivo o la skill funcionando.</small></li>
+          </ul>
+          <div class="nota" style="margin-bottom:0">
+            <b>Escríbanlo en pasado a partir de la E3.</b> La propuesta de actividades se escribe en
+            futuro («se va a…»); el desarrollo de la solución se escribe en pasado («se hizo…»), y
+            si algo cambió frente a la propuesta, <b>se dice qué cambió y por qué</b>. Cambiar el
+            plan no penaliza; esconder que cambió, sí.
+          </div>
+        </div>
+      </div>
+
+      <!-- Capítulo 3 -->
+      <div class="cap">
+        <div class="cap-h">
+          <span class="num" style="background:#EAAD05; color:#0E2036">Capítulo 3</span>
+          <h3>Resultados</h3>
+          <span class="en">Se entrega en la <b>E4</b></span>
+        </div>
+        <div class="cap-c">
+          <ul>
+            <li><b>Los resultados en relación con la intervención</b>
+              <small>No resultados en general: los resultados <b>de lo que ustedes intervinieron</b>. Cada resultado se amarra a una actividad del Capítulo 2 y a un dolor del Capítulo 1.</small></li>
+            <li><b>Medibles de forma cuantitativa, cualitativa o ambas</b>
+              <small>Ambas es lo ideal. Cómo se mide cada una está en la sección 4 de esta guía — y la medición del <b>antes</b> hay que tomarla ahora, no en noviembre.</small></li>
+          </ul>
+          <p style="margin:12px 0 0; font-size:14.6px">Este es <b>el capítulo del que se trata todo
+          el trabajo</b>: «que ustedes simplemente muestren el cambio que ocurrió en la empresa con
+          el proyecto que implementaron». Si el Capítulo 3 no muestra un cambio, no hay proyecto.</p>
+        </div>
+      </div>
+
+      <div class="tbl"><table>
+        <tr><th>Parte del documento</th><th>E1</th><th>E2</th><th>E3</th><th>E4</th></tr>
+        <tr><td>Portada</td><td><b>Sí</b></td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
+        <tr><td>Capítulo 1 — Problemática</td><td><b>Completo</b></td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
+        <tr><td>Capítulo 2 — propuesta de actividades</td><td>—</td><td><b>Sí</b></td><td>Sí</td><td>Sí</td></tr>
+        <tr><td>Capítulo 2 — desarrollo de la solución</td><td>—</td><td>—</td><td><b>Sí</b></td><td>Sí</td></tr>
+        <tr><td>Capítulo 3 — Resultados</td><td>—</td><td>—</td><td>—</td><td><b>Sí</b></td></tr>
+        <tr><td>Referencias APA 7</td><td><b>Sí</b></td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
+        <tr><td>Presentación de sustentación</td><td>—</td><td>—</td><td>—</td><td><b>Sí</b></td></tr>
+      </table></div>
+
       <div class="nota">
-        <b>Dos requisitos administrativos.</b> Los grupos son de <b>mínimo tres (3)
-        estudiantes</b>. Y si el proyecto se desarrolla dentro de una organización, el grupo debe
-        gestionar la firma de un <b>Convenio de Cooperación Académica</b> entre la organización y
-        la UNAC — empiece ese trámite temprano, porque no depende de ustedes sino de la empresa.
+        <b>El documento crece, no se rehace.</b> Lo que entregan en la E1 es el mismo archivo que
+        entregan en la E4, con más capítulos adentro y con las correcciones aplicadas. No se empieza
+        un documento nuevo en cada entrega.
+      </div>
+
+      <div class="tbl"><table>
+        <tr><th>Aspecto</th><th>Requisito</th></tr>
+        <tr><td><b>Formato de archivo</b></td><td>Word (<code>.docx</code>) o PDF, según lo que pida Moodle en cada entrega. Entrega <b>individual</b> en Moodle, aunque el proyecto sea de equipo.</td></tr>
+        <tr><td><b>Normas de estilo</b></td><td><b>APA, séptima edición</b>: portada, citación en el texto, tablas, figuras y lista de referencias.</td></tr>
+        <tr><td><b>Referencias</b></td><td>Verificables y pertinentes. Nada de blogs sin autor ni «según internet».</td></tr>
+        <tr><td><b>Equipo</b></td><td>Mínimo <b>tres</b> estudiantes por grupo.</td></tr>
+      </table></div>
+
+      <div class="alerta nota">
+        <b>Advertencia sobre referencias hechas con IA.</b> Los modelos de lenguaje <b>inventan
+        referencias</b> con total seguridad: autores reales, títulos plausibles, DOI falsos. Usen
+        Claude para buscarlas y darles formato APA, pero <b>cada referencia se abre y se
+        comprueba</b>: que el documento exista y que diga lo que ustedes citan. Referencia que no se
+        abrió, no se cita. Una referencia inventada en el documento final es falta grave, no un
+        error de digitación.
+      </div>
+
+      <div class="nota" style="margin-bottom:0">
+        <b>Un requisito administrativo que no depende de ustedes.</b> Si el proyecto se desarrolla
+        dentro de una organización, el grupo debe gestionar la firma de un <b>Convenio de
+        Cooperación Académica</b> entre la organización y la UNAC. Ese trámite se arranca temprano
+        porque el tiempo lo pone la empresa, no ustedes.
       </div>
     </div>
   </div>
@@ -150,8 +348,62 @@ li{margin-bottom:6px}
     <div class="paso-h">
       <div class="paso-n">2</div>
       <div>
-        <h2>La regla de oro: la IA va <b>dentro del pipeline</b></h2>
-        <div class="t">Esto define si su proyecto es un trabajo de inteligencia artificial o no. Léalo dos veces.</div>
+        <h2>Las cuatro entregas: <b>fechas, productos y porcentajes</b></h2>
+        <div class="t">Cada entrega cierra <b>el día de la clase, a las 11:59 p. m.</b> Cada estudiante sube su entrega individualmente en Moodle.</div>
+      </div>
+    </div>
+    <div class="paso-c">
+      <div class="fecha">
+        <div class="f">Semana del 31 de agosto al 4 de septiembre<br><small>cierra el miércoles 2 de septiembre · 11:59 p. m.</small></div>
+        <div class="v" style="color:#177A5F">20 %</div>
+        <div class="d"><b>Entrega 1 · Portada + Capítulo 1 completo.</b> La empresa descrita, su
+        misión y visión, la problemática con los números de hoy, el área o departamento a
+        intervenir, el contexto y las referencias en APA 7.</div>
+      </div>
+      <div class="fecha">
+        <div class="f">Semana del 21 al 25 de septiembre<span class="nuevo">nueva fecha</span><br><small>cierra el <b>jueves 24 de septiembre</b> · 11:59 p. m.</small></div>
+        <div class="v" style="color:#2B66AC">20 %</div>
+        <div class="d"><b>Entrega 2 · Capítulo 2 — la propuesta de actividades.</b> Qué se va a
+        hacer, en qué orden, quién y cuándo; y en qué punto del proceso entra la IA. Más el
+        Capítulo 1 con las correcciones de la E1 ya aplicadas.</div>
+      </div>
+      <div class="fecha">
+        <div class="f">Semana del 19 al 23 de octubre<span class="nuevo">nueva fecha</span><br><small>cierra el <b>jueves 22 de octubre</b> · 11:59 p. m.</small></div>
+        <div class="v" style="color:#5A44C4">20 %</div>
+        <div class="d"><b>Entrega 3 · Capítulo 2 completo — el desarrollo de la solución.</b> Lo que
+        se construyó y quedó funcionando, con evidencia. A esta altura ya deben tener tomada la
+        medición del <b>antes</b>.</div>
+      </div>
+      <div class="fecha">
+        <div class="f">Semana del 2 al 6 de noviembre<br><small>cierra el jueves 5 de noviembre · 11:59 p. m.</small></div>
+        <div class="v" style="color:#9A7B1E">40 %</div>
+        <div class="d"><b>Entrega 4 · Documento completo con el Capítulo 3 + la presentación de
+        sustentación.</b> Cierra el <b>jueves 5 de noviembre</b> — el jueves anterior — para que el
+        asesor y el jurado tengan una semana con el documento antes de la <b>sustentación del jueves
+        12 de noviembre</b> ante jurados internos e invitados.</div>
+      </div>
+
+      <div class="alerta nota" style="margin-top:18px">
+        <b>Hagan la cuenta:</b> el 60 % de la nota se juega <b>antes</b> de la sustentación.
+        Este no es un trabajo de última semana. El que arranca tarde no lo recupera al final.
+      </div>
+      <div class="nota" style="margin-bottom:0">
+        <b>Sobre las fechas.</b> Cada entrega cierra el <b>día de la clase</b> a las 11:59 p. m.
+        Hasta el 9 de septiembre la clase es <b>miércoles</b>; desde el 17 de septiembre es
+        <b>jueves</b>. La única excepción es la Entrega 4, que se corre al jueves anterior a la
+        sustentación. La fecha oficial de cada entrega es la que quede publicada en <b>Moodle</b>;
+        cualquier ajuste se avisa por los canales del curso.
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ 3 -->
+  <div class="paso">
+    <div class="paso-h">
+      <div class="paso-n">3</div>
+      <div>
+        <h2>La regla de oro: la IA va <b>dentro del proceso</b></h2>
+        <div class="t">Esto no cambió y no va a cambiar. Define si su proyecto es un trabajo de inteligencia artificial o no.</div>
       </div>
     </div>
     <div class="paso-c">
@@ -191,49 +443,12 @@ li{margin-bottom:6px}
         </div>
       </div>
 
-      <div class="ok nota">
+      <div class="ok nota" style="margin-bottom:0">
         <b>La prueba del borrado.</b> Pregúntense: si mañana le quitamos la IA al sistema que
         entregamos, ¿el sistema deja de funcionar? Si la respuesta es <b>no</b> — porque la IA solo
-        ayudó a construirlo — el proyecto no es de IA. Si la respuesta es <b>sí</b> — porque la IA
-        clasifica, predice o analiza adentro — van bien.
-      </div>
-    </div>
-  </div>
-
-  <!-- ============================================ 3 -->
-  <div class="paso">
-    <div class="paso-h">
-      <div class="paso-n">3</div>
-      <div>
-        <h2>Las cuatro entregas: <b>fechas, productos y porcentajes</b></h2>
-        <div class="t">Los porcentajes son textuales del comunicado oficial. Cada estudiante sube su entrega individualmente en Moodle. <b>Toda entrega cierra a las 11:59 p. m. del día indicado.</b></div>
-      </div>
-    </div>
-    <div class="paso-c">
-      <div class="fecha"><div class="f">Semana del 31 de agosto al 4 de septiembre<br><small>cierra mié 2 · 11:59 p. m.</small></div><div class="v" style="color:#177A5F">20 %</div>
-        <div class="d"><b>Entrega 1 · Plan de trabajo</b> con visto bueno del asesor temático.
-        Se arma en la Clase 04 y se sube la semana siguiente: problema, objetivos, alcance, cronograma y — clave —
-        <b>dónde entra la IA en el pipeline</b>.</div></div>
-      <div class="fecha"><div class="f">Semana del 21 al 25 de septiembre<br><small>cierra mié 23 · 11:59 p. m.</small></div><div class="v" style="color:#2B66AC">20 %</div>
-        <div class="d"><b>Entrega 2 · Avance</b> de acuerdo con el plan de trabajo. Ya debe haber
-        datos reales y un primer prototipo corriendo, aunque sea feo.</div></div>
-      <div class="fecha"><div class="f">Semana del 19 al 23 de octubre<br><small>cierra mié 21 · 11:59 p. m.</small></div><div class="v" style="color:#5A44C4">20 %</div>
-        <div class="d"><b>Entrega 3 · Avance</b> de acuerdo con el plan de trabajo. El producto casi
-        completo y el documento en borrador avanzado.</div></div>
-      <div class="fecha"><div class="f">Semana del 2 al 6 de noviembre<br><small>cierra jue 5 · 11:59 p. m.</small></div><div class="v" style="color:#9A7B1E">40 %</div>
-        <div class="d"><b>Entrega 4 · Documento final y sustentación oral.</b> Cierra el <b>jueves 5 de
-        noviembre</b> — el jueves anterior — para que el asesor y el jurado tengan una semana con el
-        documento antes de la <b>sustentación final del jueves 12 de noviembre</b> ante jurados.</div></div>
-
-      <div class="alerta nota" style="margin-top:18px">
-        <b>Hagan la cuenta:</b> el 60 % de la nota se juega <b>antes</b> de la sustentación.
-        Este no es un trabajo de última semana. El que arranca tarde no lo recupera al final.
-      </div>
-      <div class="nota">
-        <b>Sobre las fechas.</b> Las entregas 1, 2 y 3 caen el <b>día de la clase</b> (miércoles) a las
-        11:59 p. m.; la 4, el jueves anterior a la sustentación. Estas son las fechas acordadas en clase con el asesor temático.
-        La fecha oficial de cada entrega es la que quede publicada en <b>Moodle</b>; cualquier
-        ajuste se avisa por los canales del curso.
+        ayudó a construirlo — el proyecto no es de IA: la IA era decoración, estaba al lado del
+        proceso y no adentro. Si la respuesta es <b>sí</b> — porque la IA clasifica, predice o
+        analiza adentro — van bien.
       </div>
     </div>
   </div>
@@ -243,87 +458,75 @@ li{margin-bottom:6px}
     <div class="paso-h">
       <div class="paso-n">4</div>
       <div>
-        <h2>El documento: <b>formato y estructura</b></h2>
-        <div class="t">Lo metodológico lo acompaña Lorena Martínez. Esto es lo mínimo que debe cumplir desde la primera entrega.</div>
+        <h2>Cómo medir los resultados <b>(empieza hoy, no en noviembre)</b></h2>
+        <div class="t">Es lo que les califican en el Capítulo 3. Y se mide antes y después — el «antes» solo se puede tomar ahora.</div>
       </div>
     </div>
     <div class="paso-c">
-      <div class="tbl"><table>
-        <tr><th>Aspecto</th><th>Requisito</th></tr>
-        <tr><td><b>Formato de archivo</b></td><td>Word (<code>.docx</code>) o PDF, según lo que pida Moodle en cada entrega.</td></tr>
-        <tr><td><b>Normas de estilo</b></td><td><b>APA, séptima edición</b>: portada, citación en el texto, tablas, figuras y lista de referencias.</td></tr>
-        <tr><td><b>Referencias</b></td><td>Actualizadas y de alto nivel: artículos y libros de los últimos ~5 años donde sea posible. Nada de blogs sin autor ni "según internet".</td></tr>
-        <tr><td><b>Escritura</b></td><td>Claridad, coherencia, argumentación: cada afirmación fuerte lleva su fuente.</td></tr>
-      </table></div>
 
-      <p style="margin-top:16px"><b>Las siete secciones del documento</b> — siempre en este
-      orden, y con estos límites, que son los que revisa el asesor temático:</p>
-      <ol>
-        <li><b>Resumen (abstract)</b> — <b>máximo una página</b>; lo recomendable son
-        <b>250 palabras</b>. Va de primero pero <b>se escribe de último</b>. Debe poder leerse
-        solo: qué problema, qué se hizo, con qué y qué resultado dio.</li>
-
-        <li><b>Planteamiento del problema</b> — <b>la necesidad que justifica el porqué del
-        proyecto</b>. No es la historia de la empresa: es el dolor concreto que se va a
-        intervenir, <b>con números del proceso actual</b> (tiempos, costos, errores, volumen).
-        Sin números de partida no hay «antes vs. después» que mostrar al final.</li>
-
-        <li><b>Objetivos del proyecto</b> — <b>uno general y máximo tres específicos</b>.
-        Todo objetivo se construye con <b>tres reglas inmóviles</b>:
-          <ol style="margin:8px 0 8px 0">
-            <li>un <b>verbo en infinitivo</b> (termina en <b>-ar, -er, -ir</b>);</li>
-            <li>la <b>condición que se va a intervenir</b>;</li>
-            <li>los <b>medios, recursos y/o herramientas</b> que lo van a llevar al cumplimiento
-            de esa condición.</li>
-          </ol>
-          Y la regla dura: <b>un solo verbo por objetivo</b>, ni más ni menos — en el general y
-          en cada específico. Dos verbos son dos objetivos, o se devuelve.
-        </li>
-
-        <li><b>Descripción del proceso metodológico</b> — en la <b>Entrega 1</b> es el
-        <b>plan</b>, en futuro: cómo se va a hacer, con qué datos, en qué pasos. <b>De la Entrega
-        2 en adelante esta sección se llama «Metodología»</b> y se escribe en pasado: lo que
-        efectivamente se hizo y qué cambió frente al plan. Aquí va dibujado el pipeline y
-        <b>dónde queda la IA adentro</b>.</li>
-
-        <li><b>Resultados</b> — <b>no van en la Entrega 1</b> (todavía no existen). Antes vs.
-        después, con los mismos indicadores del planteamiento del problema.</li>
-
-        <li><b>Conclusiones</b> — <b>no van en la Entrega 1.</b> Responden a los objetivos, uno
-        por uno, y dicen qué se recomienda hacer con el resultado.</li>
-
-        <li><b>Referencias (APA 7)</b> — <b>sí van desde la Entrega 1.</b> Los anexos, después
-        de las referencias.</li>
-      </ol>
-
-      <div class="alerta nota" style="margin-bottom:14px">
-        <b>Un objetivo, armado con las tres reglas.</b><br>
-        «<b>Reducir</b> <i>(1: verbo en infinitivo)</i> <b>el tiempo de revisión de facturas de
-        proveedores</b> <i>(2: la condición a intervenir)</i> <b>mediante un modelo de
-        clasificación entrenado con el histórico de la empresa</b> <i>(3: los medios)</i>.»<br>
-        <b>Mal:</b> «Analizar y mejorar el proceso de facturación» → dos verbos y sin medios.
-        <b>Mal:</b> «Implementar inteligencia artificial en la empresa» → sin condición concreta
-        y sin medios.
+      <div class="alerta nota" style="margin-top:0">
+        <b>La regla de oro de la medición.</b> La medición del <b>antes</b> hay que tomarla
+        <b>ahora, en las próximas dos semanas</b> — mientras el proceso todavía funciona como
+        siempre. Si no la toman ahora, en noviembre no hay con qué comparar y <b>el Capítulo 3 no se
+        puede escribir</b>. No hay forma de recuperarla después: el proceso viejo ya no existe.
       </div>
 
-      <p><b>Qué secciones lleva cada entrega:</b></p>
+      <div class="sino">
+        <div class="col si" style="border-color:var(--blue); background:#F1F6FC">
+          <h3 style="color:#2B66AC">Medición cuantitativa</h3>
+          <ul>
+            <li><b>Cronometren el proceso hoy</b>, con reloj, y <b>varias veces</b> — no una. Un
+            solo cronometraje no es un dato: es una anécdota.</li>
+            <li><b>Cuenten las repeticiones</b>: cuántas veces al día, a la semana o al mes se hace
+            esa tarea, y cuántas personas la hacen.</li>
+            <li><b>Cuenten los errores</b>: cuántos salen mal, cada cuánto, y qué cuesta cada uno.</li>
+            <li><b>Cuenten los reprocesos</b>: cuántas veces hay que devolver, corregir o volver a
+            empezar, y los ciclos de ensayo y error.</li>
+            <li><b>Traduzcan a plata y a horas</b> donde se pueda: horas-persona al mes, costo del
+            reproceso, tiempo de respuesta al cliente.</li>
+          </ul>
+        </div>
+        <div class="col si" style="border-color:var(--teal); background:#F2FAF7">
+          <h3 style="color:#177A5F">Medición cualitativa</h3>
+          <ul>
+            <li><b>Carga de trabajo</b>: cómo se siente el equipo con la tarea antes y después.
+            Se pregunta y se deja registrado, no se supone.</li>
+            <li><b>Trazabilidad</b>: antes no se sabía quién hizo qué ni cuándo; ahora queda
+            registro.</li>
+            <li><b>Confianza en el dato</b>: si el gerente creía o no en el número que le llegaba,
+            y si ahora sí.</li>
+            <li><b>Dependencia de una sola persona</b>: si el proceso solo lo sabía hacer alguien y
+            ahora está documentado y lo puede hacer cualquiera. Esto es de las que más pesan en una
+            sustentación de alta gerencia.</li>
+            <li><b>Cómo se recoge</b>: una encuesta corta al equipo, o dos o tres frases textuales
+            de quien hace la tarea, antes y después. Con fecha.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="nota">
+        <b>La frase que tienen que poder escribir en el Capítulo 3:</b><br>
+        «<i>Este proceso normalmente le toma a tal persona tanto tiempo, porque lo medimos varias
+        veces; con Claude se demoró cinco o diez veces menos.</i>»<br>
+        Fíjense en las tres partes: <b>quién</b> lo hace, <b>cuánto</b> se demoraba —
+        <b>medido varias veces</b> — y <b>cuánto</b> se demora ahora. Eso es un resultado. «Mejoró
+        mucho» no lo es.
+      </div>
+
       <div class="tbl"><table>
-        <tr><th>Sección</th><th>E1</th><th>E2</th><th>E3</th><th>E4</th></tr>
-        <tr><td>1. Resumen (abstract)</td><td>Sí</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
-        <tr><td>2. Planteamiento del problema</td><td>Sí</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
-        <tr><td>3. Objetivos del proyecto</td><td>Sí</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
-        <tr><td>4. Proceso metodológico / Metodología</td><td>Sí, como <b>plan</b></td><td>Sí, como <b>Metodología</b></td><td>Sí</td><td>Sí</td></tr>
-        <tr><td>5. Resultados</td><td><b>No</b></td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
-        <tr><td>6. Conclusiones</td><td><b>No</b></td><td>Preliminares</td><td>Sí</td><td>Sí</td></tr>
-        <tr><td>7. Referencias APA 7</td><td><b>Sí</b></td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
+        <tr><th>Qué medir</th><th>Cómo se toma el ANTES</th><th>Cuándo</th></tr>
+        <tr><td>Tiempo del proceso</td><td>Cronómetro, la tarea completa, mínimo 3 mediciones en días distintos</td><td><b>Estas dos semanas</b></td></tr>
+        <tr><td>Volumen</td><td>Conteo del último mes: cuántas veces se hizo</td><td>Estas dos semanas</td></tr>
+        <tr><td>Errores y reprocesos</td><td>Conteo del último mes o trimestre, con la fuente (correos, actas, sistema)</td><td>Estas dos semanas</td></tr>
+        <tr><td>Personas involucradas</td><td>Quién toca el proceso y cuántas horas le dedica</td><td>Estas dos semanas</td></tr>
+        <tr><td>Percepción del equipo</td><td>Tres preguntas cortas, por escrito, con fecha</td><td>Antes de la E2</td></tr>
       </table></div>
 
-      <div class="alerta nota">
-        <b>Advertencia sobre referencias con IA.</b> Los modelos de lenguaje <b>inventan
-        referencias</b> con total seguridad: autores reales, títulos plausibles, DOI falsos.
-        Pueden usar Claude para buscar y dar formato APA, pero <b>cada referencia se verifica</b>:
-        que el documento exista, que diga lo que ustedes citan. Una referencia inventada en el
-        documento final es falta grave, no un error de digitación.
+      <div class="ok nota" style="margin-bottom:0">
+        <b>Guárdenlo desde ya.</b> Pongan las mediciones del antes en una hoja de cálculo, con
+        fecha y con quién las tomó, y súbanla a la carpeta del proyecto. En noviembre esa hoja es
+        la mitad del Capítulo 3. Pídanle a su Claude que les arme la tabla y que les calcule las
+        diferencias cuando tengan el después.
       </div>
     </div>
   </div>
@@ -333,31 +536,57 @@ li{margin-bottom:6px}
     <div class="paso-h">
       <div class="paso-n">5</div>
       <div>
-        <h2>Cómo trabajar el proyecto <b>con la IA</b> (y con su asesor)</h2>
-        <div class="t">El objetivo declarado del diplomado: que las 96 horas autónomas se reduzcan porque ustedes usan IA para hacerlas.</div>
+        <h2>La tarea de hoy: <b>un párrafo escrito, por equipo</b></h2>
+        <div class="t">Nadie sale de la clase de hoy sin esto. Es la semilla de la Entrega 1, que cierra el miércoles 2 de septiembre.</div>
       </div>
     </div>
     <div class="paso-c">
-      <ul>
-        <li><b>Usen Claude para todo el andamiaje</b>: redactar, estructurar, calcular, armar
-        cronogramas, preparar la sustentación. Eso se espera, no se penaliza.</li>
-        <li><b>Documenten el pipeline</b>: en el documento debe quedar claro qué hace la IA adentro
-        del proceso, con qué datos, y qué pasa cuando se equivoca (quién revisa).</li>
-        <li><b>Datos sensibles</b>: nombres de clientes, historias clínicas, datos personales — no
-        se suben a ninguna IA sin anonimizar. Esto se profundiza en la sesión de datos sensibles,
-        pero la regla aplica desde ya.</li>
-        <li><b>Asesorías</b>: las sesiones con el asesor temático son semanales y quedan
-        registradas. Lleguen con avances y preguntas concretas, no con "no sabemos por dónde
-        empezar" — para eso está su Claude conectado a los materiales del curso.</li>
-        <li><b>Las orientaciones importantes</b> quedan por correo, con copia a
-        <code>investigacion.fcac@unac.edu.co</code>. Lo hablado se confirma por escrito.</li>
-      </ul>
+      <p>Cada equipo sale de esta sesión con <b>un párrafo escrito</b> — escrito, no pensado — que
+      diga dos cosas:</p>
+      <ol>
+        <li><b>Qué departamento o área de la empresa van a intervenir.</b> Con nombre propio:
+        «el área de cartera de tal empresa», no «los procesos administrativos».</li>
+        <li><b>Qué actividades piensan intervenir</b> dentro de esa área. Las tareas concretas que
+        hoy le duelen a alguien.</li>
+      </ol>
+
+      <div class="nota">
+        <b>Cómo se ve un párrafo que sirve.</b><br>
+        «Vamos a intervenir el <b>área de compras</b> de [empresa]. Hoy la asistente de compras
+        recibe entre 40 y 60 cotizaciones al mes por correo, las copia a mano a un Excel para
+        comparar precios y arma el cuadro comparativo; se demora alrededor de <b>dos horas por
+        cotización</b> y cada mes se le devuelven dos o tres cuadros por errores de digitación. Las
+        actividades a intervenir son: <b>recibir y clasificar</b> las cotizaciones, <b>extraer</b>
+        los ítems y precios, y <b>armar</b> el cuadro comparativo.»<br>
+        Fíjense que ya trae área, actividades y <b>números del antes</b>. Con ese párrafo, el
+        Capítulo 1 se escribe solo.
+      </div>
+
+      <p><b>Lo siguiente, en orden, para llegar al 2 de septiembre:</b></p>
+      <ol>
+        <li>Con el párrafo en mano, pídanle a su Claude conectado al aula que les arme el
+        <b>esqueleto del Capítulo 1</b> con los seis apartados y les diga qué falta.</li>
+        <li><b>Consigan la misión y la visión</b> de la empresa (página web, manual de calidad,
+        planeación estratégica) y péguenlas textuales, con su fuente.</li>
+        <li><b>Tomen la medición del antes</b> (sección 4). Esto es lo único que no se puede
+        recuperar después.</li>
+        <li>Manden el borrador al asesor temático <b>antes</b> de subirlo a Moodle. El visto bueno
+        se pide con tiempo, no la víspera a medianoche.</li>
+      </ol>
+
+      <div class="ok nota" style="margin-bottom:0">
+        <b>Y úsenlo para todo el andamiaje.</b> Redactar, estructurar, calcular, armar cronogramas,
+        preparar la sustentación: eso se espera de ustedes, no se penaliza. Lo que se evalúa aparte
+        es que la IA quede <b>dentro</b> del proceso que intervienen. Y una regla que aplica desde
+        ya: <b>datos sensibles</b> —nombres de clientes, historias clínicas, nómina, datos
+        personales— no se suben a ninguna IA sin anonimizar.
+      </div>
     </div>
   </div>
 
   <div class="pie">
     <span>Diplomado en Inteligencia Artificial · UNAC · Especialización en Alta Gerencia</span>
-    <span>Clase 04 · Guía del Proyecto de Grado</span>
+    <span>Guía del Proyecto de Grado · versión del 26 de agosto de 2026</span>
     <span>Asesor temático: Mg. Alexey David Velásquez Betancurt</span>
   </div>
 

@@ -1,45 +1,62 @@
 ---
 name: entrega-2
-description: Criterios de la Entrega 2 del proyecto de grado (primer avance, 20%, cierra el 23 de septiembre de 2026 a las 11:59 p. m.). Usar cuando el estudiante pregunte por la segunda entrega o pida revisar su primer avance.
+description: Criterios de la Entrega 2 del proyecto de grado (Capitulo 2, la propuesta de actividades, 20%, cierra el jueves 24 de septiembre de 2026 a las 11:59 p. m.). Usar cuando el estudiante pregunte por la segunda entrega, por el Capitulo 2, por la propuesta de actividades o por donde entra la IA en su proceso.
 ---
 
-# Entrega 2 · Avance según el plan · 20 % · semana del 21 al 25 de septiembre
+# Entrega 2 · Capítulo 2 — la propuesta de actividades · 20 % · semana del 21 al 25 de septiembre
 
-**Cierra el miércoles 23 de septiembre de 2026 a las 11:59 p. m.** (el día de la clase).
+**Cierra el jueves 24 de septiembre de 2026 a las 11:59 p. m.** (el día de la clase).
 
-**Producto oficial:** "Avance de acuerdo con el plan de trabajo" (comunicado EAG).
-Individual, en Moodle.
+> **Ojo, fecha nueva.** Antes esta entrega cerraba el **miércoles 23**; se movió al **jueves 24**
+> porque el horario del diplomado pasó de miércoles a jueves desde el 17 de septiembre y la regla
+> es que la entrega cierra el día de la clase.
 
+> **Estructura vigente: 26 de agosto de 2026.** El documento es **portada + Capítulo 1
+> (Problemática) + Capítulo 2 (Intervención) + Capítulo 3 (Resultados) + Referencias**. Ya **no**
+> hay resumen/abstract, ni objetivos formales, ni descripción del proceso metodológico, ni
+> capítulo de conclusiones. Manda `2_Criterios_Proyecto_de_Grado/1_Criterios_y_Entregas.md`.
 
-## La estructura, en esta entrega
+**Producto de esta entrega:** el Capítulo 1 con las correcciones de la E1 aplicadas + **la
+primera mitad del Capítulo 2: la propuesta de actividades.** Individual, en Moodle.
 
-Las **siete secciones** (ver `2_Criterios_Proyecto_de_Grado/1_Criterios_y_Entregas.md`):
-Resumen · Planteamiento del problema · Objetivos · **Metodología** · Resultados ·
-Conclusiones · Referencias APA 7.
+## Qué es «la propuesta de actividades»
 
-- La sección 4 **ya no se llama «Descripción del proceso metodológico» sino «Metodología»**, y
-  se escribe **en pasado**: lo que efectivamente se hizo y qué cambió frente al plan de la E1.
-- **Resultados y Conclusiones ya SÍ entran** (en la E1 no iban).
-- El **Resumen** sigue con su límite: máximo una página, 250 palabras recomendables.
-- Los **objetivos** siguen con sus tres reglas inmóviles — verbo en infinitivo + condición a
-  intervenir + medios — y **un solo verbo cada uno**, máximo tres específicos. Si el estudiante
-  reescribió objetivos, revíselos otra vez con esa regla.
+El plan de la intervención, escrito **en futuro**: qué se va a hacer, en qué orden, quién de cada
+equipo hace qué y en qué semana. **Actividades concretas y verificables, no intenciones.**
 
-## Qué se espera (revisar contra el plan aprobado en la E1)
+Una actividad sirve si se puede responder: ¿qué se hace exactamente · quién lo hace · en qué
+semana · cómo se sabe que quedó hecha? Si falta una de las cuatro, devuélvala.
 
-1. **Datos reales conseguidos** — el CSV, las carpetas de documentos o los audios ya están en
-   manos del equipo (anonimizados si hace falta). Si a esta altura no hay datos, es alerta roja.
-2. **Primer prototipo corriendo, aunque sea feo** — un notebook que ya clasifica/agrupa/
-   pronostica con datos reales, una skill que ejecuta el procedimiento, o un flujo que ya hace
-   una parte del proceso. Se evalúa que EXISTA y corra, no que esté bonito.
-3. **Documento en avance** — marco referencial y metodología en borrador, con referencias
-   APA 7 verificadas (nada inventado).
-4. **Bitácora de ajustes** — qué cambió frente al plan de la E1 y por qué. Cambiar el plan no
-   penaliza; ocultar que cambió, sí.
-5. **Cumplimiento de compromisos** — lo acordado en las asesorías semanales quedó hecho o
-   tiene explicación.
+Y en la propuesta tiene que quedar dicho, con precisión, **en qué punto del proceso entra la
+inteligencia artificial**: qué clasifica, agrupa, predice, pronostica, transcribe, detecta o
+analiza, y en qué paso del flujo.
+
+## Qué se espera (revisar punto por punto)
+
+1. **Actividades concretas y verificables** — con orden, responsable y semana.
+2. **Dónde entra la IA en el proceso** — el corazón de esta entrega. Debe pasar la **prueba del
+   borrado**: si se le quita la IA al proceso y este sigue funcionando igual, la IA es
+   decoración y hay que rediseñar. Proponga 2–3 formas concretas de meterla adentro usando el
+   catálogo de la Clase 04 (clasificar · agrupar · pronosticar · transcribir · leer documentos ·
+   analizar con un LLM).
+3. **Datos identificados** — qué datos existen, quién los tiene, en qué formato, si hay que
+   anonimizar. Si a esta altura no hay datos, es alerta roja.
+4. **La medición del antes ya tomada** — o en curso, con evidencia. Cronometraje del proceso
+   (mínimo 3 mediciones en días distintos), conteo de repeticiones, errores y reprocesos del
+   último mes. **Después de la E3 ya no se puede tomar**: el proceso viejo ya no existe. Sin ese
+   dato, el Capítulo 3 de la E4 no se puede escribir.
+5. **Correcciones de la E1 aplicadas** — no repetidas. Compare contra
+   `mis_entregas/entrega_1/`.
+6. **Referencias APA 7** verificadas, nada inventado.
 
 ## Al revisar un avance
 
-Compare contra el plan de `mis_entregas/entrega_1/`. Devuelva: ✅ / ⚠️ / ▶️ y deje
-claro qué debe estar listo para la E3 (21-oct): producto casi completo y borrador avanzado.
+Devuelva: ✅ lo que ya está bien · ⚠️ lo que falta contra cada numeral · ▶️ los 3 pasos
+siguientes con fecha.
+
+Deje claro qué debe estar listo para la **E3 (jueves 22 de octubre)**: el Capítulo 2 completo con
+**el desarrollo de la solución** — la solución construida y funcionando, con evidencia, escrita
+en pasado. Y recuérdele que en la E4 (jueves 5 de noviembre) va el Capítulo 3 con el antes vs.
+después.
+
+Guardar todo en `mis_entregas/entrega_2/`.
