@@ -1,25 +1,35 @@
 # -*- coding: utf-8 -*-
 """
-Plantilla 2 - Machine Learning NO SUPERVISADO
-Genera el archivo surtido_productos.csv
+Plantilla 2 - AUTOENCODER sobre datos (deteccion de anomalias)
+Genera el archivo movimientos_contables.csv
 
 QUE ES ESTO
-   El surtido de un supermercado: 600 referencias (SKU) con su comportamiento
-   comercial del ultimo ano. NADIE etiqueto nada. No hay columna de respuesta.
-   La pregunta es al reves que en la plantilla 1: en vez de "prediga esto",
-   es "digame que familias hay aqui que yo no habia visto".
+   3.000 movimientos de pago a proveedores de una clinica: insumos medicos,
+   servicios, arrendamientos, papeleria, mantenimiento. Cada fila es un pago ya
+   registrado, con su monto, su hora, sus aprobadores y sus soportes.
 
-   Eso es NO SUPERVISADO: no hay examen, no hay Accuracy. Hay agrupamiento.
+   La pregunta NO es "prediga esto". La pregunta es:
+   "de estos 3.000 pagos, cuales 30 debo mirar yo primero".
+
+   Eso es NO SUPERVISADO: nadie marco cuales estaban raros. El modelo aprende
+   como se ve un pago NORMAL y despues mide que tan lejos esta cada pago de esa
+   normalidad. Lo que no logra reconstruir bien, lo levanta como sospechoso.
+
+LA TRAMPA DEL DOCENTE
+   La ultima columna del CSV se llama es_anomalia. En la vida real USTED NO LA
+   TIENE: si la tuviera, no necesitaria un autoencoder, haria un clasificador
+   supervisado (plantilla 1). Aqui existe solo para que al final podamos
+   verificar si el modelo acerto. 2_entrenar.py la saca ANTES de entrenar y la
+   vuelve a mirar SOLO al final, para calificar.
 
 AVISO IMPORTANTE
    Los datos son SINTETICOS: los inventa este script con una semilla fija.
-   No son datos de Supermo ni de Distintores ni de Vita Market. El script
-   siembra cuatro familias a proposito y les mete ruido encima; el trabajo de
-   K-Means sera volver a encontrarlas sin que nadie le diga cuantas hay.
+   No son datos de la clinica oftalmologica, ni del Area Metropolitana, ni de
+   la Alcaldia de Puerto Carreno, ni de ninguna entidad real.
 
-   La columna familia_real que queda al final del CSV es LA TRAMPA DEL DOCENTE:
-   en la vida real usted NO la tiene. Sirve solo para verificar al final si el
-   modelo acerto. El script de entrenamiento la saca antes de modelar.
+EL PIPELINE (paso 1 de 5)
+   [1] DATOS  ->  2 preparacion  ->  3 entrenamiento  ->  4 evaluacion  ->  5 resultado
+   Este script es el paso 1. Produce movimientos_contables.csv y nada mas.
 
 Diplomado en Inteligencia Artificial - UNAC - Clase 05
 """
@@ -36,84 +46,173 @@ import numpy as np
 import pandas as pd
 
 # ---------------------------------------------------------------------------
-# PANEL DE CONTROL
+# PANEL DE CONTROL - aquí y solo aquí se cambian cosas
 # ---------------------------------------------------------------------------
-SEMILLA = 7
-ARCHIVO = "surtido_productos.csv"
+SEMILLA = 11               # fíjela y todo el salón obtiene los mismos números
+FILAS_NORMALES = 2850      # movimientos sanos
+FILAS_ANOMALAS = 150       # movimientos sembrados como raros (5 % de la base)
+ARCHIVO = "movimientos_contables.csv"
 # ---------------------------------------------------------------------------
 
 rng = np.random.default_rng(SEMILLA)
 
-# Las cuatro familias que se siembran a propósito, con su tamaño.
-# Cada una es un perfil comercial que cualquier comprador reconoce.
-FAMILIAS = [
-    # nombre                  n    unid/mes  rotacion  margen%  %promo  devol%  quiebres
-    ("Locomotora",           130,  (2400, 600), (6, 2),   (9, 2.5),  (12, 4),  (0.8, 0.4), (2.4, 1.2)),
-    ("Joya de margen",       120,  (180, 70),   (46, 12), (38, 6),   (7, 3),   (1.2, 0.6), (0.5, 0.5)),
-    ("Adicto a la promocion", 160, (900, 320), (17, 6),  (14, 4),   (58, 12), (4.6, 1.6), (1.6, 0.9)),
-    # (el nombre va sin tilde a propósito: es un valor de CSV, y así no depende
-    #  de la codificación con la que Excel abra el archivo)
-    ("Cola larga dormida",   190,  (48, 26),    (96, 30), (22, 8),   (5, 3),   (2.0, 1.1), (0.3, 0.4)),
-]
+TIPOS = ["Insumos medicos", "Servicios", "Arrendamiento", "Papeleria", "Mantenimiento"]
+PESO_TIPO = [0.34, 0.26, 0.10, 0.16, 0.14]
+FORMAS = ["Transferencia", "Cheque", "Tarjeta", "Efectivo"]
+PESO_FORMA = [0.62, 0.20, 0.13, 0.05]
 
-CATEGORIAS = ["Aseo hogar", "Bebidas", "Cuidado personal", "Despensa",
-              "Lacteos", "Snacks", "Mascotas", "Panaderia"]
+# ===========================================================================
+# LOS MOVIMIENTOS NORMALES
+# Un pago sano tiene un patrón aburrido: se registra en horario de oficina,
+# de lunes a viernes, con dos o tres aprobadores, con sus soportes completos,
+# por un monto coherente con su tipo de gasto. El autoencoder va a aprender
+# ESE aburrimiento. Todo lo que no encaje en él, le va a doler reconstruirlo.
+# ===========================================================================
+n = FILAS_NORMALES
+tipo = rng.choice(TIPOS, size=n, p=PESO_TIPO)
+forma = rng.choice(FORMAS, size=n, p=PESO_FORMA)
 
-filas = []
-n_sku = 0
-for nombre, n, unid, rot, marg, promo, devol, quiebre in FAMILIAS:
-    for _ in range(n):
-        n_sku += 1
-        filas.append({
-            "sku": f"SKU-{n_sku:04d}",
-            "categoria": rng.choice(CATEGORIAS),
-            "unidades_mes": max(3, int(rng.normal(*unid))),
-            "rotacion_dias": round(max(1.0, rng.normal(*rot)), 1),
-            "margen_pct": round(max(0.5, rng.normal(*marg)), 1),
-            "pct_venta_en_promocion": round(min(97.0, max(0.0, rng.normal(*promo))), 1),
-            "devoluciones_pct": round(max(0.0, rng.normal(*devol)), 2),
-            "quiebres_stock_mes": round(max(0.0, rng.normal(*quiebre)), 1),
-            "familia_real": nombre,
-        })
+base = np.where(tipo == "Insumos medicos", 3_200_000,
+        np.where(tipo == "Servicios", 1_800_000,
+        np.where(tipo == "Arrendamiento", 8_500_000,
+        np.where(tipo == "Papeleria", 320_000, 1_100_000)))).astype(float)
+monto = np.round(base * rng.lognormal(0.0, 0.42, n), -3)
 
-df = pd.DataFrame(filas)
+# Horario de oficina: campana centrada a las 11 de la mañana y a las 3 de la tarde
+hora = np.clip(np.round(rng.normal(rng.choice([10.5, 15.0], n), 1.8, n)), 7, 19).astype(int)
+dia_semana = rng.choice([1, 2, 3, 4, 5], size=n, p=[0.21, 0.21, 0.20, 0.20, 0.18])
 
-# Precio unitario: correlacionado con el margen pero con vida propia
-df["precio_unitario"] = np.round(
-    (1200 + df["margen_pct"] * 380) * rng.lognormal(0, 0.42, len(df)), -1).astype("int64")
+# Cuantos ojos revisaron el pago: a mayor monto, mas aprobadores (política interna)
+num_aprobadores = np.clip(
+    np.round(1.6 + 1.4 * np.log1p(monto / 1_000_000.0) + rng.normal(0, 0.45, n)), 1, 5
+).astype(int)
 
-# Proveedores activos por referencia
-df["proveedores_activos"] = rng.integers(1, 5, len(df))
+# Soportes: factura, orden de compra, acta de recibido... lo normal es tenerlos todos
+soportes_adjuntos = np.clip(np.round(rng.normal(3.1, 0.75, n)), 1, 5).astype(int)
 
-# Se revuelven las filas: si quedaran ordenadas por familia, el ejercicio
-# se resolveria mirando el CSV en vez de modelando.
+dias_desde_factura = np.clip(np.round(rng.gamma(3.4, 5.2, n)), 1, 90).astype(int)
+veces_proveedor_mes = np.clip(np.round(rng.gamma(2.0, 1.3, n)), 1, 12).astype(int)
+pct_desviacion_presupuesto = np.round(np.clip(rng.normal(1.5, 4.2, n), -18, 22), 2)
+
+normales = pd.DataFrame({
+    "tipo_proveedor": tipo,
+    "forma_pago": forma,
+    "monto": monto,
+    "dias_desde_factura": dias_desde_factura,
+    "hora_registro": hora,
+    "dia_semana": dia_semana,
+    "num_aprobadores": num_aprobadores,
+    "soportes_adjuntos": soportes_adjuntos,
+    "veces_proveedor_mes": veces_proveedor_mes,
+    "pct_desviacion_presupuesto": pct_desviacion_presupuesto,
+    "es_anomalia": 0,
+})
+
+# ===========================================================================
+# LOS MOVIMIENTOS ANÓMALOS
+# Cuatro patrones que cualquier auditor reconoce. Ninguno es "monto alto":
+# la gracia del autoencoder es que atrapa COMBINACIONES raras, no valores
+# extremos sueltos. Un arrendamiento de 9 millones es normal; un pago de
+# papelería de 9 millones a la 1 de la mañana con un aprobador, no.
+# ===========================================================================
+filas_anom = []
+patrones = ["Pago fuera de horario", "Fraccionamiento / pago repetido",
+            "Monto redondo sin soportes", "Sobrecosto con un solo aprobador"]
+
+for i in range(FILAS_ANOMALAS):
+    patron = patrones[i % len(patrones)]
+    t = rng.choice(TIPOS, p=PESO_TIPO)
+    b = {"Insumos medicos": 3_200_000, "Servicios": 1_800_000, "Arrendamiento": 8_500_000,
+         "Papeleria": 320_000, "Mantenimiento": 1_100_000}[t]
+
+    # valores de partida: se arranca de un pago normal y se le rompe UNA cosa
+    fila = {
+        "tipo_proveedor": t,
+        "forma_pago": rng.choice(FORMAS, p=PESO_FORMA),
+        "monto": float(np.round(b * rng.lognormal(0.0, 0.42), -3)),
+        "dias_desde_factura": int(np.clip(round(rng.gamma(3.4, 5.2)), 1, 90)),
+        "hora_registro": int(np.clip(round(rng.normal(12.0, 2.0)), 7, 19)),
+        "dia_semana": int(rng.choice([1, 2, 3, 4, 5])),
+        "num_aprobadores": 3,
+        "soportes_adjuntos": 3,
+        "veces_proveedor_mes": int(np.clip(round(rng.gamma(2.0, 1.3)), 1, 12)),
+        "pct_desviacion_presupuesto": float(np.round(rng.normal(1.5, 4.2), 2)),
+        "es_anomalia": 1,
+    }
+
+    if patron == "Pago fuera de horario":
+        # registrado de madrugada o en fin de semana, y con menos ojos encima
+        fila["hora_registro"] = int(rng.choice([0, 1, 2, 3, 4, 5, 22, 23]))
+        fila["dia_semana"] = int(rng.choice([6, 7]))
+        fila["num_aprobadores"] = int(rng.choice([1, 2]))
+
+    elif patron == "Fraccionamiento / pago repetido":
+        # el mismo proveedor cobrando muchas veces en el mes, montos pequeños,
+        # y facturado el mismo día: el clásico partir un contrato en pedacitos
+        fila["veces_proveedor_mes"] = int(rng.integers(18, 34))
+        fila["monto"] = float(np.round(b * rng.uniform(0.10, 0.28), -3))
+        fila["dias_desde_factura"] = int(rng.integers(1, 3))
+        fila["num_aprobadores"] = 1
+
+    elif patron == "Monto redondo sin soportes":
+        # cifra exacta y sospechosamente limpia, sin papeles, y en efectivo
+        fila["monto"] = float(rng.choice([5_000_000, 10_000_000, 15_000_000, 20_000_000]))
+        fila["soportes_adjuntos"] = int(rng.choice([1, 1, 2]))
+        fila["forma_pago"] = "Efectivo"
+        fila["num_aprobadores"] = int(rng.choice([1, 2]))
+
+    else:  # "Sobrecosto con un solo aprobador"
+        # muy por encima del presupuesto, aprobado por una sola persona,
+        # y con la factura vieja (se dejó vencer para meter presión)
+        fila["pct_desviacion_presupuesto"] = float(np.round(rng.uniform(45, 130), 2))
+        fila["num_aprobadores"] = 1
+        fila["monto"] = float(np.round(b * rng.uniform(2.4, 4.5), -3))
+        fila["dias_desde_factura"] = int(rng.integers(70, 120))
+
+    fila["patron_sembrado"] = patron
+    filas_anom.append(fila)
+
+anomalos = pd.DataFrame(filas_anom)
+normales["patron_sembrado"] = "-"
+
+# ===========================================================================
+# SE MEZCLAN Y SE GUARDAN
+# ===========================================================================
+df = pd.concat([normales, anomalos], ignore_index=True)
 df = df.sample(frac=1.0, random_state=SEMILLA).reset_index(drop=True)
+df.insert(0, "movimiento_id", [f"MV-2026{i:05d}" for i in range(1, len(df) + 1)])
+df["monto"] = df["monto"].astype("int64")
 
-# Orden de columnas: familia_real al final, para que se vea que es un apendice
-orden = ["sku", "categoria", "precio_unitario", "unidades_mes", "rotacion_dias",
-         "margen_pct", "pct_venta_en_promocion", "devoluciones_pct",
-         "quiebres_stock_mes", "proveedores_activos", "familia_real"]
-df = df[orden]
+# el orden de las columnas: primero las que el modelo mira, al final las dos
+# que son solo para verificar (es_anomalia y patron_sembrado)
+cols = [c for c in df.columns if c not in ("es_anomalia", "patron_sembrado")]
+df = df[cols + ["es_anomalia", "patron_sembrado"]]
 
 destino = os.path.join(os.path.dirname(os.path.abspath(__file__)), ARCHIVO)
 df.to_csv(destino, index=False, encoding="utf-8-sig")
 
+n_anom = int(df["es_anomalia"].sum())
 print()
 print("=" * 78)
-print("  DATOS SINTÉTICOS GENERADOS · surtido de un supermercado")
+print("  DATOS SINTÉTICOS GENERADOS · movimientos de pago a proveedores")
 print("=" * 78)
 print(f"  Archivo    : {destino}")
-print(f"  Referencias: {len(df)} SKU")
-print(f"  Columnas   : {df.shape[1]}  (7 numéricas de comportamiento comercial)")
+print(f"  Filas      : {len(df):,}".replace(",", "."))
+print(f"  Columnas   : {df.shape[1]}  (10 que el modelo mira + id + 2 de verificación)")
+print(f"  Sembrados  : {n_anom} movimientos raros de {len(df)} "
+      f"({n_anom / len(df) * 100:.1f} % de la base)")
 print()
-print("  Familias sembradas a propósito (el modelo NO las va a ver):")
-for nombre, cuenta in df["familia_real"].value_counts().items():
-    print(f"     {nombre:<24} {cuenta:>4} referencias")
+print("  Los cuatro patrones sembrados, y cuántos de cada uno:")
+for p, c in df.loc[df["es_anomalia"] == 1, "patron_sembrado"].value_counts().items():
+    print(f"     {c:>4}  {p}")
 print()
 print("  Primeras 5 filas:")
-print(df.head().to_string(index=False))
+with pd.option_context("display.width", 200, "display.max_columns", 50):
+    print(df.head().to_string(index=False))
 print()
-print(f"  Datos SINTÉTICOS con semilla fija (SEMILLA = {SEMILLA}).")
-print("  Ya puede correr 2_entrenar.py")
+print(f"  Recuerde: datos SINTÉTICOS con semilla fija (SEMILLA = {SEMILLA}).")
+print("  Las columnas es_anomalia y patron_sembrado son LA TRAMPA: en la vida real")
+print("  usted no las tiene. 2_entrenar.py las saca antes de entrenar.")
+print("  El CSV se abre con doble clic en Excel. Ya puede correr 2_entrenar.py")
 print("=" * 78)
 print()

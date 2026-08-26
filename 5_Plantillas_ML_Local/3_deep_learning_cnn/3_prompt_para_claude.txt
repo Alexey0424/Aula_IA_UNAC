@@ -1,32 +1,44 @@
 ===============================================================================
- PLANTILLA 3 - DEEP LEARNING CON RED CONVOLUCIONAL (CNN)
- Copie el bloque de abajo y peguelo en Claude Code. Nada mas.
+ PLANTILLA 3 - CONVOLUTIONAL NEURAL NETWORK (CNN) sobre imagenes
+ Copie el bloque que necesite y peguelo en Claude Code. Nada mas.
 ===============================================================================
 
-  *** LEA ESTO PRIMERO - ES LA PLANTILLA PESADA ***
+ QUE HACE
+   Una red convolucional aprende a clasificar imagenes mirando VECINDARIOS de
+   pixeles en vez de pixeles sueltos. Y corre en la misma carpeta un modelo
+   clasico que mira los 784 pixeles como columnas de una tabla, para que usted
+   vea la diferencia con sus propios ojos.
 
-  Esta es la UNICA de las tres que necesita una instalacion extra: PyTorch.
-     Descarga  : ~127 MB   (medido, no estimado)
-     Instalacion: ~1 minuto en un portatil normal
-     Disco     : deja ~640 MB ocupados
+   CNN                 : Accuracy 0.97   (medido)
+   Modelo clasico      : Accuracy 0.66   (medido)
+   Las mismas imagenes. Lo unico que cambio fue mirar vecindarios.
 
-  NO la instale en clase con el internet compartido del salon. Esta plantilla
-  es la TAREA: se hace en casa, con calma, con la wifi de uno solo.
+ EL EJEMPLO
+   2.400 imagenes simuladas de 28 x 28 pixeles de laminas de vidrio saliendo
+   de la linea de corte, en cuatro clases: OK, rayon, burbuja y astillado.
+   La pregunta: esta lamina pasa, o en que fallo?
 
-  La linea es (PowerShell):     pip install torch
+ EL ENTORNO
+   Esta plantilla corre en el entorno env_deep (el de PyTorch), el mismo de la
+   plantilla 2. NO corre en el de PyCaret. Si no lo ha creado, esta en
+   0_instalar.txt, PASO 2.
 
-  En Windows esa linea trae la version de CPU. No necesita tarjeta grafica,
-  no necesita CUDA, y NO necesita --index-url. Ya lo verificamos.
+   *** ES LA PLANTILLA PESADA: el entorno env_deep ocupa poco mas de 1 GB. ***
+   NO la instale en clase con el internet compartido del salon. Esta plantilla
+   es la TAREA: se hace en casa, con calma, con la wifi de uno solo.
 
+   En Windows la instalacion trae la version de CPU. No necesita tarjeta
+   grafica, no necesita CUDA, y NO necesita --index-url. Ya lo verificamos.
 
-COMO SE USA
-  1. Ya debe tener instalada la linea 1 de 0_instalar.txt (scikit-learn,
-     pandas, matplotlib) y ademas torch.
-  2. Abra PowerShell en la carpeta 3_Plantillas_ML_Local
-  3. Escriba:  claude
-  4. Copie el PROMPT 1 completo y peguelo.
+ COMO SE USA
+   1. Abra PowerShell en la carpeta 3_Plantillas_ML_Local
+      (clic derecho sobre la carpeta -> Abrir en Terminal)
+   2. Escriba:  claude
+   3. Copie el PROMPT 1 completo y peguelo.
+   4. Cuando Claude le pida permiso para ejecutar el script, diga que si.
 
-  Usted NO escribe codigo. Usted da la orden y lee el resultado.
+   Usted NO escribe codigo. Usted da la orden y lee el resultado.
+   Tiempo de la corrida completa: unos 6 a 9 segundos.
 
 
 -------------------------------------------------------------------------------
@@ -41,16 +53,20 @@ sinteticas.
 
 Haz esto, en este orden:
 
-1. Verifica primero si tengo PyTorch instalado. Si NO lo tengo, dime cuanto
-   pesa la descarga y preguntame si quiero seguir ANTES de instalar nada.
+1. Verifica que exista el entorno de PyTorch y corre los dos scripts con SU
+   Python, no con "py" ni "python" a secas:
 
-2. Corre 1_generar_datos.py. Abre muestras_vidrio.png y describeme las cuatro
-   clases: quiero ver con mis propios ojos con que esta trabajando la red
-   antes de creerle un solo numero.
+       C:\ia\env_deep\Scripts\python.exe 1_generar_datos.py
+       C:\ia\env_deep\Scripts\python.exe 2_entrenar.py
 
-3. Corre 2_entrenar.py.
+   Si ese entorno NO existe, dime cuanto pesa la instalacion y preguntame si
+   quiero seguir ANTES de instalar nada.
 
-4. Explicame el resultado como si yo fuera el jefe de planta:
+2. Despues de 1_generar_datos.py, abre muestras_vidrio.png y describeme las
+   cuatro clases: quiero ver con mis propios ojos con que esta trabajando la
+   red antes de creerle un solo numero.
+
+3. Explicame el resultado como si yo fuera el jefe de planta:
    - Por que el modelo clasico (pixel por pixel) saca tan poquito y la CNN
      tanto. Explicame que es una convolucion con el ejemplo del rayon movido
      tres pixeles a la derecha. Sin matematicas.
@@ -60,12 +76,16 @@ Haz esto, en este orden:
    - Que dice la "letra menuda" sobre imagenes sinteticas, y que tendria que
      hacer yo distinto para llevar esto a una planta de verdad.
 
-5. Abre resultado_cnn.png y dime que se ve en cada uno de los tres paneles.
+4. Abre resultado_cnn.png y dime que se ve en cada uno de los tres paneles.
    Del tercer panel dime si a MI ojo humano tambien se me confundirian esas
    laminas.
 
-6. Al final: en una sola frase, cuantas fotos por clase tendria que conseguir
+5. Al final, en una sola frase: cuantas fotos por clase tendria que conseguir
    para intentar esto con imagenes de verdad, y por donde empezaria.
+
+6. Y dime honestamente si MI problema es de imagenes o no. Si mi problema es
+   una tabla de Excel, dimelo: para tablas el AutoML de la plantilla 1 le gana
+   a una red neuronal, es mas barato y es mas explicable.
 
 
 -------------------------------------------------------------------------------
@@ -73,6 +93,7 @@ Haz esto, en este orden:
 -------------------------------------------------------------------------------
 
 Quiero entender el sobreajuste (overfitting) VIENDOLO, no leyendolo.
+En el PANEL DE CONTROL de 2_entrenar.py:
 
 1. Pon EPOCAS = 3 y corre. Muestrame el acierto.
 2. Pon EPOCAS = 60 y corre. Muestrame el acierto en estudio y en examen, y la
@@ -83,9 +104,15 @@ Quiero entender el sobreajuste (overfitting) VIENDOLO, no leyendolo.
 
 Si con 60 epocas se demora mas de dos minutos en mi maquina, avisame y bajale.
 
+Y un experimento mas, que es el que de verdad ensena:
+5. Pon CORRER_MODELO_CLASICO = True (ya viene asi) y mirame las dos cifras
+   juntas. Despues explicame en dos frases, como para un comite, por que esa
+   diferencia de 31 puntos justifica usar Deep Learning aqui y NO la
+   justificaria en un problema de tabla.
+
 
 -------------------------------------------------------------------------------
- PROMPT 3 - CUANDO SE ANIME A PONER SUS PROPIAS IMAGENES
+ PROMPT 3 - PONER MIS PROPIAS IMAGENES
 -------------------------------------------------------------------------------
 
 Tengo una carpeta con mis propias fotos, organizadas en subcarpetas (una
@@ -93,14 +120,23 @@ subcarpeta por clase). La ruta es <PONGA_AQUI_LA_RUTA>.
 
 Escribeme un script que las convierta al mismo formato .npz que usa esta
 plantilla: escala de grises, 28x28, y la etiqueta sacada del nombre de la
-subcarpeta. Antes de correrlo dime:
+subcarpeta. El .npz debe quedar con las mismas llaves que espera 2_entrenar.py
+(mira el archivo para confirmarlas; no las inventes).
+
+ANTES de correrlo dime:
  - Cuantas fotos hay por clase y si estan muy desbalanceadas.
- - Si 28x28 es suficiente para MI defecto o si se me va a perder al encoger
-   (si mi defecto es una grieta finita, avisame).
+ - Si 28x28 es suficiente para MI defecto o si se me va a perder al encoger.
+   Si mi defecto es una grieta finita, avisame: ahi 28x28 no sirve y hay que
+   subir la resolucion (y eso cambia el tiempo de entrenamiento).
  - Cuantas fotos por clase necesito como minimo para que esto no sea un chiste.
+   Dime el numero y de donde lo sacas.
+ - Si mis fotos tienen fondos, luces o encuadres muy distintos entre clases,
+   porque entonces la red va a aprender el fondo y no el defecto. Ese es el
+   error mas comun y quiero que me lo revises.
 
 Despues corre el entrenamiento y comparame el resultado con el de las
-imagenes sinteticas.
+imagenes sinteticas. Si mi Accuracy sale por encima de 0.98, sospecha primero
+de que la red aprendio algo que no era el defecto.
 
 IMPORTANTE: mis fotos se quedan en mi computador. No las subas a ningun lado,
 no las mandes a ninguna API y no las pegues en internet.
@@ -114,11 +150,133 @@ Con base en lo que hace esta plantilla, ayudame a decidir HONESTAMENTE si mi
 proyecto de grado deberia usar una red convolucional o no. Preguntame:
  - Que tipo de dato tengo (tabla, imagen, audio, texto).
  - Cuantos ejemplos etiquetados puedo conseguir de verdad.
- - Si tengo con que etiquetarlos.
+ - Si tengo con que etiquetarlos, y quien los va a etiquetar.
 
-Y si la respuesta honesta es "para su caso un Random Forest sobre una tabla
-es mejor", digamelo sin adornos. Prefiero un proyecto que funcione a un
-proyecto que suene moderno.
+Y si la respuesta honesta es "para su caso el AutoML de la plantilla 1 sobre
+una tabla es mejor", digamelo sin adornos. Prefiero un proyecto que funcione a
+un proyecto que suene moderno.
+
+Si la respuesta es que si me sirve la CNN, escribeme:
+ - El pipeline en cinco pasos con MIS datos:
+   datos -> preparacion -> entrenamiento -> evaluacion -> resultado.
+ - La prueba del borrado: si le quito la red, mi proceso funciona igual? Si
+   la respuesta es que si, dimelo sin adornos.
+ - Como explico la limitacion de mis datos sin que parezca una excusa.
+
+Maximo 400 palabras, en espanol, con los terminos tecnicos en ingles (CNN,
+Accuracy, overfitting, Deep Learning) como se usan en todas partes.
+
+
+===============================================================================
+ CONTRATO TECNICO - para el agente de IA que adapte esta plantilla
+ (el estudiante no necesita leer esto; el agente si)
+===============================================================================
+
+ENTORNO
+  Interprete obligatorio : C:\ia\env_deep\Scripts\python.exe
+  Nunca usar             : py, python, ni el Python del sistema, ni el de
+                           env_pycaret
+  Motivo                 : torch necesita numpy 2.x. pycaret-core fija
+                           numpy 1.26.x. Instalar torch en el entorno de
+                           PyCaret produce, al importar torch:
+                             OSError: [WinError 1114] ... c10.dll
+                           y pip NO avisa. Los entornos no se mezclan.
+  Instalacion            : pip install torch scikit-learn pandas matplotlib numpy
+  Comparte entorno con   : la plantilla 2 (autoencoder). Ese si se comparte.
+  Hardware               : CPU. Sin GPU, sin CUDA, sin --index-url en Windows.
+
+ARCHIVOS Y SUS ROLES  (la convencion de las tres plantillas, no se rompe)
+  1_generar_datos.py  produce imagenes_vidrio.npz y muestras_vidrio.png.
+                      Se reemplaza por imagenes reales convertidas al mismo
+                      formato; no se edita para "arreglar" el entrenamiento.
+  2_entrenar.py       el pipeline de cinco pasos. Se toca SOLO el PANEL DE
+                      CONTROL.
+  3_prompt_para_claude.txt  este archivo. Punto de entrada del estudiante.
+
+QUE SE PUEDE CAMBIAR
+  ARCHIVO_DATOS           nombre del .npz de entrada
+  PORCENTAJE_EXAMEN       0.15 a 0.30
+  EPOCAS                  3 a 60. Por defecto 15.
+  TAMANO_LOTE             32 a 128
+  TASA_APRENDIZAJE        0.0005 a 0.005
+  SEMILLA                 cualquier entero
+  CORRER_MODELO_CLASICO   True/False. Dejarlo en True: la comparacion ES la
+                          leccion de la plantilla.
+
+QUE NO SE DEBE TOCAR
+  - El orden de los cinco pasos.
+  - Que el modelo clasico y la CNN reciban EXACTAMENTE las mismas imagenes y
+    el mismo split. Si no, la comparacion no vale nada y la leccion se cae.
+  - Que las metricas salgan del examen y no del estudio.
+  - Que la salida del modelo se describa como envio a REVISION HUMANA y nunca
+    como una decision automatica de botar producto.
+  - matplotlib.use("Agg"): sin eso el script intenta abrir ventanas y falla en
+    una consola sin escritorio.
+  - Los mensajes en espanol. Son material de clase.
+
+FORMATO DE ENTRADA ESPERADO  (.npz de numpy)
+  Se genera con:  np.savez_compressed(destino, X=X, y=y, clases=np.array(CLASES))
+  Se lee con:     np.load(ruta, allow_pickle=False)
+
+  Las TRES llaves son exactamente estas. Verificado sobre el archivo real:
+    X       (N, 28, 28)  float32, valores 0.0 a 1.0
+    y       (N,)         int64, enteros 0..C-1
+    clases  (C,)         array de texto con los nombres, en el orden de y
+            (ejemplo real: ['OK' 'Rayon' 'Burbuja' 'Astillado'])
+
+  OJO: el loader usa allow_pickle=False. Por eso 'clases' tiene que ser un
+  array de texto de numpy (dtype <U...), NUNCA una lista de Python ni un array
+  de dtype=object: con object el np.load falla.
+
+  Escala de grises, no color (un solo canal, sin la dimension de color).
+  28 x 28 pixeles.
+  Minimo razonable: 200 imagenes por clase. Por debajo de eso es un ejercicio,
+  no una herramienta, y hay que decirlo.
+
+CONVERSION DE IMAGENES REALES - reglas
+  - Una subcarpeta por clase; el nombre de la subcarpeta es la etiqueta.
+  - Redimensionar a 28x28 SOLO si el defecto sobrevive al encogido. Una grieta
+    de un pixel de ancho no sobrevive: en ese caso hay que subir la resolucion
+    y ajustar la red, y hay que advertirlo antes de entrenar.
+  - Normalizar a 0.0-1.0 dividiendo por 255.
+  - Revisar el desbalance entre clases y reportarlo.
+  - REVISAR FONDOS: si las clases se tomaron en escenarios distintos, la red
+    aprende el fondo. Es el error mas comun con fotos reales y hay que
+    advertirlo explicitamente antes de celebrar cualquier metrica.
+
+ERRORES COMUNES Y QUE SIGNIFICAN
+  ModuleNotFoundError: No module named 'torch'
+      Python equivocado, o no se creo env_deep. Ver 0_instalar.txt PASO 2.
+  OSError: [WinError 1114] ... c10.dll
+      Se instalo torch en un entorno con numpy 1.x (el de PyCaret). No se
+      arregla con --upgrade numpy: eso rompe PyCaret. Se crea env_deep aparte.
+  KeyError: 'X' (o 'y', o 'clases')
+      El .npz se genero con otras llaves. Las tres son X, y, clases.
+      Ver FORMATO DE ENTRADA arriba.
+  ValueError: Object arrays cannot be loaded when allow_pickle=False
+      'clases' quedo como lista de Python o array de dtype=object. Debe ser
+      np.array de texto.
+  ValueError: shapes ... not aligned
+      Las imagenes no quedaron en 28x28, o quedaron en color (3 canales).
+  Accuracy del clasico parecido al de la CNN
+      Con imagenes muy centradas y muy limpias puede pasar. Es un resultado
+      legitimo y se reporta: significa que para ESE problema no hacia falta
+      una red convolucional. No se maquilla.
+  Accuracy >= 0.98 con fotos reales
+      Sospeche de fuga por el fondo o por imagenes duplicadas entre estudio y
+      examen ANTES de reportar el resultado.
+
+LA LETRA MENUDA QUE SIEMPRE SE DICE
+  El 0.97 del ejemplo es sobre imagenes SINTETICAS: las dibujo un script y por
+  eso los defectos salen limpios y siempre parecidos. Con fotos de verdad
+  (reflejos, polvo en el lente, la lamina torcida, la luz del turno de la
+  noche) el numero baja, y baja harto. Ninguna adaptacion de esta plantilla
+  debe presentar esa cifra como una promesa de planta.
+
+PRIVACIDAD - regla dura
+  Las fotos del estudiante no salen de su computador. Ninguna modificacion de
+  esta plantilla debe subir imagenes, llamar una API con ellas, ni pegarlas en
+  un mensaje.
 
 ===============================================================================
  Diplomado en Inteligencia Artificial - UNAC - Clase 05

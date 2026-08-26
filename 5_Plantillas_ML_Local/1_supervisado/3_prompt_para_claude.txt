@@ -1,15 +1,34 @@
 ===============================================================================
- PLANTILLA 1 - MACHINE LEARNING SUPERVISADO
- Copie el bloque de abajo y peguelo en Claude Code. Nada mas.
+ PLANTILLA 1 - SUPERVISED LEARNING con PyCaret (AutoML)
+ Copie el bloque que necesite y peguelo en Claude Code. Nada mas.
 ===============================================================================
 
-COMO SE USA
-  1. Abra PowerShell en la carpeta 3_Plantillas_ML_Local
-  2. Escriba:  claude
-  3. Copie el PROMPT 1 completo (desde "Estoy en" hasta el final) y peguelo.
-  4. Cuando Claude le pida permiso para ejecutar el script, diga que si.
+ QUE HACE
+   Usted entrega una tabla y dice cual columna es la respuesta. PyCaret prepara
+   los datos, entrena NUEVE modelos, los compara con el mismo examen y le
+   devuelve el campeon. Usted no escoge el modelo: el modelo se escoge solo.
+   Eso es AutoML (Automated Machine Learning).
 
-  Usted NO escribe codigo. Usted da la orden y lee el resultado.
+ EL EJEMPLO
+   4.000 facturas de una distribuidora. De cada una ya se sabe si se pago a
+   tiempo o si se atraso. La pregunta: la factura que llega manana, se va a
+   pagar tarde?
+
+ EL ENTORNO - LEALO, ES LA UNICA TRAMPA DE ESTA PLANTILLA
+   Esta plantilla corre en el entorno env_pycaret y SOLO ahi. PyCaret exige
+   versiones viejas de numpy y scikit-learn; si se mezcla con PyTorch (las
+   plantillas 2 y 3) las rompe. Son dos entornos separados y no se cruzan.
+   Si no lo ha creado, esta en 0_instalar.txt, PASO 1.
+
+ COMO SE USA
+   1. Abra PowerShell en la carpeta 3_Plantillas_ML_Local
+      (clic derecho sobre la carpeta -> Abrir en Terminal)
+   2. Escriba:  claude
+   3. Copie el PROMPT 1 completo y peguelo.
+   4. Cuando Claude le pida permiso para ejecutar el script, diga que si.
+
+   Usted NO escribe codigo. Usted da la orden y lee el resultado.
+   Tiempo de la corrida completa: unos 10 segundos.
 
 
 -------------------------------------------------------------------------------
@@ -17,70 +36,201 @@ COMO SE USA
 -------------------------------------------------------------------------------
 
 Estoy en el Diplomado en Inteligencia Artificial de la UNAC y soy gerente, no
-programador. En la carpeta 1_supervisado hay una plantilla de Machine Learning
-supervisado sobre datos sinteticos de cartera.
+programador. En la carpeta 1_supervisado hay una plantilla de Supervised
+Learning con PyCaret (AutoML) sobre datos sinteticos de cartera de facturas.
 
 Haz esto, en este orden:
 
-1. Corre 1_generar_datos.py y luego 2_entrenar.py con el Python de mi
-   computador. Si falta alguna libreria, dime la linea exacta de pip install
-   antes de seguir; no instales nada sin avisarme.
+1. Corre 1_generar_datos.py y luego 2_entrenar.py, los dos con el Python del
+   entorno de PyCaret:
 
-2. Cuando termine, explicame el resultado como si yo fuera el gerente de cartera
-   y tuviera cinco minutos:
-   - Que pregunta de negocio respondio el modelo.
-   - Cual de los tres modelos gano y por que gano ese (no la matematica: la razon).
-   - Que significan Accuracy, Precision, Recall y F1 Score en MI operacion,
-     con los numeros que salieron, traducidos a facturas y a llamadas de cobranza.
-   - Que dice la matriz de confusion casilla por casilla, y cual de los dos
-     errores me cuesta mas plata.
-   - Que umbral me recomiendas de la tabla de umbrales, y por que.
+       C:\ia\env_pycaret\Scripts\python.exe 1_generar_datos.py
+       C:\ia\env_pycaret\Scripts\python.exe 2_entrenar.py
 
-3. Abre resultado_supervisado.png y dime si la grafica me sirve para mostrarsela
-   a mi jefe. Si algo no se entiende, dimelo.
+   NO uses "py" ni "python" a secas: esta plantilla no corre con el Python del
+   sistema. Si ese entorno no existe, dime la linea exacta para crearlo y
+   preguntame antes de instalar nada.
 
-4. Al final, dime en una sola frase: si yo tuviera esta cartera de verdad,
-   que decision distinta tomaria manana por la manana con este modelo.
+2. Cuando termine, explicame el resultado como si yo fuera el gerente
+   financiero y tuviera cinco minutos:
+   - Que hizo setup() por mi que yo habria tenido que hacer a mano. Enumeralo.
+   - Cual modelo gano y por que gano. Y de una: por que perdieron los otros
+     ocho, sobre todo por que Naive Bayes saco 0.000 de F1.
+   - La diferencia entre la tabla del PASO 3 (validacion cruzada) y las notas
+     del PASO 4 (el examen). Por que no se reportan las del PASO 3.
+   - Accuracy, Precision, Recall y F1 traducidos a facturas y a llamadas de
+     cobranza. Sin formulas.
+   - La matriz de confusion casilla por casilla, y cual de los dos errores me
+     duele mas a MI: la falsa alarma o la que se le escapo.
 
-No cambies el codigo todavia. Primero quiero entender lo que salio.
+3. Mirame la tabla de umbrales (la "perilla del gerente") y dime en cual
+   umbral me pondria yo si mi equipo de cobranza puede hacer 300 llamadas al
+   mes y no mas. Justificame el numero con la tabla, no con teoria.
+
+4. Abre resultado_supervisado.png y dime que se ve en cada uno de los dos
+   paneles.
+
+5. Al final, en tres frases: que se le entrega a quien, el lunes, para que
+   esto sirva de algo.
 
 
 -------------------------------------------------------------------------------
- PROMPT 2 - CUANDO SE ANIME A PONER SUS PROPIOS DATOS
+ PROMPT 2 - MOVER LAS PERILLAS (el ejercicio de verdad)
 -------------------------------------------------------------------------------
 
-Quiero cambiar los datos sinteticos por los mios. Mi archivo se llama
-<PONGA_AQUI_EL_NOMBRE.csv> y la columna que quiero predecir se llama
-<PONGA_AQUI_LA_COLUMNA>.
+Quiero entender el AutoML moviendolo, no leyendolo. En el PANEL DE CONTROL de
+2_entrenar.py:
 
-Antes de entrenar nada:
-1. Abre mi archivo, dime cuantas filas y columnas tiene y muestrame las
-   primeras cinco filas.
-2. Dime que columnas hay que sacar porque son identificadores (cedulas, NIT,
-   numeros de factura, nombres) - esas nunca entran al modelo.
-3. Avisame si hay FUGA DE INFORMACION: alguna columna que ya contenga la
-   respuesta, o que solo se conozca DESPUES del hecho que quiero predecir.
-   Es el error numero uno y da resultados hermosos y falsos.
-4. Dime si mis clases estan muy desbalanceadas y si eso me va a enganar el
-   Accuracy.
+1. Cambia METRICA_ORDEN de "F1" a "Recall" y corre otra vez. Dime si cambio el
+   campeon y explicame por que: que estoy premiando cuando ordeno por Recall.
+2. Cambia METRICA_ORDEN a "Prec." y corre. Mismo analisis.
+3. Ponme los tres resultados en una tabla comparativa y dime cual metrica
+   deberia usar YO para el problema de cartera, con argumento de negocio.
+4. Deja METRICA_ORDEN en "F1" como estaba.
 
-Solo despues de eso, ajusta el panel de control de 2_entrenar.py y correlo.
-Explicame el resultado igual que la vez pasada.
+Despues: pon MODELOS_A_COMPARAR = None (compara todos los que PyCaret tenga) y
+dime cuantos modelos entreno, cuanto se demoro y si el campeon cambio. Avisame
+si la salida se llena de logs de LightGBM y explicame por que pasa eso.
+
+
+-------------------------------------------------------------------------------
+ PROMPT 3 - PONER MIS PROPIOS DATOS (lo que de verdad importa)
+-------------------------------------------------------------------------------
+
+Quiero correr esta plantilla con mis datos reales. Mi archivo se llama
+<PONGA_AQUI_EL_NOMBRE.csv> y esta en la carpeta 1_supervisado.
+
+ANTES de entrenar nada, hazme esta revision y muestrame el resultado:
+
+1. Abre mi archivo y muestrame las primeras cinco filas y cuantas filas tiene
+   en total.
+2. Dime cual columna crees que es la respuesta (COLUMNA_OBJETIVO) y
+   confirmamelo conmigo antes de seguir.
+3. Verifica que esa columna tenga exactamente DOS valores distintos. Si tiene
+   mas, dime como agruparlos en dos y preguntame cual agrupacion quiero.
+4. Dime el balance de clases. Si la clase minoritaria es menos del 5 %,
+   avisame que las metricas van a enganarme y explicame que voy a hacer al
+   respecto.
+5. LO MAS IMPORTANTE - la fuga de datos: revisa columna por columna y dime
+   cuales solo se conocen DESPUES de saber la respuesta. Esas van todas en
+   COLUMNAS_A_IGNORAR. Ejemplo: si mi objetivo es "se atraso" y tengo una
+   columna "dias_de_atraso", esa columna ES la respuesta disfrazada.
+   Listamelas y explicame una por una por que la sacas.
+6. Dime cuales columnas son identificadores (codigo, cedula, NIT, consecutivo)
+   y ponlas tambien en COLUMNAS_A_IGNORAR.
+7. Avisame si tengo columnas con muchos vacios y dime que va a hacer PyCaret
+   con ellas.
+
+Solo cuando yo te diga que si, ajusta el PANEL DE CONTROL y corre. Al final
+actualiza tambien el diccionario FACTURA_NUEVA del PASO 5 con un caso realista
+de MI negocio, y explicame el resultado de ese caso.
+
+Si el Accuracy te sale por encima de 0.98, PARA y sospecha de fuga de datos
+antes de darme la buena noticia.
 
 IMPORTANTE: mis datos se quedan en mi computador. No los subas a ningun lado,
-no los pegues en internet y no los mandes a ningun servicio.
+no los mandes a ninguna API y no los pegues en internet.
 
 
 -------------------------------------------------------------------------------
- PROMPT 3 - PARA EL PROYECTO DE GRADO
+ PROMPT 4 - PARA EL PROYECTO DE GRADO
 -------------------------------------------------------------------------------
 
-Lee lo que hace 2_entrenar.py y ayudame a escribir, en lenguaje de gerente,
-el parrafo del Capitulo 2 (desarrollo de la solucion) de mi proyecto de
-grado: que tipo de problema es,
-como parti los datos, que modelos compiti, con que metrica los compare y por
-que esa metrica y no otra. Maximo 200 palabras, en espanol, sin jerga.
-Marca con [POR VERIFICAR] cualquier cifra que yo tenga que confirmar.
+Con base en lo que corrio esta plantilla, ayudame a escribir el capitulo de
+intervencion de mi proyecto de grado. Necesito:
+
+1. El pipeline dicho como pipeline, en cinco pasos, con MIS datos:
+   datos -> preparacion -> entrenamiento -> evaluacion -> resultado.
+2. La prueba del borrado aplicada a MI proceso: si le quito el modelo, el
+   proceso funciona igual? Si la respuesta es que si, dimelo sin adornos: mi
+   IA seria decoracion y el jurado lo va a ver.
+3. Que evidencia debo llevar ademas de las metricas.
+4. Como explico honestamente la limitacion de mis datos.
+
+Maximo 400 palabras, en espanol, sin jerga innecesaria, y con los terminos
+tecnicos en ingles (Accuracy, Recall, overfitting, AutoML) como se usan en
+todas partes.
+
+
+===============================================================================
+ CONTRATO TECNICO - para el agente de IA que adapte esta plantilla
+ (el estudiante no necesita leer esto; el agente si)
+===============================================================================
+
+ENTORNO
+  Interprete obligatorio : C:\ia\env_pycaret\Scripts\python.exe
+  Nunca usar             : py, python, ni el Python del sistema
+  Motivo                 : pycaret-core fija numpy 1.26.x, pandas 2.1.x y
+                           scikit-learn 1.4.x. Instalarlo junto a torch degrada
+                           ambos. Los entornos NO se mezclan, no se "arreglan"
+                           con --upgrade y no se unifican.
+  Instalacion            : pip install pycaret-core matplotlib pandas numpy
+                           (el paquete de PyPI llamado "pycaret" NO funciona con
+                           Python 3.12; el que sirve es el fork "pycaret-core")
+
+ARCHIVOS Y SUS ROLES  (la convencion de las tres plantillas, no se rompe)
+  1_generar_datos.py  produce el CSV de ejemplo. Se reemplaza por datos reales,
+                      no se edita para "arreglar" nada del entrenamiento.
+  2_entrenar.py       el pipeline de cinco pasos. Se toca SOLO el PANEL DE
+                      CONTROL y el diccionario FACTURA_NUEVA del PASO 5.
+  3_prompt_para_claude.txt  este archivo. Punto de entrada del estudiante.
+
+QUE SE PUEDE CAMBIAR
+  ARCHIVO_CSV          nombre del archivo de entrada
+  COLUMNA_OBJETIVO     nombre de la columna con la respuesta ya conocida
+  COLUMNAS_A_IGNORAR   lista: identificadores + toda fuga de datos
+  PORCENTAJE_EXAMEN    0.20 a 0.30 es lo razonable
+  MODELOS_A_COMPARAR   lista de codigos PyCaret, o None para todos
+  METRICA_ORDEN        "F1", "Recall", "Prec.", "Accuracy", "AUC"
+  SEMILLA              cualquier entero
+  FACTURA_NUEVA        el caso de ejemplo del PASO 5
+
+QUE NO SE DEBE TOCAR
+  - El orden de los cinco pasos.
+  - setup() antes de compare_models(). Sin setup no hay preprocesamiento.
+  - Que las metricas finales salgan de predict_model() y NUNCA de la tabla de
+    compare_models(): esa tabla es validacion cruzada, no examen.
+  - finalize_model() va de ULTIMO, despues de medir. Nunca antes.
+  - system_log=False y html=False en setup(): sin eso PyCaret ensucia la
+    carpeta y rompe la salida de consola.
+  - La eliminacion de logs.log al final.
+  - Los mensajes en espanol. Son material de clase, no comentarios de codigo.
+
+FORMATO DE ENTRADA ESPERADO
+  CSV con encabezado en la primera fila, utf-8 (se lee con utf-8-sig).
+  Una fila por caso. Columnas numericas y de texto mezcladas: PyCaret hace el
+  one-hot encoding y la imputacion solo.
+  COLUMNA_OBJETIVO con exactamente 2 valores distintos (0/1, Si/No, True/False).
+  Minimo razonable: 300 filas y >= 30 casos de la clase minoritaria.
+
+VALIDACIONES QUE EL SCRIPT YA HACE Y QUE NO HAY QUE DUPLICAR
+  1. Que exista el CSV (si no, corre 1_generar_datos.py solo).
+  2. Que exista COLUMNA_OBJETIVO; si no, aborta y lista las columnas reales.
+  3. Que COLUMNA_OBJETIVO tenga exactamente 2 clases; si no, aborta.
+  4. Que las COLUMNAS_A_IGNORAR existan; si falta alguna, avisa y sigue.
+  Todas abortan con la funcion morir(), que imprime el arreglo concreto.
+
+ERRORES COMUNES Y QUE SIGNIFICAN
+  ModuleNotFoundError: No module named 'pycaret'
+      Python equivocado. Use el de env_pycaret.
+  ValueError: could not convert string to float
+      Quedo texto en una columna numerica: comas de miles, simbolo $, 'N/A'.
+      Se limpia en el CSV, no en el script.
+  Target column has 1 unique value
+      El CSV filtrado quedo con una sola clase. No hay nada que aprender.
+  Accuracy alto con Recall 0.00
+      Clases muy desbalanceadas. El problema es el umbral, no el modelo:
+      mire la tabla de umbrales del PASO 4.
+  Accuracy >= 0.98 en datos reales
+      Sospeche de fuga de datos ANTES de reportar el resultado.
+  Cientos de lineas "[LightGBM] [Info]"
+      Se incluyo "lightgbm" en MODELOS_A_COMPARAR. Su log sale de C++ y no se
+      puede silenciar desde Python. Quitelo de la lista.
+
+PRIVACIDAD - regla dura
+  Los datos del estudiante no salen de su computador. Ninguna modificacion de
+  esta plantilla debe subir datos, llamar una API con ellos, ni pegarlos en un
+  mensaje. Si el estudiante lo pide, hay que explicarle por que no.
 
 ===============================================================================
  Diplomado en Inteligencia Artificial - UNAC - Clase 05

@@ -21,7 +21,7 @@ El estudiante es un gerente, administrador, contador, arquitecto o profesional d
 | `2_Criterios_Proyecto_de_Grado/` | Los criterios oficiales de las 4 entregas — **léalos antes de opinar** |
 | `3_Referencias/` | Referencias verificadas: papers, modelos, herramientas, con fuente y licencia |
 | `4_Notebooks_Colab/` | Laboratorios de Machine Learning en Google Colab — **material complementario opcional** desde el 26 de agosto de 2026; ya no son el taller de la Clase 05 |
-| `5_Plantillas_ML_Local/` | **Las tres plantillas del taller de la Clase 05**, que corren en el computador del estudiante: `1_supervisado` (Random Forest y compañía), `2_no_supervisado` (K-Means) y `3_deep_learning_cnn` (red convolucional). Datos **sintéticos con semilla fija**. Cada carpeta trae su `3_prompt_para_claude.txt` — el estudiante no escribe código |
+| `5_Plantillas_ML_Local/` | **Las tres plantillas del taller de la Clase 05**, que corren en el computador del estudiante: `1_supervisado` (Supervised learning con PyCaret, AutoML), `2_no_supervisado` (Autoencoder) y `3_deep_learning_cnn` (Convolutional Neural Network). Datos **sintéticos con semilla fija**. Son **dos entornos separados** —`C:\ia\env_pycaret` y `C:\ia\env_deep`— porque PyCaret y PyTorch no conviven. Cada carpeta trae su `3_prompt_para_claude.txt` — el estudiante no escribe código |
 | `mis_entregas/` | **La carpeta del estudiante.** Todo su trabajo va aquí |
 
 ## Las reglas de la casa
@@ -58,7 +58,11 @@ El estudiante es un gerente, administrador, contador, arquitecto o profesional d
   primero pregunte si hay ejemplos con respuesta (supervisado) o no (clustering), si es un
   número en el tiempo (pronóstico), o si son documentos/audio/imagen (modelos preentrenados).
 - **"Ayúdame con las plantillas de Machine Learning"** → las de `5_Plantillas_ML_Local/` son el
-  taller de la Clase 05 y corren en el computador del estudiante. En cada `2_entrenar.py` hay un
+  taller de la Clase 05 y corren en el computador del estudiante. Primero verifique en cuál de los
+  dos entornos está parado: la plantilla 1 corre con `C:\ia\env_pycaret\Scripts\python.exe` y las
+  plantillas 2 y 3 con `C:\ia\env_deep\Scripts\python.exe`; **nunca** se mezclan y **nunca** se
+  arregla un error subiendo o bajando `numpy`. El paquete es **`pycaret-core`**, jamás `pycaret`.
+  En cada `2_entrenar.py` hay un
   bloque **`PANEL DE CONTROL`** arriba: ahí y solo ahí se cambian cosas. Recuérdele que los datos
   son sintéticos, que sus datos reales no salen de su máquina, y que si va a usar datos sintéticos
   en una entrega **tiene que decirlo**.

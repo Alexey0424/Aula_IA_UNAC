@@ -1,10 +1,12 @@
 # El trabajo de cada estudiante es local y privado: nunca se sube al aula
 mis_entregas/
 
-# Lo que generan las plantillas de ML al correrlas: las graficas y el paquete de
-# imagenes de la CNN (6,6 MB). Los vuelve a crear el propio script.
+# Lo que generan las plantillas de ML al correrlas: las graficas, el paquete de
+# imagenes de la CNN (6,6 MB) y el modelo entrenado. Los vuelve a crear el
+# propio script en el computador del estudiante.
 5_Plantillas_ML_Local/**/*.png
 5_Plantillas_ML_Local/**/*.npz
+5_Plantillas_ML_Local/**/*.pkl
 
 # Basura de sistema
 .DS_Store

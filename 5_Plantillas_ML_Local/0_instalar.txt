@@ -1,5 +1,5 @@
 ===============================================================================
- INSTALACION - Plantillas de Machine Learning local
+ INSTALACION - Tres plantillas de Machine Learning en su propio computador
  Diplomado en Inteligencia Artificial - UNAC - Clase 05
  Probado en Windows 10 Pro con Python 3.12.10 el 26 de agosto de 2026
 ===============================================================================
@@ -7,10 +7,56 @@
   Todo esto se escribe en PowerShell. Para abrir PowerShell:
   tecla Windows -> escriba "powershell" -> Enter.
 
+  Lea el aviso de la proxima pagina ANTES de instalar nada. Es la unica cosa
+  de este documento que si se salta le va a costar la tarde.
 
--------------------------------------------------------------------------------
- PASO 0 - VERIFICAR QUE TIENE PYTHON  (10 segundos)
--------------------------------------------------------------------------------
+
+===============================================================================
+ AVISO - POR QUE SON DOS INSTALACIONES SEPARADAS Y NO UNA
+===============================================================================
+
+  Las tres plantillas NO pueden vivir en la misma instalacion de Python.
+
+  Plantilla 1 usa PyCaret, que exige numpy version 1.
+  Plantillas 2 y 3 usan PyTorch, que exige numpy version 2.
+
+  numpy es la libreria de calculo que esta por debajo de todo. Solo puede
+  haber UNA version instalada a la vez. No hay forma de tener las dos.
+
+  QUE PASA SI LAS MEZCLA - esto lo probamos, no lo estamos suponiendo:
+
+    Si instala PyCaret y despues PyTorch en el mismo Python, PyTorch queda
+    roto. Y lo peor: queda roto EN SILENCIO. pip le dice
+    "Successfully installed torch" y no se queja de nada. El error aparece
+    despues, cuando corre la plantilla 3:
+
+        OSError: [WinError 1114] A dynamic link library (DLL) initialization
+        routine failed. Error loading "...\torch\lib\c10.dll"
+
+    Y si trata de arreglarlo subiendo numpy, entonces se rompe PyCaret:
+
+        ValueError: numpy.dtype size changed, may indicate binary
+        incompatibility. Expected 96 from C header, got 88 from PyObject
+
+    Arregla una y rompe la otra. Es un techo, no un problema de configuracion.
+
+  LA SOLUCION: dos "cuartos" de Python separados, que no se ven entre si. Se
+  llaman entornos virtuales. Se crean una vez y no se vuelven a tocar:
+
+        C:\ia\env_pycaret     ->  Plantilla 1  (PyCaret / AutoML)
+        C:\ia\env_deep        ->  Plantillas 2 y 3  (PyTorch)
+
+  No tiene que entender como funcionan. Solo tiene que copiar y pegar las
+  lineas de abajo en el orden en que estan.
+
+  POR QUE EN C:\ia Y NO AQUI MISMO: Windows no aguanta rutas de mas de 260
+  caracteres y PyTorch tiene nombres de archivo larguisimos por dentro. En una
+  carpeta profunda la instalacion falla; en C:\ia funciona siempre. Verificado.
+
+
+===============================================================================
+ PASO 0 - VERIFICAR QUE TIENE PYTHON   (10 segundos)
+===============================================================================
 
 Copie y pegue esta linea:
 
@@ -28,38 +74,61 @@ Copie y pegue esta linea:
   mundo se salta y es la que causa el 90 % de los problemas.
 
 
--------------------------------------------------------------------------------
- LINEA 1 - LA OBLIGATORIA  (para las plantillas 1 y 2)
--------------------------------------------------------------------------------
+===============================================================================
+ PASO 1 - EL ENTORNO DE PYCARET   (para la plantilla 1)
+===============================================================================
 
-    py -m pip install scikit-learn pandas matplotlib
+  ESTA ES LA DE LA CLASE. Hagala antes de llegar, o pegela en los primeros
+  cinco minutos y dejela corriendo mientras el docente habla.
 
-  Descarga  : 84 MB       (medido: 18 paquetes)
-  Tiempo    : 47 a 53 segundos con internet decente  (medido)
-  Disco     : 395 MB
+Copie y pegue las DOS lineas, una despues de la otra:
 
-  Con esto corren la plantilla 1 (supervisado) y la plantilla 2 (no
-  supervisado). Es todo lo que necesita para la clase.
+    py -m venv C:\ia\env_pycaret
 
-  Nota: se instalan 18 paquetes porque scikit-learn arrastra scipy (36 MB)
-  y numpy (12 MB). Es normal y es una sola vez.
+    C:\ia\env_pycaret\Scripts\python.exe -m pip install pycaret-core matplotlib pandas numpy
+
+  Disco     : 925 MB      (medido)
+  Tiempo    : 2 a 4 minutos con internet decente
+  Paquetes  : 102
+
+  VERIFIQUE que quedo bien:
+
+    C:\ia\env_pycaret\Scripts\python.exe -c "import pycaret, matplotlib; print('PASO 1 OK - pycaret', pycaret.__version__)"
+
+  Debe decir: PASO 1 OK - pycaret 3.5.0
+
+  OJO CON EL NOMBRE DEL PAQUETE: es "pycaret-core", con guion y con "core".
+  El paquete de PyPI que se llama solamente "pycaret" NO funciona con Python
+  3.12. Si lo intenta, la instalacion falla o queda inservible. Verificado.
 
 
--------------------------------------------------------------------------------
- LINEA 2 - LA OPCIONAL, PESADA  (solo para la plantilla 3, la CNN)
--------------------------------------------------------------------------------
+===============================================================================
+ PASO 2 - EL ENTORNO DE PYTORCH   (para las plantillas 2 y 3)
+===============================================================================
 
-    py -m pip install torch
+  *** ESTA NO SE CORRE EN CLASE. ***
+  Son mas de 1.000 MB. Con 16 personas bajando eso al mismo tiempo, el salon
+  se queda sin internet. Las plantillas 2 y 3 son TAREA PARA LA CASA.
 
-  Descarga  : 127 MB      (medido)
-  Tiempo    : ~53 segundos con internet decente  (medido)
-  Disco     : +640 MB     (el total sube a 1,0 GB)
+Copie y pegue las DOS lineas, una despues de la otra:
 
-  *** NO CORRA ESTA LINEA EN CLASE. ***
-  Con 16 personas bajando 127 MB al mismo tiempo, el salon se queda sin
-  internet. La plantilla 3 es TAREA para la casa.
+    py -m venv C:\ia\env_deep
 
-  Tres cosas verificadas que le van a ahorrar dolores de cabeza:
+    C:\ia\env_deep\Scripts\python.exe -m pip install torch scikit-learn pandas matplotlib numpy
+
+  Disco     : 1.003 MB    (medido, un poco mas de 1 GB)
+  Tiempo    : 3 a 6 minutos con internet decente
+  Paquetes  : 31
+
+  VERIFIQUE que quedo bien:
+
+    C:\ia\env_deep\Scripts\python.exe -c "import torch, sklearn, matplotlib; print('PASO 2 OK - torch', torch.__version__)"
+
+  Debe decir algo como: PASO 2 OK - torch 2.13.0+cpu
+
+  Ese "+cpu" al final es la confirmacion de que quedo la version liviana.
+
+  TRES COSAS VERIFICADAS QUE LE AHORRAN DOLORES DE CABEZA:
 
   1. En WINDOWS esa linea trae la version de CPU y nada mas. NO necesita
      tarjeta grafica, NO necesita CUDA y NO necesita el famoso
@@ -68,62 +137,131 @@ Copie y pegue esta linea:
      "solo Linux", asi que en Windows no se bajan. Verificado el 26-ago-2026.
 
   2. Si le sale un error que menciona "long paths" o "ruta demasiado larga":
-     mueva la carpeta de las plantillas a una ruta CORTA, por ejemplo
-     C:\ia\ , y vuelva a intentar. Windows tiene un limite de 260 caracteres
-     en las rutas y PyTorch tiene nombres de archivo muy largos por dentro.
-     Nos paso en las pruebas: la instalacion falla en una carpeta profunda
-     y funciona perfecto en C:\ . Es la causa mas probable de que le falle.
+     es el limite de 260 caracteres de Windows. Por eso el entorno va en
+     C:\ia y no dentro de esta carpeta. Si igual le pasa, mueva TAMBIEN la
+     carpeta de las plantillas a una ruta corta como C:\plantillas\ .
 
-  3. Si prefiere no instalar PyTorch nunca, no pasa nada: las plantillas 1 y 2
-     son completas por si solas y le sirven igual para el proyecto de grado.
+  3. Si prefiere no instalar PyTorch nunca, no pasa nada: la plantilla 1 es
+     completa por si sola y le sirve igual para el proyecto de grado.
 
 
--------------------------------------------------------------------------------
- VERIFICAR QUE TODO QUEDO BIEN  (5 segundos)
--------------------------------------------------------------------------------
+===============================================================================
+ COMO SE CORRE CADA PLANTILLA
+===============================================================================
 
-Despues de la LINEA 1:
+  Aqui esta la unica regla que hay que recordar de todo este documento:
 
-    py -c "import sklearn, pandas, matplotlib; print('LINEA 1 OK')"
+    CADA PLANTILLA SE CORRE CON SU PROPIO PYTHON, ESCRITO COMPLETO.
+    Nunca con "py" ni con "python" a secas.
 
-Despues de la LINEA 2 (si la corrio):
+  Plantilla 1 - Supervised learning con PyCaret:
 
-    py -c "import torch; print('LINEA 2 OK - torch', torch.__version__)"
+      C:\ia\env_pycaret\Scripts\python.exe 1_generar_datos.py
+      C:\ia\env_pycaret\Scripts\python.exe 2_entrenar.py
 
-  Debe decir algo como "torch 2.13.0+cpu". Ese "+cpu" al final es la
-  confirmacion de que quedo la version liviana.
+  Plantilla 2 - Autoencoder sobre datos:
+
+      C:\ia\env_deep\Scripts\python.exe 1_generar_datos.py
+      C:\ia\env_deep\Scripts\python.exe 2_entrenar.py
+
+  Plantilla 3 - Red convolucional sobre imagenes:
+
+      C:\ia\env_deep\Scripts\python.exe 1_generar_datos.py
+      C:\ia\env_deep\Scripts\python.exe 2_entrenar.py
+
+  (Se para en la carpeta de la plantilla antes de correr las lineas.)
+
+  Pero usted casi nunca va a escribir esto a mano: cada carpeta trae un
+  archivo 3_prompt_para_claude.txt que ya lleva la linea correcta escrita.
+  Se copia, se pega en Claude Code, y Claude lo corre.
+
+  NO SE EQUIVOQUE DE ENTORNO. Si corre la plantilla 1 con el Python de
+  env_deep le sale:
+
+      ModuleNotFoundError: No module named 'pycaret'
+
+  y si corre la 2 o la 3 con el de env_pycaret le sale:
+
+      ModuleNotFoundError: No module named 'torch'
+
+  Los dos errores significan lo mismo: se equivoco de Python. No falta
+  instalar nada. No instale nada. Solo cambie la linea.
 
 
--------------------------------------------------------------------------------
- PLAN B - SI EL INTERNET DEL SALON SE CAE  (verificado)
--------------------------------------------------------------------------------
+===============================================================================
+ LO QUE NUNCA HAY QUE HACER   (aqui es donde se rompe todo)
+===============================================================================
+
+  1. NO instale PyTorch en el entorno de PyCaret.
+     NO instale PyCaret en el entorno de PyTorch.
+     Es exactamente lo que rompe la instalacion, y rompe en silencio.
+
+  2. NO corra "pip install --upgrade numpy" para arreglar un error.
+     Es el arreglo que parece obvio y es el que garantiza el problema:
+     arregla un entorno y rompe el otro.
+
+  3. NO instale nada con "py -m pip install ..." mientras trabaja con las
+     plantillas. Ese "py" es el Python del sistema, que no es ninguno de los
+     dos entornos. Todo lo que instale ahi no le va a servir.
+
+  4. SI ALGO SE ROMPIO, no lo repare: borrelo y vuelvalo a crear. Es mas
+     rapido y siempre funciona:
+
+        Remove-Item -Recurse -Force C:\ia\env_pycaret
+        (y repita el PASO 1)
+
+     Borrar un entorno virtual no le hace nada a su computador ni a su
+     Python. Es una carpeta y nada mas.
+
+
+===============================================================================
+ TIEMPOS DE CORRIDA MEDIDOS   (26-ago-2026, Windows 10, sin GPU)
+===============================================================================
+
+  Plantilla 1  Supervised learning con PyCaret     10 a 13 segundos
+  Plantilla 2  Autoencoder sobre datos              6 a 8 segundos
+  Plantilla 3  Red convolucional sobre imagenes     5 a 9 segundos
+
+  Ninguna necesita GPU. Ninguna necesita internet para correr (solo para
+  instalar). Ninguna necesita cuenta en ningun servicio, ni token, ni tarjeta.
+  Ningun dato sale de su computador.
+
+
+===============================================================================
+ PLAN B - SI EL INTERNET DEL SALON SE CAE
+===============================================================================
 
 El docente lleva los paquetes en una memoria USB. Si eso pasa, copie la
-carpeta de paquetes a su computador y corra:
+carpeta de paquetes a su computador y corra, para el entorno de la clase:
 
-    py -m pip install --no-index --find-links C:\ruta\a\la\carpeta_paquetes scikit-learn pandas matplotlib
+    py -m venv C:\ia\env_pycaret
+    C:\ia\env_pycaret\Scripts\python.exe -m pip install --no-index --find-links C:\ruta\a\carpeta_paquetes pycaret-core matplotlib pandas numpy
 
-  Probado sin internet: instala en 41 segundos y los resultados salen
-  identicos. Cero descargas.
-
-  (Para el docente: la carpeta se arma con
-   py -m pip download --no-cache-dir -d carpeta_paquetes scikit-learn pandas matplotlib
-   desde un equipo con internet y el MISMO Windows/Python de los estudiantes.
+  (Para el docente: la carpeta se arma desde un equipo con internet y el MISMO
+   Windows y la MISMA version de Python de los estudiantes, con
+     py -m pip download --no-cache-dir -d carpeta_paquetes pycaret-core matplotlib pandas numpy
    Ojo: los paquetes son especificos de la version de Python. Si un estudiante
    tiene Python 3.13 y los wheels son de 3.12, no le sirven. Por eso el USB es
    plan B y no plan A.)
 
 
--------------------------------------------------------------------------------
+===============================================================================
  SI ALGO FALLA
--------------------------------------------------------------------------------
+===============================================================================
 
-No adivine. Abra Claude Code en la carpeta de las plantillas y peguele el
-error completo con esta frase:
+La regla de los diez minutos: si lleva diez minutos peleando con lo mismo,
+pare. No adivine y no instale cosas a ver si suena la flauta.
+
+Abra Claude Code en la carpeta de las plantillas y peguele el error completo
+con esta frase:
 
     Me salio este error instalando las plantillas del diplomado. Estoy en
-    Windows y no soy programador. Dime en pasos numerados que hago, y no
-    instales nada sin avisarme primero.
+    Windows, no soy programador, y las plantillas usan dos entornos virtuales
+    separados (C:\ia\env_pycaret para PyCaret y C:\ia\env_deep para PyTorch)
+    porque no pueden convivir. Dime en pasos numerados que hago, y no
+    instales ni actualices nada sin avisarme primero.
     <pegue aqui el error completo, tal cual, sin recortarlo>
+
+Y siga mirando la clase. Lo suyo se resuelve en asesoria.
 
 ===============================================================================

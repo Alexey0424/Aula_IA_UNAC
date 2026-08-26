@@ -1,15 +1,45 @@
 ===============================================================================
- PLANTILLA 2 - MACHINE LEARNING NO SUPERVISADO (K-Means)
- Copie el bloque de abajo y peguelo en Claude Code. Nada mas.
+ PLANTILLA 2 - AUTOENCODER sobre datos (deteccion de anomalias)
+ Copie el bloque que necesite y peguelo en Claude Code. Nada mas.
 ===============================================================================
 
-COMO SE USA
-  1. Abra PowerShell en la carpeta 3_Plantillas_ML_Local
-  2. Escriba:  claude
-  3. Copie el PROMPT 1 completo y peguelo.
-  4. Cuando Claude le pida permiso para ejecutar el script, diga que si.
+ QUE HACE
+   Una red neuronal aprende como se ve un movimiento NORMAL. Despues mide que
+   tan lejos esta cada movimiento de esa normalidad. Lo que no logra
+   reconstruir bien, lo levanta como sospechoso.
 
-  Usted NO escribe codigo. Usted da la orden y lee el resultado.
+   Nadie marco cuales estaban raros. Por eso es NO SUPERVISADO: no hay columna
+   de respuesta, no hay Accuracy que mostrar al principio, y el entregable no
+   es un modelo sino una LISTA ORDENADA de lo que hay que revisar primero.
+
+ EL EJEMPLO
+   3.000 movimientos de pago a proveedores de una clinica: insumos medicos,
+   servicios, arrendamientos, papeleria, mantenimiento. La pregunta NO es
+   "prediga esto". La pregunta es: de estos 3.000 pagos, cuales 30 debo mirar
+   yo primero.
+
+ LA TRAMPA DEL DOCENTE - entiendala y no se le olvide
+   El CSV de ejemplo trae una columna es_anomalia. EN LA VIDA REAL USTED NO LA
+   TIENE. Si la tuviera, no necesitaria un autoencoder: haria un clasificador
+   supervisado, o sea la plantilla 1. Aqui existe solo para poder calificar al
+   modelo al final. El script la saca ANTES de entrenar y la vuelve a mirar
+   SOLO para el informe.
+   Cuando ponga sus datos: COLUMNA_VERIFICACION = None.
+
+ EL ENTORNO
+   Esta plantilla corre en el entorno env_deep (el de PyTorch), el mismo de la
+   plantilla 3. NO corre en el de PyCaret. Si no lo ha creado, esta en
+   0_instalar.txt, PASO 2.
+
+ COMO SE USA
+   1. Abra PowerShell en la carpeta 3_Plantillas_ML_Local
+      (clic derecho sobre la carpeta -> Abrir en Terminal)
+   2. Escriba:  claude
+   3. Copie el PROMPT 1 completo y peguelo.
+   4. Cuando Claude le pida permiso para ejecutar el script, diga que si.
+
+   Usted NO escribe codigo. Usted da la orden y lee el resultado.
+   Tiempo de la corrida completa: unos 6 segundos.
 
 
 -------------------------------------------------------------------------------
@@ -17,71 +47,107 @@ COMO SE USA
 -------------------------------------------------------------------------------
 
 Estoy en el Diplomado en Inteligencia Artificial de la UNAC y soy gerente, no
-programador. En la carpeta 2_no_supervisado hay una plantilla de clustering con
-K-Means sobre datos sinteticos del surtido de un supermercado.
+programador. En la carpeta 2_no_supervisado hay una plantilla de deteccion de
+anomalias con un autoencoder sobre datos sinteticos de pagos a proveedores.
 
 Haz esto, en este orden:
 
-1. Corre 1_generar_datos.py y luego 2_entrenar.py con el Python de mi
-   computador. Si falta alguna libreria, dime la linea exacta de pip install
-   antes de seguir; no instales nada sin avisarme.
+1. Corre 1_generar_datos.py y luego 2_entrenar.py, los dos con el Python del
+   entorno de PyTorch:
 
-2. Cuando termine, explicame como si yo fuera el comprador de categoria y
-   tuviera cinco minutos:
+       C:\ia\env_deep\Scripts\python.exe 1_generar_datos.py
+       C:\ia\env_deep\Scripts\python.exe 2_entrenar.py
+
+   NO uses "py" ni "python" a secas. Si ese entorno no existe, dime la linea
+   exacta para crearlo y preguntame antes de instalar nada.
+
+2. Cuando termine, explicame el resultado como si yo fuera el jefe de auditoria
+   interna y tuviera cinco minutos:
    - En que se diferencia esto de la plantilla 1, en una frase.
-   - Por que aqui NO hay Accuracy, y que se mira entonces.
-   - Que dice el metodo del codo (Elbow) y por que escogimos k = 4 si la
-     metrica preferia otro numero.
-   - La ficha de los cuatro grupos: descrribeme cada grupo como se lo
-     describiria a mi jefe, y digame que haria yo con cada uno el lunes.
-   - Explicame la "leccion incomoda" del Silhouette bajo con recuperacion
-     alta. Quiero entender eso bien porque me huele a que me va a pasar con
-     mis datos.
+   - Que es un autoencoder, con la imagen del cuello de botella. Sin
+     matematicas: por que apretar la informacion a 4 numeros y volverla a
+     abrir sirve para detectar lo raro.
+   - Por que aqui NO hay Accuracy al principio, y que se mira entonces.
+   - Por que el modelo se entrena SOLO con los movimientos normales. Que
+     pasaria si lo entrenaramos con todo.
+   - Que es el error de reconstruccion y por que ese numero es el "puntaje de
+     sospecha".
+   - Como se escogio el umbral (promedio + K x desviacion) y que significa que
+     K quedara en 1.5.
 
-3. Abre resultado_clusters.png y dime que se ve en cada una de las dos
-   graficas. Senala en la grafica de la derecha donde se ve que los grupos
-   se tocan.
+3. Mirame la tabla "Que patron si atrapo y cual se le escapa" y dime, en
+   lenguaje de auditoria: cuales tipos de irregularidad puedo confiarle al
+   modelo y cuales tengo que seguir revisando a mano. Eso ultimo va en el
+   informe: no se esconde.
 
-4. Abre surtido_con_grupo.csv y dime como lo filtro en Excel para sacar la
-   lista de referencias candidatas a salir del surtido.
+4. Mirame la tabla de la "perilla del gerente" y dime en cual K me pondria yo
+   si mi equipo puede revisar 80 pagos al mes y no mas. Justificalo con la
+   tabla, no con teoria.
 
+5. Abre resultado_autoencoder.png y dime que se ve en cada panel. Senalame
+   donde se ve que los normales y los raros se traslapan.
 
--------------------------------------------------------------------------------
- PROMPT 2 - JUGAR CON EL NUMERO DE GRUPOS (hagalo, es el ejercicio)
--------------------------------------------------------------------------------
+6. Abre movimientos_revisados.csv y explicame las tres columnas que le agrego
+   el modelo (error_reconstruccion, puntaje_sospecha, se_levanta) y como filtro
+   en Excel para sacar mi lista de trabajo del lunes.
 
-Cambia NUMERO_DE_GRUPOS a 3 y corre otra vez. Despues cambialo a 6 y corre otra
-vez. Muestrame los dos resultados uno al lado del otro y dime:
- - Con k = 3, cuales dos familias se fusionaron y tiene sentido comercial que
-   se fusionen.
- - Con k = 6, en que se partieron los grupos y si esos grupos nuevos me sirven
-   para algo o son picar el pelo.
- - Con cual me quedaria yo si tuviera que presentarle esto a un comite de
-   compras, y por que.
-
-Al final devuelve el archivo con NUMERO_DE_GRUPOS = 4 como estaba.
+7. Al final, en tres frases: que se le entrega a quien, el lunes, para que esto
+   sirva de algo.
 
 
 -------------------------------------------------------------------------------
- PROMPT 3 - CUANDO SE ANIME A PONER SUS PROPIOS DATOS
+ PROMPT 2 - MOVER LAS PERILLAS (el ejercicio de verdad)
 -------------------------------------------------------------------------------
 
-Quiero agrupar mis datos reales. Mi archivo se llama
-<PONGA_AQUI_EL_NOMBRE.csv>.
+Quiero entender el umbral moviendolo, no leyendolo. En el PANEL DE CONTROL de
+2_entrenar.py:
 
-Antes de agrupar nada:
-1. Abre mi archivo y muestrame las primeras cinco filas.
-2. Dime cuales columnas son identificadores o texto y hay que poner en
-   COLUMNAS_A_IGNORAR (K-Means solo trabaja con numeros).
-3. Avisame si alguna columna esta en una escala tan distinta a las otras que
-   se va a comer el agrupamiento, y confirmame que la plantilla estandariza.
-4. Dime si tengo columnas vacias y como las vas a tratar.
+1. Pon K_DESVIACIONES = 0.5 y corre. Cuantos levanto y con que Precision.
+2. Pon K_DESVIACIONES = 3.0 y corre. Cuantos levanto y con que Recall.
+3. Ponme los dos resultados al lado del que quedo (1.5) y explicame el
+   intercambio con MIS numeros: que gano y que pierdo en cada uno, en horas de
+   auditoria y en hallazgos perdidos.
+4. Deja K_DESVIACIONES en 1.5 como estaba.
 
-Despues corre la plantilla con mis datos y proponme un nombre comercial para
-cada grupo. Ojo: la funcion bautizar() del script tiene reglas hechas para el
-ejemplo del supermercado; reescribela para MI negocio.
+Despues, el ejercicio del cuello de botella:
+5. Pon CUELLO_LATENTE = 2 y corre. Luego CUELLO_LATENTE = 10 y corre.
+6. Explicame que paso: por que apretar demasiado y por que apretar de menos
+   estropean la deteccion. Cual de los dos es peor y por que.
+7. Deja CUELLO_LATENTE en 4 como estaba.
 
-IMPORTANTE: mis datos se quedan en mi computador. No los subas a ningun lado.
+
+-------------------------------------------------------------------------------
+ PROMPT 3 - PONER MIS PROPIOS DATOS (lo que de verdad importa)
+-------------------------------------------------------------------------------
+
+Quiero correr esta plantilla con mis datos reales. Mi archivo se llama
+<PONGA_AQUI_EL_NOMBRE.csv> y esta en la carpeta 2_no_supervisado.
+
+ANTES de entrenar nada, hazme esta revision y muestrame el resultado:
+
+1. Abre mi archivo y muestrame las primeras cinco filas y cuantas filas tiene.
+2. Dime cuales columnas son identificadores o texto libre (codigo, cedula, NIT,
+   consecutivo, observaciones) para ponerlas en COLUMNAS_A_IGNORAR.
+3. CONFIRMAME que vas a poner COLUMNA_VERIFICACION = None y
+   COLUMNA_PATRON = None, porque yo NO tengo una columna que diga cual estaba
+   raro. Si crees que si la tengo, muestramela y discutamoslo: puede que mi
+   problema sea supervisado y me sirva mas la plantilla 1.
+4. Avisame si alguna columna esta en una escala tan distinta a las otras que se
+   va a comer la deteccion, y confirmame que la plantilla estandariza.
+5. Dime si tengo columnas vacias y como las vas a tratar.
+6. Dime si tengo suficientes filas. Por debajo de 500 movimientos esto es un
+   ejercicio, no una herramienta, y quiero que me lo digas.
+
+Solo cuando yo te diga que si, ajusta el PANEL DE CONTROL y corre.
+
+Al final quiero DOS cosas:
+ - Mi lista de trabajo ordenada por puntaje de sospecha, en CSV.
+ - Tu lectura de los 10 primeros: mirame los valores de esas filas y dime QUE
+   les ves de raro. El modelo dice "raro"; usted me dice por que. Sin eso la
+   lista no la puedo defender ante nadie.
+
+IMPORTANTE: mis datos se quedan en mi computador. No los subas a ningun lado,
+no los mandes a ninguna API y no los pegues en internet.
 
 
 -------------------------------------------------------------------------------
@@ -89,11 +155,123 @@ IMPORTANTE: mis datos se quedan en mi computador. No los subas a ningun lado.
 -------------------------------------------------------------------------------
 
 Ayudame a escribir, en lenguaje de gerente, como defiendo ante un jurado que
-estos grupos sirven, sabiendo que en no supervisado no hay Accuracy que mostrar.
-Maximo 200 palabras, en espanol, sin jerga. Incluye que evidencia debo llevar
-ademas de la metrica.
+esta lista de sospechosos sirve, sabiendo que en no supervisado no hay Accuracy
+que mostrar.
+
+Incluye:
+ - El pipeline dicho como pipeline, en cinco pasos, con MIS datos:
+   datos -> preparacion -> entrenamiento -> evaluacion -> resultado.
+ - La prueba del borrado: si le quito el autoencoder, el proceso de auditoria
+   funciona igual? Si la respuesta es que si, dimelo sin adornos.
+ - Que evidencia debo llevar ademas de la metrica: la validacion de un experto
+   sobre los primeros 20 de la lista vale mas que cualquier numero.
+ - Como digo honestamente la limitacion: el modelo levanta lo ATIPICO, no lo
+   ILEGAL. Son dos cosas distintas y confundirlas es un problema.
+
+Maximo 400 palabras, en espanol, sin jerga innecesaria, y con los terminos
+tecnicos en ingles (autoencoder, Recall, Precision, overfitting) como se usan
+en todas partes.
+
+
+===============================================================================
+ CONTRATO TECNICO - para el agente de IA que adapte esta plantilla
+ (el estudiante no necesita leer esto; el agente si)
+===============================================================================
+
+ENTORNO
+  Interprete obligatorio : C:\ia\env_deep\Scripts\python.exe
+  Nunca usar             : py, python, ni el Python del sistema, ni el de
+                           env_pycaret
+  Motivo                 : pycaret-core fija numpy 1.26.x y scikit-learn 1.4.x.
+                           Instalar PyCaret en este entorno degrada torch. Los
+                           entornos NO se mezclan y no se unifican.
+  Instalacion            : pip install torch scikit-learn pandas matplotlib numpy
+  Comparte entorno con   : la plantilla 3 (CNN). Ese si se comparte.
+
+ARCHIVOS Y SUS ROLES  (la convencion de las tres plantillas, no se rompe)
+  1_generar_datos.py  produce movimientos_contables.csv. Se reemplaza por datos
+                      reales, no se edita para "arreglar" el entrenamiento.
+  2_entrenar.py       el pipeline de cinco pasos. Se toca SOLO el PANEL DE
+                      CONTROL.
+  3_prompt_para_claude.txt  este archivo. Punto de entrada del estudiante.
+
+QUE SE PUEDE CAMBIAR
+  ARCHIVO_CSV           nombre del archivo de entrada
+  COLUMNAS_A_IGNORAR    lista de identificadores y texto libre
+  COLUMNA_VERIFICACION  None con datos reales. Solo se usa si existe una
+                        columna 0/1 que marque lo anomalo, y unicamente para
+                        calificar al final.
+  COLUMNA_PATRON        None con datos reales.
+  PORCENTAJE_EXAMEN     0.20 a 0.30
+  CUELLO_LATENTE        2 a 10. Es el tamano del cuello de botella.
+  EPOCAS                50 a 300
+  TAMANO_LOTE           32 a 256
+  TASA_APRENDIZAJE      0.001 a 0.01
+  K_DESVIACIONES        0.0 a 3.0. Es el umbral. La receta clasica del
+                        notebook de la maestria es 1.0; aqui quedo en 1.5.
+  CUANTOS_REVISAR       el tamano de la lista de trabajo
+  SEMILLA               cualquier entero
+
+QUE NO SE DEBE TOCAR
+  - El orden de los cinco pasos.
+  - Que el autoencoder se entrene SOLO con los casos normales. Es la premisa
+    del metodo: si se entrena con todo, aprende a reconstruir bien tambien lo
+    raro y deja de detectarlo.
+  - Que COLUMNA_VERIFICACION se saque de X ANTES de entrenar y se use solo
+    para el informe final. Meterla al entrenamiento es fuga de datos y
+    convierte el ejercicio en una mentira.
+  - La estandarizacion antes de la red. Sin ella la columna de montos se come
+    todo el error de reconstruccion.
+  - Que el umbral se calcule sobre el error de los NORMALES del examen, no
+    sobre todo el conjunto.
+  - Los mensajes en espanol. Son material de clase.
+
+FORMATO DE ENTRADA ESPERADO
+  CSV con encabezado en la primera fila, utf-8 (se lee con utf-8-sig).
+  Una fila por caso (un pago, un movimiento, una transaccion, un registro).
+  Columnas numericas y de texto mezcladas: el script estandariza las numericas
+  y hace one-hot de las categoricas.
+  NO se necesita columna de respuesta. Es la gracia del metodo.
+  Minimo razonable: 500 filas. Por debajo de eso es un ejercicio, no una
+  herramienta, y hay que decirlo.
+  Supuesto duro del metodo: la GRAN MAYORIA de las filas debe ser normal. Si
+  el 40 % de los datos es anomalo, el autoencoder aprende que eso es normal y
+  el metodo no aplica.
+
+VALIDACIONES OBLIGATORIAS ANTES DE ENTRENAR
+  1. Que el archivo exista (si no, corre 1_generar_datos.py solo).
+  2. Que las COLUMNAS_A_IGNORAR existan.
+  3. Que queden al menos 3 columnas utiles despues de ignorar.
+  4. Que COLUMNA_VERIFICACION sea None o exista de verdad en el CSV.
+
+ERRORES COMUNES Y QUE SIGNIFICAN
+  ModuleNotFoundError: No module named 'torch'
+      Python equivocado, o no se creo env_deep. Ver 0_instalar.txt PASO 2.
+  ValueError: could not convert string to float
+      Quedo texto en una columna numerica: comas de miles, simbolo $, 'N/A'.
+      Se limpia en el CSV, no en el script.
+  Todo levantado o nada levantado
+      K_DESVIACIONES esta en un extremo, o los datos no tienen estructura que
+      aprender. Mire el histograma del PNG antes de tocar el modelo.
+  El error de reconstruccion no baja en las epocas
+      TASA_APRENDIZAJE muy alta, o el CUELLO_LATENTE es tan chico que no cabe
+      la informacion. Empiece subiendo CUELLO_LATENTE.
+  Recall alto en un patron y bajisimo en otro
+      Normal y esperado. Es el hallazgo mas util del ejercicio: se reporta,
+      no se esconde.
+
+DIFERENCIA CONCEPTUAL QUE HAY QUE MANTENER CLARA
+  Este metodo levanta lo ATIPICO, no lo ILEGAL. Un pago raro puede ser
+  perfectamente legitimo. La salida es una lista de REVISION HUMANA, nunca una
+  acusacion ni una decision automatica. Ninguna adaptacion de esta plantilla
+  debe presentarla como otra cosa.
+
+PRIVACIDAD - regla dura
+  Los datos del estudiante no salen de su computador. Ninguna modificacion de
+  esta plantilla debe subir datos, llamar una API con ellos, ni pegarlos en un
+  mensaje. Con datos contables y de pagos esto no es un detalle.
 
 ===============================================================================
  Diplomado en Inteligencia Artificial - UNAC - Clase 05
- Datos sinteticos con semilla fija. No son datos de ninguna empresa real.
+ Datos sinteticos con semilla fija. No son datos de ninguna entidad real.
 ===============================================================================

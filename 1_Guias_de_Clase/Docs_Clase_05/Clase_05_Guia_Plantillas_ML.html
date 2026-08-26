@@ -126,6 +126,9 @@ li{margin-bottom:6px}
     <p class="sub" style="margin-top:12px"><b>Usted no escribe código.</b> Cada plantilla trae el
     prompt exacto que se copia y se pega en Claude Code. Claude corre la plantilla y le explica
     el resultado.</p>
+    <p class="sub" style="margin-top:12px"><b>Estas plantillas no se corren en clase.</b> Se las
+    entregamos como <b>herramienta de trabajo</b>: así se hace de verdad un entrenamiento. La tarea
+    es correr <b>la primera, la de PyCaret</b>. Las otras dos son para el que se quiera meter más.</p>
   </div>
 </div>
 
@@ -136,29 +139,33 @@ li{margin-bottom:6px}
     <div class="t">Cada una responde una pregunta de gerente en una frase.</div>
     <div class="tbl">
       <table>
-        <thead><tr><th></th><th>Plantilla</th><th>La pregunta</th><th>Qué usa</th><th>Corre en</th><th>Cuándo</th></tr></thead>
+        <thead><tr><th></th><th>Plantilla</th><th>La pregunta</th><th>Qué usa</th><th>Entorno</th><th>Corre en</th></tr></thead>
         <tbody>
-        <tr><td>1</td><td><b>Supervisado</b><br><code>1_supervisado</code></td>
+        <tr><td>1</td><td><b>Supervised learning con PyCaret</b><br><i>aprendizaje supervisado · AutoML</i><br><code>1_supervisado</code></td>
             <td><i>«¿Esta factura se va a pagar tarde?»</i></td>
-            <td>Random Forest · Logistic Regression · Decision Tree</td>
-            <td>&lt; 1 segundo</td>
-            <td><span class="chip clase">En clase</span></td></tr>
-        <tr><td>2</td><td><b>No supervisado</b><br><code>2_no_supervisado</code></td>
-            <td><i>«Agrúpeme mis productos en familias que yo no había visto.»</i></td>
-            <td>K-Means</td>
-            <td>~2 segundos</td>
-            <td><span class="chip clase">En clase</span></td></tr>
-        <tr><td>3</td><td><b>Deep Learning</b><br><code>3_deep_learning_cnn</code></td>
-            <td><i>«Clasifíqueme estas imágenes.»</i></td>
-            <td>Convolutional Neural Network (CNN)</td>
-            <td>5 a 6 segundos</td>
-            <td><span class="chip casa">Tarea, en casa</span></td></tr>
+            <td>AutoML: <b>nueve modelos compiten</b> y él escoge el campeón · datos tabulares</td>
+            <td><code>env_pycaret</code></td>
+            <td>~10 segundos</td></tr>
+        <tr><td>2</td><td><b>Autoencoder</b><br><i>autocodificador · detección de anomalías</i><br><code>2_no_supervisado</code></td>
+            <td><i>«De estos 3.000 pagos, ¿cuáles 30 miro yo primero?»</i></td>
+            <td>Red neuronal (PyTorch) · datos tabulares · <b>sin columna de respuesta</b></td>
+            <td><code>env_deep</code></td>
+            <td>~7 segundos</td></tr>
+        <tr><td>3</td><td><b>Convolutional Neural Network (CNN)</b><br><i>red neuronal convolucional</i><br><code>3_deep_learning_cnn</code></td>
+            <td><i>«¿Esta lámina de vidrio pasa, o en qué falló?»</i></td>
+            <td>Convolución sobre <b>imágenes</b></td>
+            <td><code>env_deep</code></td>
+            <td>~6 segundos</td></tr>
         </tbody>
       </table>
     </div>
-    <div class="nota ok"><b>Todo está en la carpeta <code>3_Plantillas_ML_Local</code></b>, la que
+    <div class="nota"><b>Ojo con la carpeta de la plantilla 2.</b> Se llama
+    <code>2_no_supervisado</code> por el nombre de la familia —<b>el autoencoder es no
+    supervisado</b>: nadie le marcó las respuestas—, no porque adentro haya un clustering.
+    <b>Adentro está el autoencoder.</b></div>
+    <div class="nota ok"><b>Todo está en la carpeta <code>5_Plantillas_ML_Local</code></b>, la que
     le pasó el docente. Ahí adentro está también el <code>LEEME.md</code> (el detalle completo de
-    cada plantilla) y el <code>0_instalar.txt</code> (las líneas de instalación, con los pesos y
+    cada plantilla) y el <code>0_instalar.txt</code> (la instalación paso a paso, con los pesos y
     los tiempos medidos). <b>Esta guía es el camino corto:</b> si solo va a leer una cosa, lea
     esta.</div>
   </div>
@@ -200,46 +207,81 @@ li{margin-bottom:6px}
     <div class="paso-h">
       <div class="paso-n">2</div>
       <div>
-        <h2>Corra la <b>línea de instalación obligatoria</b></h2>
-        <div class="t">Una sola línea. Es lo primero que se hace en clase y se deja corriendo.</div>
+        <h2>Cree los <b>dos entornos</b></h2>
+        <div class="t">Son dos, y tienen que ser dos. Se hace una sola vez, en su casa.</div>
       </div>
     </div>
     <div class="paso-c">
-      <div class="pegar corto">
-        <div class="pegar-h"><span>Pegue esto en PowerShell — LÍNEA 1</span>
-          <button class="cp" onclick="cp(this)">Copiar</button></div>
-<pre>py -m pip install scikit-learn pandas matplotlib</pre>
-      </div>
 
-      <p style="margin-top:18px">Con esto corren las <b>plantillas 1 y 2</b>. Es todo lo que
-      necesita para la clase.</p>
+      <div class="nota alto"><b>Por qué dos y no uno — esto está probado, no supuesto.</b>
+      <b>PyCaret exige una versión vieja de <code>numpy</code></b> y <b>PyTorch exige una
+      nueva</b>. Si los instala en el mismo Python, se rompen los dos: PyCaret deja de importar, o
+      PyTorch empieza a fallar sin decir por qué. La solución no es pelear con las versiones: es
+      <b>tener dos carpetas de Python separadas que no se cruzan</b>.</div>
 
       <div class="tbl">
         <table>
-          <thead><tr><th></th><th>Descarga</th><th>Tiempo</th><th>Disco</th><th>Para qué</th></tr></thead>
+          <thead><tr><th>Entorno</th><th>Para qué plantilla</th><th>Qué trae</th></tr></thead>
           <tbody>
-          <tr><td><b>LÍNEA 1</b> (obligatoria)</td><td>84 MB · 18 paquetes</td><td>47 a 53 s</td>
-              <td>395 MB</td><td>Plantillas 1 y 2</td></tr>
-          <tr><td><b>LÍNEA 2</b> (solo la CNN)</td><td>127 MB</td><td>~53 s</td>
-              <td>+640 MB (total 1,0 GB)</td><td>Plantilla 3 — <b>en casa</b></td></tr>
+          <tr><td><code>C:\ia\env_pycaret</code></td><td><b>1</b> · PyCaret</td><td><code>pycaret-core</code> · pandas · numpy · matplotlib</td></tr>
+          <tr><td><code>C:\ia\env_deep</code></td><td><b>2 y 3</b> · autoencoder y CNN</td><td><code>torch</code> · scikit-learn · pandas · numpy · matplotlib</td></tr>
           </tbody>
         </table>
       </div>
-      <p style="font-size:13.5px; color:var(--ink-3)">Los números son <b>medidos</b>, no
-      estimados: Windows 10 Pro con Python 3.12.10, el 26 de agosto de 2026.</p>
 
-      <div class="nota"><b>¿Por qué 18 paquetes?</b> Porque <code>scikit-learn</code> arrastra
-      <code>scipy</code> (36 MB) y <code>numpy</code> (12 MB). Es normal, es una sola vez, y no se
-      puede evitar.</div>
-
-      <h3 class="sub">Compruebe que quedó bien (5 segundos)</h3>
-      <div class="pegar corto">
+      <h3 class="sub">PASO 1 · el entorno de PyCaret — <b>este es el de la tarea</b></h3>
+      <div class="pegar">
         <div class="pegar-h"><span>Pegue esto en PowerShell</span>
           <button class="cp" onclick="cp(this)">Copiar</button></div>
-<pre>py -c "import sklearn, pandas, matplotlib; print('LINEA 1 OK')"</pre>
+<pre>py -m venv C:\ia\env_pycaret
+C:\ia\env_pycaret\Scripts\python.exe -m pip install pycaret-core matplotlib pandas numpy</pre>
       </div>
-      <div class="nota ok" style="margin-top:16px">Debe responder <code>LINEA 1 OK</code> y nada
-      más. Si responde eso, ya puede correr las plantillas 1 y 2.</div>
+
+      <div class="nota alto" style="margin-top:18px"><b>OJO CON EL NOMBRE DEL PAQUETE.</b> Es
+      <code>pycaret-core</code>, <b>con guion y con «core»</b>. El paquete de PyPI que se llama
+      solamente <code>pycaret</code> <b>NO funciona con Python 3.12</b>, que es el que ustedes
+      tienen. Si copió mal esa palabra, va a perder media hora. <b>Cópiela, no la escriba.</b></div>
+
+      <div class="pegar corto">
+        <div class="pegar-h"><span>Compruebe que quedó — después del PASO 1</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>C:\ia\env_pycaret\Scripts\python.exe -c "import pycaret, matplotlib; print('PASO 1 OK - pycaret', pycaret.__version__)"</pre>
+      </div>
+      <div class="nota ok" style="margin-top:16px">Debe decir <code>PASO 1 OK - pycaret 3.5.0</code>
+      o parecido. Si dice eso, <b>ya puede hacer la tarea</b>.</div>
+
+      <h3 class="sub">PASO 2 · el entorno de PyTorch — <b>opcional</b>, para el que se quiera meter más</h3>
+      <div class="pegar">
+        <div class="pegar-h"><span>Pegue esto en PowerShell</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>py -m venv C:\ia\env_deep
+C:\ia\env_deep\Scripts\python.exe -m pip install torch scikit-learn pandas matplotlib numpy</pre>
+      </div>
+
+      <div class="pegar corto" style="margin-top:18px">
+        <div class="pegar-h"><span>Compruebe que quedó — después del PASO 2</span>
+          <button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>C:\ia\env_deep\Scripts\python.exe -c "import torch, sklearn, matplotlib; print('PASO 2 OK - torch', torch.__version__)"</pre>
+      </div>
+      <div class="nota ok" style="margin-top:16px">Debe decir algo como
+      <code>PASO 2 OK - torch 2.13.0+cpu</code>. Ese <code>+cpu</code> del final es la confirmación
+      de que quedó la versión liviana, la que no necesita tarjeta gráfica.</div>
+
+      <div class="nota alto"><b>Este segundo entorno es el pesado:</b> PyTorch son <b>127 MB</b> de
+      descarga y más de <b>1 GB</b> en disco (medido el 26 de agosto de 2026). <b>Si prefiere no
+      instalarlo nunca, no pasa nada:</b> la plantilla 1 es completa por sí sola y es la que de
+      verdad le sirve para el proyecto de grado.</div>
+
+      <div class="nota"><b>La regla que evita el 90 % de los problemas:</b> <b>todo va en
+      <code>C:\ia\</code></b>. Ni el Escritorio, ni Documentos, ni nada sincronizado con OneDrive.
+      Windows tiene un límite de 260 caracteres en las rutas y PyTorch tiene nombres de archivo muy
+      largos por dentro: <b>nos pasó en las pruebas</b> — la instalación falla en una carpeta
+      profunda y funciona perfecto en <code>C:\ia\</code>.</div>
+
+      <div class="nota ok"><b>Y si se enreda, esto se lo puede hacer Claude Code.</b> Abra la
+      terminal en la carpeta, escriba <code>claude</code>, y dígale: <i>«lee 0_instalar.txt y créame
+      los dos entornos que dice ahí; avísame antes de instalar cada cosa»</i>. Es exactamente para
+      eso.</div>
     </div>
   </div>
 
@@ -255,7 +297,7 @@ li{margin-bottom:6px}
     <div class="paso-c">
       <ol>
         <li>En el explorador de Windows, <b>clic derecho sobre la carpeta
-        <code>3_Plantillas_ML_Local</code></b> → <b>Abrir en Terminal</b>.</li>
+        <code>5_Plantillas_ML_Local</code></b> → <b>Abrir en Terminal</b>.</li>
         <li>Escriba <code>claude</code> y Enter.</li>
         <li>Abra el archivo <code>3_prompt_para_claude.txt</code> de la plantilla que quiera,
         <b>copie el PROMPT 1 completo</b> y péguelo en Claude. (En esta guía se lo dejamos ya
@@ -265,6 +307,15 @@ li{margin-bottom:6px}
       <div class="nota ok"><b>Cada plantilla imprime el resultado en español, explicado, y guarda
       una gráfica PNG</b> que se abre con doble clic. Pídale a Claude que se la abra y se la
       explique: para eso está.</div>
+      <div class="nota alto"><b>Lo único que se equivoca todo el mundo: el Python con el que se
+      corre.</b> <b>No se usa <code>py</code> ni <code>python</code> a secas.</b> Cada plantilla se
+      corre con el Python <b>de su entorno</b>, y el prompt de cada carpeta ya trae la línea exacta:
+      <br><code>C:\ia\env_pycaret\Scripts\python.exe</code> para la <b>plantilla 1</b>
+      <br><code>C:\ia\env_deep\Scripts\python.exe</code> para las <b>plantillas 2 y 3</b>
+      <br>Si se equivoca de entorno, el error le va a decir
+      <code>ModuleNotFoundError: No module named 'pycaret'</code> (o <code>'torch'</code>). <b>Los
+      dos errores significan lo mismo: se equivocó de entorno.</b> No es que falte instalar
+      nada.</div>
       <div class="nota"><b>Una sola cosa se toca en los scripts.</b> Arriba de cada
       <code>2_entrenar.py</code> hay un bloque marcado <b><code>PANEL DE CONTROL</code></b>. Ahí y
       solo ahí se cambian cosas. Todo lo demás corre solo — y si quiere cambiar algo del panel,
@@ -277,8 +328,8 @@ li{margin-bottom:6px}
     <div class="paso-h">
       <div class="paso-n">4</div>
       <div>
-        <h2>Plantilla 1 · <b>Machine Learning supervisado</b><span class="chip clase">En clase</span></h2>
-        <div class="t">Carpeta <code>1_supervisado</code> · ¿esta factura se va a pagar tarde?</div>
+        <h2>Plantilla 1 · <b>Supervised learning con PyCaret (AutoML)</b><span class="chip casa">La tarea</span></h2>
+        <div class="t">Carpeta <code>1_supervisado</code> · entorno <code>env_pycaret</code> · ¿esta factura se va a pagar tarde?</div>
       </div>
     </div>
     <div class="paso-c">
@@ -286,78 +337,103 @@ li{margin-bottom:6px}
       mayoristas, tiendas de barrio e instituciones. De cada factura <b>ya se sabe</b> si se pagó
       a tiempo o si se atrasó — por eso es <b>supervisado</b>: los ejemplos vienen respondidos.</p>
 
-      <p>Tres modelos compiten con el mismo examen:</p>
+      <div class="nota ok"><b>Lo que hace especial a esta plantilla es que usted no escoge el
+      modelo.</b> Le entrega la tabla, le dice cuál columna es la respuesta, y PyCaret hace el
+      resto. Eso es <b>AutoML</b> (<i>Automated Machine Learning</i>) — y es la razón de que esta
+      sea la plantilla que sí le sirve a un gerente: <b>entrenar y ver resultados</b>, sin decidir
+      qué algoritmo usar.</div>
+
+      <p><b>Nueve modelos compiten</b> con el mismo examen, y PyCaret los ordena solo:</p>
       <ul>
-        <li><b>Logistic Regression</b> — la línea recta, de 1958, y todavía manda en los bancos.</li>
-        <li><b>Decision Tree</b> — preguntas en cascada; se puede leer y auditar.</li>
-        <li><b>Random Forest</b> — 300 árboles votando.</li>
+        <li>Logistic Regression · Ridge Classifier · Decision Tree</li>
+        <li>Random Forest · Extra Trees · Gradient Boosting · AdaBoost</li>
+        <li>K Neighbors · Naive Bayes</li>
       </ul>
 
       <h3 class="sub">El prompt exacto</h3>
+      <p style="font-size:13.5px; color:var(--ink-3)">Es el <b>PROMPT 1</b> del archivo
+      <code>3_prompt_para_claude.txt</code> de esa carpeta. Ahí adentro hay dos más: el
+      <b>PROMPT 2</b> para mover las perillas y el <b>PROMPT 3</b> para poner sus propios datos.</p>
       <div class="pegar">
         <div class="pegar-h"><span>Pegue esto en Claude Code</span>
           <button class="cp" onclick="cp(this)">Copiar</button></div>
 <pre>Estoy en el Diplomado en Inteligencia Artificial de la UNAC y soy gerente, no
-programador. En la carpeta 1_supervisado hay una plantilla de Machine Learning
-supervisado sobre datos sinteticos de cartera.
+programador. En la carpeta 1_supervisado hay una plantilla de Supervised
+Learning con PyCaret (AutoML) sobre datos sinteticos de cartera de facturas.
 
 Haz esto, en este orden:
 
-1. Corre 1_generar_datos.py y luego 2_entrenar.py con el Python de mi
-   computador. Si falta alguna libreria, dime la linea exacta de pip install
-   antes de seguir; no instales nada sin avisarme.
+1. Corre 1_generar_datos.py y luego 2_entrenar.py, los dos con el Python del
+   entorno de PyCaret:
 
-2. Cuando termine, explicame el resultado como si yo fuera el gerente de cartera
-   y tuviera cinco minutos:
-   - Que pregunta de negocio respondio el modelo.
-   - Cual de los tres modelos gano y por que gano ese (no la matematica: la razon).
-   - Que significan Accuracy, Precision, Recall y F1 Score en MI operacion,
-     con los numeros que salieron, traducidos a facturas y a llamadas de cobranza.
-   - Que dice la matriz de confusion casilla por casilla, y cual de los dos
-     errores me cuesta mas plata.
-   - Que umbral me recomiendas de la tabla de umbrales, y por que.
+       C:\ia\env_pycaret\Scripts\python.exe 1_generar_datos.py
+       C:\ia\env_pycaret\Scripts\python.exe 2_entrenar.py
 
-3. Abre resultado_supervisado.png y dime si la grafica me sirve para mostrarsela
-   a mi jefe. Si algo no se entiende, dimelo.
+   NO uses "py" ni "python" a secas: esta plantilla no corre con el Python del
+   sistema. Si ese entorno no existe, dime la linea exacta para crearlo y
+   preguntame antes de instalar nada.
 
-4. Al final, dime en una sola frase: si yo tuviera esta cartera de verdad,
-   que decision distinta tomaria manana por la manana con este modelo.
+2. Cuando termine, explicame el resultado como si yo fuera el gerente
+   financiero y tuviera cinco minutos:
+   - Que hizo setup() por mi que yo habria tenido que hacer a mano. Enumeralo.
+   - Cual modelo gano y por que gano. Y de una: por que perdieron los otros
+     ocho, sobre todo por que Naive Bayes saco 0.000 de F1.
+   - La diferencia entre la tabla del PASO 3 (validacion cruzada) y las notas
+     del PASO 4 (el examen). Por que no se reportan las del PASO 3.
+   - Accuracy, Precision, Recall y F1 traducidos a facturas y a llamadas de
+     cobranza. Sin formulas.
+   - La matriz de confusion casilla por casilla, y cual de los dos errores me
+     duele mas a MI: la falsa alarma o la que se le escapo.
 
-No cambies el codigo todavia. Primero quiero entender lo que salio.</pre>
+3. Mirame la tabla de umbrales (la "perilla del gerente") y dime en cual
+   umbral me pondria yo si mi equipo de cobranza puede hacer 300 llamadas al
+   mes y no mas. Justificame el numero con la tabla, no con teoria.
+
+4. Abre resultado_supervisado.png y dime que se ve en cada uno de los dos
+   paneles.
+
+5. Al final, en tres frases: que se le entrega a quien, el lunes, para que
+   esto sirva de algo.</pre>
       </div>
 
-      <h3 class="sub">Cómo leer el resultado</h3>
-      <p>Como la semilla es fija, <b>a todo el salón le van a salir los mismos números</b>. Esto
-      es lo que va a ver:</p>
-
-      <div class="tbl">
-        <table>
-          <thead><tr><th>Modelo</th><th>Accuracy</th><th>Precision</th><th>Recall</th><th>F1 Score</th></tr></thead>
-          <tbody>
-          <tr><td><b>Random Forest</b> — el campeón</td><td><b>0,813</b></td><td>0,851</td><td>0,502</td><td>0,631</td></tr>
-          <tr><td>Logistic Regression</td><td>0,797</td><td>0,754</td><td>0,539</td><td>0,629</td></tr>
-          <tr><td>Decision Tree</td><td>0,802</td><td>0,807</td><td>0,498</td><td>0,616</td></tr>
-          </tbody>
-        </table>
-      </div>
-
+      <h3 class="sub">Qué va a ver</h3>
       <ul>
-        <li><b>train/test split:</b> estudia con 3.000 facturas (75 %) y se examina con 1.000
-        (25 %) que <b>nunca vio</b>.</li>
-        <li><b>Control de overfitting:</b> acierta 0,840 en estudio y 0,813 en examen. Brecha de
-        0,027 — pequeña. Está aprendiendo, no memorizando.</li>
-        <li><b>Matriz de confusión</b> sobre las 1.000 del examen: 160 aciertos útiles · 653
-        aciertos tranquilos · <b>28 falsas alarmas</b> (una llamada de cobranza de más) ·
-        <b>159 que se le escaparon</b> (plata quieta). Son dos errores distintos y cuestan
-        distinto.</li>
+        <li><b>Lo que <code>setup()</code> hizo solo:</b> detectó qué columnas son números y cuáles
+        texto, convirtió el texto a números (<i>one-hot encoding</i>), rellenó los vacíos, partió
+        los datos y armó la validación cruzada. <b>Nadie se lo pidió. Eso es medio día de trabajo
+        en una línea.</b></li>
+        <li><b>El podio de los nueve.</b> En la corrida de referencia ganó
+        <b>Gradient Boosting Classifier</b> con <b>Accuracy 0,815</b> y <b>F1 0,641</b> sobre el
+        examen.</li>
+        <li><b>La diferencia entre validación cruzada y examen</b>, que es donde se confunde todo el
+        mundo: <i>se elige con validación cruzada, se reporta con el examen.</i></li>
+        <li><b>La matriz de confusión</b> casilla por casilla, con los dos errores separados y
+        costeados: <i>«se le escapó»</i> (plata quieta) y <i>«falsa alarma»</i> (una llamada de
+        cobranza de más). <b>Son dos errores distintos y cuestan distinto.</b></li>
+        <li><b>El control de overfitting:</b> validación cruzada contra examen.</li>
+        <li><b>Una factura nueva clasificada en vivo</b> — en la corrida de referencia, 93,3 % de
+        probabilidad de atraso → <i>llamar antes del vencimiento</i>.</li>
       </ul>
 
+      <div class="nota"><b>La mejor pregunta de esta plantilla, y sale en la tabla:</b> <b>Naive
+      Bayes sacó F1 0,000 y al mismo tiempo 0,68 de Accuracy.</b> ¿Cómo puede acertar el 68 % y
+      valer cero? Pregúnteselo a Claude con esas palabras. La respuesta es la lección entera de la
+      Clase 04 sobre por qué el Accuracy engaña.</div>
+
       <div class="nota"><b>El momento gerencial: la tabla de umbrales.</b> Es el <b>mismo modelo</b>
-      en todas las filas — lo único que se mueve es la perilla. Con umbral <code>0,50</code> alerta
-      <b>188</b> facturas y se le escapan <b>159</b>. Con umbral <code>0,20</code> alerta <b>581</b>
-      y solo se le escapan <b>47</b>. ¿Cuál escoge? <b>Cuántas llamadas de cobranza puedo pagar al
-      mes no es una pregunta técnica</b>, es una decisión de presupuesto. Ahí está la clase
-      entera.</div>
+      en todas las filas — no se reentrena nada, lo único que se mueve es la perilla. En la corrida
+      de referencia, con umbral <code>0,50</code> alerta <b>196</b> facturas y con umbral
+      <code>0,70</code> alerta <b>151</b>. ¿Cuál escoge? <b>«Cuántas llamadas de cobranza puedo
+      pagar al mes» no es una pregunta técnica</b>, es una decisión de presupuesto. Ahí está la
+      clase entera: <b>el modelo no decide, le pone precio a cada opción.</b></div>
+
+      <div class="nota ok"><b>El entregable es un archivo:</b> <code>modelo_cartera.pkl</code>. Es
+      el modelo ya entrenado, listo para que un sistema lo use todos los días. <b>Eso es lo que se
+      entrega, no la gráfica.</b></div>
+
+      <p style="font-size:13.5px; color:var(--ink-3)"><b>Los números de arriba son de la corrida de
+      referencia del docente.</b> Como la semilla es fija, a usted le deberían salir los mismos o
+      muy parecidos. Si le sale algo muy distinto, dígalo: es información útil, no un error suyo.</p>
 
       <p style="font-size:13.5px; color:var(--ink-3)"><b>A quién le sirve directo:</b> cartera y
       pagos de la clínica, cuentas de cadenas, certificación de pagos en la Alcaldía, el surtido y
@@ -368,76 +444,120 @@ No cambies el codigo todavia. Primero quiero entender lo que salio.</pre>
   <!-- ============================================ 5 -->
   <div class="paso">
     <div class="paso-h">
-      <div class="paso-n">5</div>
+      <div class="paso-n tarea">5</div>
       <div>
-        <h2>Plantilla 2 · <b>Machine Learning no supervisado</b><span class="chip clase">En clase</span></h2>
-        <div class="t">Carpeta <code>2_no_supervisado</code> · ¿qué familias hay en mi surtido que yo no había visto?</div>
+        <h2>Plantilla 2 · <b>Autoencoder sobre datos</b><span class="chip casa">Opcional</span></h2>
+        <div class="t">Carpeta <code>2_no_supervisado</code> · entorno <code>env_deep</code> · de estos 3.000 pagos, ¿cuáles 30 miro yo primero?</div>
       </div>
     </div>
     <div class="paso-c">
-      <p><b>600 referencias</b> de un supermercado con su comportamiento comercial: rotación,
-      margen, cuánto vende en promoción, devoluciones, quiebres de stock. <b>Nadie etiquetó nada.
-      No hay columna de respuesta.</b> El modelo propone los grupos.</p>
+      <p><b>3.000 movimientos de pago a proveedores</b> de una clínica: insumos médicos, servicios,
+      arrendamientos, papelería, mantenimiento. <b>Nadie marcó cuáles estaban raros. No hay columna
+      de respuesta.</b> Por eso es <b>no supervisado</b>.</p>
+
+      <p>Una red neuronal aprende cómo se ve un pago <b>normal</b>, apretando cada pago a solo
+      <b>cuatro números</b> y volviéndolo a abrir. <b>Lo que no logra reconstruir bien, lo levanta
+      como sospechoso.</b> Ese es el <b>error de reconstrucción</b>, y es el puntaje de sospecha.</p>
+
+      <div class="nota alto"><b>La trampa del docente — entiéndala y no se le olvide.</b> El CSV de
+      ejemplo trae una columna <code>es_anomalia</code>. <b>En la vida real usted no la tiene</b> —
+      si la tuviera, no necesitaría un autoencoder: haría un clasificador supervisado, o sea la
+      plantilla 1. Aquí existe <b>solo para poder calificar al modelo al final</b>, y el script la
+      saca <b>antes</b> de entrenar. Cuando ponga sus datos:
+      <code>COLUMNA_VERIFICACION = None</code>.</div>
 
       <h3 class="sub">El prompt exacto</h3>
       <div class="pegar">
         <div class="pegar-h"><span>Pegue esto en Claude Code</span>
           <button class="cp" onclick="cp(this)">Copiar</button></div>
 <pre>Estoy en el Diplomado en Inteligencia Artificial de la UNAC y soy gerente, no
-programador. En la carpeta 2_no_supervisado hay una plantilla de clustering con
-K-Means sobre datos sinteticos del surtido de un supermercado.
+programador. En la carpeta 2_no_supervisado hay una plantilla de deteccion de
+anomalias con un autoencoder sobre datos sinteticos de pagos a proveedores.
 
 Haz esto, en este orden:
 
-1. Corre 1_generar_datos.py y luego 2_entrenar.py con el Python de mi
-   computador. Si falta alguna libreria, dime la linea exacta de pip install
-   antes de seguir; no instales nada sin avisarme.
+1. Corre 1_generar_datos.py y luego 2_entrenar.py, los dos con el Python del
+   entorno de PyTorch:
 
-2. Cuando termine, explicame como si yo fuera el comprador de categoria y
-   tuviera cinco minutos:
+       C:\ia\env_deep\Scripts\python.exe 1_generar_datos.py
+       C:\ia\env_deep\Scripts\python.exe 2_entrenar.py
+
+   NO uses "py" ni "python" a secas. Si ese entorno no existe, dime la linea
+   exacta para crearlo y preguntame antes de instalar nada.
+
+2. Cuando termine, explicame el resultado como si yo fuera el jefe de auditoria
+   interna y tuviera cinco minutos:
    - En que se diferencia esto de la plantilla 1, en una frase.
-   - Por que aqui NO hay Accuracy, y que se mira entonces.
-   - Que dice el metodo del codo (Elbow) y por que escogimos k = 4 si la
-     metrica preferia otro numero.
-   - La ficha de los cuatro grupos: describeme cada grupo como se lo
-     describiria a mi jefe, y dime que haria yo con cada uno el lunes.
-   - Explicame la "leccion incomoda" del Silhouette bajo con recuperacion
-     alta. Quiero entender eso bien porque me huele a que me va a pasar con
-     mis datos.
+   - Que es un autoencoder, con la imagen del cuello de botella. Sin
+     matematicas: por que apretar la informacion a 4 numeros y volverla a
+     abrir sirve para detectar lo raro.
+   - Por que aqui NO hay Accuracy al principio, y que se mira entonces.
+   - Por que el modelo se entrena SOLO con los movimientos normales. Que
+     pasaria si lo entrenaramos con todo.
+   - Que es el error de reconstruccion y por que ese numero es el "puntaje de
+     sospecha".
+   - Como se escogio el umbral (promedio + K x desviacion) y que significa que
+     K quedara en 1.5.
 
-3. Abre resultado_clusters.png y dime que se ve en cada una de las dos
-   graficas. Senala en la grafica de la derecha donde se ve que los grupos
-   se tocan.
+3. Mirame la tabla "Que patron si atrapo y cual se le escapa" y dime, en
+   lenguaje de auditoria: cuales tipos de irregularidad puedo confiarle al
+   modelo y cuales tengo que seguir revisando a mano. Eso ultimo va en el
+   informe: no se esconde.
 
-4. Abre surtido_con_grupo.csv y dime como lo filtro en Excel para sacar la
-   lista de referencias candidatas a salir del surtido.</pre>
+4. Mirame la tabla de la "perilla del gerente" y dime en cual K me pondria yo
+   si mi equipo puede revisar 80 pagos al mes y no mas. Justificalo con la
+   tabla, no con teoria.
+
+5. Abre resultado_autoencoder.png y dime que se ve en cada panel. Senalame
+   donde se ve que los normales y los raros se traslapan.
+
+6. Abre movimientos_revisados.csv y explicame las tres columnas que le agrego
+   el modelo (error_reconstruccion, puntaje_sospecha, se_levanta) y como filtro
+   en Excel para sacar mi lista de trabajo del lunes.
+
+7. Al final, en tres frases: que se le entrega a quien, el lunes, para que esto
+   sirva de algo.</pre>
       </div>
 
-      <h3 class="sub">Cómo leer el resultado</h3>
+      <h3 class="sub">Qué va a ver</h3>
       <ul>
-        <li>El <b>método del codo (Elbow)</b> y el <b>Silhouette Score</b> para cada
-        <code>k</code> de 2 a 8: aquí no hay Accuracy, porque no hay respuesta contra la cual
-        comparar.</li>
-        <li>La <b>ficha de cada grupo</b> con promedios y un nombre comercial propuesto:
-        <i>Locomotora de tráfico · Joya de margen · Adicto a la promoción · Cola larga dormida</i>
-        — con qué haría un comprador con cada uno el lunes.</li>
-        <li>La <b>verificación</b>: como los datos son sintéticos, sabemos qué familias se
-        sembraron. K-Means las redescubrió solo, con <b>92,8 % de coincidencia</b>.</li>
-        <li>Un CSV <code>surtido_con_grupo.csv</code> para abrir en Excel y filtrar.</li>
+        <li><b>Por qué el modelo se entrena solo con los movimientos normales.</b> Si se entrena con
+        todo, <b>aprende que lo raro también es normal y deja de verlo.</b> Es la idea más
+        importante de la plantilla.</li>
+        <li><b>El error promedio de los normales contra el de los raros:</b> en la corrida de
+        referencia, <b>0,146</b> contra <b>0,283</b> — <b>casi el doble. Ahí está toda la idea.</b></li>
+        <li><b>Recall 0,740 · Precision 0,730</b> con el umbral que quedó.</li>
+        <li>La tabla <b>«qué patrón sí atrapó y cuál se le escapa»</b>, que es la más útil para el
+        negocio: atrapa <i>sobrecosto con un solo aprobador</i> (Recall 0,97) y <i>monto redondo sin
+        soportes</i> (0,89), pero se le va la mitad del <i>fraccionamiento</i> (0,58) y del <i>pago
+        fuera de horario</i> (0,53). <b>Eso se reporta, no se esconde:</b> esos dos patrones se
+        siguen revisando a mano.</li>
+        <li><b>La perilla del gerente:</b> con <code>K = 0,0</code> levanta 463 pagos; con
+        <code>K = 3,0</code> levanta 34 con Precision 1,000. <b>«¿Cuántos pagos al mes puede revisar
+        mi equipo?» es lo que define K</b>, no la estadística.</li>
+        <li><b>La lista de trabajo:</b> de los 30 movimientos con más error, <b>30 estaban sembrados
+        como raros</b> (100 %). Al azar se habrían esperado 4. <b>El modelo concentró 6,7 veces más
+        hallazgos en las mismas horas de auditoría.</b></li>
       </ul>
 
-      <div class="nota"><b>La lección incómoda — es lo más valioso de esta plantilla.</b> El
-      Silhouette Score dio <b>0,34</b> (una nota mediocre) y sin embargo la recuperación real fue
-      del <b>93 %</b>. La métrica midió geometría; el negocio vive en las fronteras. Quien hubiera
-      botado ese modelo por su métrica habría botado un modelo que acierta 9 de cada 10.</div>
+      <div class="nota ok"><b>El entregable no es el modelo: es la lista.</b>
+      <code>movimientos_revisados.csv</code>, listo para abrir en Excel y ya ordenado de más
+      sospechoso a menos. <b>Eso es lo que se le pone en el escritorio al auditor el lunes.</b></div>
 
-      <div class="nota ok"><b>Y hágale el ejercicio.</b> El archivo
-      <code>3_prompt_para_claude.txt</code> de esta carpeta trae un <b>PROMPT 2</b> que le pide a
-      Claude correrla con <code>k = 3</code> y con <code>k = 6</code> y comparar. Es donde se
-      entiende de verdad qué hace el número de grupos.</div>
+      <div class="nota alto"><b>Lo que hay que tener clarísimo, y va en el informe.</b> Este método
+      levanta lo <b>atípico</b>, no lo <b>ilegal</b>. Un pago raro puede ser perfectamente
+      legítimo: un anticipo autorizado, una compra de emergencia, un proveedor nuevo. <b>La salida
+      es una lista de revisión humana, nunca una acusación.</b> Si presenta esto como «el modelo
+      detectó fraudes», el jurado lo va a corregir — y con razón.</div>
 
-      <p style="font-size:13.5px; color:var(--ink-3)"><b>A quién le sirve directo:</b> categorías y
-      compras en retail, surtido de tienda, referencias de un taller de confección.</p>
+      <div class="nota"><b>Y hágale el ejercicio.</b> El <code>3_prompt_para_claude.txt</code> de
+      esta carpeta trae un <b>PROMPT 2</b> que le pide a Claude mover <code>K_DESVIACIONES</code> y
+      comparar. Es donde se entiende de verdad qué hace el umbral.</div>
+
+      <p style="font-size:13.5px; color:var(--ink-3)"><b>A quién le sirve directo:</b> el área
+      contable de la clínica, validación documental y listas de chequeo en el Área Metropolitana,
+      certificación de precios en la Alcaldía, validación manual repetitiva en hospitales. Y en
+      general: <b>facturas raras, consumos raros, contratos raros.</b></p>
     </div>
   </div>
 
@@ -446,47 +566,38 @@ Haz esto, en este orden:
     <div class="paso-h">
       <div class="paso-n tarea">6</div>
       <div>
-        <h2>Plantilla 3 · <b>Deep Learning con red convolucional (CNN)</b><span class="chip casa">Tarea, en casa</span></h2>
-        <div class="t">Carpeta <code>3_deep_learning_cnn</code> · ¿esta lámina de vidrio pasa, o en qué falló?</div>
+        <h2>Plantilla 3 · <b>Convolutional Neural Network (CNN)</b><span class="chip casa">Opcional</span></h2>
+        <div class="t">Carpeta <code>3_deep_learning_cnn</code> · entorno <code>env_deep</code> · ¿esta lámina de vidrio pasa, o en qué falló?</div>
       </div>
     </div>
     <div class="paso-c">
 
-      <div class="nota alto"><b>Esta es la pesada, y NO se instala en clase.</b> Necesita
-      <b>PyTorch</b>: <b>127 MB</b> de descarga (medido) y ~640 MB de disco. Con 16 personas
-      bajando 127 MB al mismo tiempo, el salón se queda sin internet. <b>Esta plantilla es la
-      tarea:</b> se hace en casa, con calma, con la wifi de uno solo.</div>
-
-      <div class="pegar corto">
-        <div class="pegar-h"><span>En casa, en PowerShell — LÍNEA 2</span>
-          <button class="cp" onclick="cp(this)">Copiar</button></div>
-<pre>py -m pip install torch</pre>
-      </div>
+      <div class="nota alto"><b>Esta es la pesada, y NO se corre en clase.</b> Necesita el
+      <b>PASO 2</b> de la instalación, el de PyTorch: <b>127 MB</b> de descarga (medido) y más de
+      <b>1 GB</b> en disco. Se hace <b>en casa, con calma, con la wifi de uno solo</b> — y solo si
+      quiere. <b>La tarea obligatoria es la plantilla 1.</b></div>
 
       <h3 class="sub">Tres cosas verificadas que le ahorran dolores de cabeza</h3>
       <ol>
-        <li><b>En Windows esa línea trae la versión de CPU y nada más.</b> No necesita tarjeta
-        gráfica, no necesita CUDA y <b>no</b> necesita el famoso
+        <li><b>En Windows, <code>pip install torch</code> trae la versión de CPU y nada más.</b> No
+        necesita tarjeta gráfica, no necesita CUDA y <b>no</b> necesita el famoso
         <code>--index-url https://download.pytorch.org/whl/cpu</code> que sale en los tutoriales.
         Todas las dependencias de NVIDIA de PyTorch están marcadas «solo Linux», así que en
         Windows no se bajan. Verificado el 26 de agosto de 2026.</li>
         <li><b>Si le sale un error que menciona «long paths» o «ruta demasiado larga»:</b>
-        <b>mueva la carpeta de las plantillas a una ruta corta</b>, por ejemplo
-        <code>C:\ia\</code>, y vuelva a intentar. Windows tiene un límite de 260 caracteres en las
-        rutas y PyTorch tiene nombres de archivo muy largos por dentro. <b>Nos pasó en las
-        pruebas:</b> la instalación falla en una carpeta profunda y funciona perfecto en
-        <code>C:\ia\</code>. Es la causa más probable de que le falle.</li>
-        <li><b>Si prefiere no instalar PyTorch nunca, no pasa nada.</b> Las plantillas 1 y 2 son
-        completas por sí solas y le sirven igual para el proyecto de grado.</li>
+        <b>mueva todo a una ruta corta</b> — <code>C:\ia\</code> — y vuelva a intentar. Windows
+        tiene un límite de 260 caracteres en las rutas y PyTorch tiene nombres de archivo muy
+        largos por dentro. <b>Nos pasó en las pruebas:</b> la instalación falla en una carpeta
+        profunda y funciona perfecto en <code>C:\ia\</code>. Es la causa más probable de que le
+        falle.</li>
+        <li><b>Si prefiere no instalar PyTorch nunca, no pasa nada.</b> La plantilla 1 es completa
+        por sí sola y le sirve igual para el proyecto de grado. Lo que se pierde son la plantilla 2
+        y la 3, que van las dos en ese mismo entorno.</li>
       </ol>
 
-      <div class="pegar corto">
-        <div class="pegar-h"><span>Compruebe que quedó — después de la LÍNEA 2</span>
-          <button class="cp" onclick="cp(this)">Copiar</button></div>
-<pre>py -c "import torch; print('LINEA 2 OK - torch', torch.__version__)"</pre>
-      </div>
-      <p style="margin-top:14px">Debe decir algo como <code>torch 2.13.0+cpu</code>. Ese
-      <code>+cpu</code> del final es la confirmación de que quedó la versión liviana.</p>
+      <div class="nota"><b>El entorno de esta plantilla es el mismo de la 2:</b>
+      <code>C:\ia\env_deep</code>. Si ya hizo el PASO 2 para el autoencoder, <b>no tiene que
+      instalar nada más</b>.</div>
 
       <h3 class="sub">Qué hace la plantilla</h3>
       <p><b>2.400 imágenes</b> simuladas de 28 × 28 píxeles de láminas de vidrio saliendo de la
@@ -520,16 +631,20 @@ sinteticas.
 
 Haz esto, en este orden:
 
-1. Verifica primero si tengo PyTorch instalado. Si NO lo tengo, dime cuanto
-   pesa la descarga y preguntame si quiero seguir ANTES de instalar nada.
+1. Verifica que exista el entorno de PyTorch y corre los dos scripts con SU
+   Python, no con "py" ni "python" a secas:
 
-2. Corre 1_generar_datos.py. Abre muestras_vidrio.png y describeme las cuatro
-   clases: quiero ver con mis propios ojos con que esta trabajando la red
-   antes de creerle un solo numero.
+       C:\ia\env_deep\Scripts\python.exe 1_generar_datos.py
+       C:\ia\env_deep\Scripts\python.exe 2_entrenar.py
 
-3. Corre 2_entrenar.py.
+   Si ese entorno NO existe, dime cuanto pesa la instalacion y preguntame si
+   quiero seguir ANTES de instalar nada.
 
-4. Explicame el resultado como si yo fuera el jefe de planta:
+2. Despues de 1_generar_datos.py, abre muestras_vidrio.png y describeme las
+   cuatro clases: quiero ver con mis propios ojos con que esta trabajando la
+   red antes de creerle un solo numero.
+
+3. Explicame el resultado como si yo fuera el jefe de planta:
    - Por que el modelo clasico (pixel por pixel) saca tan poquito y la CNN
      tanto. Explicame que es una convolucion con el ejemplo del rayon movido
      tres pixeles a la derecha. Sin matematicas.
@@ -539,12 +654,16 @@ Haz esto, en este orden:
    - Que dice la "letra menuda" sobre imagenes sinteticas, y que tendria que
      hacer yo distinto para llevar esto a una planta de verdad.
 
-5. Abre resultado_cnn.png y dime que se ve en cada uno de los tres paneles.
+4. Abre resultado_cnn.png y dime que se ve en cada uno de los tres paneles.
    Del tercer panel dime si a MI ojo humano tambien se me confundirian esas
    laminas.
 
-6. Al final: en una sola frase, cuantas fotos por clase tendria que conseguir
-   para intentar esto con imagenes de verdad, y por donde empezaria.</pre>
+5. Al final, en una sola frase: cuantas fotos por clase tendria que conseguir
+   para intentar esto con imagenes de verdad, y por donde empezaria.
+
+6. Y dime honestamente si MI problema es de imagenes o no. Si mi problema es
+   una tabla de Excel, dimelo: para tablas el AutoML de la plantilla 1 le gana
+   a una red neuronal, es mas barato y es mas explicable.</pre>
       </div>
 
       <div class="nota ok" style="margin-top:18px"><b>El archivo de imágenes lo genera el propio
@@ -553,7 +672,7 @@ Haz esto, en este orden:
       <code>muestras_vidrio.png</code>. <b>Ábrala:</b> nunca entrene con datos que no ha mirado.</div>
 
       <div class="nota"><b>Y el argumento gerencial, que la plantilla también imprime:</b> con una
-      tabla de Excel de 2.000 filas, el Random Forest le gana a la red — y es más barato y más
+      tabla de Excel, <b>el AutoML de la plantilla 1 le gana a la red</b> — y es más barato y más
       explicable. Con imágenes, audio o texto, la red gana y no hay discusión. <b>No se deje vender
       redes neuronales para problemas de Excel.</b></div>
 
@@ -562,8 +681,10 @@ Haz esto, en este orden:
       polvo en el lente, la luz del turno de la noche— el número baja, y baja harto. No lleve ese
       0,97 a una reunión como si fuera una promesa de planta.</div>
 
-      <p><b>Tiempo de la corrida:</b> 1,5 s de entrenamiento; 5 a 6 s el script completo (cargar
-      PyTorch se demora más que entrenar la red).</p>
+      <p><b>Tiempo de la corrida completa:</b> unos <b>6 a 9 segundos</b> — cargar PyTorch se demora
+      más que entrenar la red. <b>Y la primera vez puede tardar cerca de 19 segundos:</b> es Windows
+      cargando las librerías de PyTorch por primera vez. No está roto. Vuélvala a correr y verá la
+      diferencia.</p>
     </div>
   </div>
 
@@ -574,7 +695,8 @@ Haz esto, en este orden:
     <p>Los tres conjuntos de datos los <b>inventa un script con semilla fija</b>. No son datos de
     Supermo, ni de Distintores, ni de la clínica, ni de Coti Vidrios, ni de ninguna entidad.</p>
     <ol>
-      <li><b>Corren sin internet.</b> En clase no se descarga ni un byte de datos.</li>
+      <li><b>Corren sin internet.</b> Una vez instalados los entornos, no se descarga ni un byte de
+      datos: los datos los fabrica un script en su propio computador.</li>
       <li><b>Son reproducibles.</b> Semilla fija: todo el salón obtiene los mismos números y se
       puede comparar.</li>
       <li><b>No exponen a nadie.</b> Ningún dato de ninguna empresa sale de ninguna parte.</li>
@@ -611,8 +733,9 @@ Haz esto, en este orden:
     <h2>Si algo <b>falla</b></h2>
     <div class="t">No adivine. Y no se quede atrás.</div>
     <p><b>La regla de los diez minutos:</b> si lleva diez minutos peleando con lo mismo,
-    <b>pare</b>. Abra Claude Code en la carpeta de las plantillas, péguele el error completo con
-    esta frase, y siga mirando la clase. Lo suyo se resuelve en asesoría.</p>
+    <b>pare</b>. Abra Claude Code en la carpeta de las plantillas y péguele el error completo con
+    esta frase. Si con eso no sale, <b>escríbale al docente y se resuelve en la asesoría del
+    equipo</b>. Nadie pelea solo con la máquina.</p>
 
     <div class="pegar">
       <div class="pegar-h"><span>Pegue esto en Claude Code, con su error debajo</span>
@@ -636,25 +759,33 @@ sin avisarme primero.
         <tr><td>Un error que menciona <b>«long paths»</b> o <b>ruta demasiado larga</b></td>
             <td>El límite de 260 caracteres de Windows, con los nombres largos de PyTorch</td>
             <td>Mueva la carpeta a <code>C:\ia\</code> y repita</td></tr>
-        <tr><td><code>ModuleNotFoundError</code> con <code>sklearn</code>, <code>pandas</code> o
-            <code>matplotlib</code></td>
-            <td>Falta la LÍNEA 1</td>
-            <td>Corra el paso 2 de esta guía y vuelva a intentar</td></tr>
+        <tr><td><code>ModuleNotFoundError: No module named 'pycaret'</code></td>
+            <td><b>Se equivocó de entorno</b>, o no creó el de PyCaret</td>
+            <td>Corra con <code>C:\ia\env_pycaret\Scripts\python.exe</code>. Si no existe, haga el
+            <b>PASO 1</b> del paso 2 de esta guía</td></tr>
+        <tr><td><code>ModuleNotFoundError: No module named 'torch'</code></td>
+            <td><b>Se equivocó de entorno</b>, o no creó el de PyTorch</td>
+            <td>Corra con <code>C:\ia\env_deep\Scripts\python.exe</code>. Si no existe, haga el
+            <b>PASO 2</b></td></tr>
+        <tr><td>PyCaret no se instala, o se instala y no importa</td>
+            <td>Instaló <code>pycaret</code> en vez de <code>pycaret-core</code></td>
+            <td>Borre la carpeta <code>C:\ia\env_pycaret</code> y repita el PASO 1
+            <b>copiando</b> la línea</td></tr>
         </tbody>
       </table>
     </div>
 
-    <div class="nota"><b>Plan B si el internet del salón se cae.</b> El docente lleva los paquetes
-    en una memoria USB. Copie la carpeta de paquetes a su computador y corra la línea que él le
-    dé en el momento: instala en 41 segundos, sin descargar nada, y los resultados salen
-    idénticos. Está probada y está escrita en <code>0_instalar.txt</code>.</div>
+    <div class="nota ok"><b>Los dos <code>ModuleNotFoundError</code> significan lo mismo:</b> se
+    equivocó de entorno. <b>No es que falte instalar nada.</b> Es el tropiezo número uno de estas
+    plantillas y se arregla cambiando una ruta.</div>
   </div>
 
   <div class="pie">
     <span>Diplomado en Inteligencia Artificial · UNAC · Clase 05</span>
     <span>Mg. Alexey David Velásquez Betancurt</span>
     <span>26 de agosto de 2026</span>
-    <span>Todos los pesos y tiempos de esta guía son medidos, no estimados: Windows 10 Pro, Python 3.12.10</span>
+    <span>Los pesos y tiempos son medidos: Windows 10 Pro, Python 3.12.10</span>
+    <span>Los resultados que se citan son de la corrida de referencia del docente; los suyos deben ser iguales o muy parecidos</span>
   </div>
 </div>
 

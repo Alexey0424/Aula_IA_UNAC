@@ -1,0 +1,1006 @@
+﻿movimiento_id,tipo_proveedor,forma_pago,monto,dias_desde_factura,hora_registro,dia_semana,num_aprobadores,soportes_adjuntos,veces_proveedor_mes,pct_desviacion_presupuesto,es_anomalia,patron_sembrado,error_reconstruccion,puntaje_sospecha,se_levanta
+MV-202600098,Arrendamiento,Efectivo,37743000,87,15,2,1,3,4,113.15,1,Sobrecosto con un solo aprobador,0.6020168,2.531,1
+MV-202602845,Arrendamiento,Efectivo,29523000,82,12,3,1,3,3,106.52,1,Sobrecosto con un solo aprobador,0.5462884,2.297,1
+MV-202602341,Insumos medicos,Tarjeta,13197000,102,11,1,1,3,4,105.77,1,Sobrecosto con un solo aprobador,0.512887,2.157,1
+MV-202601030,Arrendamiento,Cheque,30428000,104,10,4,1,3,2,70.02,1,Sobrecosto con un solo aprobador,0.49862453,2.097,1
+MV-202600568,Servicios,Cheque,5556000,90,13,1,1,3,2,122.4,1,Sobrecosto con un solo aprobador,0.4959236,2.085,1
+MV-202601496,Insumos medicos,Efectivo,13109000,100,16,3,1,3,2,95.33,1,Sobrecosto con un solo aprobador,0.48613918,2.044,1
+MV-202601967,Mantenimiento,Tarjeta,3654000,93,14,1,1,3,7,98.95,1,Sobrecosto con un solo aprobador,0.4791825,2.015,1
+MV-202602594,Papeleria,Tarjeta,963000,111,11,2,1,3,3,95.25,1,Sobrecosto con un solo aprobador,0.45517224,1.914,1
+MV-202600261,Servicios,Tarjeta,6726000,90,11,1,1,3,1,94.37,1,Sobrecosto con un solo aprobador,0.45466188,1.912,1
+MV-202601015,Mantenimiento,Efectivo,4084000,80,11,3,1,3,1,84.91,1,Sobrecosto con un solo aprobador,0.42038226,1.768,1
+MV-202602414,Mantenimiento,Tarjeta,2771000,102,12,5,1,3,2,81.05,1,Sobrecosto con un solo aprobador,0.420077,1.766,1
+MV-202600800,Insumos medicos,Cheque,10718000,102,13,3,1,3,1,66.32,1,Sobrecosto con un solo aprobador,0.41453084,1.743,1
+MV-202601764,Insumos medicos,Transferencia,10237000,89,11,3,1,3,5,122.35,1,Sobrecosto con un solo aprobador,0.4123789,1.734,1
+MV-202602403,Insumos medicos,Cheque,9232000,87,10,4,1,3,1,57.92,1,Sobrecosto con un solo aprobador,0.3929119,1.652,1
+MV-202602883,Insumos medicos,Transferencia,7877000,117,15,4,1,3,1,105.41,1,Sobrecosto con un solo aprobador,0.3869667,1.627,1
+MV-202602101,Servicios,Transferencia,5089000,84,14,1,1,3,3,123.99,1,Sobrecosto con un solo aprobador,0.38546965,1.621,1
+MV-202601379,Servicios,Tarjeta,7229000,88,13,2,1,3,3,62.31,1,Sobrecosto con un solo aprobador,0.38210416,1.607,1
+MV-202602833,Insumos medicos,Cheque,427000,2,9,5,1,3,31,2.47,1,Fraccionamiento / pago repetido,0.37592182,1.581,1
+MV-202600073,Mantenimiento,Transferencia,3953000,88,12,3,1,3,2,122.31,1,Sobrecosto con un solo aprobador,0.37262684,1.567,1
+MV-202602505,Insumos medicos,Transferencia,11668000,86,12,2,1,3,1,108.38,1,Sobrecosto con un solo aprobador,0.37110025,1.56,1
+MV-202602166,Insumos medicos,Transferencia,11373000,117,14,1,1,3,3,91.84,1,Sobrecosto con un solo aprobador,0.36995417,1.556,1
+MV-202602286,Servicios,Tarjeta,7838000,107,14,4,1,3,2,46.13,1,Sobrecosto con un solo aprobador,0.36604387,1.539,1
+MV-202601778,Papeleria,Tarjeta,42000,2,16,3,1,3,30,-0.69,1,Fraccionamiento / pago repetido,0.36538118,1.536,1
+MV-202600401,Papeleria,Tarjeta,1040000,78,7,2,1,3,1,51.96,1,Sobrecosto con un solo aprobador,0.3644388,1.532,1
+MV-202602466,Insumos medicos,Transferencia,7828000,111,9,2,1,3,6,83.99,1,Sobrecosto con un solo aprobador,0.36245513,1.524,1
+MV-202602772,Papeleria,Transferencia,1392000,78,9,4,1,3,3,112.81,1,Sobrecosto con un solo aprobador,0.35917613,1.51,1
+MV-202601192,Insumos medicos,Transferencia,8539000,97,11,4,1,3,1,98.32,1,Sobrecosto con un solo aprobador,0.3558047,1.496,1
+MV-202602860,Arrendamiento,Transferencia,25344000,102,11,5,1,3,3,60.7,1,Sobrecosto con un solo aprobador,0.3520807,1.48,1
+MV-202602620,Insumos medicos,Efectivo,694000,1,8,1,1,3,26,0.38,1,Fraccionamiento / pago repetido,0.3517991,1.479,1
+MV-202601776,Mantenimiento,Transferencia,2860000,103,13,4,1,3,2,108.68,1,Sobrecosto con un solo aprobador,0.35159913,1.478,1
+MV-202602831,Insumos medicos,Tarjeta,521000,1,9,2,1,3,25,4.05,1,Fraccionamiento / pago repetido,0.34356576,1.445,1
+MV-202600999,Papeleria,Tarjeta,58000,1,14,5,1,3,27,4.61,1,Fraccionamiento / pago repetido,0.3428422,1.442,1
+MV-202600135,Servicios,Cheque,414000,1,11,5,1,3,25,-0.56,1,Fraccionamiento / pago repetido,0.3323917,1.398,1
+MV-202600333,Insumos medicos,Efectivo,394000,1,8,4,1,3,20,-4.99,1,Fraccionamiento / pago repetido,0.3285854,1.382,1
+MV-202600767,Servicios,Transferencia,7431000,70,8,5,1,3,1,85.83,1,Sobrecosto con un solo aprobador,0.32387793,1.362,1
+MV-202601229,Mantenimiento,Efectivo,20000000,43,8,2,1,1,4,-1.78,1,Monto redondo sin soportes,0.32322615,1.359,1
+MV-202601303,Mantenimiento,Cheque,238000,2,14,1,1,3,24,2.27,1,Fraccionamiento / pago repetido,0.32175767,1.353,1
+MV-202600116,Insumos medicos,Cheque,3311000,5,1,7,2,3,7,-4.19,1,Pago fuera de horario,0.32030886,1.347,1
+MV-202602803,Mantenimiento,Transferencia,2874000,114,8,2,1,3,6,65.57,1,Sobrecosto con un solo aprobador,0.31734696,1.334,1
+MV-202601396,Insumos medicos,Cheque,567000,2,12,5,1,3,21,-0.91,1,Fraccionamiento / pago repetido,0.30856156,1.297,1
+MV-202601504,Papeleria,Cheque,84000,1,14,2,1,3,21,-0.26,1,Fraccionamiento / pago repetido,0.3082218,1.296,1
+MV-202600732,Mantenimiento,Efectivo,20000000,18,8,4,2,1,3,-6.58,1,Monto redondo sin soportes,0.30722308,1.292,1
+MV-202601984,Servicios,Efectivo,15000000,4,13,5,1,1,6,-10.14,1,Monto redondo sin soportes,0.305717,1.285,1
+MV-202601877,Insumos medicos,Cheque,7709000,27,1,7,1,3,2,0.7,1,Pago fuera de horario,0.30448055,1.28,1
+MV-202600291,Insumos medicos,Tarjeta,438000,1,10,3,1,3,19,2.18,1,Fraccionamiento / pago repetido,0.30124682,1.267,1
+MV-202600566,Servicios,Efectivo,20000000,11,15,1,1,1,4,-4.29,1,Monto redondo sin soportes,0.30083153,1.265,1
+MV-202601735,Servicios,Tarjeta,1623000,15,2,7,1,3,7,-0.63,1,Pago fuera de horario,0.30075753,1.265,1
+MV-202600913,Servicios,Tarjeta,2498000,56,5,7,2,3,1,6.01,1,Pago fuera de horario,0.29763636,1.251,1
+MV-202602294,Insumos medicos,Cheque,1853000,10,2,7,2,3,6,4.87,1,Pago fuera de horario,0.29734635,1.25,1
+MV-202600715,Insumos medicos,Tarjeta,632000,2,12,5,1,3,18,5.39,1,Fraccionamiento / pago repetido,0.29603836,1.245,1
+MV-202600042,Insumos medicos,Efectivo,10000000,36,16,3,1,1,1,10.66,1,Monto redondo sin soportes,0.295682,1.243,1
+MV-202600678,Insumos medicos,Efectivo,20000000,30,12,5,1,1,1,-0.19,1,Monto redondo sin soportes,0.2953593,1.242,1
+MV-202600803,Servicios,Cheque,1727000,5,2,7,1,3,4,4.28,1,Pago fuera de horario,0.29256916,1.23,1
+MV-202601922,Mantenimiento,Tarjeta,2076000,6,1,6,2,3,6,5.5,1,Pago fuera de horario,0.2923764,1.229,1
+MV-202602438,Mantenimiento,Transferencia,3249000,96,14,1,1,3,2,75.96,1,Sobrecosto con un solo aprobador,0.29078403,1.223,1
+MV-202601872,Insumos medicos,Efectivo,20000000,12,11,1,2,1,4,-0.61,1,Monto redondo sin soportes,0.29028746,1.221,1
+MV-202600736,Insumos medicos,Cheque,3437000,20,3,7,1,3,4,2.61,1,Pago fuera de horario,0.28911385,1.216,1
+MV-202602581,Mantenimiento,Efectivo,20000000,12,12,5,2,1,3,-4.13,1,Monto redondo sin soportes,0.28679228,1.206,1
+MV-202601075,Papeleria,Tarjeta,370000,35,2,6,2,3,1,9.69,1,Pago fuera de horario,0.28546742,1.2,1
+MV-202600349,Servicios,Efectivo,20000000,14,13,3,2,1,3,8.16,1,Monto redondo sin soportes,0.2848082,1.198,1
+MV-202602042,Papeleria,Tarjeta,436000,23,22,7,1,3,3,9.95,1,Pago fuera de horario,0.28464037,1.197,1
+MV-202600493,Papeleria,Transferencia,882000,116,12,4,1,3,1,68.25,1,Sobrecosto con un solo aprobador,0.28423184,1.195,1
+MV-202602830,Papeleria,Cheque,347000,28,3,7,1,3,1,5.23,1,Pago fuera de horario,0.28395045,1.194,1
+MV-202602906,Insumos medicos,Tarjeta,4945000,13,23,7,1,3,1,3.07,1,Pago fuera de horario,0.28379583,1.193,1
+MV-202601022,Insumos medicos,Transferencia,9123000,88,16,5,1,3,1,57.56,1,Sobrecosto con un solo aprobador,0.28210652,1.186,1
+MV-202601793,Servicios,Efectivo,10000000,31,9,5,2,1,3,4.67,1,Monto redondo sin soportes,0.28018886,1.178,1
+MV-202600257,Papeleria,Efectivo,20000000,21,13,2,2,1,4,2.41,1,Monto redondo sin soportes,0.27852368,1.171,1
+MV-202601470,Servicios,Efectivo,20000000,27,14,2,1,2,4,-0.74,1,Monto redondo sin soportes,0.27764997,1.167,1
+MV-202600864,Mantenimiento,Transferencia,4899000,73,14,4,1,3,2,77.59,1,Sobrecosto con un solo aprobador,0.27695915,1.165,1
+MV-202600254,Servicios,Efectivo,20000000,19,12,1,2,1,3,3.16,1,Monto redondo sin soportes,0.27546164,1.158,1
+MV-202602917,Papeleria,Efectivo,10000000,36,14,2,2,1,4,6.96,1,Monto redondo sin soportes,0.27541164,1.158,1
+MV-202600391,Insumos medicos,Cheque,3420000,29,3,6,1,3,2,4.96,1,Pago fuera de horario,0.27520603,1.157,1
+MV-202600447,Servicios,Efectivo,20000000,21,14,3,1,2,3,-2.86,1,Monto redondo sin soportes,0.27255297,1.146,1
+MV-202600183,Papeleria,Transferencia,1417000,97,11,5,1,3,2,67.2,1,Sobrecosto con un solo aprobador,0.27252045,1.146,1
+MV-202600383,Insumos medicos,Efectivo,20000000,7,13,5,1,2,3,2.93,1,Monto redondo sin soportes,0.27237266,1.145,1
+MV-202602765,Servicios,Transferencia,239000,1,9,3,1,3,33,-2.95,1,Fraccionamiento / pago repetido,0.2719327,1.143,1
+MV-202600247,Insumos medicos,Efectivo,15000000,18,14,4,1,1,2,6.16,1,Monto redondo sin soportes,0.27178618,1.143,1
+MV-202600760,Servicios,Cheque,1675000,16,5,7,1,3,1,6.22,1,Pago fuera de horario,0.27037272,1.137,1
+MV-202601552,Insumos medicos,Cheque,4745000,9,18,4,3,5,2,-8.14,0,-,0.26796868,1.127,1
+MV-202600721,Servicios,Efectivo,10000000,6,14,4,2,1,1,8.82,1,Monto redondo sin soportes,0.26782686,1.126,1
+MV-202602420,Servicios,Efectivo,15000000,40,13,2,1,2,4,2.69,1,Monto redondo sin soportes,0.26700604,1.123,1
+MV-202601317,Insumos medicos,Cheque,2818000,13,19,4,3,2,7,5.97,0,-,0.26598668,1.118,1
+MV-202601488,Servicios,Tarjeta,1246000,16,22,6,1,3,5,-0.55,1,Pago fuera de horario,0.26549187,1.116,1
+MV-202602681,Mantenimiento,Efectivo,15000000,21,12,5,1,1,2,-0.88,1,Monto redondo sin soportes,0.26511943,1.115,1
+MV-202600681,Insumos medicos,Transferencia,345000,2,10,5,1,3,33,-0.43,1,Fraccionamiento / pago repetido,0.2651109,1.115,1
+MV-202602523,Insumos medicos,Cheque,2596000,31,15,2,4,4,10,0.6,0,-,0.26485413,1.114,1
+MV-202601621,Mantenimiento,Efectivo,20000000,26,12,5,1,2,2,2.17,1,Monto redondo sin soportes,0.26414233,1.111,1
+MV-202601843,Insumos medicos,Efectivo,10000000,6,14,2,2,1,3,-1.75,1,Monto redondo sin soportes,0.2623837,1.103,1
+MV-202602722,Papeleria,Tarjeta,306000,8,23,6,2,3,1,-1.52,1,Pago fuera de horario,0.2621736,1.102,1
+MV-202600548,Papeleria,Transferencia,1253000,92,13,4,1,3,1,67.0,1,Sobrecosto con un solo aprobador,0.26150692,1.1,1
+MV-202600248,Insumos medicos,Cheque,2497000,14,22,6,2,3,3,-3.26,1,Pago fuera de horario,0.2602512,1.094,1
+MV-202600032,Insumos medicos,Transferencia,757000,1,8,4,1,3,29,7.96,1,Fraccionamiento / pago repetido,0.2595338,1.091,1
+MV-202601649,Papeleria,Efectivo,20000000,13,13,3,2,2,2,-2.51,1,Monto redondo sin soportes,0.2591444,1.09,1
+MV-202600211,Servicios,Tarjeta,3326000,14,15,1,5,1,4,8.26,0,-,0.25911307,1.089,1
+MV-202601565,Insumos medicos,Efectivo,2813000,5,16,4,3,4,6,8.94,0,-,0.25795814,1.085,1
+MV-202600485,Servicios,Transferencia,245000,2,15,2,1,3,33,1.35,1,Fraccionamiento / pago repetido,0.25632828,1.078,1
+MV-202601131,Mantenimiento,Transferencia,304000,2,12,3,1,3,33,-3.14,1,Fraccionamiento / pago repetido,0.25623187,1.077,1
+MV-202601753,Mantenimiento,Efectivo,15000000,7,11,3,2,2,2,-1.78,1,Monto redondo sin soportes,0.25422964,1.069,1
+MV-202601811,Papeleria,Cheque,174000,25,14,4,1,4,10,0.72,0,-,0.2541375,1.069,1
+MV-202602316,Mantenimiento,Efectivo,5000000,11,9,4,1,1,2,5.79,1,Monto redondo sin soportes,0.25349316,1.066,1
+MV-202601518,Insumos medicos,Cheque,8470000,15,15,3,4,2,8,2.28,0,-,0.2533205,1.065,1
+MV-202601886,Servicios,Tarjeta,2910000,23,17,4,3,5,1,-3.06,0,-,0.25329095,1.065,1
+MV-202601080,Papeleria,Cheque,205000,8,16,1,1,1,2,-4.99,0,-,0.25258815,1.062,1
+MV-202601989,Papeleria,Efectivo,10000000,9,13,2,1,1,2,6.17,1,Monto redondo sin soportes,0.25182706,1.059,1
+MV-202602320,Insumos medicos,Cheque,10745000,42,13,1,4,2,1,-2.98,0,-,0.25116143,1.056,1
+MV-202602550,Papeleria,Tarjeta,322000,27,5,6,2,3,1,0.43,1,Pago fuera de horario,0.25062442,1.054,1
+MV-202602725,Mantenimiento,Tarjeta,849000,10,5,6,2,3,1,5.7,1,Pago fuera de horario,0.2504648,1.053,1
+MV-202602256,Arrendamiento,Cheque,26362000,36,12,3,5,2,4,-1.26,0,-,0.25005946,1.051,1
+MV-202602773,Papeleria,Transferencia,934000,87,11,3,1,3,1,59.72,1,Sobrecosto con un solo aprobador,0.2500274,1.051,1
+MV-202602489,Papeleria,Tarjeta,405000,11,3,6,1,3,2,1.88,1,Pago fuera de horario,0.24991322,1.051,1
+MV-202601252,Insumos medicos,Cheque,2222000,7,15,3,3,2,6,9.12,0,-,0.24964139,1.05,1
+MV-202602641,Insumos medicos,Tarjeta,1368000,52,15,5,3,2,1,-0.83,0,-,0.24957553,1.049,1
+MV-202600013,Insumos medicos,Efectivo,10000000,10,12,4,1,2,4,-1.76,1,Monto redondo sin soportes,0.24922559,1.048,1
+MV-202600859,Servicios,Efectivo,10000000,16,9,4,2,2,1,4.9,1,Monto redondo sin soportes,0.24870078,1.046,1
+MV-202601590,Papeleria,Cheque,214000,7,9,1,1,2,4,-4.86,0,-,0.24866806,1.046,1
+MV-202602597,Papeleria,Efectivo,5000000,18,11,5,1,1,1,-1.3,1,Monto redondo sin soportes,0.24834311,1.044,1
+MV-202601801,Insumos medicos,Efectivo,3103000,7,8,2,4,2,6,-0.47,0,-,0.24823192,1.044,1
+MV-202602188,Arrendamiento,Transferencia,899000,2,12,3,1,3,33,2.27,1,Fraccionamiento / pago repetido,0.24820939,1.044,1
+MV-202601845,Papeleria,Cheque,483000,27,8,5,2,2,5,2.49,0,-,0.2479316,1.042,1
+MV-202600360,Mantenimiento,Efectivo,10000000,14,11,1,2,1,3,2.66,1,Monto redondo sin soportes,0.24788873,1.042,1
+MV-202600231,Servicios,Tarjeta,928000,34,13,1,2,1,5,5.28,0,-,0.24750754,1.041,1
+MV-202600541,Servicios,Transferencia,310000,2,12,5,1,3,31,-3.35,1,Fraccionamiento / pago repetido,0.24702756,1.039,1
+MV-202602501,Insumos medicos,Efectivo,5000000,19,15,1,1,2,4,-1.66,1,Monto redondo sin soportes,0.24662313,1.037,1
+MV-202602248,Servicios,Cheque,2762000,18,7,3,4,4,6,3.69,0,-,0.24652103,1.037,1
+MV-202602298,Insumos medicos,Transferencia,669000,2,11,4,1,3,31,-0.91,1,Fraccionamiento / pago repetido,0.24645656,1.036,1
+MV-202600282,Servicios,Tarjeta,2654000,5,10,1,4,4,7,-2.05,0,-,0.24598211,1.034,1
+MV-202600003,Mantenimiento,Tarjeta,2014000,28,10,2,4,2,6,6.31,0,-,0.24581547,1.034,1
+MV-202602059,Servicios,Cheque,1268000,41,10,5,3,2,2,-6.39,0,-,0.24573612,1.033,1
+MV-202602324,Servicios,Efectivo,15000000,19,13,4,1,2,1,2.28,1,Monto redondo sin soportes,0.24561618,1.033,1
+MV-202602478,Insumos medicos,Tarjeta,5093000,12,17,1,4,4,5,-1.16,0,-,0.2456076,1.033,1
+MV-202602378,Arrendamiento,Tarjeta,6255000,34,12,1,4,2,6,6.55,0,-,0.24556929,1.033,1
+MV-202600334,Insumos medicos,Transferencia,420000,1,13,1,1,3,32,1.44,1,Fraccionamiento / pago repetido,0.24490845,1.03,1
+MV-202602287,Servicios,Cheque,1974000,22,15,1,2,2,6,6.91,0,-,0.24466006,1.029,1
+MV-202600689,Insumos medicos,Cheque,4874000,20,15,5,4,5,3,-1.49,0,-,0.24401662,1.026,1
+MV-202601846,Mantenimiento,Tarjeta,750000,37,12,1,2,2,7,-1.05,0,-,0.24339984,1.023,1
+MV-202602750,Servicios,Cheque,1355000,14,17,5,3,2,6,1.52,0,-,0.24296942,1.022,1
+MV-202601256,Insumos medicos,Cheque,5829000,22,15,5,5,2,5,3.27,0,-,0.2424738,1.02,1
+MV-202602172,Insumos medicos,Tarjeta,10152000,9,17,5,5,3,5,3.55,0,-,0.2422257,1.018,1
+MV-202601189,Papeleria,Efectivo,10000000,21,13,2,2,1,2,3.45,1,Monto redondo sin soportes,0.24206714,1.018,1
+MV-202601544,Mantenimiento,Cheque,911000,31,15,1,2,1,1,-0.49,0,-,0.24141932,1.015,1
+MV-202601763,Servicios,Transferencia,448000,1,10,3,1,3,28,7.39,1,Fraccionamiento / pago repetido,0.24140759,1.015,1
+MV-202602132,Insumos medicos,Tarjeta,4628000,4,10,5,5,2,4,3.9,0,-,0.2413509,1.015,1
+MV-202600293,Arrendamiento,Cheque,8534000,35,13,1,4,4,3,-2.96,0,-,0.24103254,1.013,1
+MV-202602103,Mantenimiento,Tarjeta,1291000,7,9,2,3,4,1,-6.72,0,-,0.2401482,1.01,1
+MV-202600203,Servicios,Cheque,1998000,10,8,4,3,3,5,11.19,0,-,0.23971872,1.008,1
+MV-202602146,Servicios,Cheque,2572000,32,16,1,4,4,2,-5.18,0,-,0.23935696,1.006,1
+MV-202601613,Arrendamiento,Cheque,4889000,4,17,4,4,4,3,-0.82,0,-,0.23857944,1.003,1
+MV-202600176,Mantenimiento,Tarjeta,1363000,18,18,4,3,4,1,-3.54,0,-,0.23844436,1.003,1
+MV-202602648,Papeleria,Tarjeta,260000,9,10,5,2,2,2,12.76,0,-,0.23831594,1.002,1
+MV-202602844,Papeleria,Cheque,286000,24,10,3,1,4,5,4.27,0,-,0.23830481,1.002,1
+MV-202601928,Insumos medicos,Cheque,2124000,21,13,5,3,3,10,3.09,0,-,0.2380011,1.001,1
+MV-202602915,Insumos medicos,Cheque,2281000,33,12,2,3,2,5,-5.52,0,-,0.23789585,1.0,1
+MV-202600351,Arrendamiento,Cheque,11882000,8,14,1,4,2,1,3.83,0,-,0.23767169,0.999,0
+MV-202602627,Mantenimiento,Transferencia,274000,1,16,4,1,3,28,4.5,1,Fraccionamiento / pago repetido,0.23713611,0.997,0
+MV-202601896,Insumos medicos,Cheque,4179000,27,14,2,5,4,4,4.3,0,-,0.23702237,0.997,0
+MV-202602398,Insumos medicos,Cheque,1482000,30,17,2,2,4,4,1.81,0,-,0.23699898,0.997,0
+MV-202602434,Insumos medicos,Cheque,3888000,7,13,5,4,4,5,-4.56,0,-,0.23649594,0.994,0
+MV-202600975,Insumos medicos,Cheque,1065000,5,9,5,2,3,5,6.92,0,-,0.23613141,0.993,0
+MV-202601369,Servicios,Cheque,1901000,37,11,2,2,2,5,3.08,0,-,0.23598096,0.992,0
+MV-202600876,Insumos medicos,Cheque,4003000,20,16,2,5,4,1,3.57,0,-,0.2359294,0.992,0
+MV-202601799,Servicios,Cheque,2068000,24,12,1,3,3,10,5.43,0,-,0.23592043,0.992,0
+MV-202602642,Mantenimiento,Tarjeta,1043000,22,14,5,2,5,4,1.23,0,-,0.23589954,0.992,0
+MV-202600928,Insumos medicos,Efectivo,5000000,13,11,4,2,1,2,-1.21,1,Monto redondo sin soportes,0.23574843,0.991,0
+MV-202601049,Mantenimiento,Cheque,382000,17,9,5,2,3,7,4.07,0,-,0.23548552,0.99,0
+MV-202601802,Arrendamiento,Cheque,17478000,8,13,2,5,4,1,-4.94,0,-,0.23516782,0.989,0
+MV-202601382,Servicios,Tarjeta,3898000,21,15,4,4,4,1,-7.85,0,-,0.23513816,0.989,0
+MV-202602033,Insumos medicos,Efectivo,1513000,17,16,4,2,3,7,6.47,0,-,0.2349099,0.988,0
+MV-202600276,Insumos medicos,Cheque,4923000,2,15,4,4,4,1,-3.01,0,-,0.23489855,0.988,0
+MV-202601155,Servicios,Tarjeta,1373000,61,13,3,3,3,3,-5.1,0,-,0.23479615,0.987,0
+MV-202600027,Insumos medicos,Tarjeta,1306000,24,17,2,3,2,2,7.82,0,-,0.23479097,0.987,0
+MV-202600487,Servicios,Efectivo,1639000,14,17,1,3,4,5,0.75,0,-,0.23455398,0.986,0
+MV-202600953,Insumos medicos,Cheque,4160000,28,14,5,4,2,4,-1.59,0,-,0.2345008,0.986,0
+MV-202600563,Insumos medicos,Efectivo,1674000,23,7,1,4,2,1,0.63,0,-,0.23400411,0.984,0
+MV-202601626,Insumos medicos,Efectivo,3304000,23,11,5,4,2,2,-10.04,0,-,0.23396388,0.984,0
+MV-202600361,Servicios,Tarjeta,1958000,6,17,3,3,4,2,-3.72,0,-,0.23396228,0.984,0
+MV-202600815,Insumos medicos,Tarjeta,2239000,30,15,3,3,4,3,7.2,0,-,0.23371086,0.983,0
+MV-202600586,Mantenimiento,Tarjeta,1680000,1,14,3,3,4,5,4.1,0,-,0.23356271,0.982,0
+MV-202600883,Mantenimiento,Efectivo,949000,23,17,5,3,3,5,-0.62,0,-,0.23336874,0.981,0
+MV-202601052,Insumos medicos,Efectivo,5000000,9,14,5,2,2,1,-1.82,1,Monto redondo sin soportes,0.23314546,0.98,0
+MV-202600468,Servicios,Tarjeta,1134000,19,10,5,3,4,3,8.42,0,-,0.23309685,0.98,0
+MV-202601318,Servicios,Efectivo,1364000,10,18,4,3,2,2,5.2,0,-,0.23287536,0.979,0
+MV-202601143,Mantenimiento,Cheque,916000,24,11,5,3,4,3,-5.79,0,-,0.23258564,0.978,0
+MV-202602084,Insumos medicos,Cheque,1861000,51,10,1,4,3,3,6.56,0,-,0.23244236,0.977,0
+MV-202602798,Servicios,Cheque,4027000,3,13,3,4,5,3,-1.11,0,-,0.23243773,0.977,0
+MV-202601663,Servicios,Efectivo,2753000,27,18,5,4,3,3,-1.34,0,-,0.23218074,0.976,0
+MV-202601582,Papeleria,Cheque,214000,27,12,2,2,4,6,5.22,0,-,0.23211044,0.976,0
+MV-202601383,Servicios,Cheque,2049000,5,8,3,3,4,2,-2.95,0,-,0.23208238,0.976,0
+MV-202602080,Servicios,Cheque,1463000,9,19,4,3,3,4,4.21,0,-,0.23168504,0.974,0
+MV-202600821,Insumos medicos,Cheque,2418000,19,18,3,3,4,1,0.6,0,-,0.23165086,0.974,0
+MV-202602706,Mantenimiento,Cheque,2898000,14,17,5,4,4,3,-0.41,0,-,0.23159052,0.974,0
+MV-202600889,Arrendamiento,Cheque,10935000,15,17,3,5,3,6,3.25,0,-,0.23144202,0.973,0
+MV-202600789,Servicios,Cheque,2516000,45,17,3,3,3,1,0.87,0,-,0.23139918,0.973,0
+MV-202601062,Insumos medicos,Cheque,1632000,22,17,1,4,4,1,1.3,0,-,0.23128355,0.972,0
+MV-202602633,Insumos medicos,Cheque,2562000,15,7,1,3,4,3,-0.82,0,-,0.23110457,0.972,0
+MV-202600012,Insumos medicos,Efectivo,4022000,33,16,2,4,3,6,1.61,0,-,0.23063585,0.97,0
+MV-202601411,Servicios,Tarjeta,2782000,8,16,5,3,2,1,2.06,0,-,0.2305322,0.969,0
+MV-202602850,Insumos medicos,Cheque,4282000,8,11,3,4,2,5,-2.18,0,-,0.23002182,0.967,0
+MV-202600362,Insumos medicos,Efectivo,1952000,28,16,4,3,4,1,3.42,0,-,0.2299688,0.967,0
+MV-202602335,Insumos medicos,Tarjeta,2794000,19,8,3,4,4,2,-4.18,0,-,0.22981344,0.966,0
+MV-202600880,Servicios,Tarjeta,2766000,35,15,1,3,4,3,2.11,0,-,0.22971833,0.966,0
+MV-202600542,Mantenimiento,Tarjeta,680000,12,17,5,2,4,3,0.02,0,-,0.22971547,0.966,0
+MV-202600565,Mantenimiento,Efectivo,5000000,14,9,3,2,2,3,2.19,1,Monto redondo sin soportes,0.22946005,0.965,0
+MV-202602027,Insumos medicos,Efectivo,2381000,5,17,3,3,4,2,-0.06,0,-,0.22921833,0.964,0
+MV-202600920,Arrendamiento,Tarjeta,11252000,16,17,1,5,4,2,-1.69,0,-,0.22916682,0.964,0
+MV-202602053,Mantenimiento,Efectivo,5000000,26,12,4,1,2,3,-0.08,1,Monto redondo sin soportes,0.22893156,0.963,0
+MV-202602851,Insumos medicos,Efectivo,5032000,3,15,4,4,2,1,3.12,0,-,0.22892843,0.963,0
+MV-202600647,Insumos medicos,Tarjeta,2491000,24,16,4,2,2,3,2.68,0,-,0.22878148,0.962,0
+MV-202602494,Servicios,Efectivo,1650000,4,14,5,4,4,1,-0.92,0,-,0.22813614,0.959,0
+MV-202601182,Papeleria,Cheque,451000,9,13,4,3,2,5,6.03,0,-,0.22809713,0.959,0
+MV-202600851,Papeleria,Cheque,411000,12,17,1,2,4,3,-0.75,0,-,0.22805542,0.959,0
+MV-202600626,Servicios,Cheque,2315000,7,16,4,3,2,3,3.77,0,-,0.22802831,0.959,0
+MV-202602369,Insumos medicos,Cheque,3660000,12,10,5,3,2,3,3.31,0,-,0.22728962,0.956,0
+MV-202602574,Servicios,Tarjeta,2266000,14,11,2,3,4,4,9.48,0,-,0.22720423,0.955,0
+MV-202601772,Insumos medicos,Cheque,2090000,8,10,2,3,4,4,4.51,0,-,0.22701924,0.955,0
+MV-202600088,Insumos medicos,Cheque,3798000,13,17,3,4,3,1,10.28,0,-,0.2270054,0.954,0
+MV-202600733,Insumos medicos,Tarjeta,3540000,24,9,1,3,4,1,1.07,0,-,0.22678916,0.954,0
+MV-202602427,Mantenimiento,Cheque,836000,18,7,2,3,3,1,-5.37,0,-,0.22676124,0.953,0
+MV-202602827,Insumos medicos,Efectivo,3682000,8,11,5,4,4,1,-4.1,0,-,0.22667529,0.953,0
+MV-202602269,Servicios,Tarjeta,2437000,17,15,4,4,2,5,1.04,0,-,0.22653905,0.953,0
+MV-202601166,Mantenimiento,Cheque,1272000,9,9,5,3,4,3,1.14,0,-,0.22607668,0.951,0
+MV-202602290,Papeleria,Transferencia,79000,2,13,2,1,3,28,-2.03,1,Fraccionamiento / pago repetido,0.22607519,0.951,0
+MV-202602464,Insumos medicos,Cheque,3134000,6,12,1,4,4,1,11.74,0,-,0.22590676,0.95,0
+MV-202600457,Arrendamiento,Cheque,12518000,19,16,2,5,2,1,2.8,0,-,0.2256479,0.949,0
+MV-202600161,Arrendamiento,Tarjeta,10100000,34,11,4,5,4,4,1.2,0,-,0.22550543,0.948,0
+MV-202601540,Papeleria,Tarjeta,374000,10,16,5,2,4,3,2.33,0,-,0.22539523,0.948,0
+MV-202601375,Mantenimiento,Efectivo,927000,11,14,1,2,3,5,-8.47,0,-,0.22524105,0.947,0
+MV-202602766,Insumos medicos,Cheque,2586000,14,7,2,4,3,1,7.36,0,-,0.22517249,0.947,0
+MV-202602317,Insumos medicos,Tarjeta,1243000,15,11,5,3,3,7,-1.7,0,-,0.22499345,0.946,0
+MV-202602177,Servicios,Cheque,1667000,22,9,3,3,2,2,7.05,0,-,0.22492464,0.946,0
+MV-202602771,Servicios,Cheque,1975000,19,15,1,3,4,1,7.14,0,-,0.22492069,0.946,0
+MV-202602901,Insumos medicos,Efectivo,5511000,11,14,1,3,2,1,3.64,0,-,0.22489099,0.946,0
+MV-202602067,Insumos medicos,Cheque,5538000,14,13,4,5,3,6,7.6,0,-,0.22474606,0.945,0
+MV-202600705,Insumos medicos,Cheque,2762000,14,14,2,3,2,4,6.52,0,-,0.22459975,0.944,0
+MV-202601604,Insumos medicos,Cheque,3449000,9,15,2,4,2,2,-3.75,0,-,0.2243668,0.943,0
+MV-202600646,Servicios,Cheque,2136000,7,9,3,3,3,5,-1.55,0,-,0.2242305,0.943,0
+MV-202600209,Insumos medicos,Cheque,3155000,20,17,1,3,3,1,-3.57,0,-,0.22416557,0.943,0
+MV-202600458,Insumos medicos,Tarjeta,5496000,25,9,5,4,3,3,-1.9,0,-,0.22404626,0.942,0
+MV-202600904,Servicios,Tarjeta,1974000,6,17,3,3,2,2,1.71,0,-,0.22382997,0.941,0
+MV-202601688,Insumos medicos,Tarjeta,4932000,23,15,3,4,2,2,5.92,0,-,0.22377227,0.941,0
+MV-202602704,Insumos medicos,Transferencia,759000,1,10,5,1,3,24,6.46,1,Fraccionamiento / pago repetido,0.22374259,0.941,0
+MV-202601135,Insumos medicos,Cheque,3558000,17,17,3,4,3,4,-3.65,0,-,0.2237301,0.941,0
+MV-202601780,Arrendamiento,Cheque,9312000,25,16,5,5,3,1,4.21,0,-,0.22370341,0.941,0
+MV-202602727,Insumos medicos,Tarjeta,4966000,8,15,4,4,4,1,2.5,0,-,0.22353302,0.94,0
+MV-202602281,Mantenimiento,Cheque,1035000,19,9,5,3,3,4,-2.79,0,-,0.22351503,0.94,0
+MV-202601236,Papeleria,Efectivo,502000,6,10,2,2,3,6,3.79,0,-,0.22345161,0.94,0
+MV-202601786,Mantenimiento,Transferencia,4185000,87,13,3,1,3,1,45.5,1,Sobrecosto con un solo aprobador,0.22338015,0.939,0
+MV-202601577,Mantenimiento,Tarjeta,885000,20,7,5,3,3,2,5.14,0,-,0.22337237,0.939,0
+MV-202601210,Papeleria,Cheque,252000,23,13,4,2,4,4,7.35,0,-,0.2233672,0.939,0
+MV-202601225,Servicios,Cheque,1652000,21,9,1,3,2,3,-1.39,0,-,0.2233334,0.939,0
+MV-202602440,Insumos medicos,Tarjeta,3480000,17,16,3,3,3,5,-1.24,0,-,0.22321141,0.939,0
+MV-202601077,Arrendamiento,Cheque,17078000,23,15,3,5,2,2,-2.28,0,-,0.22314171,0.938,0
+MV-202601409,Mantenimiento,Efectivo,1763000,12,13,2,3,2,1,10.57,0,-,0.2228877,0.937,0
+MV-202601158,Servicios,Tarjeta,2108000,7,12,2,4,3,3,16.14,0,-,0.22285646,0.937,0
+MV-202601636,Servicios,Cheque,1753000,36,14,2,3,4,3,0.18,0,-,0.22285388,0.937,0
+MV-202601386,Insumos medicos,Tarjeta,4464000,16,8,2,4,2,1,2.74,0,-,0.22280496,0.937,0
+MV-202601880,Servicios,Tarjeta,2938000,16,11,4,4,4,5,-1.65,0,-,0.22272946,0.937,0
+MV-202601165,Papeleria,Cheque,251000,6,10,3,3,2,2,-1.8,0,-,0.22272281,0.936,0
+MV-202600280,Mantenimiento,Tarjeta,820000,16,16,1,3,2,3,3.99,0,-,0.2224561,0.935,0
+MV-202602566,Insumos medicos,Tarjeta,3431000,6,9,4,3,3,4,-0.64,0,-,0.22244412,0.935,0
+MV-202601193,Papeleria,Cheque,234000,16,12,4,2,5,4,1.7,0,-,0.22238448,0.935,0
+MV-202601523,Insumos medicos,Efectivo,4276000,18,12,1,4,2,3,12.12,0,-,0.22220491,0.934,0
+MV-202601982,Servicios,Tarjeta,1870000,9,9,3,3,2,3,2.66,0,-,0.2220882,0.934,0
+MV-202601205,Insumos medicos,Tarjeta,2425000,21,10,2,3,4,4,3.25,0,-,0.22203256,0.934,0
+MV-202600590,Insumos medicos,Tarjeta,3531000,13,11,5,4,4,1,-3.63,0,-,0.22164528,0.932,0
+MV-202600356,Insumos medicos,Tarjeta,3483000,15,14,4,3,4,1,-3.31,0,-,0.22144598,0.931,0
+MV-202600173,Mantenimiento,Tarjeta,1645000,19,15,1,3,3,5,7.51,0,-,0.22143939,0.931,0
+MV-202600987,Mantenimiento,Tarjeta,1147000,24,16,1,3,2,2,0.22,0,-,0.22133656,0.931,0
+MV-202602849,Insumos medicos,Cheque,4305000,3,13,4,4,2,4,2.67,0,-,0.22123906,0.93,0
+MV-202600974,Mantenimiento,Cheque,827000,34,12,2,2,3,7,1.32,0,-,0.22105715,0.929,0
+MV-202600584,Mantenimiento,Tarjeta,1112000,24,12,1,3,3,7,-2.03,0,-,0.22058044,0.927,0
+MV-202601031,Insumos medicos,Cheque,1448000,30,10,3,3,4,2,-0.58,0,-,0.22057375,0.927,0
+MV-202601844,Insumos medicos,Cheque,2448000,29,10,4,3,4,2,-0.26,0,-,0.22054748,0.927,0
+MV-202601659,Papeleria,Cheque,450000,23,10,3,2,3,5,-2.59,0,-,0.22038043,0.927,0
+MV-202601686,Papeleria,Cheque,118000,27,15,3,2,2,1,1.58,0,-,0.22034013,0.926,0
+MV-202601280,Arrendamiento,Transferencia,1354000,2,11,1,1,3,26,3.39,1,Fraccionamiento / pago repetido,0.21999826,0.925,0
+MV-202600040,Insumos medicos,Cheque,3291000,18,9,5,3,3,4,0.26,0,-,0.21997562,0.925,0
+MV-202600194,Papeleria,Cheque,358000,14,14,2,2,4,5,0.77,0,-,0.21988115,0.925,0
+MV-202601311,Mantenimiento,Tarjeta,1120000,4,13,2,2,4,2,-5.74,0,-,0.21983513,0.924,0
+MV-202602250,Insumos medicos,Cheque,3799000,29,10,1,4,4,2,4.86,0,-,0.21977594,0.924,0
+MV-202602856,Insumos medicos,Tarjeta,7191000,9,10,4,5,3,4,-3.99,0,-,0.21973813,0.924,0
+MV-202601555,Servicios,Efectivo,1948000,7,18,4,3,3,3,2.43,0,-,0.21968992,0.924,0
+MV-202600177,Papeleria,Cheque,340000,14,9,3,2,3,1,-6.73,0,-,0.21968599,0.924,0
+MV-202600951,Insumos medicos,Efectivo,3907000,10,14,4,3,4,1,2.87,0,-,0.21967843,0.924,0
+MV-202602948,Servicios,Transferencia,310000,1,13,3,1,3,28,0.75,1,Fraccionamiento / pago repetido,0.21957296,0.923,0
+MV-202602283,Insumos medicos,Efectivo,3300000,18,13,1,4,1,2,4.62,0,-,0.21952172,0.923,0
+MV-202600413,Servicios,Tarjeta,2120000,17,14,1,4,3,6,-2.0,0,-,0.21931297,0.922,0
+MV-202602071,Arrendamiento,Cheque,10369000,31,12,5,5,3,5,-1.54,0,-,0.21914656,0.921,0
+MV-202602397,Insumos medicos,Cheque,1122000,7,16,2,2,3,4,-1.66,0,-,0.21910354,0.921,0
+MV-202601944,Insumos medicos,Cheque,3379000,11,14,2,4,4,2,7.5,0,-,0.21898867,0.921,0
+MV-202602343,Insumos medicos,Cheque,1908000,12,11,1,3,2,3,8.04,0,-,0.21874392,0.92,0
+MV-202600402,Insumos medicos,Tarjeta,4260000,4,11,5,4,3,1,7.9,0,-,0.21872616,0.92,0
+MV-202600919,Papeleria,Tarjeta,275000,25,8,5,2,3,2,-1.08,0,-,0.2186594,0.919,0
+MV-202602726,Servicios,Cheque,1042000,19,15,3,2,2,3,-1.63,0,-,0.21857408,0.919,0
+MV-202602522,Servicios,Cheque,2038000,29,10,2,2,3,5,2.13,0,-,0.21856022,0.919,0
+MV-202600661,Papeleria,Cheque,262000,9,9,2,2,3,5,2.28,0,-,0.21845053,0.919,0
+MV-202601328,Arrendamiento,Tarjeta,13526000,20,9,3,5,3,5,-1.48,0,-,0.21817361,0.917,0
+MV-202600797,Insumos medicos,Cheque,5977000,4,9,1,4,3,3,-0.51,0,-,0.21807338,0.917,0
+MV-202601001,Insumos medicos,Cheque,2433000,8,12,1,3,2,5,2.44,0,-,0.21786858,0.916,0
+MV-202602370,Servicios,Cheque,2772000,7,11,5,3,3,1,-5.18,0,-,0.2177223,0.915,0
+MV-202600046,Insumos medicos,Efectivo,3153000,23,13,1,4,2,3,-2.81,0,-,0.21767186,0.915,0
+MV-202602957,Papeleria,Cheque,382000,9,15,1,2,2,3,0.81,0,-,0.21758632,0.915,0
+MV-202600768,Arrendamiento,Tarjeta,14195000,15,12,2,5,3,6,8.94,0,-,0.21747808,0.914,0
+MV-202602672,Insumos medicos,Tarjeta,1613000,16,17,1,3,3,2,-5.93,0,-,0.21704702,0.913,0
+MV-202601013,Arrendamiento,Tarjeta,8894000,13,14,1,5,3,4,-4.47,0,-,0.21692632,0.912,0
+MV-202602853,Papeleria,Transferencia,46000,2,12,5,1,3,27,0.92,1,Fraccionamiento / pago repetido,0.21690576,0.912,0
+MV-202601149,Insumos medicos,Cheque,2538000,10,16,3,3,3,1,6.02,0,-,0.21684739,0.912,0
+MV-202602539,Mantenimiento,Cheque,448000,12,14,1,2,4,3,-2.48,0,-,0.2167769,0.911,0
+MV-202602611,Mantenimiento,Cheque,1558000,7,13,5,4,2,2,4.1,0,-,0.21674511,0.911,0
+MV-202601397,Papeleria,Tarjeta,217000,31,14,5,2,3,4,3.0,0,-,0.2165527,0.911,0
+MV-202602515,Servicios,Cheque,2294000,21,17,3,3,3,2,-3.9,0,-,0.21653853,0.91,0
+MV-202602235,Insumos medicos,Cheque,2964000,12,10,4,4,4,3,-0.0,0,-,0.21652569,0.91,0
+MV-202600890,Servicios,Cheque,2373000,17,10,2,3,4,4,2.29,0,-,0.21620388,0.909,0
+MV-202601489,Servicios,Cheque,1954000,6,16,4,4,3,1,3.44,0,-,0.21601538,0.908,0
+MV-202601051,Insumos medicos,Cheque,2584000,6,15,5,3,3,3,-1.32,0,-,0.21600872,0.908,0
+MV-202602251,Insumos medicos,Efectivo,3014000,11,16,4,3,3,1,5.05,0,-,0.21592948,0.908,0
+MV-202602800,Insumos medicos,Cheque,1957000,26,9,2,3,3,1,-2.35,0,-,0.21547534,0.906,0
+MV-202600393,Insumos medicos,Tarjeta,1483000,7,10,4,3,3,2,-7.06,0,-,0.2151983,0.905,0
+MV-202601630,Papeleria,Cheque,393000,12,12,1,2,3,6,7.49,0,-,0.21516651,0.905,0
+MV-202602795,Servicios,Efectivo,1687000,16,11,4,3,4,1,-3.08,0,-,0.214842,0.903,0
+MV-202601412,Mantenimiento,Cheque,1307000,25,17,2,3,3,1,1.31,0,-,0.21455257,0.902,0
+MV-202601087,Arrendamiento,Efectivo,12200000,39,11,2,5,3,1,5.69,0,-,0.21452914,0.902,0
+MV-202600518,Servicios,Cheque,1455000,20,15,2,3,4,3,2.34,0,-,0.21423154,0.901,0
+MV-202600729,Mantenimiento,Cheque,694000,36,12,4,3,3,3,7.09,0,-,0.21420321,0.901,0
+MV-202601669,Insumos medicos,Cheque,5927000,10,9,4,5,3,3,3.86,0,-,0.21410033,0.9,0
+MV-202602154,Servicios,Cheque,3250000,16,7,3,4,3,1,3.52,0,-,0.21399584,0.9,0
+MV-202601977,Insumos medicos,Tarjeta,5310000,21,17,4,4,3,2,3.2,0,-,0.21386369,0.899,0
+MV-202602163,Servicios,Cheque,1801000,32,14,4,3,3,4,3.99,0,-,0.21380898,0.899,0
+MV-202602086,Papeleria,Cheque,243000,29,10,5,2,3,1,1.92,0,-,0.21379927,0.899,0
+MV-202600547,Insumos medicos,Tarjeta,2824000,8,10,5,4,3,3,4.67,0,-,0.21377328,0.899,0
+MV-202602006,Insumos medicos,Cheque,7331000,20,13,2,4,2,3,1.94,0,-,0.21353264,0.898,0
+MV-202602413,Insumos medicos,Tarjeta,3701000,28,16,2,4,3,1,2.69,0,-,0.21347205,0.898,0
+MV-202601529,Arrendamiento,Cheque,9906000,20,9,2,5,3,4,-0.46,0,-,0.21338737,0.897,0
+MV-202600576,Servicios,Cheque,1408000,13,10,1,3,4,1,3.26,0,-,0.21325128,0.897,0
+MV-202602852,Arrendamiento,Cheque,14223000,18,13,1,5,3,4,-2.87,0,-,0.21300672,0.896,0
+MV-202602453,Papeleria,Efectivo,228000,14,11,4,2,3,4,-5.77,0,-,0.21294136,0.895,0
+MV-202600794,Mantenimiento,Tarjeta,1709000,18,14,3,3,3,5,6.1,0,-,0.21289665,0.895,0
+MV-202600676,Servicios,Tarjeta,2868000,21,16,4,3,3,2,-3.14,0,-,0.21245609,0.893,0
+MV-202601476,Servicios,Cheque,470000,22,11,2,2,3,4,7.94,0,-,0.2124123,0.893,0
+MV-202602155,Arrendamiento,Cheque,6454000,15,13,2,4,3,4,7.27,0,-,0.21232376,0.893,0
+MV-202602308,Papeleria,Tarjeta,425000,6,10,1,3,3,1,-2.3,0,-,0.212181,0.892,0
+MV-202601554,Insumos medicos,Tarjeta,3426000,22,13,3,3,4,1,2.25,0,-,0.21197268,0.891,0
+MV-202601608,Insumos medicos,Cheque,6767000,10,13,5,4,3,2,7.55,0,-,0.21182877,0.891,0
+MV-202600475,Insumos medicos,Tarjeta,2836000,12,13,1,4,3,5,6.45,0,-,0.2114351,0.889,0
+MV-202601499,Mantenimiento,Tarjeta,497000,24,11,2,2,4,2,3.96,0,-,0.2111772,0.888,0
+MV-202602588,Servicios,Transferencia,230000,2,12,4,1,3,25,5.82,1,Fraccionamiento / pago repetido,0.21108223,0.888,0
+MV-202600481,Papeleria,Cheque,461000,19,14,5,1,2,2,2.03,0,-,0.21102843,0.887,0
+MV-202602762,Papeleria,Tarjeta,133000,29,11,1,2,3,1,6.51,0,-,0.21099259,0.887,0
+MV-202601646,Insumos medicos,Tarjeta,1840000,13,12,2,3,2,4,3.24,0,-,0.21094188,0.887,0
+MV-202602037,Insumos medicos,Tarjeta,4570000,8,11,5,4,3,1,-2.29,0,-,0.21092176,0.887,0
+MV-202600264,Mantenimiento,Efectivo,1191000,6,9,4,3,3,1,2.29,0,-,0.21062,0.886,0
+MV-202602612,Servicios,Cheque,1167000,4,11,1,3,3,4,5.37,0,-,0.21059574,0.885,0
+MV-202601346,Mantenimiento,Cheque,1836000,26,10,2,2,3,1,4.4,0,-,0.21058857,0.885,0
+MV-202600593,Papeleria,Cheque,157000,8,15,3,1,3,4,1.88,0,-,0.21054517,0.885,0
+MV-202600762,Insumos medicos,Tarjeta,3017000,15,11,2,3,2,3,0.72,0,-,0.210534,0.885,0
+MV-202602549,Insumos medicos,Cheque,3159000,15,9,4,4,3,2,8.73,0,-,0.21053007,0.885,0
+MV-202602585,Insumos medicos,Cheque,1625000,20,11,3,2,3,1,8.79,0,-,0.2104372,0.885,0
+MV-202600086,Papeleria,Tarjeta,567000,18,13,3,1,4,1,4.03,0,-,0.2104226,0.885,0
+MV-202601173,Mantenimiento,Cheque,1007000,21,9,1,3,3,1,4.83,0,-,0.21035302,0.884,0
+MV-202601402,Insumos medicos,Cheque,2911000,22,14,3,4,3,2,-6.92,0,-,0.21033713,0.884,0
+MV-202601771,Insumos medicos,Tarjeta,3547000,3,10,2,4,3,3,-0.7,0,-,0.21015888,0.884,0
+MV-202600707,Mantenimiento,Cheque,1101000,22,12,1,3,4,1,4.45,0,-,0.21011178,0.883,0
+MV-202602786,Insumos medicos,Efectivo,1801000,22,12,4,4,4,3,2.5,0,-,0.21001095,0.883,0
+MV-202600683,Insumos medicos,Cheque,2943000,12,9,5,4,3,1,0.76,0,-,0.20997061,0.883,0
+MV-202602978,Servicios,Cheque,1461000,11,9,4,3,3,1,-1.3,0,-,0.20990981,0.883,0
+MV-202600265,Insumos medicos,Tarjeta,3946000,16,13,3,3,2,1,2.53,0,-,0.20987178,0.882,0
+MV-202602327,Arrendamiento,Tarjeta,9487000,23,8,2,5,3,2,0.3,0,-,0.20964476,0.881,0
+MV-202601429,Servicios,Tarjeta,1775000,11,13,2,2,4,1,0.3,0,-,0.20920905,0.88,0
+MV-202602203,Servicios,Cheque,564000,6,11,1,2,3,1,-4.19,0,-,0.20918803,0.88,0
+MV-202602125,Servicios,Cheque,1954000,12,12,3,3,4,1,-1.38,0,-,0.20903802,0.879,0
+MV-202602471,Papeleria,Tarjeta,450000,7,11,4,2,3,4,-1.37,0,-,0.2090075,0.879,0
+MV-202602558,Arrendamiento,Cheque,5255000,17,10,5,5,3,3,2.1,0,-,0.20890869,0.878,0
+MV-202601931,Insumos medicos,Cheque,4442000,4,10,3,4,3,1,0.23,0,-,0.20869072,0.877,0
+MV-202600712,Papeleria,Tarjeta,223000,17,13,3,2,2,3,5.07,0,-,0.20865467,0.877,0
+MV-202600065,Servicios,Cheque,1403000,19,16,1,3,3,1,3.9,0,-,0.20853958,0.877,0
+MV-202601708,Servicios,Cheque,2439000,9,13,4,4,4,2,-0.86,0,-,0.20828933,0.876,0
+MV-202601109,Mantenimiento,Cheque,1075000,19,7,2,2,3,2,2.13,0,-,0.20796907,0.874,0
+MV-202602932,Insumos medicos,Tarjeta,1045000,15,12,4,2,2,4,1.35,0,-,0.20766567,0.873,0
+MV-202600103,Papeleria,Cheque,447000,9,10,3,2,3,1,4.52,0,-,0.20757866,0.873,0
+MV-202602780,Mantenimiento,Cheque,784000,3,10,4,2,3,1,2.27,0,-,0.2075261,0.873,0
+MV-202601919,Papeleria,Efectivo,333000,23,14,1,2,2,2,1.74,0,-,0.20707783,0.871,0
+MV-202600392,Insumos medicos,Tarjeta,2155000,12,10,3,3,3,1,-2.04,0,-,0.20700225,0.87,0
+MV-202602399,Arrendamiento,Tarjeta,8722000,15,12,1,5,4,3,4.11,0,-,0.20692061,0.87,0
+MV-202601830,Insumos medicos,Tarjeta,2313000,25,10,1,3,3,1,3.64,0,-,0.20684493,0.87,0
+MV-202600414,Mantenimiento,Tarjeta,1927000,17,13,3,4,2,3,2.22,0,-,0.20683263,0.87,0
+MV-202601250,Arrendamiento,Tarjeta,9258000,13,9,2,5,3,1,2.18,0,-,0.20680316,0.87,0
+MV-202601468,Insumos medicos,Efectivo,5970000,21,11,3,4,3,1,-2.13,0,-,0.20674072,0.869,0
+MV-202602975,Servicios,Tarjeta,2824000,21,11,2,4,3,3,8.3,0,-,0.20670633,0.869,0
+MV-202602472,Insumos medicos,Tarjeta,3909000,21,13,2,3,3,4,-1.31,0,-,0.20658821,0.869,0
+MV-202602008,Insumos medicos,Cheque,1298000,12,11,2,3,2,2,0.41,0,-,0.20644534,0.868,0
+MV-202601400,Papeleria,Cheque,511000,12,14,2,3,3,2,8.39,0,-,0.206097,0.867,0
+MV-202602193,Papeleria,Cheque,106000,14,12,2,2,4,1,2.76,0,-,0.20608705,0.867,0
+MV-202600589,Insumos medicos,Efectivo,2443000,13,9,3,3,3,1,1.05,0,-,0.20582464,0.865,0
+MV-202601422,Mantenimiento,Cheque,940000,16,14,3,2,3,2,-8.43,0,-,0.20527175,0.863,0
+MV-202600612,Servicios,Tarjeta,1569000,14,9,1,3,3,1,-0.97,0,-,0.20518272,0.863,0
+MV-202601263,Insumos medicos,Tarjeta,2711000,12,12,5,3,3,1,-2.83,0,-,0.2048171,0.861,0
+MV-202602548,Papeleria,Efectivo,378000,18,10,4,2,3,2,-4.09,0,-,0.204593,0.86,0
+MV-202602073,Papeleria,Tarjeta,340000,15,9,1,2,3,2,-2.92,0,-,0.20434892,0.859,0
+MV-202602866,Insumos medicos,Tarjeta,4748000,22,15,4,4,3,2,3.7,0,-,0.20431373,0.859,0
+MV-202602024,Papeleria,Tarjeta,313000,10,14,5,2,3,2,6.43,0,-,0.20420523,0.859,0
+MV-202600509,Servicios,Cheque,1336000,25,11,1,2,3,2,-3.94,0,-,0.20420454,0.859,0
+MV-202601536,Insumos medicos,Transferencia,851000,1,11,5,1,3,23,1.59,1,Fraccionamiento / pago repetido,0.20404491,0.858,0
+MV-202601943,Arrendamiento,Cheque,5657000,16,15,3,4,3,1,1.89,0,-,0.2040092,0.858,0
+MV-202600998,Mantenimiento,Cheque,1038000,14,10,2,2,3,4,2.41,0,-,0.20366226,0.856,0
+MV-202600831,Mantenimiento,Cheque,1894000,21,10,1,3,3,1,4.28,0,-,0.20340157,0.855,0
+MV-202600376,Servicios,Cheque,3057000,11,11,2,4,3,1,-2.52,0,-,0.20337307,0.855,0
+MV-202602499,Papeleria,Cheque,263000,16,10,4,2,3,1,4.44,0,-,0.20328465,0.855,0
+MV-202601482,Servicios,Cheque,1459000,16,10,1,3,3,1,6.29,0,-,0.20311184,0.854,0
+MV-202601035,Insumos medicos,Tarjeta,3464000,18,12,4,4,3,4,6.52,0,-,0.20271437,0.852,0
+MV-202601490,Papeleria,Cheque,458000,27,11,4,3,3,2,4.59,0,-,0.20268111,0.852,0
+MV-202601998,Insumos medicos,Cheque,5332000,13,13,1,5,3,2,-2.78,0,-,0.20248927,0.851,0
+MV-202601704,Arrendamiento,Cheque,9434000,15,10,1,5,3,1,4.6,0,-,0.20133966,0.847,0
+MV-202601759,Arrendamiento,Transferencia,19572000,14,22,6,2,3,2,-1.25,1,Pago fuera de horario,0.20133138,0.847,0
+MV-202602041,Servicios,Cheque,3590000,16,11,4,4,3,4,4.67,0,-,0.20125575,0.846,0
+MV-202600652,Servicios,Tarjeta,1539000,19,15,3,3,3,1,0.64,0,-,0.20117417,0.846,0
+MV-202602395,Insumos medicos,Transferencia,519000,2,11,5,1,3,20,8.9,1,Fraccionamiento / pago repetido,0.20084089,0.844,0
+MV-202602118,Servicios,Cheque,673000,12,10,2,3,3,2,4.17,0,-,0.20040832,0.843,0
+MV-202600751,Servicios,Cheque,791000,8,13,2,3,3,4,1.5,0,-,0.20024852,0.842,0
+MV-202601615,Insumos medicos,Transferencia,894000,2,10,2,1,3,22,1.3,1,Fraccionamiento / pago repetido,0.19972517,0.84,0
+MV-202601854,Servicios,Efectivo,1668000,18,10,2,3,3,2,-2.55,0,-,0.19954069,0.839,0
+MV-202602119,Servicios,Tarjeta,702000,26,13,3,2,3,1,-1.19,0,-,0.19947556,0.839,0
+MV-202601061,Mantenimiento,Cheque,2228000,11,11,3,4,3,1,0.14,0,-,0.19943468,0.839,0
+MV-202601985,Arrendamiento,Cheque,7532000,28,11,3,5,3,2,2.42,0,-,0.19905294,0.837,0
+MV-202602253,Servicios,Cheque,2399000,12,11,4,3,3,3,-0.6,0,-,0.19885814,0.836,0
+MV-202602171,Servicios,Cheque,2337000,11,11,1,3,3,3,4.37,0,-,0.19869643,0.835,0
+MV-202600510,Servicios,Tarjeta,1204000,8,13,1,2,3,1,-0.94,0,-,0.19822845,0.833,0
+MV-202600577,Mantenimiento,Efectivo,893000,22,11,3,2,3,1,2.58,0,-,0.19803728,0.833,0
+MV-202600288,Mantenimiento,Transferencia,134000,1,13,3,1,3,24,2.3,1,Fraccionamiento / pago repetido,0.19784448,0.832,0
+MV-202601617,Arrendamiento,Cheque,12112000,8,13,4,5,3,2,4.5,0,-,0.1978379,0.832,0
+MV-202601235,Insumos medicos,Cheque,2368000,12,13,4,4,3,1,-0.88,0,-,0.1976626,0.831,0
+MV-202602419,Servicios,Efectivo,1008000,17,10,3,3,3,3,1.41,0,-,0.19757959,0.831,0
+MV-202601361,Insumos medicos,Cheque,2220000,13,10,2,3,3,2,3.76,0,-,0.19740088,0.83,0
+MV-202600575,Mantenimiento,Tarjeta,1673000,26,12,3,3,3,2,5.98,0,-,0.1971817,0.829,0
+MV-202602962,Servicios,Tarjeta,1508000,13,13,4,3,3,3,-2.63,0,-,0.19714035,0.829,0
+MV-202602192,Servicios,Tarjeta,2002000,14,13,5,3,3,3,3.33,0,-,0.19679153,0.827,0
+MV-202600822,Insumos medicos,Cheque,2363000,20,12,2,4,3,1,5.01,0,-,0.19671656,0.827,0
+MV-202602503,Papeleria,Cheque,241000,32,13,4,1,3,2,1.85,0,-,0.19660455,0.827,0
+MV-202601866,Insumos medicos,Tarjeta,2472000,13,13,1,4,3,3,4.07,0,-,0.19584751,0.823,0
+MV-202601891,Servicios,Transferencia,291000,1,13,1,1,3,23,0.96,1,Fraccionamiento / pago repetido,0.1953845,0.822,0
+MV-202601118,Insumos medicos,Transferencia,609000,2,14,2,1,3,21,-2.66,1,Fraccionamiento / pago repetido,0.19501686,0.82,0
+MV-202600155,Mantenimiento,Cheque,1113000,11,14,4,3,3,2,3.43,0,-,0.19473138,0.819,0
+MV-202602998,Servicios,Cheque,3331000,15,11,4,4,3,1,3.29,0,-,0.19432193,0.817,0
+MV-202601614,Arrendamiento,Efectivo,10680000,21,12,3,5,3,1,2.24,0,-,0.1912205,0.804,0
+MV-202601958,Servicios,Cheque,618000,16,13,2,3,3,3,1.06,0,-,0.19019221,0.8,0
+MV-202601417,Papeleria,Tarjeta,265000,19,13,2,1,3,2,0.6,0,-,0.18944712,0.797,0
+MV-202600617,Insumos medicos,Transferencia,4167000,26,0,7,1,3,1,0.99,1,Pago fuera de horario,0.18575747,0.781,0
+MV-202600021,Insumos medicos,Transferencia,2777000,5,5,7,2,3,8,-2.2,1,Pago fuera de horario,0.18306363,0.77,0
+MV-202601525,Insumos medicos,Transferencia,3797000,13,0,7,1,3,1,-1.33,1,Pago fuera de horario,0.181015,0.761,0
+MV-202601322,Insumos medicos,Transferencia,2298000,11,2,6,2,3,7,8.66,1,Pago fuera de horario,0.17835684,0.75,0
+MV-202602091,Insumos medicos,Transferencia,656000,2,12,3,1,3,18,6.79,1,Fraccionamiento / pago repetido,0.17675725,0.743,0
+MV-202602007,Mantenimiento,Transferencia,923000,12,0,7,1,3,3,-2.17,1,Pago fuera de horario,0.17394018,0.731,0
+MV-202602737,Servicios,Transferencia,365000,2,12,3,1,3,19,2.54,1,Fraccionamiento / pago repetido,0.1722238,0.724,0
+MV-202602302,Servicios,Transferencia,208000,1,12,3,1,3,19,1.82,1,Fraccionamiento / pago repetido,0.17192224,0.723,0
+MV-202600738,Insumos medicos,Transferencia,3972000,22,23,7,2,3,2,8.26,1,Pago fuera de horario,0.16986151,0.714,0
+MV-202600407,Insumos medicos,Transferencia,5482000,14,3,7,1,3,3,-0.36,1,Pago fuera de horario,0.1683081,0.708,0
+MV-202601571,Mantenimiento,Transferencia,652000,36,0,6,2,3,2,-4.26,1,Pago fuera de horario,0.16799265,0.706,0
+MV-202602063,Insumos medicos,Transferencia,3614000,26,2,7,2,3,2,3.57,1,Pago fuera de horario,0.16630223,0.699,0
+MV-202601923,Insumos medicos,Transferencia,2717000,15,2,6,1,3,6,1.57,1,Pago fuera de horario,0.16443321,0.691,0
+MV-202602890,Insumos medicos,Transferencia,1787000,7,23,6,2,3,4,6.14,1,Pago fuera de horario,0.15623583,0.657,0
+MV-202602974,Servicios,Transferencia,1645000,8,2,7,2,3,2,2.63,1,Pago fuera de horario,0.15422432,0.648,0
+MV-202602386,Papeleria,Transferencia,162000,5,4,7,1,3,2,4.93,1,Pago fuera de horario,0.15279104,0.642,0
+MV-202602532,Insumos medicos,Transferencia,3163000,14,5,7,1,3,3,3.1,1,Pago fuera de horario,0.15180452,0.638,0
+MV-202602485,Servicios,Transferencia,2215000,13,14,5,3,1,7,10.22,0,-,0.14989105,0.63,0
+MV-202600943,Servicios,Transferencia,1737000,26,3,6,2,3,1,5.67,1,Pago fuera de horario,0.14952911,0.629,0
+MV-202600296,Servicios,Transferencia,2420000,40,8,5,3,4,1,11.07,0,-,0.1473788,0.62,0
+MV-202601638,Insumos medicos,Transferencia,3124000,23,7,1,3,3,9,8.85,0,-,0.1471524,0.619,0
+MV-202601163,Papeleria,Transferencia,574000,15,23,7,2,3,1,2.05,1,Pago fuera de horario,0.14661442,0.616,0
+MV-202601364,Papeleria,Transferencia,294000,10,5,6,2,3,1,-6.56,1,Pago fuera de horario,0.14068566,0.592,0
+MV-202601217,Mantenimiento,Transferencia,1977000,19,13,4,3,5,7,-6.94,0,-,0.13949883,0.587,0
+MV-202602162,Insumos medicos,Transferencia,2791000,3,19,2,4,4,5,1.26,0,-,0.13780378,0.579,0
+MV-202602812,Insumos medicos,Transferencia,3849000,36,9,3,5,2,4,6.72,0,-,0.13752104,0.578,0
+MV-202600603,Arrendamiento,Transferencia,25094000,17,7,3,5,4,3,-4.96,0,-,0.13742979,0.578,0
+MV-202602379,Papeleria,Transferencia,171000,37,11,3,1,4,5,9.97,0,-,0.13719915,0.577,0
+MV-202601618,Mantenimiento,Transferencia,801000,15,19,5,2,3,8,-1.97,0,-,0.13561283,0.57,0
+MV-202601345,Servicios,Transferencia,5088000,19,12,2,3,4,11,2.08,0,-,0.1355992,0.57,0
+MV-202601363,Servicios,Transferencia,4264000,4,17,1,3,5,1,2.33,0,-,0.13508114,0.568,0
+MV-202601017,Arrendamiento,Transferencia,11171000,15,18,5,4,4,2,4.71,0,-,0.13410437,0.564,0
+MV-202600769,Arrendamiento,Transferencia,11641000,32,14,4,5,4,6,8.65,0,-,0.13398282,0.563,0
+MV-202600283,Insumos medicos,Transferencia,4200000,29,18,5,4,4,2,8.04,0,-,0.1336667,0.562,0
+MV-202602912,Insumos medicos,Transferencia,2236000,19,11,5,3,5,6,-1.45,0,-,0.13355944,0.562,0
+MV-202601445,Insumos medicos,Transferencia,3433000,8,17,3,5,4,4,-0.33,0,-,0.132955,0.559,0
+MV-202602707,Servicios,Transferencia,2187000,28,9,3,2,2,5,-4.34,0,-,0.13276027,0.558,0
+MV-202601942,Papeleria,Transferencia,333000,28,17,2,1,1,1,0.93,0,-,0.13241464,0.557,0
+MV-202600686,Mantenimiento,Transferencia,1426000,8,17,2,3,2,1,12.65,0,-,0.13235447,0.557,0
+MV-202602608,Servicios,Transferencia,1411000,6,17,3,3,5,1,-1.37,0,-,0.13218424,0.556,0
+MV-202601885,Insumos medicos,Transferencia,2095000,40,17,4,3,4,1,5.73,0,-,0.13133988,0.552,0
+MV-202602537,Insumos medicos,Transferencia,4497000,37,10,2,4,2,6,-1.98,0,-,0.13109738,0.551,0
+MV-202601081,Papeleria,Transferencia,569000,34,7,1,2,2,1,-3.28,0,-,0.13104692,0.551,0
+MV-202600382,Insumos medicos,Transferencia,2256000,15,11,3,3,4,9,-2.89,0,-,0.1304629,0.549,0
+MV-202601266,Insumos medicos,Transferencia,2723000,12,16,5,4,4,6,-1.62,0,-,0.12989132,0.546,0
+MV-202600378,Insumos medicos,Transferencia,5725000,21,18,2,5,4,3,-2.88,0,-,0.12950318,0.545,0
+MV-202602367,Arrendamiento,Transferencia,11359000,33,17,2,5,2,1,-2.09,0,-,0.12925766,0.543,0
+MV-202600695,Arrendamiento,Transferencia,5616000,32,15,4,5,5,1,1.58,0,-,0.12873852,0.541,0
+MV-202601142,Arrendamiento,Transferencia,8430000,1,17,5,5,3,6,-0.19,0,-,0.12838739,0.54,0
+MV-202600641,Servicios,Transferencia,3222000,37,14,5,5,2,3,4.14,0,-,0.12832257,0.54,0
+MV-202601993,Servicios,Transferencia,2874000,8,7,5,4,5,2,1.91,0,-,0.12816413,0.539,0
+MV-202602425,Arrendamiento,Transferencia,8429000,33,10,1,4,4,2,-6.65,0,-,0.12815903,0.539,0
+MV-202601410,Insumos medicos,Transferencia,8800000,28,16,4,4,4,1,-1.36,0,-,0.12809598,0.539,0
+MV-202600867,Servicios,Transferencia,2349000,20,18,4,3,2,3,-6.09,0,-,0.12788078,0.538,0
+MV-202601724,Insumos medicos,Transferencia,3017000,25,16,4,4,2,5,-3.23,0,-,0.1278801,0.538,0
+MV-202600642,Arrendamiento,Transferencia,15520000,36,17,2,5,4,2,-2.31,0,-,0.12781139,0.537,0
+MV-202602741,Servicios,Transferencia,1540000,8,8,4,4,4,5,-1.38,0,-,0.12764892,0.537,0
+MV-202601195,Arrendamiento,Transferencia,5104000,20,18,4,4,4,4,-1.55,0,-,0.12739675,0.536,0
+MV-202600492,Insumos medicos,Transferencia,2035000,8,10,4,3,4,5,-7.1,0,-,0.1269332,0.534,0
+MV-202600345,Arrendamiento,Transferencia,6450000,8,16,5,5,4,3,7.3,0,-,0.12692058,0.534,0
+MV-202601900,Insumos medicos,Transferencia,3095000,10,19,3,3,2,3,-1.17,0,-,0.12688418,0.534,0
+MV-202602556,Insumos medicos,Transferencia,2230000,30,16,1,3,4,1,9.6,0,-,0.12678756,0.533,0
+MV-202600807,Mantenimiento,Transferencia,631000,30,12,5,2,2,6,-3.73,0,-,0.12670842,0.533,0
+MV-202602190,Insumos medicos,Transferencia,7532000,37,15,1,5,4,1,6.15,0,-,0.1265677,0.532,0
+MV-202601741,Papeleria,Transferencia,273000,7,16,4,2,1,1,5.04,0,-,0.12639788,0.531,0
+MV-202601197,Insumos medicos,Transferencia,2935000,15,7,5,3,3,1,13.69,0,-,0.12615508,0.53,0
+MV-202601463,Insumos medicos,Transferencia,1563000,49,16,3,3,3,1,-5.76,0,-,0.12468252,0.524,0
+MV-202601720,Insumos medicos,Transferencia,2726000,40,13,3,4,2,4,-5.52,0,-,0.12441666,0.523,0
+MV-202600846,Insumos medicos,Transferencia,2235000,30,7,2,3,3,7,1.59,0,-,0.12433154,0.523,0
+MV-202601302,Servicios,Transferencia,1309000,31,19,5,3,3,1,5.82,0,-,0.12432362,0.523,0
+MV-202602634,Servicios,Transferencia,2157000,39,15,3,4,3,6,5.8,0,-,0.123883024,0.521,0
+MV-202602504,Insumos medicos,Transferencia,2051000,12,7,5,3,4,2,8.06,0,-,0.12381212,0.521,0
+MV-202601826,Servicios,Transferencia,1869000,30,16,1,3,4,3,-5.33,0,-,0.12369195,0.52,0
+MV-202600529,Insumos medicos,Transferencia,5239000,29,14,3,4,4,6,3.98,0,-,0.123572744,0.52,0
+MV-202601320,Insumos medicos,Transferencia,1977000,30,10,5,3,4,3,-5.59,0,-,0.12355345,0.52,0
+MV-202600030,Papeleria,Transferencia,170000,7,12,1,2,5,5,-2.69,0,-,0.123502046,0.519,0
+MV-202601000,Servicios,Transferencia,2734000,13,7,3,5,2,1,2.35,0,-,0.12334874,0.519,0
+MV-202600419,Servicios,Transferencia,1951000,15,8,3,3,5,1,-1.02,0,-,0.1229941,0.517,0
+MV-202600528,Arrendamiento,Transferencia,8399000,21,15,4,4,2,3,-4.19,0,-,0.1228117,0.516,0
+MV-202600830,Servicios,Transferencia,937000,7,11,5,2,3,7,-7.0,0,-,0.12277003,0.516,0
+MV-202602925,Servicios,Transferencia,1631000,43,11,1,3,4,3,9.84,0,-,0.12267119,0.516,0
+MV-202602836,Mantenimiento,Transferencia,780000,58,16,2,3,3,3,-1.11,0,-,0.122406654,0.515,0
+MV-202602693,Insumos medicos,Transferencia,2435000,25,17,1,3,2,4,3.83,0,-,0.12238051,0.515,0
+MV-202602087,Insumos medicos,Transferencia,3050000,9,10,5,4,4,1,-8.46,0,-,0.12233871,0.514,0
+MV-202601188,Servicios,Transferencia,1204000,27,11,2,2,1,4,-1.66,0,-,0.12225474,0.514,0
+MV-202600251,Papeleria,Transferencia,510000,20,7,3,2,2,1,-3.92,0,-,0.12224039,0.514,0
+MV-202600741,Insumos medicos,Transferencia,5581000,28,16,5,5,4,1,2.24,0,-,0.12203914,0.513,0
+MV-202601639,Servicios,Transferencia,1223000,5,19,4,2,2,1,2.0,0,-,0.1220256,0.513,0
+MV-202600551,Servicios,Transferencia,1343000,30,10,3,2,1,2,-2.17,0,-,0.12178463,0.512,0
+MV-202600429,Servicios,Transferencia,1795000,21,14,5,2,4,3,12.85,0,-,0.12175741,0.512,0
+MV-202602099,Servicios,Transferencia,1471000,19,8,4,3,4,1,9.66,0,-,0.12161074,0.511,0
+MV-202602267,Insumos medicos,Transferencia,2217000,11,8,4,3,2,4,5.93,0,-,0.1215822,0.511,0
+MV-202600048,Insumos medicos,Transferencia,2421000,15,14,5,4,1,3,-3.73,0,-,0.12156248,0.511,0
+MV-202602205,Servicios,Transferencia,4599000,5,15,4,4,2,1,-6.75,0,-,0.12153861,0.511,0
+MV-202602577,Papeleria,Transferencia,253000,9,15,5,2,1,1,-0.89,0,-,0.12135218,0.51,0
+MV-202600855,Arrendamiento,Transferencia,15525000,18,16,2,5,3,7,-2.81,0,-,0.121295035,0.51,0
+MV-202602854,Insumos medicos,Transferencia,3083000,14,11,1,3,1,5,4.07,0,-,0.12114239,0.509,0
+MV-202600374,Insumos medicos,Transferencia,2156000,38,10,5,4,4,1,3.36,0,-,0.12087404,0.508,0
+MV-202602545,Arrendamiento,Transferencia,13062000,8,16,3,5,3,5,-6.28,0,-,0.12087183,0.508,0
+MV-202601384,Papeleria,Transferencia,458000,33,9,4,2,4,2,-5.72,0,-,0.12079988,0.508,0
+MV-202601083,Insumos medicos,Transferencia,4629000,9,16,4,3,2,1,5.81,0,-,0.12072194,0.508,0
+MV-202602941,Insumos medicos,Transferencia,5764000,11,10,1,4,3,6,-8.11,0,-,0.12067192,0.507,0
+MV-202601237,Insumos medicos,Transferencia,3242000,15,16,1,3,3,8,-0.81,0,-,0.12062376,0.507,0
+MV-202601625,Papeleria,Transferencia,295000,13,11,4,2,2,6,-5.23,0,-,0.120294176,0.506,0
+MV-202601516,Insumos medicos,Transferencia,2683000,17,9,2,4,2,4,-6.55,0,-,0.12028575,0.506,0
+MV-202600861,Papeleria,Transferencia,237000,3,15,2,2,4,6,1.21,0,-,0.12026186,0.506,0
+MV-202600827,Papeleria,Transferencia,239000,7,7,1,2,4,4,1.92,0,-,0.11954731,0.503,0
+MV-202602898,Servicios,Transferencia,1063000,13,18,1,3,3,6,-1.6,0,-,0.11885796,0.5,0
+MV-202600213,Insumos medicos,Transferencia,2433000,18,12,2,4,5,1,11.09,0,-,0.11860951,0.499,0
+MV-202602848,Insumos medicos,Transferencia,2060000,8,15,1,5,4,1,2.76,0,-,0.11848181,0.498,0
+MV-202600918,Papeleria,Transferencia,570000,10,9,3,3,4,3,9.08,0,-,0.11841095,0.498,0
+MV-202601312,Mantenimiento,Transferencia,1150000,4,15,4,3,5,3,1.48,0,-,0.11805876,0.496,0
+MV-202602713,Papeleria,Transferencia,459000,17,17,1,2,4,3,-5.19,0,-,0.11796807,0.496,0
+MV-202601679,Insumos medicos,Transferencia,2259000,7,15,4,3,4,3,9.82,0,-,0.117805116,0.495,0
+MV-202602376,Mantenimiento,Transferencia,1141000,22,9,4,2,4,5,-0.19,0,-,0.1176094,0.495,0
+MV-202602215,Insumos medicos,Transferencia,5975000,18,16,1,5,2,4,4.09,0,-,0.11760646,0.495,0
+MV-202602712,Insumos medicos,Transferencia,4459000,29,9,1,4,4,2,9.38,0,-,0.1175817,0.494,0
+MV-202602377,Papeleria,Transferencia,357000,20,10,3,2,2,4,9.56,0,-,0.117553264,0.494,0
+MV-202602009,Servicios,Transferencia,1832000,23,9,3,3,4,2,11.92,0,-,0.11752479,0.494,0
+MV-202602614,Papeleria,Transferencia,452000,15,16,4,2,2,4,-5.61,0,-,0.117406085,0.494,0
+MV-202600780,Insumos medicos,Transferencia,6927000,17,11,1,4,2,4,-6.66,0,-,0.117307365,0.493,0
+MV-202602065,Insumos medicos,Transferencia,1502000,39,15,5,2,4,1,1.42,0,-,0.117292814,0.493,0
+MV-202602441,Servicios,Transferencia,2992000,25,16,4,3,3,6,-2.07,0,-,0.117291294,0.493,0
+MV-202601976,Insumos medicos,Transferencia,2579000,21,17,1,3,4,1,-1.75,0,-,0.11728786,0.493,0
+MV-202601714,Insumos medicos,Transferencia,4091000,4,15,2,4,2,1,7.94,0,-,0.11694914,0.492,0
+MV-202600536,Insumos medicos,Transferencia,2062000,22,16,2,4,2,1,-3.24,0,-,0.1169013,0.492,0
+MV-202601635,Papeleria,Transferencia,143000,14,9,2,1,2,5,1.28,0,-,0.116629474,0.49,0
+MV-202602117,Servicios,Transferencia,1882000,12,16,2,3,4,5,-0.77,0,-,0.116521984,0.49,0
+MV-202601200,Mantenimiento,Transferencia,1092000,15,7,3,3,4,1,-1.77,0,-,0.1163314,0.489,0
+MV-202601349,Papeleria,Transferencia,239000,24,14,2,2,2,1,12.49,0,-,0.11620787,0.489,0
+MV-202602868,Arrendamiento,Transferencia,7185000,26,14,3,5,4,1,-4.88,0,-,0.11617808,0.488,0
+MV-202601168,Papeleria,Transferencia,486000,45,18,4,2,3,2,-1.56,0,-,0.11615972,0.488,0
+MV-202601656,Servicios,Transferencia,3278000,35,17,2,4,3,3,-4.57,0,-,0.11604381,0.488,0
+MV-202600573,Mantenimiento,Transferencia,2133000,42,16,5,4,3,2,6.02,0,-,0.115989156,0.488,0
+MV-202602590,Arrendamiento,Transferencia,13041000,28,7,2,5,3,4,-3.8,0,-,0.1159392,0.487,0
+MV-202600866,Papeleria,Transferencia,175000,4,10,1,2,4,5,3.64,0,-,0.11591525,0.487,0
+MV-202600070,Arrendamiento,Transferencia,10004000,33,16,2,5,3,3,-5.56,0,-,0.11583522,0.487,0
+MV-202601551,Insumos medicos,Transferencia,2947000,20,16,2,4,4,5,2.78,0,-,0.115777984,0.487,0
+MV-202601401,Servicios,Transferencia,1338000,12,14,2,3,3,10,1.46,0,-,0.115702726,0.486,0
+MV-202602598,Insumos medicos,Transferencia,2584000,7,7,3,3,3,5,-0.14,0,-,0.1156341,0.486,0
+MV-202601907,Insumos medicos,Transferencia,3658000,13,14,1,4,3,5,-12.03,0,-,0.11550288,0.486,0
+MV-202601028,Arrendamiento,Transferencia,8761000,35,9,2,5,2,3,2.99,0,-,0.11529465,0.485,0
+MV-202602969,Insumos medicos,Transferencia,4507000,14,17,3,4,4,3,-2.23,0,-,0.11529143,0.485,0
+MV-202601728,Insumos medicos,Transferencia,2487000,17,18,4,3,4,1,3.32,0,-,0.11501817,0.484,0
+MV-202602236,Insumos medicos,Transferencia,1515000,11,16,3,3,2,1,-4.08,0,-,0.114919916,0.483,0
+MV-202602134,Servicios,Transferencia,1248000,17,18,2,3,4,3,-1.52,0,-,0.11487799,0.483,0
+MV-202600300,Arrendamiento,Transferencia,6630000,31,11,3,4,4,2,8.83,0,-,0.11463432,0.482,0
+MV-202602019,Insumos medicos,Transferencia,2201000,21,14,2,4,4,6,3.28,0,-,0.114490904,0.481,0
+MV-202602026,Arrendamiento,Transferencia,6285000,23,14,4,4,2,1,-4.07,0,-,0.11431698,0.481,0
+MV-202601370,Insumos medicos,Transferencia,2124000,31,16,5,3,3,1,7.61,0,-,0.11422427,0.48,0
+MV-202601441,Mantenimiento,Transferencia,1212000,12,8,5,3,2,1,3.11,0,-,0.114008136,0.479,0
+MV-202601071,Papeleria,Transferencia,325000,16,9,1,2,3,8,3.67,0,-,0.11398867,0.479,0
+MV-202602686,Insumos medicos,Transferencia,2564000,9,8,2,3,3,5,-2.83,0,-,0.11395472,0.479,0
+MV-202601025,Insumos medicos,Transferencia,3606000,13,9,3,4,2,5,-0.13,0,-,0.11391598,0.479,0
+MV-202602049,Insumos medicos,Transferencia,3742000,12,14,4,4,5,1,-1.73,0,-,0.11388932,0.479,0
+MV-202601515,Servicios,Transferencia,6958000,16,19,5,5,3,2,-3.49,0,-,0.11382629,0.479,0
+MV-202600343,Insumos medicos,Transferencia,5564000,12,16,1,5,2,1,0.26,0,-,0.113601945,0.478,0
+MV-202600370,Mantenimiento,Transferencia,943000,22,10,4,3,4,4,-3.06,0,-,0.11342535,0.477,0
+MV-202600879,Servicios,Transferencia,3149000,30,17,3,3,3,1,-3.64,0,-,0.11337864,0.477,0
+MV-202602263,Mantenimiento,Transferencia,1608000,2,16,3,2,4,2,-2.73,0,-,0.1133296,0.477,0
+MV-202602337,Mantenimiento,Transferencia,1702000,18,9,4,3,2,5,2.88,0,-,0.113297164,0.476,0
+MV-202600963,Papeleria,Transferencia,213000,23,8,2,2,2,3,4.36,0,-,0.113135554,0.476,0
+MV-202601594,Insumos medicos,Transferencia,3722000,5,14,1,4,4,1,9.17,0,-,0.11306814,0.475,0
+MV-202602139,Insumos medicos,Transferencia,7115000,27,17,4,4,3,1,4.24,0,-,0.11297232,0.475,0
+MV-202601458,Insumos medicos,Transferencia,2703000,18,16,1,4,3,4,11.81,0,-,0.112789504,0.474,0
+MV-202602680,Servicios,Transferencia,1242000,9,14,5,3,3,8,2.31,0,-,0.11266008,0.474,0
+MV-202601246,Mantenimiento,Transferencia,1252000,7,8,1,3,4,1,-0.67,0,-,0.112653926,0.474,0
+MV-202600946,Servicios,Transferencia,1608000,38,9,2,3,3,2,-7.77,0,-,0.1124829,0.473,0
+MV-202601637,Servicios,Transferencia,4481000,15,9,5,4,4,2,8.15,0,-,0.11246136,0.473,0
+MV-202601693,Mantenimiento,Transferencia,421000,7,9,2,2,4,4,0.71,0,-,0.11239932,0.473,0
+MV-202601770,Arrendamiento,Transferencia,4530000,43,16,2,4,3,4,2.67,0,-,0.11232464,0.472,0
+MV-202602465,Arrendamiento,Transferencia,15223000,20,17,1,5,3,4,0.6,0,-,0.11209409,0.471,0
+MV-202601151,Arrendamiento,Transferencia,16907000,7,13,5,5,4,3,6.57,0,-,0.111980006,0.471,0
+MV-202601956,Insumos medicos,Transferencia,2721000,14,10,1,3,3,6,-6.02,0,-,0.11177311,0.47,0
+MV-202601038,Servicios,Transferencia,1727000,12,13,1,3,5,2,-6.36,0,-,0.11164897,0.469,0
+MV-202602476,Arrendamiento,Transferencia,7921000,34,15,2,5,3,5,3.12,0,-,0.11160186,0.469,0
+MV-202601296,Arrendamiento,Transferencia,4347000,44,14,2,3,3,1,-2.18,0,-,0.11147277,0.469,0
+MV-202602668,Mantenimiento,Transferencia,929000,19,15,5,2,5,2,2.29,0,-,0.111337155,0.468,0
+MV-202602877,Papeleria,Transferencia,330000,23,10,3,2,3,6,7.16,0,-,0.11123231,0.468,0
+MV-202602846,Arrendamiento,Transferencia,12307000,14,15,1,5,2,1,5.97,0,-,0.11121068,0.468,0
+MV-202600709,Servicios,Transferencia,1810000,5,10,4,3,4,1,-3.86,0,-,0.11118406,0.467,0
+MV-202601453,Insumos medicos,Transferencia,4952000,3,14,4,3,4,3,3.35,0,-,0.11108658,0.467,0
+MV-202600791,Insumos medicos,Transferencia,1837000,7,13,5,3,4,1,9.48,0,-,0.11101394,0.467,0
+MV-202600195,Insumos medicos,Transferencia,1567000,13,15,3,2,4,5,3.51,0,-,0.110977516,0.467,0
+MV-202602408,Papeleria,Transferencia,564000,23,10,5,3,2,1,-1.26,0,-,0.11066343,0.465,0
+MV-202600657,Insumos medicos,Transferencia,3345000,31,9,3,3,3,4,-1.86,0,-,0.110480115,0.465,0
+MV-202602321,Insumos medicos,Transferencia,3968000,37,9,4,4,4,2,0.72,0,-,0.11027688,0.464,0
+MV-202600089,Papeleria,Transferencia,419000,9,7,4,2,2,2,2.51,0,-,0.11026282,0.464,0
+MV-202600909,Servicios,Transferencia,1143000,27,15,4,3,3,1,-9.45,0,-,0.11025237,0.464,0
+MV-202600479,Mantenimiento,Transferencia,1749000,16,10,2,3,3,9,1.67,0,-,0.11007101,0.463,0
+MV-202602953,Arrendamiento,Transferencia,8233000,16,15,3,5,3,7,3.48,0,-,0.1100425,0.463,0
+MV-202602775,Insumos medicos,Transferencia,3434000,19,10,4,4,4,3,-6.02,0,-,0.109827295,0.462,0
+MV-202601335,Servicios,Transferencia,2939000,18,14,4,3,4,1,-6.64,0,-,0.1096009,0.461,0
+MV-202600107,Insumos medicos,Transferencia,2143000,32,8,4,3,3,3,5.57,0,-,0.109559976,0.461,0
+MV-202601818,Papeleria,Transferencia,297000,34,14,3,2,3,1,-9.24,0,-,0.109353535,0.46,0
+MV-202600266,Papeleria,Transferencia,380000,11,17,2,2,2,2,5.21,0,-,0.109237775,0.459,0
+MV-202600483,Servicios,Transferencia,3188000,12,16,1,3,4,3,-0.39,0,-,0.10923136,0.459,0
+MV-202602997,Servicios,Transferencia,2171000,13,9,5,3,4,3,3.44,0,-,0.109222114,0.459,0
+MV-202602048,Insumos medicos,Transferencia,2275000,5,16,2,3,2,1,1.37,0,-,0.10907282,0.459,0
+MV-202601434,Insumos medicos,Transferencia,6047000,38,13,2,3,3,3,-4.43,0,-,0.10896066,0.458,0
+MV-202602929,Servicios,Transferencia,1093000,20,17,2,3,2,1,0.84,0,-,0.108907364,0.458,0
+MV-202601519,Papeleria,Transferencia,211000,18,8,4,2,3,2,13.04,0,-,0.10888538,0.458,0
+MV-202602730,Insumos medicos,Transferencia,2810000,11,9,5,4,2,3,2.38,0,-,0.108880155,0.458,0
+MV-202601309,Insumos medicos,Transferencia,3585000,32,16,2,4,3,4,-1.76,0,-,0.108802505,0.457,0
+MV-202602895,Servicios,Transferencia,2703000,39,10,3,4,3,3,8.11,0,-,0.10870456,0.457,0
+MV-202602779,Servicios,Transferencia,968000,32,10,4,3,4,1,0.41,0,-,0.10863129,0.457,0
+MV-202602356,Servicios,Transferencia,3250000,17,8,2,4,3,4,9.96,0,-,0.10859828,0.457,0
+MV-202602178,Servicios,Transferencia,2701000,6,16,4,4,4,1,1.28,0,-,0.10849667,0.456,0
+MV-202600311,Insumos medicos,Transferencia,4212000,10,15,2,4,4,3,-2.66,0,-,0.108315766,0.455,0
+MV-202601152,Insumos medicos,Transferencia,4040000,5,9,2,4,4,1,0.41,0,-,0.10815717,0.455,0
+MV-202600420,Arrendamiento,Transferencia,7576000,12,17,3,4,3,2,6.36,0,-,0.10811928,0.455,0
+MV-202601749,Arrendamiento,Transferencia,7811000,3,12,4,4,4,3,-1.19,0,-,0.10804719,0.454,0
+MV-202600572,Mantenimiento,Transferencia,1932000,9,15,3,3,4,4,3.6,0,-,0.108009,0.454,0
+MV-202602847,Arrendamiento,Transferencia,12080000,16,16,4,5,3,5,-3.39,0,-,0.10793056,0.454,0
+MV-202602333,Insumos medicos,Transferencia,2240000,20,15,5,3,4,1,-0.92,0,-,0.107905395,0.454,0
+MV-202602340,Papeleria,Transferencia,247000,28,15,4,2,4,2,-3.83,0,-,0.10787351,0.454,0
+MV-202600438,Papeleria,Transferencia,231000,42,16,3,2,3,1,-0.32,0,-,0.10784273,0.453,0
+MV-202601366,Insumos medicos,Transferencia,1418000,19,17,5,3,4,2,0.57,0,-,0.10780002,0.453,0
+MV-202600338,Servicios,Transferencia,1525000,11,16,1,3,4,4,2.14,0,-,0.107790254,0.453,0
+MV-202600051,Servicios,Transferencia,1091000,10,8,3,2,4,3,1.92,0,-,0.10773941,0.453,0
+MV-202601286,Servicios,Transferencia,3785000,7,11,3,2,2,1,-0.7,0,-,0.107549034,0.452,0
+MV-202600263,Insumos medicos,Transferencia,4386000,7,10,2,4,4,4,0.34,0,-,0.10736269,0.451,0
+MV-202600303,Insumos medicos,Transferencia,4212000,10,7,1,3,3,1,-0.71,0,-,0.107343175,0.451,0
+MV-202600459,Servicios,Transferencia,952000,9,16,5,2,4,1,1.85,0,-,0.107295886,0.451,0
+MV-202601395,Insumos medicos,Transferencia,5720000,12,16,1,5,3,1,-4.09,0,-,0.10726156,0.451,0
+MV-202600778,Insumos medicos,Transferencia,1901000,13,10,2,3,2,1,-4.16,0,-,0.106981605,0.45,0
+MV-202602937,Insumos medicos,Transferencia,5214000,26,18,1,4,3,3,1.83,0,-,0.10695172,0.45,0
+MV-202602116,Insumos medicos,Transferencia,3141000,11,15,5,3,4,1,0.64,0,-,0.10691988,0.45,0
+MV-202602225,Insumos medicos,Transferencia,1647000,12,17,3,3,2,2,-0.71,0,-,0.106818266,0.449,0
+MV-202600553,Servicios,Transferencia,1537000,5,8,1,3,3,2,10.93,0,-,0.10677019,0.449,0
+MV-202600262,Insumos medicos,Transferencia,3539000,42,13,5,4,3,2,9.86,0,-,0.10665899,0.448,0
+MV-202600970,Insumos medicos,Transferencia,4795000,14,16,1,4,2,3,0.55,0,-,0.10660077,0.448,0
+MV-202602289,Mantenimiento,Transferencia,846000,17,13,3,3,2,5,-3.11,0,-,0.10628544,0.447,0
+MV-202600388,Insumos medicos,Transferencia,3359000,5,15,5,4,4,2,-0.82,0,-,0.10627849,0.447,0
+MV-202600872,Insumos medicos,Transferencia,2492000,21,8,4,4,3,5,2.51,0,-,0.10626258,0.447,0
+MV-202602699,Papeleria,Transferencia,285000,29,16,4,1,3,4,3.9,0,-,0.106155746,0.446,0
+MV-202600491,Servicios,Transferencia,887000,3,9,5,3,3,4,0.35,0,-,0.1061514,0.446,0
+MV-202601868,Insumos medicos,Transferencia,2879000,11,14,1,3,2,1,7.02,0,-,0.10613829,0.446,0
+MV-202602352,Papeleria,Transferencia,199000,32,13,5,2,2,2,-3.7,0,-,0.10584026,0.445,0
+MV-202600363,Servicios,Transferencia,2171000,28,13,4,2,3,6,-2.87,0,-,0.1058142,0.445,0
+MV-202600531,Insumos medicos,Transferencia,1343000,23,10,3,2,4,2,-4.15,0,-,0.10579992,0.445,0
+MV-202600249,Insumos medicos,Transferencia,6086000,15,13,5,5,4,1,-3.79,0,-,0.105760455,0.445,0
+MV-202600348,Servicios,Transferencia,2300000,24,18,5,3,3,2,-1.01,0,-,0.105735,0.445,0
+MV-202600990,Servicios,Transferencia,1753000,14,15,4,4,4,2,7.74,0,-,0.10573048,0.445,0
+MV-202601674,Arrendamiento,Transferencia,8222000,32,10,4,5,4,2,3.72,0,-,0.10551314,0.444,0
+MV-202600286,Insumos medicos,Transferencia,2860000,14,18,1,4,3,1,-2.58,0,-,0.10549327,0.444,0
+MV-202602967,Papeleria,Transferencia,243000,20,15,1,2,4,2,8.58,0,-,0.105481714,0.444,0
+MV-202600295,Servicios,Transferencia,1678000,12,10,1,3,2,4,-1.74,0,-,0.105424285,0.443,0
+MV-202601222,Arrendamiento,Transferencia,7286000,22,16,4,4,3,2,6.87,0,-,0.1054117,0.443,0
+MV-202602601,Insumos medicos,Transferencia,1649000,21,12,1,3,4,5,6.36,0,-,0.1053857,0.443,0
+MV-202602703,Arrendamiento,Transferencia,7204000,11,10,2,4,4,2,-1.32,0,-,0.10526694,0.443,0
+MV-202602980,Arrendamiento,Transferencia,8682000,7,16,5,5,3,2,-3.9,0,-,0.10518061,0.442,0
+MV-202600930,Mantenimiento,Transferencia,1158000,34,15,2,2,4,2,3.82,0,-,0.10517546,0.442,0
+MV-202600205,Servicios,Transferencia,1757000,34,15,3,3,4,2,3.23,0,-,0.10501984,0.442,0
+MV-202602127,Mantenimiento,Transferencia,1463000,13,14,3,3,4,5,0.23,0,-,0.104944855,0.441,0
+MV-202600986,Mantenimiento,Transferencia,603000,8,14,5,2,2,3,4.7,0,-,0.1049204,0.441,0
+MV-202600671,Papeleria,Transferencia,152000,9,8,3,2,3,2,-6.28,0,-,0.104888335,0.441,0
+MV-202600505,Arrendamiento,Transferencia,5195000,11,15,2,4,2,1,2.8,0,-,0.10476501,0.441,0
+MV-202600242,Arrendamiento,Transferencia,7573000,7,17,4,4,3,2,0.56,0,-,0.10457133,0.44,0
+MV-202600160,Servicios,Transferencia,3258000,21,14,5,4,2,1,-1.5,0,-,0.10447679,0.439,0
+MV-202600321,Papeleria,Transferencia,251000,7,17,3,2,3,4,3.54,0,-,0.10441858,0.439,0
+MV-202602687,Papeleria,Transferencia,351000,26,7,3,2,3,2,-2.53,0,-,0.104374774,0.439,0
+MV-202602636,Servicios,Transferencia,2633000,11,12,2,5,4,2,-2.9,0,-,0.10436169,0.439,0
+MV-202602097,Servicios,Transferencia,2997000,9,10,2,4,4,1,-1.0,0,-,0.10415594,0.438,0
+MV-202600028,Servicios,Transferencia,2827000,21,15,1,4,2,2,7.03,0,-,0.10412367,0.438,0
+MV-202601176,Papeleria,Transferencia,555000,21,16,2,1,4,2,-0.23,0,-,0.10397319,0.437,0
+MV-202600079,Servicios,Transferencia,2803000,4,12,4,3,4,3,6.43,0,-,0.10385821,0.437,0
+MV-202602264,Papeleria,Transferencia,628000,17,9,2,2,3,6,4.25,0,-,0.10379914,0.436,0
+MV-202602660,Insumos medicos,Transferencia,7610000,9,11,1,5,2,1,5.7,0,-,0.10377462,0.436,0
+MV-202600453,Insumos medicos,Transferencia,3189000,32,11,4,4,4,1,0.08,0,-,0.10348304,0.435,0
+MV-202602242,Servicios,Transferencia,1876000,25,17,1,3,3,1,-1.87,0,-,0.10339592,0.435,0
+MV-202600184,Mantenimiento,Transferencia,601000,7,16,2,3,4,2,1.43,0,-,0.10334334,0.435,0
+MV-202601729,Mantenimiento,Transferencia,1601000,12,10,2,3,3,4,-6.78,0,-,0.10317055,0.434,0
+MV-202600532,Papeleria,Transferencia,531000,13,9,2,2,4,2,5.81,0,-,0.10315042,0.434,0
+MV-202602219,Servicios,Transferencia,4774000,6,10,3,4,2,3,0.94,0,-,0.103106484,0.434,0
+MV-202601368,Insumos medicos,Transferencia,1969000,18,16,3,3,2,1,2.84,0,-,0.10302442,0.433,0
+MV-202602936,Servicios,Transferencia,1786000,18,9,1,2,3,2,12.71,0,-,0.10284263,0.432,0
+MV-202601605,Papeleria,Transferencia,214000,12,17,1,2,2,2,2.75,0,-,0.10282395,0.432,0
+MV-202602619,Papeleria,Transferencia,229000,19,9,5,2,4,2,2.1,0,-,0.10279364,0.432,0
+MV-202601169,Mantenimiento,Transferencia,560000,12,11,5,2,2,1,-1.82,0,-,0.10276485,0.432,0
+MV-202601970,Insumos medicos,Transferencia,1550000,26,17,5,3,3,1,1.63,0,-,0.10272537,0.432,0
+MV-202601568,Servicios,Transferencia,1724000,18,9,2,3,4,3,-0.91,0,-,0.10249609,0.431,0
+MV-202602918,Servicios,Transferencia,1831000,35,14,3,3,4,3,1.62,0,-,0.10244044,0.431,0
+MV-202600899,Insumos medicos,Transferencia,3124000,10,15,4,3,2,2,4.34,0,-,0.102435015,0.431,0
+MV-202602810,Insumos medicos,Transferencia,2343000,8,12,1,3,4,1,-5.17,0,-,0.10241323,0.431,0
+MV-202601805,Insumos medicos,Transferencia,3096000,12,8,2,4,3,3,7.33,0,-,0.10241305,0.431,0
+MV-202601964,Insumos medicos,Transferencia,2569000,14,9,1,3,4,1,0.32,0,-,0.102312446,0.43,0
+MV-202602640,Servicios,Transferencia,3594000,18,8,3,4,3,3,8.86,0,-,0.10229417,0.43,0
+MV-202601788,Papeleria,Transferencia,442000,30,16,5,2,3,1,-0.33,0,-,0.10212379,0.429,0
+MV-202602088,Mantenimiento,Transferencia,1889000,19,13,4,3,2,1,9.25,0,-,0.102105886,0.429,0
+MV-202600416,Servicios,Transferencia,1816000,5,14,3,2,4,1,-0.29,0,-,0.10208511,0.429,0
+MV-202601527,Servicios,Transferencia,1295000,1,9,3,2,3,1,-1.63,0,-,0.10200765,0.429,0
+MV-202600813,Insumos medicos,Transferencia,1644000,17,17,1,3,3,1,-4.11,0,-,0.10193068,0.429,0
+MV-202601668,Insumos medicos,Transferencia,2204000,33,14,3,4,3,5,1.81,0,-,0.10169478,0.428,0
+MV-202602032,Insumos medicos,Transferencia,2191000,9,15,1,3,2,2,-1.69,0,-,0.10166311,0.427,0
+MV-202601215,Papeleria,Transferencia,234000,12,11,5,2,4,1,4.28,0,-,0.10162324,0.427,0
+MV-202600180,Servicios,Transferencia,2228000,27,10,3,3,3,4,-3.25,0,-,0.1015996,0.427,0
+MV-202602565,Mantenimiento,Transferencia,1203000,18,9,2,3,4,3,0.29,0,-,0.10146349,0.427,0
+MV-202601084,Insumos medicos,Transferencia,1452000,11,14,5,3,4,1,-0.8,0,-,0.101426296,0.426,0
+MV-202601324,Papeleria,Transferencia,252000,11,10,3,1,4,2,4.55,0,-,0.10138525,0.426,0
+MV-202602999,Servicios,Transferencia,801000,12,13,2,2,4,5,4.34,0,-,0.10130952,0.426,0
+MV-202601694,Papeleria,Transferencia,257000,17,9,1,1,3,4,3.2,0,-,0.10122675,0.426,0
+MV-202602652,Insumos medicos,Transferencia,2230000,15,17,2,3,3,4,4.66,0,-,0.101209685,0.426,0
+MV-202601272,Insumos medicos,Transferencia,4864000,13,11,4,4,3,7,0.54,0,-,0.10108841,0.425,0
+MV-202602943,Arrendamiento,Transferencia,7193000,25,14,2,5,4,2,-0.16,0,-,0.101064794,0.425,0
+MV-202601824,Insumos medicos,Transferencia,3853000,18,15,1,4,3,6,0.6,0,-,0.10098689,0.425,0
+MV-202600099,Servicios,Transferencia,2095000,19,11,3,3,4,1,-3.76,0,-,0.10077967,0.424,0
+MV-202600512,Servicios,Transferencia,893000,38,12,1,2,3,6,1.69,0,-,0.1005818,0.423,0
+MV-202600285,Arrendamiento,Transferencia,8258000,13,12,3,4,2,1,-0.56,0,-,0.10033415,0.422,0
+MV-202600754,Servicios,Transferencia,2528000,8,13,2,3,2,3,-2.99,0,-,0.10026912,0.422,0
+MV-202601883,Papeleria,Transferencia,216000,13,13,2,2,4,1,-5.16,0,-,0.10021511,0.421,0
+MV-202601913,Papeleria,Transferencia,583000,14,16,1,2,4,1,1.04,0,-,0.1000486,0.421,0
+MV-202600200,Insumos medicos,Transferencia,2099000,31,15,5,4,3,2,-1.66,0,-,0.099927865,0.42,0
+MV-202601938,Arrendamiento,Transferencia,5278000,25,10,3,3,3,2,-2.17,0,-,0.09991897,0.42,0
+MV-202601731,Servicios,Transferencia,2105000,30,15,4,3,3,1,6.17,0,-,0.09986931,0.42,0
+MV-202601065,Insumos medicos,Transferencia,3213000,13,15,4,4,2,3,2.7,0,-,0.099854924,0.42,0
+MV-202602355,Servicios,Transferencia,2394000,16,12,3,3,2,1,-6.26,0,-,0.09979192,0.42,0
+MV-202600083,Insumos medicos,Transferencia,2413000,12,8,3,3,3,2,7.9,0,-,0.09974634,0.419,0
+MV-202601221,Servicios,Transferencia,1006000,8,14,5,2,2,2,-2.23,0,-,0.09964403,0.419,0
+MV-202601932,Insumos medicos,Transferencia,5477000,5,9,1,3,3,2,4.23,0,-,0.099627554,0.419,0
+MV-202600947,Papeleria,Transferencia,473000,14,15,2,2,3,6,-0.25,0,-,0.09958102,0.419,0
+MV-202602900,Arrendamiento,Transferencia,20523000,17,11,5,5,3,5,2.03,0,-,0.09956893,0.419,0
+MV-202600498,Insumos medicos,Transferencia,1101000,11,14,4,3,4,1,4.43,0,-,0.099494755,0.418,0
+MV-202601899,Servicios,Transferencia,2949000,17,9,4,4,2,2,-1.3,0,-,0.09939413,0.418,0
+MV-202600144,Insumos medicos,Transferencia,3536000,8,12,2,4,1,2,2.04,0,-,0.099386044,0.418,0
+MV-202602045,Insumos medicos,Transferencia,2951000,14,11,2,3,4,3,-2.33,0,-,0.09930336,0.418,0
+MV-202601685,Mantenimiento,Transferencia,1361000,27,14,2,2,2,1,2.89,0,-,0.09915314,0.417,0
+MV-202602362,Insumos medicos,Transferencia,1582000,12,12,2,3,2,5,0.59,0,-,0.09912263,0.417,0
+MV-202600484,Insumos medicos,Transferencia,3051000,12,8,2,3,3,3,4.67,0,-,0.09905921,0.417,0
+MV-202600284,Servicios,Transferencia,2316000,10,12,4,4,3,4,-8.36,0,-,0.098981544,0.416,0
+MV-202602334,Servicios,Transferencia,1409000,7,12,2,3,2,4,3.76,0,-,0.09892682,0.416,0
+MV-202602184,Servicios,Transferencia,2023000,35,11,1,3,2,2,0.5,0,-,0.098765805,0.415,0
+MV-202602801,Insumos medicos,Transferencia,2696000,17,15,5,3,3,3,6.79,0,-,0.09866622,0.415,0
+MV-202601460,Insumos medicos,Transferencia,2558000,5,9,3,3,3,3,-1.23,0,-,0.09865579,0.415,0
+MV-202600441,Papeleria,Transferencia,182000,12,8,1,2,3,4,3.17,0,-,0.098626345,0.415,0
+MV-202601122,Papeleria,Transferencia,354000,26,13,3,2,3,3,13.0,0,-,0.09859686,0.415,0
+MV-202602311,Insumos medicos,Transferencia,1891000,12,9,1,3,4,2,4.21,0,-,0.09858377,0.415,0
+MV-202600852,Insumos medicos,Transferencia,5012000,18,17,4,4,3,3,-0.35,0,-,0.09855676,0.414,0
+MV-202600560,Servicios,Transferencia,4702000,7,9,1,4,3,4,3.43,0,-,0.098500155,0.414,0
+MV-202602431,Insumos medicos,Transferencia,1942000,15,17,3,4,3,3,-0.61,0,-,0.098338306,0.413,0
+MV-202601443,Servicios,Transferencia,1419000,6,11,2,3,3,6,0.93,0,-,0.09824277,0.413,0
+MV-202601342,Insumos medicos,Transferencia,2152000,16,12,2,3,3,6,8.87,0,-,0.09822649,0.413,0
+MV-202600725,Insumos medicos,Transferencia,2148000,28,11,2,3,4,1,0.8,0,-,0.098207116,0.413,0
+MV-202602865,Mantenimiento,Transferencia,989000,9,16,3,2,3,1,6.5,0,-,0.09815067,0.413,0
+MV-202600902,Servicios,Transferencia,1629000,7,8,3,3,3,2,-2.67,0,-,0.09814035,0.413,0
+MV-202601432,Insumos medicos,Transferencia,4528000,18,12,5,4,3,5,6.51,0,-,0.09803909,0.412,0
+MV-202602114,Papeleria,Transferencia,408000,21,10,3,2,2,2,-1.3,0,-,0.09797635,0.412,0
+MV-202601598,Servicios,Transferencia,1395000,33,12,4,3,4,3,0.7,0,-,0.097975634,0.412,0
+MV-202602835,Insumos medicos,Transferencia,3760000,9,8,4,4,3,2,6.8,0,-,0.0979265,0.412,0
+MV-202602443,Papeleria,Transferencia,284000,23,11,1,1,3,1,6.9,0,-,0.09785188,0.411,0
+MV-202601546,Arrendamiento,Transferencia,8447000,12,14,2,4,3,1,5.15,0,-,0.0977981,0.411,0
+MV-202600080,Mantenimiento,Transferencia,924000,15,13,3,2,2,5,3.34,0,-,0.097658716,0.411,0
+MV-202601298,Papeleria,Transferencia,355000,15,14,5,2,2,2,-3.87,0,-,0.097655125,0.411,0
+MV-202602057,Insumos medicos,Transferencia,1625000,16,14,3,3,4,1,5.7,0,-,0.09765331,0.411,0
+MV-202602650,Mantenimiento,Transferencia,1365000,20,8,4,3,3,1,-1.13,0,-,0.097566,0.41,0
+MV-202601505,Servicios,Transferencia,1706000,13,13,4,3,1,2,2.56,0,-,0.09736224,0.409,0
+MV-202601978,Insumos medicos,Transferencia,2818000,20,11,4,3,2,2,-2.52,0,-,0.097169824,0.409,0
+MV-202602705,Arrendamiento,Transferencia,6523000,10,11,5,5,3,3,-4.32,0,-,0.09715628,0.409,0
+MV-202600002,Insumos medicos,Transferencia,2709000,13,11,1,3,2,4,2.23,0,-,0.09709545,0.408,0
+MV-202600210,Papeleria,Transferencia,163000,18,11,1,2,2,3,-1.9,0,-,0.09707452,0.408,0
+MV-202601819,Servicios,Transferencia,3043000,2,13,2,4,4,3,2.1,0,-,0.09700807,0.408,0
+MV-202600478,Servicios,Transferencia,3267000,10,16,3,3,3,1,-0.61,0,-,0.09685075,0.407,0
+MV-202600034,Servicios,Transferencia,720000,17,14,1,2,3,1,12.87,0,-,0.0967803,0.407,0
+MV-202602732,Mantenimiento,Transferencia,831000,10,11,1,2,3,3,12.12,0,-,0.096696146,0.407,0
+MV-202600522,Arrendamiento,Transferencia,10722000,12,13,5,5,3,6,1.2,0,-,0.09656603,0.406,0
+MV-202600836,Insumos medicos,Transferencia,3309000,12,14,2,4,4,2,5.43,0,-,0.09646706,0.406,0
+MV-202602940,Insumos medicos,Transferencia,2356000,17,9,3,3,3,4,-1.53,0,-,0.09624879,0.405,0
+MV-202602717,Papeleria,Transferencia,235000,27,13,3,2,3,2,13.68,0,-,0.09621821,0.405,0
+MV-202600634,Mantenimiento,Transferencia,834000,13,14,4,3,4,2,6.12,0,-,0.09616389,0.404,0
+MV-202601687,Arrendamiento,Transferencia,4082000,14,9,4,4,2,2,0.41,0,-,0.09611495,0.404,0
+MV-202601331,Servicios,Transferencia,2589000,9,14,4,3,4,1,1.28,0,-,0.09609978,0.404,0
+MV-202602344,Servicios,Transferencia,2698000,11,14,1,3,2,2,-1.56,0,-,0.09595198,0.403,0
+MV-202602142,Papeleria,Transferencia,267000,16,17,2,2,3,3,5.39,0,-,0.09585602,0.403,0
+MV-202601016,Insumos medicos,Transferencia,2199000,13,11,1,3,4,2,7.72,0,-,0.09581258,0.403,0
+MV-202602165,Insumos medicos,Transferencia,5160000,18,11,3,5,4,3,1.48,0,-,0.09578622,0.403,0
+MV-202601212,Papeleria,Transferencia,285000,8,16,1,2,3,1,-1.32,0,-,0.09540442,0.401,0
+MV-202600093,Insumos medicos,Transferencia,5164000,19,11,2,5,3,4,-2.7,0,-,0.095403746,0.401,0
+MV-202601820,Mantenimiento,Transferencia,935000,22,14,3,2,4,1,2.99,0,-,0.09518217,0.4,0
+MV-202601862,Servicios,Transferencia,2643000,14,15,4,3,3,2,10.6,0,-,0.095133744,0.4,0
+MV-202601601,Papeleria,Transferencia,489000,21,12,4,1,4,2,-2.65,0,-,0.09508424,0.4,0
+MV-202602496,Mantenimiento,Transferencia,1725000,32,10,4,3,3,1,-0.5,0,-,0.09500351,0.399,0
+MV-202601870,Insumos medicos,Transferencia,2461000,20,9,4,4,3,2,-4.58,0,-,0.09496233,0.399,0
+MV-202601855,Mantenimiento,Transferencia,1298000,21,15,4,4,3,2,-4.59,0,-,0.09490798,0.399,0
+MV-202601592,Arrendamiento,Transferencia,6187000,29,14,1,4,3,2,-1.44,0,-,0.09482593,0.399,0
+MV-202601336,Insumos medicos,Transferencia,2228000,7,12,5,3,3,1,-5.47,0,-,0.09473558,0.398,0
+MV-202601721,Servicios,Transferencia,855000,16,12,4,3,4,1,6.56,0,-,0.09458703,0.398,0
+MV-202600779,Mantenimiento,Transferencia,710000,26,12,2,3,3,1,-7.11,0,-,0.09455799,0.398,0
+MV-202600640,Insumos medicos,Transferencia,1403000,14,12,5,3,4,3,3.91,0,-,0.094537154,0.398,0
+MV-202602358,Insumos medicos,Transferencia,2244000,13,15,3,4,3,1,6.12,0,-,0.09441738,0.397,0
+MV-202602459,Papeleria,Transferencia,324000,13,17,4,2,3,2,6.11,0,-,0.09397984,0.395,0
+MV-202601308,Insumos medicos,Transferencia,3354000,26,13,1,4,4,1,2.43,0,-,0.09396287,0.395,0
+MV-202600959,Servicios,Transferencia,1803000,24,15,2,3,2,2,1.63,0,-,0.09390966,0.395,0
+MV-202600988,Servicios,Transferencia,2430000,19,12,4,4,4,1,-2.15,0,-,0.093852155,0.395,0
+MV-202600423,Servicios,Transferencia,1975000,8,11,1,3,4,1,2.65,0,-,0.09384928,0.395,0
+MV-202602540,Insumos medicos,Transferencia,4196000,8,9,1,4,3,1,-0.95,0,-,0.093682386,0.394,0
+MV-202600961,Papeleria,Transferencia,290000,25,11,3,2,3,4,-2.18,0,-,0.09364805,0.394,0
+MV-202600290,Mantenimiento,Transferencia,797000,17,10,5,2,3,3,5.47,0,-,0.093576826,0.393,0
+MV-202600112,Papeleria,Transferencia,286000,31,11,4,2,3,1,-2.14,0,-,0.09357184,0.393,0
+MV-202601289,Servicios,Transferencia,1554000,38,10,1,3,3,3,1.71,0,-,0.093366325,0.393,0
+MV-202602536,Servicios,Transferencia,1840000,12,8,5,3,3,2,2.93,0,-,0.09330088,0.392,0
+MV-202601098,Papeleria,Transferencia,520000,13,14,3,2,4,1,3.2,0,-,0.0932975,0.392,0
+MV-202601095,Arrendamiento,Transferencia,14576000,12,11,5,5,2,2,-1.63,0,-,0.09329008,0.392,0
+MV-202600609,Insumos medicos,Transferencia,2127000,12,11,4,4,4,2,4.31,0,-,0.0932852,0.392,0
+MV-202602673,Insumos medicos,Transferencia,1742000,18,13,1,2,4,1,4.48,0,-,0.093225494,0.392,0
+MV-202602753,Mantenimiento,Transferencia,720000,31,12,3,2,3,3,-4.91,0,-,0.09318682,0.392,0
+MV-202602587,Servicios,Transferencia,3159000,25,14,2,4,3,1,-3.79,0,-,0.09315711,0.392,0
+MV-202602995,Insumos medicos,Transferencia,3566000,19,10,1,4,4,1,1.81,0,-,0.09306008,0.391,0
+MV-202601413,Insumos medicos,Transferencia,3866000,12,10,5,4,3,4,2.34,0,-,0.09302387,0.391,0
+MV-202602542,Mantenimiento,Transferencia,937000,16,15,1,3,2,2,3.21,0,-,0.092873685,0.391,0
+MV-202602481,Insumos medicos,Transferencia,2381000,13,10,5,4,3,1,4.55,0,-,0.09285651,0.39,0
+MV-202602486,Insumos medicos,Transferencia,2100000,10,13,3,3,4,1,3.39,0,-,0.09282093,0.39,0
+MV-202602977,Insumos medicos,Transferencia,1494000,17,15,3,3,3,1,-4.4,0,-,0.092759736,0.39,0
+MV-202601348,Mantenimiento,Transferencia,1904000,12,10,4,3,4,2,0.33,0,-,0.09273777,0.39,0
+MV-202601597,Servicios,Transferencia,2922000,19,15,5,4,3,2,-3.7,0,-,0.09271246,0.39,0
+MV-202601901,Mantenimiento,Transferencia,1608000,31,15,3,3,3,3,2.66,0,-,0.09263829,0.39,0
+MV-202602949,Servicios,Transferencia,2709000,25,11,2,4,4,2,3.42,0,-,0.092616096,0.389,0
+MV-202602211,Mantenimiento,Transferencia,1268000,10,12,2,2,4,3,-0.78,0,-,0.09259521,0.389,0
+MV-202602020,Papeleria,Transferencia,297000,16,13,2,2,3,7,0.48,0,-,0.092564955,0.389,0
+MV-202600138,Insumos medicos,Transferencia,3994000,26,13,3,4,2,3,1.6,0,-,0.09253734,0.389,0
+MV-202602175,Papeleria,Transferencia,292000,9,12,2,2,2,1,3.06,0,-,0.09248802,0.389,0
+MV-202600239,Arrendamiento,Transferencia,9388000,32,14,2,5,3,3,2.33,0,-,0.09204448,0.387,0
+MV-202600635,Mantenimiento,Transferencia,1003000,26,14,1,2,3,1,6.89,0,-,0.09190036,0.386,0
+MV-202602405,Insumos medicos,Transferencia,3332000,17,13,1,4,2,3,4.89,0,-,0.09189003,0.386,0
+MV-202600824,Servicios,Transferencia,1957000,13,16,4,2,3,3,-0.73,0,-,0.09175804,0.386,0
+MV-202601491,Mantenimiento,Transferencia,701000,7,15,4,3,3,1,3.61,0,-,0.09174795,0.386,0
+MV-202600772,Papeleria,Transferencia,479000,15,8,3,2,3,3,0.17,0,-,0.09173446,0.386,0
+MV-202601274,Mantenimiento,Transferencia,624000,22,17,1,3,3,2,1.09,0,-,0.09170073,0.386,0
+MV-202602892,Insumos medicos,Transferencia,3890000,18,15,4,4,4,2,1.43,0,-,0.09168991,0.386,0
+MV-202600105,Insumos medicos,Transferencia,2825000,26,16,4,3,3,2,2.41,0,-,0.0915591,0.385,0
+MV-202601172,Insumos medicos,Transferencia,2690000,14,10,2,4,2,2,1.99,0,-,0.091385014,0.384,0
+MV-202601450,Servicios,Transferencia,1440000,8,15,4,3,3,2,7.32,0,-,0.091345385,0.384,0
+MV-202601898,Mantenimiento,Transferencia,1509000,13,11,3,3,3,3,-6.18,0,-,0.09121073,0.384,0
+MV-202600674,Papeleria,Transferencia,276000,10,14,2,2,3,1,7.73,0,-,0.09114332,0.383,0
+MV-202600868,Mantenimiento,Transferencia,1455000,20,16,1,2,3,1,0.28,0,-,0.0911142,0.383,0
+MV-202600703,Arrendamiento,Transferencia,6742000,23,10,1,4,3,2,4.83,0,-,0.091054924,0.383,0
+MV-202600728,Mantenimiento,Transferencia,1422000,13,15,4,2,2,2,1.51,0,-,0.09086946,0.382,0
+MV-202602881,Servicios,Transferencia,1386000,9,11,2,2,2,2,0.77,0,-,0.090856925,0.382,0
+MV-202602174,Servicios,Transferencia,2828000,11,12,1,4,4,1,-1.38,0,-,0.09078716,0.382,0
+MV-202601611,Servicios,Transferencia,1628000,12,12,3,3,4,1,4.0,0,-,0.09063577,0.381,0
+MV-202600777,Servicios,Transferencia,1248000,13,11,2,3,4,2,-0.87,0,-,0.0905229,0.381,0
+MV-202601478,Insumos medicos,Transferencia,1490000,13,13,1,3,3,5,-2.37,0,-,0.09051993,0.381,0
+MV-202602493,Servicios,Transferencia,1813000,12,14,1,3,4,2,-0.49,0,-,0.09042957,0.38,0
+MV-202600175,Servicios,Transferencia,1740000,10,16,2,3,3,3,0.52,0,-,0.09040937,0.38,0
+MV-202600125,Insumos medicos,Transferencia,2239000,7,12,2,3,4,1,1.72,0,-,0.090380415,0.38,0
+MV-202601343,Servicios,Transferencia,5044000,14,15,2,3,3,1,1.31,0,-,0.09034052,0.38,0
+MV-202600310,Papeleria,Transferencia,162000,15,15,5,1,3,1,4.29,0,-,0.090331346,0.38,0
+MV-202601920,Insumos medicos,Transferencia,4586000,13,13,4,4,3,5,-1.02,0,-,0.09032209,0.38,0
+MV-202600043,Insumos medicos,Transferencia,4262000,13,13,5,5,3,3,-0.46,0,-,0.09026823,0.38,0
+MV-202601727,Papeleria,Transferencia,210000,20,11,3,1,3,1,5.63,0,-,0.09002614,0.379,0
+MV-202601595,Papeleria,Transferencia,520000,16,11,3,1,2,2,0.78,0,-,0.08998119,0.378,0
+MV-202601257,Papeleria,Transferencia,190000,7,11,4,3,3,2,7.81,0,-,0.08984676,0.378,0
+MV-202602038,Papeleria,Transferencia,208000,9,13,4,2,4,3,0.66,0,-,0.089681655,0.377,0
+MV-202600141,Servicios,Transferencia,718000,20,13,3,2,3,5,-2.2,0,-,0.08951694,0.376,0
+MV-202600914,Mantenimiento,Transferencia,1549000,14,11,3,3,4,2,4.01,0,-,0.08930819,0.376,0
+MV-202601102,Servicios,Transferencia,1966000,10,15,2,4,3,3,0.91,0,-,0.08906716,0.375,0
+MV-202600823,Servicios,Transferencia,2005000,33,15,1,3,3,2,2.35,0,-,0.0887691,0.373,0
+MV-202600367,Servicios,Transferencia,1258000,24,15,1,2,3,2,-2.35,0,-,0.088465266,0.372,0
+MV-202602546,Insumos medicos,Transferencia,3847000,15,15,2,4,3,1,-1.64,0,-,0.0883162,0.371,0
+MV-202601010,Arrendamiento,Transferencia,10592000,16,15,3,5,3,1,3.44,0,-,0.08831101,0.371,0
+MV-202600260,Mantenimiento,Transferencia,1549000,14,12,1,3,3,6,3.99,0,-,0.08813586,0.371,0
+MV-202600714,Arrendamiento,Transferencia,3613000,12,14,1,4,2,2,1.85,0,-,0.08812468,0.371,0
+MV-202602170,Servicios,Transferencia,1422000,14,13,2,3,4,1,2.58,0,-,0.08775622,0.369,0
+MV-202602372,Mantenimiento,Transferencia,619000,11,10,5,2,3,1,1.21,0,-,0.087628186,0.368,0
+MV-202600929,Insumos medicos,Transferencia,2695000,6,12,5,4,3,3,4.52,0,-,0.087600425,0.368,0
+MV-202601785,Papeleria,Transferencia,239000,22,13,1,2,3,5,0.47,0,-,0.08758949,0.368,0
+MV-202601475,Insumos medicos,Transferencia,1364000,13,13,1,2,2,2,-1.48,0,-,0.08752431,0.368,0
+MV-202600473,Insumos medicos,Transferencia,3098000,10,15,2,4,3,2,4.82,0,-,0.08748747,0.368,0
+MV-202601392,Insumos medicos,Transferencia,1783000,15,11,3,3,3,4,-2.45,0,-,0.087478735,0.368,0
+MV-202601987,Mantenimiento,Transferencia,828000,14,13,2,3,3,1,9.02,0,-,0.087408975,0.368,0
+MV-202600793,Servicios,Transferencia,1244000,9,13,5,2,3,3,5.99,0,-,0.087331384,0.367,0
+MV-202602682,Servicios,Transferencia,2250000,21,11,2,4,3,1,-3.02,0,-,0.08731528,0.367,0
+MV-202600304,Servicios,Transferencia,1406000,38,13,3,3,3,1,1.94,0,-,0.087188885,0.367,0
+MV-202602182,Insumos medicos,Transferencia,3049000,9,9,1,4,3,1,1.4,0,-,0.087047406,0.366,0
+MV-202602531,Papeleria,Transferencia,348000,3,13,5,2,3,2,-3.82,0,-,0.08703754,0.366,0
+MV-202600656,Servicios,Transferencia,2085000,15,9,2,3,3,1,3.47,0,-,0.08699296,0.366,0
+MV-202601841,Servicios,Transferencia,2741000,11,12,2,3,4,2,3.75,0,-,0.08697957,0.366,0
+MV-202602920,Insumos medicos,Transferencia,1982000,15,14,4,4,3,1,-2.54,0,-,0.08692156,0.365,0
+MV-202602123,Insumos medicos,Transferencia,1468000,27,12,4,2,3,1,5.13,0,-,0.086774275,0.365,0
+MV-202602708,Papeleria,Transferencia,179000,16,11,1,2,2,2,3.53,0,-,0.08657235,0.364,0
+MV-202601457,Mantenimiento,Transferencia,1112000,5,11,1,2,3,1,4.75,0,-,0.08653327,0.364,0
+MV-202600198,Mantenimiento,Transferencia,1563000,9,11,4,3,3,3,-2.37,0,-,0.08636379,0.363,0
+MV-202601596,Servicios,Transferencia,1421000,28,14,4,3,3,1,0.29,0,-,0.08635189,0.363,0
+MV-202601082,Papeleria,Transferencia,377000,19,9,1,2,3,1,1.23,0,-,0.08634112,0.363,0
+MV-202600226,Insumos medicos,Transferencia,6059000,11,14,1,5,3,2,4.92,0,-,0.08634084,0.363,0
+MV-202602973,Insumos medicos,Transferencia,2454000,14,13,3,4,2,2,2.75,0,-,0.086279534,0.363,0
+MV-202602564,Mantenimiento,Transferencia,775000,7,14,2,2,3,4,2.2,0,-,0.08626388,0.363,0
+MV-202601726,Insumos medicos,Transferencia,2404000,8,14,4,3,3,2,-3.32,0,-,0.08618057,0.362,0
+MV-202601800,Insumos medicos,Transferencia,2459000,24,12,3,2,3,1,-1.83,0,-,0.08614698,0.362,0
+MV-202602432,Insumos medicos,Transferencia,2091000,20,12,3,3,4,2,4.15,0,-,0.08610689,0.362,0
+MV-202600737,Servicios,Transferencia,3351000,21,11,3,4,4,2,1.47,0,-,0.08606346,0.362,0
+MV-202600336,Papeleria,Transferencia,502000,23,11,5,2,3,1,0.8,0,-,0.08597388,0.361,0
+MV-202600076,Mantenimiento,Transferencia,485000,16,12,4,2,4,1,2.08,0,-,0.08587182,0.361,0
+MV-202601267,Insumos medicos,Transferencia,1650000,7,9,3,3,3,2,1.87,0,-,0.08585117,0.361,0
+MV-202601553,Papeleria,Transferencia,246000,18,10,4,2,3,3,-0.8,0,-,0.08573606,0.36,0
+MV-202601827,Insumos medicos,Transferencia,1180000,11,13,2,3,3,1,7.15,0,-,0.085686065,0.36,0
+MV-202601521,Insumos medicos,Transferencia,2387000,17,12,2,4,2,2,-1.28,0,-,0.08565823,0.36,0
+MV-202601288,Insumos medicos,Transferencia,1910000,21,14,1,3,3,1,-1.55,0,-,0.08563226,0.36,0
+MV-202601852,Arrendamiento,Transferencia,11302000,7,9,3,5,3,2,1.54,0,-,0.08545939,0.359,0
+MV-202601300,Servicios,Transferencia,1039000,13,11,3,3,3,1,-2.75,0,-,0.085300624,0.359,0
+MV-202600037,Insumos medicos,Transferencia,1829000,26,15,2,3,3,2,3.76,0,-,0.08519067,0.358,0
+MV-202600805,Papeleria,Transferencia,291000,12,14,2,2,3,3,5.94,0,-,0.08511238,0.358,0
+MV-202601167,Servicios,Transferencia,1023000,15,12,4,2,4,1,1.99,0,-,0.084875435,0.357,0
+MV-202601228,Insumos medicos,Transferencia,4447000,29,13,4,4,3,2,-2.32,0,-,0.0847428,0.356,0
+MV-202601754,Insumos medicos,Transferencia,4588000,23,10,1,4,3,3,1.58,0,-,0.08436813,0.355,0
+MV-202600734,Insumos medicos,Transferencia,3115000,13,12,5,4,3,2,-5.8,0,-,0.084277116,0.354,0
+MV-202600675,Arrendamiento,Transferencia,11459000,14,13,4,5,4,2,1.49,0,-,0.08417202,0.354,0
+MV-202600060,Mantenimiento,Transferencia,2042000,25,11,4,4,3,1,2.25,0,-,0.08412399,0.354,0
+MV-202602349,Mantenimiento,Transferencia,1458000,24,10,3,3,3,2,3.88,0,-,0.08406515,0.353,0
+MV-202602638,Mantenimiento,Transferencia,631000,19,10,2,2,3,1,3.44,0,-,0.08405822,0.353,0
+MV-202601566,Insumos medicos,Transferencia,2072000,21,13,1,3,3,2,-5.64,0,-,0.08400196,0.353,0
+MV-202601910,Arrendamiento,Transferencia,8673000,17,13,3,5,3,4,0.01,0,-,0.08373956,0.352,0
+MV-202600075,Mantenimiento,Transferencia,1571000,32,11,2,3,3,2,3.77,0,-,0.083718605,0.352,0
+MV-202601213,Mantenimiento,Transferencia,2612000,4,12,5,3,3,2,3.7,0,-,0.08369433,0.352,0
+MV-202600980,Papeleria,Transferencia,228000,26,13,4,2,3,2,7.51,0,-,0.08359449,0.351,0
+MV-202600104,Servicios,Transferencia,1719000,18,11,2,4,3,1,5.1,0,-,0.083322026,0.35,0
+MV-202602834,Papeleria,Transferencia,188000,11,15,1,2,3,1,2.14,0,-,0.08325658,0.35,0
+MV-202600199,Insumos medicos,Transferencia,2058000,17,10,2,3,3,4,1.59,0,-,0.08298855,0.349,0
+MV-202602040,Servicios,Transferencia,910000,8,10,3,3,3,2,2.81,0,-,0.08266562,0.348,0
+MV-202601831,Insumos medicos,Transferencia,3714000,16,11,5,4,3,1,-0.33,0,-,0.082059994,0.345,0
+MV-202602090,Insumos medicos,Transferencia,2773000,21,11,2,2,3,2,-1.15,0,-,0.08203247,0.345,0
+MV-202601965,Mantenimiento,Transferencia,356000,27,12,1,2,3,3,-0.58,0,-,0.08166469,0.343,0
+MV-202600665,Papeleria,Transferencia,259000,11,12,4,2,3,4,-0.24,0,-,0.081599064,0.343,0
+MV-202600500,Servicios,Transferencia,1182000,5,11,4,3,3,2,-0.82,0,-,0.08158616,0.343,0
+MV-202600597,Servicios,Transferencia,1505000,26,14,4,3,3,2,-0.54,0,-,0.08102194,0.341,0
+MV-202602763,Papeleria,Transferencia,427000,10,12,2,1,3,1,2.73,0,-,0.08091062,0.34,0
+MV-202601890,Papeleria,Transferencia,463000,13,14,3,2,3,1,-0.96,0,-,0.08084756,0.34,0
+MV-202600552,Mantenimiento,Transferencia,909000,15,9,2,2,3,2,2.72,0,-,0.0808429,0.34,0
+MV-202600025,Servicios,Transferencia,1954000,8,11,1,2,3,2,4.58,0,-,0.08077359,0.34,0
+MV-202602527,Arrendamiento,Transferencia,13067000,9,13,3,5,3,1,1.4,0,-,0.08041507,0.338,0
+MV-202602700,Servicios,Transferencia,1264000,20,15,4,3,3,2,2.62,0,-,0.079899885,0.336,0
+MV-202601003,Servicios,Transferencia,707000,16,14,3,2,3,1,4.69,0,-,0.07961542,0.335,0
+MV-202600574,Servicios,Transferencia,1382000,10,11,2,3,3,3,0.9,0,-,0.07913309,0.333,0
+MV-202600907,Servicios,Transferencia,1285000,12,11,4,3,3,2,5.37,0,-,0.079118155,0.333,0
+MV-202600016,Papeleria,Transferencia,270000,10,13,1,2,3,1,-1.29,0,-,0.07909707,0.333,0
+MV-202602935,Mantenimiento,Transferencia,1201000,19,15,1,3,3,2,0.81,0,-,0.07894062,0.332,0
+MV-202602280,Insumos medicos,Transferencia,2258000,9,13,2,3,3,1,0.49,0,-,0.07832277,0.329,0
+MV-202602393,Papeleria,Transferencia,437000,20,13,2,2,3,3,5.41,0,-,0.07806099,0.328,0
+MV-202601926,Papeleria,Transferencia,211000,16,11,5,1,3,2,1.28,0,-,0.07779424,0.327,0
+MV-202601191,Servicios,Transferencia,1177000,15,11,3,2,3,2,5.65,0,-,0.07750291,0.326,0
+MV-202602329,Servicios,Transferencia,1930000,21,11,1,3,3,1,1.02,0,-,0.077371396,0.325,0
+MV-202602365,Insumos medicos,Transferencia,1238000,12,12,5,3,3,3,1.47,0,-,0.07714909,0.324,0
+MV-202601570,Insumos medicos,Transferencia,3143000,12,12,5,4,3,1,0.92,0,-,0.07703066,0.324,0
+MV-202602951,Servicios,Transferencia,1111000,25,13,1,2,3,1,1.41,0,-,0.07694473,0.324,0
+MV-202602176,Insumos medicos,Transferencia,3781000,15,13,3,4,3,1,4.29,0,-,0.07677287,0.323,0
+MV-202600460,Insumos medicos,Transferencia,4346000,7,13,1,4,3,2,3.18,0,-,0.07643139,0.321,0
+MV-202602051,Insumos medicos,Transferencia,4316000,17,12,1,4,3,3,5.6,0,-,0.07628274,0.321,0
+MV-202602461,Servicios,Transferencia,863000,30,13,4,2,3,2,0.46,0,-,0.07595749,0.319,0
+MV-202600700,Mantenimiento,Transferencia,617000,14,14,5,2,3,2,0.23,0,-,0.0758839,0.319,0
+MV-202600044,Mantenimiento,Transferencia,1154000,12,12,4,3,3,1,-0.07,0,-,0.07554995,0.318,0
+MV-202602518,Servicios,Transferencia,1585000,21,11,2,3,3,2,4.07,0,-,0.075449124,0.317,0
+MV-202601756,Servicios,Transferencia,3128000,14,13,3,4,3,1,0.36,0,-,0.075332485,0.317,0
+MV-202601096,Mantenimiento,Transferencia,1678000,9,12,4,3,3,1,1.15,0,-,0.074487984,0.313,0
+MV-202601545,Servicios,Transferencia,2349000,19,13,4,3,3,2,4.48,0,-,0.073740184,0.31,0
+MV-202600014,Mantenimiento,Transferencia,1750000,13,13,4,3,3,3,2.77,0,-,0.073716216,0.31,0
+MV-202601479,Insumos medicos,Transferencia,2583000,14,11,3,4,3,2,1.28,0,-,0.07208303,0.303,0
+MV-202601129,Servicios,Transferencia,1127000,15,13,1,3,3,1,0.81,0,-,0.07192618,0.302,0
+MV-202602832,Arrendamiento,Transferencia,9157000,18,12,1,5,3,2,4.52,0,-,0.07182619,0.302,0
+MV-202600024,Insumos medicos,Transferencia,3237000,13,13,1,4,3,2,3.76,0,-,0.07093148,0.298,0
+MV-202601538,Servicios,Transferencia,1104000,16,13,3,3,3,1,1.4,0,-,0.07081911,0.298,0
+MV-202602115,Papeleria,Transferencia,472000,15,13,1,3,3,2,3.61,0,-,0.070555046,0.297,0
+MV-202601795,Servicios,Transferencia,1224000,14,13,4,3,3,2,-0.3,0,-,0.06944853,0.292,0
