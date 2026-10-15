@@ -15,6 +15,12 @@ Actualiza el aula y conecta mi informe a mi WhatsApp siguiendo la skill /agente-
 Usted solo hace dos cosas: **autorizar Cloudflare** en el navegador si se lo pide y **escanear el
 QR** con el celular.
 
+| Archivo | Para quién |
+|---|---|
+| [`Guia_del_Estudiante.md`](Guia_del_Estudiante.md) | Para usted: qué es, el prompt, qué hace usted, el ícono, el interruptor y los límites |
+| [`Instrucciones_para_Claude.md`](Instrucciones_para_Claude.md) | Para su Claude: el paso a paso completo. Sirve solo, sin el aula: si no encuentra el kit, lo baja de GitHub |
+| Este `LEEME.md` | Cómo funciona por dentro |
+
 ---
 
 ## Cómo funciona: arquitectura semihíbrida
