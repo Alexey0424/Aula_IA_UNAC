@@ -215,10 +215,11 @@ bueno.
 | 7 | Equipo | Mínimo 3 personas; quién hace qué |
 | 8 | Medición del antes iniciada | ¿Ya empezaron a cronometrar y contar? (no se califica en la E1, pero se pregunta) |
 
-## Entrega 2 — Capítulo 2, la propuesta de actividades · 20 % · semana del 21 al 25 de septiembre de 2026 — cierra el jueves 24 de septiembre a las 11:59 p. m.
+## Entrega 2 — Capítulo 2, la propuesta de actividades · 20 % · semana del 28 de septiembre al 2 de octubre de 2026 — cerró el jueves 1 de octubre a las 11:59 p. m.
 
-**Fecha nueva.** Antes era el miércoles 23; se movió al **jueves 24** porque el horario del
-diplomado pasó a jueves desde el 17 de septiembre y la entrega cierra el día de la clase.
+**Fecha corrida dos veces.** Primero era el miércoles 23 de septiembre; pasó al jueves 24 cuando
+el horario del diplomado se movió a jueves, y después el docente la corrió una semana más: **cerró
+el jueves 1 de octubre**, que es la fecha que quedó en Moodle.
 
 **Qué se entrega:** el Capítulo 1 con las correcciones de la E1 aplicadas + **el Capítulo 2 en
 su primera mitad: la propuesta de actividades.**

@@ -16,7 +16,7 @@ objetivos formales con la regla del verbo único, ni descripción del proceso me
 capítulo de conclusiones. Si el estudiante trae la estructura vieja de siete secciones, dígaselo.
 
 Las entregas cierran **el día de la clase** a las 11:59 p. m.: **E1** portada + Capítulo 1
-completo (mié 2-sep, 20 %) · **E2** Capítulo 2, la propuesta de actividades (jue 24-sep, 20 %) ·
+completo (mié 2-sep, 20 %) · **E2** Capítulo 2, la propuesta de actividades (jue 1-oct, 20 %) ·
 **E3** Capítulo 2 completo, el desarrollo de la solución (jue 22-oct, 20 %) · **E4** documento
 completo con el Capítulo 3 + la presentación de sustentación (jue 5-nov, 40 %) · sustentación
 jue 12-nov.

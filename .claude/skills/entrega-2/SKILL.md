@@ -1,15 +1,15 @@
 ---
 name: entrega-2
-description: Criterios de la Entrega 2 del proyecto de grado (Capitulo 2, la propuesta de actividades, 20%, cierra el jueves 24 de septiembre de 2026 a las 11:59 p. m.). Usar cuando el estudiante pregunte por la segunda entrega, por el Capitulo 2, por la propuesta de actividades o por donde entra la IA en su proceso.
+description: Criterios de la Entrega 2 del proyecto de grado (Capitulo 2, la propuesta de actividades, 20%, cierra el jueves 1 de octubre de 2026 a las 11:59 p. m.). Usar cuando el estudiante pregunte por la segunda entrega, por el Capitulo 2, por la propuesta de actividades o por donde entra la IA en su proceso.
 ---
 
-# Entrega 2 · Capítulo 2 — la propuesta de actividades · 20 % · semana del 21 al 25 de septiembre
+# Entrega 2 · Capítulo 2 — la propuesta de actividades · 20 % · semana del 28 de septiembre al 2 de octubre
 
-**Cierra el jueves 24 de septiembre de 2026 a las 11:59 p. m.** (el día de la clase).
+**Cerró el jueves 1 de octubre de 2026 a las 11:59 p. m.** (el día de la clase).
 
-> **Ojo, fecha nueva.** Antes esta entrega cerraba el **miércoles 23**; se movió al **jueves 24**
-> porque el horario del diplomado pasó de miércoles a jueves desde el 17 de septiembre y la regla
-> es que la entrega cierra el día de la clase.
+> **Ojo, fecha corrida dos veces.** Primero cerraba el **miércoles 23 de septiembre**; pasó al
+> **jueves 24** cuando el horario del diplomado se movió a jueves, y después el docente la corrió
+> una semana más: **cerró el jueves 1 de octubre**, que es la fecha que quedó en Moodle.
 
 > **Estructura vigente: 26 de agosto de 2026.** El documento es **portada + Capítulo 1
 > (Problemática) + Capítulo 2 (Intervención) + Capítulo 3 (Resultados) + Referencias**. Ya **no**

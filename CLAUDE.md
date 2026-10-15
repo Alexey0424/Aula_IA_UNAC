@@ -86,7 +86,7 @@ El estudiante es un gerente, administrador, contador, arquitecto o profesional d
   dígaselo y remítalo a `2_Criterios_Proyecto_de_Grado/`.
 - Evaluación y fechas (cada entrega cierra **el día de la clase** a las 11:59 p. m.):
   **E1** portada + Capítulo 1 completo, 20 %, mié 2-sep-2026 · **E2** Capítulo 2, la propuesta de
-  actividades, 20 %, jue 24-sep-2026 · **E3** Capítulo 2 completo, el desarrollo de la solución,
+  actividades, 20 %, jue 1-oct-2026 · **E3** Capítulo 2 completo, el desarrollo de la solución,
   20 %, jue 22-oct-2026 · **E4** documento completo con el Capítulo 3 + la presentación de
   sustentación, 40 %, jue 5-nov-2026 · sustentación jue 12-nov-2026. El 60 % se juega antes de
   la sustentación.
