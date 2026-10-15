@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agente conversacional en WhatsApp · Clase 12 · Diplomado en IA · UNAC</title>
+<style>
+:root{
+  --navy:#0E2036; --card-dark:#1B3453; --cream:#F6F5F0;
+  --orange:#E8792B; --blue:#3C7FD0; --red:#D54E48; --gold:#EAAD05; --teal:#29AC8A;
+  --bg:#F6F5F0; --surface:#FFFFFF; --surface-2:#FCFBF7;
+  --ink:#12233A; --ink-2:#4B5A6D; --ink-3:#7A8797;
+  --line:#DDD8CC; --line-soft:#EAE5DA;
+  --shadow:0 1px 2px rgba(14,32,54,.06), 0 6px 18px rgba(14,32,54,.05);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  font-size:15.5px; line-height:1.62; -webkit-font-smoothing:antialiased}
+.wrap{max-width:960px; margin:0 auto; padding:0 26px}
+h1,h2,h3,h4{margin:0; font-weight:600; line-height:1.22}
+p{margin:0 0 .8em}
+code{font-family:Consolas,"Cascadia Mono",monospace; font-size:.92em;
+  background:var(--surface-2); border:1px solid var(--line-soft);
+  border-radius:4px; padding:1px 5px}
+
+/* hero */
+.hero{background:var(--navy); color:var(--cream); padding:42px 0 36px; position:relative; overflow:hidden}
+.hero::after{content:""; position:absolute; inset:auto 0 0 0; height:3px;
+  background:linear-gradient(90deg,var(--orange) 0 40%,var(--blue) 40% 72%,var(--red) 72% 100%)}
+.eyebrow{display:flex; align-items:center; gap:10px; font-size:11.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:15px}
+.eyebrow::before{content:""; width:3.5px; height:15px; background:var(--gold); border-radius:2px}
+.hero h1{font-size:clamp(28px,4.2vw,40px); font-family:"Segoe UI Light","Segoe UI",sans-serif;
+  font-weight:300; letter-spacing:-.01em}
+.hero h1 b{font-weight:600}
+.hero .sub{margin-top:14px; max-width:74ch; color:#A9BBD1; font-size:16px}
+.hero .sub b{color:var(--cream)}
+
+/* pasos */
+.paso{margin-top:44px; background:var(--surface); border:1px solid var(--line);
+  border-radius:12px; box-shadow:var(--shadow); overflow:hidden}
+.paso-h{display:flex; align-items:flex-start; gap:16px; padding:20px 26px 18px;
+  border-bottom:1px solid var(--line-soft); background:var(--surface-2)}
+.paso-n{flex:none; width:38px; height:38px; border-radius:50%; background:var(--gold);
+  color:var(--navy); font-weight:600; font-size:17px; display:flex;
+  align-items:center; justify-content:center; margin-top:1px}
+.paso-h h2{font-size:21px; font-family:"Segoe UI Light","Segoe UI",sans-serif; font-weight:300}
+.paso-h h2 b{font-weight:600}
+.paso-h .t{margin-top:5px; color:var(--ink-3); font-size:13.5px}
+.paso-c{padding:22px 26px 24px}
+
+/* bloque para pegar */
+.pegar{margin:16px 0 6px; border:1.5px solid var(--navy); border-radius:10px; overflow:hidden}
+.pegar-h{background:var(--navy); color:var(--cream); padding:9px 16px; font-size:11.5px;
+  letter-spacing:.13em; text-transform:uppercase; font-weight:600;
+  display:flex; align-items:center; gap:10px; justify-content:space-between}
+.pegar-h span::before{content:"\25B8  "; color:var(--gold)}
+.pegar pre{margin:0; padding:18px 20px; background:#0B1A2C; color:#D6E2F0;
+  font-family:Consolas,"Cascadia Mono",monospace; font-size:13.2px; line-height:1.62;
+  overflow-x:auto; white-space:pre-wrap; word-break:break-word}
+.cp{background:transparent; border:1px solid rgba(255,255,255,.25); color:var(--cream);
+  border-radius:6px; padding:3px 11px; font-size:11px; font-family:inherit;
+  letter-spacing:.06em; cursor:pointer}
+.cp:hover{border-color:var(--gold); color:var(--gold)}
+
+pre.plain{background:var(--surface-2); border:1px solid var(--line-soft); border-radius:9px;
+  padding:15px 18px; overflow-x:auto; font-family:Consolas,"Cascadia Mono",monospace;
+  font-size:13px; line-height:1.6; color:var(--ink-2); margin:12px 0}
+
+.tbl{overflow-x:auto; border:1px solid var(--line); border-radius:9px;
+  background:var(--surface); margin:14px 0}
+table{border-collapse:collapse; width:100%; min-width:480px; font-size:13.8px}
+th,td{text-align:left; padding:9px 13px; border-bottom:1px solid var(--line-soft); vertical-align:top}
+th{background:var(--surface-2); font-size:10.5px; letter-spacing:.11em; text-transform:uppercase;
+  color:var(--ink-3); font-weight:600; white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td code{white-space:nowrap}
+
+.nota{border-left:3px solid var(--orange); background:#FDF3EA; padding:12px 16px;
+  border-radius:0 8px 8px 0; margin:16px 0; font-size:14.5px; color:#6E4318}
+.nota b{color:#4A2C0C}
+.ok{border-left-color:var(--teal); background:#E8F6F1; color:#1B5546}
+.ok b{color:#0C3A2E}
+.stop{border-left-color:var(--red); background:#FBEDEC; color:#7A2B26}
+.stop b{color:#571B17}
+
+/* frase para repetir en voz alta */
+.frase{margin:18px 0; background:var(--navy); color:var(--cream); border-radius:10px;
+  padding:18px 22px; font-size:16.5px; line-height:1.5; position:relative}
+.frase::before{content:""; position:absolute; left:0; top:0; bottom:0; width:4px;
+  background:var(--gold); border-radius:10px 0 0 10px}
+.frase b{color:var(--gold)}
+
+ul,ol{margin:0 0 .9em; padding-left:1.3em}
+li{margin-bottom:6px}
+
+.pie{margin:56px 0 40px; padding-top:20px; border-top:1px solid var(--line);
+  font-size:12.8px; color:var(--ink-3); display:flex; flex-wrap:wrap; gap:10px 22px}
+@media print{
+  .cp{display:none} body{font-size:11.5pt} .hero{padding:26px 0 22px}
+  .paso{break-inside:avoid; box-shadow:none}
+}
+</style>
+<style>
+.flujo{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:18px 0 8px}
+.caja{background:var(--surface-2); border:1px solid var(--line); border-radius:10px; padding:12px 14px; position:relative}
+.caja h4{font-size:14px; margin-bottom:4px}
+.caja p{font-size:12.8px; color:var(--ink-2); margin:0}
+.caja .donde{font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3); font-weight:600; margin-bottom:6px}
+.caja.pc{border-color:var(--blue)} .caja.cf{border-color:var(--orange)}
+@media (max-width:720px){ .flujo{grid-template-columns:1fr 1fr} }
+.modos{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:12px 0}
+.modo{border:1px solid var(--line); border-radius:10px; padding:10px 12px; background:var(--surface-2); font-size:13.5px}
+.modo b{display:block; font-size:14.5px; margin-bottom:2px}
+@media (max-width:620px){ .modos{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Diplomado en Inteligencia Artificial · UNAC · Clase 12</div>
+    <h1>Agente conversacional en <b>WhatsApp</b> sobre el informe</h1>
+    <p class="sub">Su informe ya está publicado en Cloudflare. Esta guía lo conecta a <b>su WhatsApp</b>: le pregunta por
+      texto o nota de voz, le contesta con lo que dice su informe y, si se lo pide, le manda el informe en PDF.
+      <b>Usted no escribe comandos:</b> le pega un prompt a Claude Code y él hace el resto.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="paso">
+    <div class="paso-h"><div class="paso-n">1</div>
+      <div><h2>Arquitectura <b>semihíbrida</b></h2><div class="t">Tres piezas: la puerta en su PC, el cerebro y el informe en su Cloudflare</div></div></div>
+    <div class="paso-c">
+      <div class="flujo">
+        <div class="caja"><div class="donde">Su celular</div><h4>WhatsApp</h4><p>Usted se escribe a sí mismo: texto o nota de voz.</p></div>
+        <div class="caja pc"><div class="donde">Su computador</div><h4>Puente</h4><p>Baileys: entra a WhatsApp como dispositivo vinculado, igual que WhatsApp Web.</p></div>
+        <div class="caja cf"><div class="donde">Su Cloudflare</div><h4>Cerebro</h4><p>Un Worker con Workers AI: Whisper para la voz y un LLM con <i>tools</i>.</p></div>
+        <div class="caja cf"><div class="donde">Su Cloudflare</div><h4>Su informe</h4><p>El cerebro lo abre, lo lee y saca el PDF. El informe no se toca.</p></div>
+      </div>
+      <ul>
+        <li><b>Por qué semihíbrida:</b> la conexión con WhatsApp tiene que quedarse abierta todo el tiempo, y eso lo hace un
+          programa en su PC. El cerebro vive en la nube. El PC llama hacia afuera: no se abre nada.</li>
+        <li><b>El modelo escoge, el código ejecuta:</b> el LLM lee su mensaje y su informe, y decide si contesta o si usa
+          una <i>tool</i> (por ejemplo, <code>enviar_informe_pdf</code>). El Worker es el que la corre.</li>
+        <li><b>Gratis:</b> todo cabe en el plan gratuito de Cloudflare. No usa la API oficial de Meta, que cobra cada
+          respuesta desde el 1 de octubre de 2026.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="paso">
+    <div class="paso-h"><div class="paso-n">2</div>
+      <div><h2>Lo que necesita <b>antes</b></h2><div class="t">Cinco minutos de revisión</div></div></div>
+    <div class="paso-c">
+      <ul>
+        <li>Su <b>informe publicado</b> en Cloudflare (Clase 07) y su dirección a la mano: <code>https://informe-….workers.dev</code>.</li>
+        <li><b>Claude Code</b> abierto en la carpeta del aula (la que conectó en la Clase 04).</li>
+        <li>Su <b>celular con WhatsApp</b>, para escanear un QR.</li>
+        <li>Unos <b>30 minutos</b> con el computador conectado a internet. Lo que haga falta instalar, lo instala Claude.</li>
+      </ul>
+      <div class="nota stop"><b>Antes de empezar, el riesgo.</b> El puente es un cliente <b>no oficial</b> de WhatsApp. Usarlo
+        va contra los términos de servicio de WhatsApp y puede terminar en bloqueo del número. Es un ejercicio de clase:
+        se usa en modo <b>«Solo yo»</b>, donde el bot solo le contesta a usted en su chat consigo mismo. Si tiene un
+        segundo número, mejor. Para los clientes de una empresa, la vía es la API oficial de Meta.</div>
+    </div>
+  </section>
+
+  <section class="paso">
+    <div class="paso-h"><div class="paso-n">3</div>
+      <div><h2>El <b>prompt</b> para Claude Code</h2><div class="t">Cambie solo la dirección de su informe</div></div></div>
+    <div class="paso-c">
+      <div class="pegar">
+        <div class="pegar-h"><span>Pegar en Claude Code</span><button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>Actualiza el aula y conecta mi informe a mi WhatsApp siguiendo la skill /agente-whatsapp
+(carpeta 6_Agente_WhatsApp). Mi informe está publicado en: &lt;la dirección de su informe&gt;</pre>
+      </div>
+      <p>Claude le va a preguntar tres cosas: el nombre de su empresa como quiere verlo en WhatsApp, una o dos frases para
+        leer bien sus números (qué es bueno y qué es malo) y si quiere también la agenda (nivel 2). Después:</p>
+      <ol>
+        <li>Instala lo que falte y publica el <b>cerebro</b> en su Cloudflare, ajustado a su informe.</li>
+        <li>Le hace preguntas a su informe y le muestra qué contestó, antes de tocar WhatsApp.</li>
+        <li>Instala el <b>puente</b> y crea el ícono <b>«WhatsApp IA»</b> en su escritorio.</li>
+        <li>Abre el panel con el QR.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="paso">
+    <div class="paso-h"><div class="paso-n">4</div>
+      <div><h2>Lo que hace <b>usted</b></h2><div class="t">Solo dos cosas</div></div></div>
+    <div class="paso-c">
+      <ol>
+        <li><b>Autorizar Cloudflare</b>, si Claude se lo pide: se abre el navegador y usted da clic en <b>Allow</b>.</li>
+        <li><b>Escanear el QR</b> del panel: en el celular, WhatsApp → <b>⋮</b> o <b>Configuración</b> → <b>Dispositivos
+          vinculados</b> → <b>Vincular un dispositivo</b> → apunte la cámara al QR. Si el QR vence, sale otro solo.</li>
+      </ol>
+      <p>Luego abra en WhatsApp <b>su chat consigo mismo</b> («Mensaje para mí» o «Tú») y pruebe:</p>
+      <pre class="plain">hola
+¿Cómo van los indicadores?
+¿Qué es lo más preocupante del informe y qué reviso primero?
+Mándame el informe en PDF
+🎙️ una nota de voz con cualquier pregunta</pre>
+      <p>Las respuestas del bot llegan con 🤖 al comienzo. El PDF llega como documento.</p>
+    </div>
+  </section>
+
+  <section class="paso">
+    <div class="paso-h"><div class="paso-n">5</div>
+      <div><h2>Prender, apagar y <b>el interruptor</b></h2><div class="t">Un solo ícono: «WhatsApp IA»</div></div></div>
+    <div class="paso-c">
+      <p><b>Un clic en el ícono «WhatsApp IA»</b> del escritorio prende el puente y abre el panel en el navegador. Si ya
+        estaba prendido, solo abre el panel. Si usted lo pidió, el puente <b>arranca solo al prender el computador</b>,
+        minimizado y en el último modo en que lo dejó.</p>
+      <div class="modos">
+        <div class="modo"><b>🔴 Apagado</b>No le contesta a nadie. Sigue vinculado.</div>
+        <div class="modo"><b>🟢 Solo yo</b>Solo su chat consigo mismo. El de la clase.</div>
+        <div class="modo"><b>🟠 Abierto</b>Cualquier chat individual. Se apaga solo a los 15 min.</div>
+      </div>
+      <p>En el panel también está <b>Detener</b>, que cierra el puente. Desde el celular, escribiéndose a sí mismo:
+        <code>bot off</code> · <code>bot yo</code> · <code>bot estado</code>. Nunca contesta grupos.</p>
+      <div class="nota"><b>El computador tiene que estar prendido</b> para que el bot conteste. Si se apaga o se suspende,
+        el bot se calla; al volver, se reconecta solo.</div>
+    </div>
+  </section>
+
+  <section class="paso">
+    <div class="paso-h"><div class="paso-n">6</div>
+      <div><h2>Nivel 2 · la <b>agenda</b> <span style="font-weight:300;color:var(--ink-3)">(opcional)</span></h2><div class="t">Citas, notas de clientes y recordatorios</div></div></div>
+    <div class="paso-c">
+      <div class="pegar">
+        <div class="pegar-h"><span>Pegar en Claude Code</span><button class="cp" onclick="cp(this)">Copiar</button></div>
+<pre>Activa el nivel 2 de mi agente de WhatsApp (la agenda) siguiendo la skill /agente-whatsapp.</pre>
+      </div>
+      <p>Después le puede decir, escrito o por voz: «Agéndame una cita mañana a las 3 con Julián de Argos» · «¿Qué tengo
+        esta semana?» · «Cancela la de Argos» · «Anota que Julián pidió 5 % de descuento» · «¿Qué hemos hablado con
+        Julián?». Treinta minutos antes de cada cita le llega un ⏰.</p>
+      <div class="nota">Si pide que la agenda también se vea en su informe: <b>si el informe es público, la agenda también
+        lo es</b>. Con clientes reales, mejor consultarla solo por WhatsApp.</div>
+    </div>
+  </section>
+
+  <section class="paso">
+    <div class="paso-h"><div class="paso-n">7</div>
+      <div><h2>Límites y <b>cuidados</b></h2><div class="t">Lo que hay que saber antes de mostrarlo</div></div></div>
+    <div class="paso-c">
+      <div class="tbl"><table>
+        <tr><th>Límite</th><th>Qué significa</th></tr>
+        <tr><td>10.000 neurons al día (Workers AI gratis)</td><td>En cada pregunta el modelo lee su informe completo: alcanza para
+          unas decenas de mensajes al día. Se recargan a las <b>7:00 p. m.</b> hora de Colombia.</td></tr>
+        <tr><td>Navegador de Cloudflare gratis</td><td>10 minutos al día. Por eso el informe se relee cada 15 minutos y el PDF
+          se rehace cada hora. Si cambia su informe, el agente lo ve a los 15 minutos.</td></tr>
+        <tr><td>Gráficas sin números</td><td>Lo que una gráfica pinta sin el número escrito, el agente no lo lee. Sí lee
+          tarjetas, tablas y los datos que trae la página.</td></tr>
+      </table></div>
+      <div class="nota stop"><b>La carpeta <code>sesion_whatsapp</code> es la llave de su WhatsApp.</b> Quien la copie, entra.
+        No se comparte ni se sube a ningún lado. Claude la deja en <code>mis_entregas/</code>, que el aula nunca sube.</div>
+      <div class="frase">A un agente no se le cree: <b>se le prueba.</b> Pregúntele cosas cuya respuesta usted ya sabe y
+        compare con su informe antes de mostrárselo a alguien.</div>
+    </div>
+  </section>
+
+  <div class="pie">
+    <span>Diplomado en Inteligencia Artificial · UNAC · Clase 12</span>
+    <span>Mg. Alexey David Velásquez Betancurt</span>
+    <span>15 de octubre de 2026</span>
+    <span>Kit: 6_Agente_WhatsApp · skill /agente-whatsapp</span>
+  </div>
+</main>
+
+<script>
+function cp(b){
+  var t = b.parentElement.parentElement.querySelector('pre').innerText;
+  navigator.clipboard.writeText(t).then(function(){
+    var o = b.textContent; b.textContent = 'Copiado'; b.style.color = '#EAAD05';
+    setTimeout(function(){ b.textContent = o; b.style.color = ''; }, 1600);
+  });
+}
+</script>
+</body>
+</html>

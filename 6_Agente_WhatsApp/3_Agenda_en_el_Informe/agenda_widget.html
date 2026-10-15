@@ -1,0 +1,44 @@
+<!-- =====================================================================
+     AGENDA DEL AGENTE DE WHATSAPP · bloque para pegar en el informe (nivel 2, opcional)
+     Claude lo pega en el HTML del informe, donde el estudiante quiera verla
+     (normalmente al final, antes de </body>), cambia la direccion de CEREBRO
+     y vuelve a publicar el informe. Se actualiza sola cada 30 segundos.
+
+     OJO: si el informe es publico, la agenda tambien lo es. Con clientes reales,
+     mejor no pintarla en el informe y consultarla solo por WhatsApp.
+     ===================================================================== -->
+<section id="agenda-whatsapp" style="max-width:1100px;margin:28px auto;padding:18px 20px;border:1px solid rgba(128,128,128,.35);border-radius:12px;font-family:inherit;color:inherit">
+  <h2 style="margin:0 0 4px;font-weight:600">Agenda</h2>
+  <p style="margin:0 0 12px;opacity:.7;font-size:.9em">Las citas que se agendan por WhatsApp aparecen aquí solas.</p>
+  <div id="agenda-whatsapp-lista">Cargando la agenda…</div>
+</section>
+<script>
+(function () {
+  var CEREBRO = "https://cerebro-whatsapp-CAMBIAR.SUSUBDOMINIO.workers.dev"; // <- la direccion del cerebro
+  var DIAS = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+  var MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+  function esc(t) { return String(t == null ? "" : t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function dia(iso) { var f = new Date(iso + "T12:00:00Z"); return DIAS[f.getUTCDay()] + " " + f.getUTCDate() + " de " + MESES[f.getUTCMonth()]; }
+  function hora(h) { var p = h.split(":"), n = +p[0]; return (n % 12 || 12) + ":" + p[1] + (n < 12 ? " a. m." : " p. m."); }
+  function pintar() {
+    fetch(CEREBRO + "/api/agenda", { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (d) {
+      var caja = document.getElementById("agenda-whatsapp-lista");
+      if (!d.ok) { caja.textContent = "La agenda no está disponible."; return; }
+      if (!d.citas.length) { caja.textContent = "No hay citas en los próximos 60 días."; return; }
+      var html = "", ultimo = "";
+      d.citas.forEach(function (c) {
+        if (c.fecha !== ultimo) {
+          html += '<div style="margin:12px 0 4px;font-weight:600">' + esc(dia(c.fecha)) + (c.fecha === d.hoy ? " (hoy)" : "") + "</div>";
+          ultimo = c.fecha;
+        }
+        html += '<div style="padding:4px 0 4px 12px;border-left:3px solid #29AC8A;margin:4px 0">' +
+          "<b>" + esc(hora(c.hora)) + "</b> · " + esc(c.cliente) + (c.empresa ? " · " + esc(c.empresa) : "") +
+          (c.asunto ? '<span style="opacity:.75"> — ' + esc(c.asunto) + "</span>" : "") + "</div>";
+      });
+      caja.innerHTML = html;
+    }).catch(function () { document.getElementById("agenda-whatsapp-lista").textContent = "No pude leer la agenda."; });
+  }
+  pintar();
+  setInterval(pintar, 30000);
+})();
+</script>

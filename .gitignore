@@ -16,3 +16,11 @@ __pycache__/
 .ipynb_checkpoints/
 .env
 .env.*
+
+# Kit del agente de WhatsApp: si alguien lo corre dentro del aula por error, las llaves no se suben
+6_Agente_WhatsApp/**/node_modules/
+6_Agente_WhatsApp/**/sesion_whatsapp/
+6_Agente_WhatsApp/**/config.json
+6_Agente_WhatsApp/**/modo_guardado.json
+6_Agente_WhatsApp/**/wrangler.toml
+6_Agente_WhatsApp/**/.wrangler/

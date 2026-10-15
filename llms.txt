@@ -20,6 +20,7 @@ Las diapositivas de todas las clases dictadas, en PDF (las versiones rayadas en 
 - `1_Guias_de_Clase/Docs_Clase_03/Clase_03_Presentacion.pdf`: Inteligencia Artificial Agéntica — qué es un agente, herramientas, skills, comandos y contexto.
 - `1_Guias_de_Clase/Docs_Clase_04/Clase_04_Presentacion.pdf`: Machine Learning 1 — tipos de ML, arquitecturas de supervised y unsupervised learning, Deep Learning, Transformers, modelos preentrenados en Hugging Face y Cloudflare.
 - `1_Guias_de_Clase/Docs_Clase_05/Clase_05_Presentacion.pdf`: Entrenamiento de modelos y control del navegador con IA — el cambio en la estructura del trabajo de grado, las tres plantillas de entrenamiento local (Supervised learning con PyCaret, Autoencoder y Convolutional Neural Network) y Claude in Chrome como agente de navegador (*browser use*): qué puede y qué no, comandos y permisos.
+- `1_Guias_de_Clase/Docs_Clase_12/Clase_12_Presentacion_Agente_WhatsApp.pdf`: Agente conversacional en WhatsApp sobre el informe — arquitectura semihíbrida (puente local con Baileys + Worker en Cloudflare), tool calling en Workers AI, los dos niveles de tools y el kit del aula con el prompt para Claude Code.
 
 Guías para el estudiante, por la clase en que se entregaron:
 
@@ -32,6 +33,7 @@ Guías para el estudiante, por la clase en que se entregaron:
 - [Redactar el trabajo de grado con inteligencia artificial (Clase 05)](1_Guias_de_Clase/Docs_Clase_05/Clase_05_Guia_Documento_con_IA.html): mejores prácticas para escribir el documento con IA y manejar las referencias en normas APA 7 sin citas inventadas.
 - [Claude manejando su navegador (Clase 05)](1_Guias_de_Clase/Docs_Clase_05/Clase_05_Guia_Navegador.html): el agente de navegador — la extensión **Claude in Chrome**, qué sí y qué no puede hacer, sus límites duros y el taller de auditar el sitio web de la propia empresa.
 - [Guía del taller de Colab (Clase 05)](1_Guias_de_Clase/Docs_Clase_05/Clase_05_Guia_Taller_Colab.html): abrir Colab, montar los secretos de Hugging Face y correr los notebooks de entrenamiento. **Material complementario opcional desde la reorganización del 26 de agosto de 2026** — ya no es el taller de la Clase 05, que ahora corre en local con `5_Plantillas_ML_Local/`. Sirve para quien quiera profundizar en la nube.
+- [Agente conversacional en WhatsApp sobre el informe (Clase 12)](1_Guias_de_Clase/Docs_Clase_12/Clase_12_Guia_Agente_WhatsApp.html): conectar el informe publicado en Cloudflare al WhatsApp del estudiante con el kit `6_Agente_WhatsApp/` — el prompt que se pega en Claude Code, lo único que hace el estudiante (autorizar Cloudflare y escanear el QR), el ícono «WhatsApp IA», el interruptor de tres modos, la agenda opcional (nivel 2), los límites del plan gratuito y el riesgo de usar un cliente no oficial.
 
 ## Referencias
 
@@ -56,6 +58,15 @@ Desde la reorganización del 26 de agosto de 2026 estos notebooks **ya no son el
 - `4_Notebooks_Colab/3_Laboratorio_Pronostico_Ventas.ipynb`: pronóstico de ventas diarias con Prophet — tendencia, estacionalidad y rango honesto.
 - `4_Notebooks_Colab/4_Laboratorio_Deep_Learning_Anomalias.ipynb`: red neuronal que clasifica y autoencoder que detecta días raros (fraude de caja).
 - `4_Notebooks_Colab/5_Laboratorio_Modelos_Preentrenados_HF.ipynb`: Hugging Face — clasificar PQRS sin entrenar, sentimiento en español, texto a voz, voz a texto, y los grandes por API.
+
+## Agente de WhatsApp sobre el informe — kit de la **Clase 12**
+
+Conecta el informe que el estudiante publicó en Cloudflare (Clase 07) a su WhatsApp: le pregunta por texto o nota de voz, contesta con lo que dice el informe y le manda el informe en PDF. **Arquitectura semihíbrida:** la puerta de WhatsApp vive en el computador del estudiante (el **puente**, librería Baileys, entra como dispositivo vinculado igual que WhatsApp Web y llama hacia afuera, sin abrir puertos) y el **cerebro** vive en su Cloudflare (un Worker con Workers AI: Whisper para la voz y `llama-3.3-70b-instruct-fp8-fast` con tool calling; el modelo escoge, el código ejecuta). El cerebro **lee el informe abriéndolo en el navegador de Cloudflare** (Browser Rendering): lo visible, las pestañas ocultas y los datos del código; por eso el mismo código sirve para cualquier informe y el informe no se toca. Lo arma Claude con la skill `/agente-whatsapp`; el estudiante solo autoriza Cloudflare y escanea el QR. Su copia de trabajo va en `mis_entregas/agente_whatsapp/`. **Riesgo:** es un cliente no oficial de WhatsApp (va contra sus términos; puede bloquear el número): en clase se usa en modo «Solo yo».
+
+- `6_Agente_WhatsApp/LEEME.md`: cómo funciona, archivos, direcciones del cerebro, las fallas del agente que se midieron y cómo quedaron atajadas en el código, y los límites (10.000 neurons diarios gratis; cada pregunta gasta del orden de 150–300 porque el modelo lee el informe completo; navegador gratis 10 min/día).
+- `6_Agente_WhatsApp/1_Puente/`: el programa del computador (igual para todos). Un solo ícono, **«WhatsApp IA»**, prende el puente y abre el panel `http://localhost:3939`; arranca con Windows en el último modo. Interruptor: 🔴 Apagado · 🟢 Solo yo · 🟠 Abierto (se apaga solo a los 15 min). `sesion_whatsapp/` es la llave del WhatsApp: nunca se comparte ni se sube.
+- `6_Agente_WhatsApp/2_Cerebro/`: el Worker (`worker.js`, no se modifica) + `wrangler.ejemplo.toml` (lo único que se ajusta: nombre, `INFORME_URL`, `EMPRESA`, `CONTEXTO_EXTRA`). **Nivel 1:** preguntas sobre el informe + `enviar_informe_pdf`. **Nivel 2 (opcional, con una base D1):** `agendar_cita`, `ver_agenda`, `cancelar_cita`, `guardar_nota`, `ficha_cliente` y recordatorio 30 min antes.
+- `6_Agente_WhatsApp/3_Agenda_en_el_Informe/agenda_widget.html`: bloque opcional para pintar la agenda en el informe (si el informe es público, la agenda también).
 
 ## Reglas de esta aula
 

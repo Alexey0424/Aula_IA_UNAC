@@ -1,0 +1,10 @@
+{
+  "worker": "https://cerebro-whatsapp-MIEMPRESA.SUSUBDOMINIO.workers.dev/api/mensaje",
+  "clave_puente": "LA_MISMA_DEL_SECRETO_CLAVE_PUENTE_DEL_CEREBRO",
+  "agenda": false,
+  "puerto": 3939,
+  "marca_bot": "🤖",
+  "minutos_modo_abierto": 15,
+  "numeros_permitidos": [],
+  "_nota": "Claude copia este archivo como config.json y llena worker y clave_puente. agenda: true solo si se activó el nivel 2 (recordatorios 30 min antes de cada cita). numeros_permitidos: además del chat consigo mismo, les contesta a esos en modo Solo yo; completos con indicativo y sin +, ej. [\"573001234567\"]. config.json NO se comparte ni se sube a ningún lado."
+}

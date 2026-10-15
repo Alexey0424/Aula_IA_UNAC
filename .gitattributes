@@ -1,0 +1,3 @@
+# Los .bat y .ps1 del kit de WhatsApp se abren con doble clic en Windows: siempre con CRLF
+*.bat text eol=crlf
+*.ps1 text eol=crlf

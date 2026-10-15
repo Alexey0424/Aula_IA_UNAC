@@ -1,0 +1,41 @@
+# Cerebro del agente de WhatsApp. Claude copia este archivo como wrangler.toml
+# y llena lo que dice CAMBIAR. El codigo (worker.js) no se toca.
+
+name = "cerebro-whatsapp-CAMBIAR"            # ej. cerebro-whatsapp-clinicasanrafael (minusculas, sin espacios)
+main = "worker.js"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]       # lo exige el navegador de Cloudflare (puppeteer)
+workers_dev = true
+
+[vars]
+INFORME_URL = "https://CAMBIAR.workers.dev"   # la direccion publica del informe del estudiante
+EMPRESA = "CAMBIAR"                           # el nombre de la empresa, como se quiere ver en WhatsApp
+# Opcional: lo que el modelo debe saber para leer bien el informe (que es bueno y que es malo,
+# que periodo cubre, como se llaman las areas). Una o dos frases.
+CONTEXTO_EXTRA = ""
+
+# Workers AI: el LLM que decide y responde, y Whisper para las notas de voz.
+[ai]
+binding = "AI"
+
+# Browser Rendering: abre el informe para leerlo y sacar el PDF.
+[browser]
+binding = "NAVEGADOR"
+
+# KV: memoria de la conversacion (30 min), el informe leido (15 min), el PDF y la bitacora.
+# Se crea con: npx wrangler kv namespace create cerebro-whatsapp-estado
+[[kv_namespaces]]
+binding = "ESTADO"
+id = "CAMBIAR"
+
+# NIVEL 2 (opcional): la agenda de citas y notas. Se crea con:
+#   npx wrangler d1 create agenda-whatsapp
+#   npx wrangler d1 execute agenda-whatsapp --remote --file esquema_agenda.sql
+# y se quitan los # de estas cuatro lineas:
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "agenda-whatsapp"
+# database_id = "CAMBIAR"
+
+# SECRETO (no va en este archivo): CLAVE_PUENTE, la misma de config.json del puente.
+#   npx wrangler secret put CLAVE_PUENTE

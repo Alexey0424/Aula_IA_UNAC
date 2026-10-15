@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Puente WhatsApp Cloudflare</title>
+<style>
+  :root { --azul:#0E2036; --crema:#F6F5F0; --dorado:#EAAD05; --verde:#29AC8A; --rojo:#D54E48; --naranja:#E8792B; --gris:#ECE9E0; --texto:#1d2733; --suave:#5d6875; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--crema); color:var(--texto); font-family:"Segoe UI", system-ui, sans-serif; }
+  header { background:var(--azul); color:#fff; padding:18px 24px; border-bottom:4px solid var(--dorado); }
+  header small { display:block; color:#c9d3df; font-size:13px; letter-spacing:.06em; text-transform:uppercase; }
+  header h1 { margin:4px 0 0; font-family:"Segoe UI Light", "Segoe UI", sans-serif; font-weight:300; font-size:28px; }
+  main { max-width:980px; margin:0 auto; padding:24px 16px 48px; display:grid; gap:20px; grid-template-columns:1fr 1fr; }
+  @media (max-width:760px) { main { grid-template-columns:1fr; } }
+  .tarjeta { background:#fff; border-radius:10px; padding:20px; box-shadow:0 1px 3px rgba(14,32,54,.10); }
+  .ancho { grid-column:1 / -1; }
+  h2 { margin:0 0 12px; font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--suave); border-left:4px solid var(--dorado); padding-left:8px; }
+  #estado { font-size:22px; font-weight:600; }
+  .ok { color:var(--verde); } .mal { color:var(--rojo); } .espera { color:#b8860b; }
+  #qr { display:block; margin:8px auto; width:300px; max-width:100%; image-rendering:pixelated; }
+  ol { margin:8px 0 0; padding-left:20px; line-height:1.6; }
+  .flujo { font-family:Consolas, monospace; font-size:13px; background:var(--gris); padding:12px; border-radius:8px; white-space:pre; overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; font-size:14px; }
+  th, td { text-align:left; padding:6px 8px; border-bottom:1px solid var(--gris); }
+  th { color:var(--suave); font-weight:600; }
+  .nota { color:var(--suave); font-size:13px; margin-top:10px; }
+  .modos { display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; }
+  @media (max-width:560px) { .modos { grid-template-columns:1fr; } }
+  .modo { border:2px solid var(--gris); background:#fff; border-radius:10px; padding:14px 12px; cursor:pointer; text-align:left; font:inherit; color:inherit; }
+  .modo b { display:block; font-size:17px; margin-bottom:4px; }
+  .modo span { font-size:13px; color:var(--suave); }
+  .modo.activo[data-modo="apagado"] { border-color:var(--rojo); background:#fbeceb; }
+  .modo.activo[data-modo="solo_yo"] { border-color:var(--verde); background:#e8f6f2; }
+  .modo.activo[data-modo="abierto"] { border-color:var(--naranja); background:#fdf0e6; }
+  #modoTexto { font-size:18px; font-weight:600; margin:14px 0 4px; }
+  .fila { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; align-items:center; }
+  button.sec { border:1px solid #c9c4b6; background:var(--gris); border-radius:8px; padding:8px 14px; font:inherit; cursor:pointer; }
+  button.peligro { border-color:var(--rojo); color:var(--rojo); background:#fff; }
+  input[type=number] { width:64px; padding:6px; font:inherit; border:1px solid #c9c4b6; border-radius:6px; }
+  code { background:var(--gris); padding:1px 6px; border-radius:4px; }
+</style>
+</head>
+<body>
+<header>
+  <small>Diplomado en Inteligencia Artificial · UNAC · Clase 12</small>
+  <h1>Puente semihíbrido: WhatsApp → este computador → Cloudflare</h1>
+</header>
+<main>
+  <section class="tarjeta ancho">
+    <h2>Interruptor del bot</h2>
+    <div class="modos">
+      <button class="modo" data-modo="apagado"><b>🔴 Apagado</b><span>No le contesta a nadie. Sigue vinculado, esperando órdenes.</span></button>
+      <button class="modo" data-modo="solo_yo"><b>🟢 Solo yo</b><span>Solo el chat consigo mismo («Mensaje para mí»).</span></button>
+      <button class="modo" data-modo="abierto"><b>🟠 Abierto</b><span>Cualquiera que le escriba por chat individual. Se apaga solo.</span></button>
+    </div>
+    <div id="modoTexto"></div>
+    <div class="fila">
+      <label>Minutos del modo abierto: <input type="number" id="min" min="1" max="120" value="15"></label>
+    </div>
+    <p class="nota">Desde el celular, escribiéndose a sí mismo: <code>bot off</code> · <code>bot yo</code> · <code>bot abierto</code> · <code>bot abierto 5</code> · <code>bot estado</code>. Nunca contesta grupos.</p>
+    <div class="fila">
+      <button class="sec peligro" id="detener">⏹️ Detener el puente</button>
+      <button class="sec peligro" id="desvincular">🔌 Desvincular WhatsApp</button>
+      <button class="sec" id="vincular" hidden>📱 Vincular de nuevo (QR)</button>
+    </div>
+    <p class="nota">El puente arranca en el último modo en que lo dejó (el abierto vuelve como «Solo yo»). <b>Detener</b> cierra el programa: su WhatsApp sigue normal y la sesión queda guardada; para volver, el ícono <b>WhatsApp IA</b> del escritorio. <b>Desvincular</b> además lo saca de «Dispositivos vinculados»: para volver hay que escanear otra vez.</p>
+  </section>
+  <section class="tarjeta">
+    <h2>Conexión con WhatsApp</h2>
+    <div id="estado">Iniciando…</div>
+    <div id="detalle" class="nota"></div>
+    <img id="qr" alt="Código QR para vincular WhatsApp" hidden>
+    <ol id="pasos" hidden>
+      <li>En el celular: <b>WhatsApp → ⋮ (o Configuración) → Dispositivos vinculados</b>.</li>
+      <li><b>Vincular un dispositivo</b> y apuntar la cámara a este QR.</li>
+      <li>El QR se renueva solo cada ~20 s: si vence, espere el siguiente.</li>
+    </ol>
+  </section>
+  <section class="tarjeta">
+    <h2>Cómo probarlo</h2>
+    <ol>
+      <li>Abra el chat consigo mismo (<b>«Mensaje para mí»</b> / «Tú»).</li>
+      <li>Escriba <b>hola</b>, o pruebe: <i>«¿Cómo van los indicadores?»</i>,
+        <i>«¿Qué es lo más preocupante del informe?»</i>, <i>«Mándame el informe en PDF»</i> (llega el PDF).</li>
+      <li>Con la agenda (nivel 2): <i>«Agéndame una cita mañana a las 3 con Julián de Argos»</i>,
+        <i>«¿Qué tengo esta semana?»</i>, <i>«Anota que Julián pidió 5 % de descuento»</i>. 30 min antes de cada cita llega un ⏰.</li>
+      <li>Todo sirve también por <b>nota de voz</b>.</li>
+      <li>Las respuestas del bot llegan con 🤖 al comienzo.</li>
+    </ol>
+    <div class="flujo">su WhatsApp ─► este PC (puente, Baileys) ─► cerebro en Cloudflare (Worker + Workers AI)
+                                              └─► su informe publicado (lo lee y saca el PDF)</div>
+    <p class="nota" id="worker"></p>
+  </section>
+  <section class="tarjeta ancho">
+    <h2>Bitácora (no guarda el texto de los mensajes)</h2>
+    <table>
+      <thead><tr><th>Hora</th><th>Chat</th><th>Tipo</th><th>Acción</th><th>Resultado</th><th>Tiempo</th></tr></thead>
+      <tbody id="bitacora"><tr><td colspan="6">Sin eventos todavía.</td></tr></tbody>
+    </table>
+  </section>
+</main>
+<script>
+const TEXTOS = {
+  iniciando: ["Iniciando…", "espera"],
+  esperando_qr: ["Esperando el escaneo del QR", "espera"],
+  conectado: ["Conectado", "ok"],
+  reconectando: ["Reconectando…", "espera"],
+  desvinculado: ["Desvinculado: el bot no tiene acceso a su WhatsApp", "mal"],
+  reemplazada: ["Otro puente abrió esta sesión. Este se detuvo.", "mal"],
+};
+const MODOS = {
+  apagado: "🔴 Apagado: no le contesta a nadie.",
+  solo_yo: "🟢 Solo yo: contesta únicamente en el chat consigo mismo.",
+  abierto: "🟠 Abierto: le contesta a cualquiera por chat individual",
+};
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const $ = (id) => document.getElementById(id);
+let minFijado = false;
+
+async function accion(nombre, extra = "") {
+  try {
+    await fetch("/accion/" + nombre + extra, { method: "POST", headers: { "x-puente": "1" } });
+  } catch { /* si se detuvo, la siguiente consulta lo muestra */ }
+  refrescar();
+}
+document.querySelectorAll(".modo").forEach((b) =>
+  b.addEventListener("click", () => accion(b.dataset.modo, b.dataset.modo === "abierto" ? "?min=" + $("min").value : "")));
+$("detener").addEventListener("click", () => accion("detener"));
+$("desvincular").addEventListener("click", () => accion("desvincular"));
+$("vincular").addEventListener("click", () => accion("vincular"));
+$("min").addEventListener("input", () => (minFijado = true));
+
+async function refrescar() {
+  try {
+    const d = await (await fetch("/estado", { cache: "no-store" })).json();
+    const [t, c] = TEXTOS[d.conexion] || [d.conexion, "espera"];
+    $("estado").textContent = t; $("estado").className = c;
+    $("detalle").textContent = d.conexion === "conectado"
+      ? "Vinculado: " + d.yo + (d.recordatorios ? " · recordatorios de citas activos" : " · sin clave: no hay recordatorios") : "";
+    $("qr").hidden = !d.qr; $("pasos").hidden = !d.qr;
+    if (d.qr && $("qr").src !== d.qr) $("qr").src = d.qr;
+    $("vincular").hidden = d.conexion !== "desvinculado";
+    $("desvincular").hidden = d.conexion === "desvinculado";
+    if (!minFijado) $("min").value = d.minutosAbierto;
+    document.querySelectorAll(".modo").forEach((b) => b.classList.toggle("activo", b.dataset.modo === d.modo));
+    let m = MODOS[d.modo] || d.modo;
+    if (d.modo === "abierto" && d.abiertoHasta) {
+      const s = Math.max(0, Math.round((d.abiertoHasta - Date.now()) / 1000));
+      m += " — se apaga en " + Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0");
+    }
+    if (d.modo === "solo_yo" && d.permitidos) m += " (y " + d.permitidos + " número(s) permitido(s))";
+    $("modoTexto").textContent = m;
+    $("worker").textContent = "Cerebro: " + d.worker;
+    $("bitacora").innerHTML = d.eventos.length
+      ? d.eventos.map((v) => "<tr><td>" + esc(new Date(v.cuando).toLocaleTimeString("es-CO")) + "</td><td>" + esc(v.chat) + "</td><td>" + esc(v.tipo) +
+          "</td><td>" + esc(v.accion) + "</td><td>" + esc(v.resultado) + (v.error ? " · " + esc(v.error) : "") + "</td><td>" + (v.ms ? esc((v.ms / 1000).toFixed(1)) + " s" : "") + "</td></tr>").join("")
+      : '<tr><td colspan="6">Sin eventos todavía.</td></tr>';
+  } catch {
+    $("estado").textContent = "El puente no está corriendo (bot apagado)"; $("estado").className = "mal";
+    $("modoTexto").textContent = "Para prenderlo: doble clic en 1_INICIAR_PUENTE.bat";
+    document.querySelectorAll(".modo").forEach((b) => b.classList.remove("activo"));
+  }
+}
+refrescar(); setInterval(refrescar, 1000);
+</script>
+</body>
+</html>

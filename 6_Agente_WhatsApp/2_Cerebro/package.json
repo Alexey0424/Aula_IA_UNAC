@@ -1,0 +1,11 @@
+{
+  "name": "cerebro-whatsapp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cerebro del agente de WhatsApp: Worker de Cloudflare que lee el informe publicado y contesta con Workers AI",
+  "type": "module",
+  "main": "worker.js",
+  "devDependencies": {
+    "@cloudflare/puppeteer": "1.4.0"
+  }
+}

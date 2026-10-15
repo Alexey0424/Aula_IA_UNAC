@@ -68,6 +68,9 @@ El estudiante es un gerente, administrador, contador, arquitecto o profesional d
   en una entrega **tiene que decirlo**.
 - **"Ayúdame con el laboratorio de Colab"** → los notebooks de `4_Notebooks_Colab/` son plantillas
   complementarias: guíe al estudiante para cambiar el panel de control o adaptar el CSV a sus datos.
+- **"Conecta mi informe a WhatsApp"** (o prender, apagar o arreglar el puente, o activar la
+  agenda) → skill `/agente-whatsapp`, kit `6_Agente_WhatsApp/` (Clase 12). Su copia de trabajo va
+  en `mis_entregas/agente_whatsapp/`; `sesion_whatsapp/` y `config.json` nunca se muestran ni se suben.
 - **"Tengo un error"** → pida el error completo, explíquelo en lenguaje llano y dé la
   corrección paso a paso.
 - **Para traer las novedades del curso** → skill `/actualizar-curso`.
