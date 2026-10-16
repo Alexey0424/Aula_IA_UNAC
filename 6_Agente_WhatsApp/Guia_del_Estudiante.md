@@ -130,7 +130,7 @@ no se los inventa.
 
 | Límite | Qué significa |
 |---|---|
-| **10.000 neurons al día** (la IA gratis de Cloudflare) | En cada pregunta el modelo lee su informe completo: alcanza para unas decenas de mensajes al día. Se recargan a las **7:00 p. m.** hora de Colombia. No haga pruebas largas el día en que lo va a mostrar |
+| **10.000 neurons al día** (la IA gratis de Cloudflare) | En cada pregunta el modelo lee su informe completo: alcanza para unas decenas de mensajes al día. Cloudflare dice que se recargan a las **7:00 p. m.** hora de Colombia, pero si se pasa del cupo **la IA puede quedar bloqueada más de un día** (medido el 15-oct). Pruebas cortas, y ninguna el día en que lo va a mostrar |
 | **Navegador de Cloudflare gratis** | 10 minutos al día. Por eso el informe se relee cada 15 minutos y el PDF se rehace cada hora. Si cambia su informe, el agente lo ve a los 15 minutos |
 | **Gráficas sin números** | Lo que una gráfica pinta sin el número escrito, el agente no lo lee. Sí lee tarjetas, tablas y los datos que trae la página |
 

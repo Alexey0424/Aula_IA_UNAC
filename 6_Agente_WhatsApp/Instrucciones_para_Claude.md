@@ -56,6 +56,10 @@ su celular ─► su PC: PUENTE (1_Puente) ─► su Cloudflare: CEREBRO (2_Cere
    daña la codificación y las pruebas dan resultados falsos. Abajo está el script de prueba.
 7. **No cambie `worker.js` ni `puente.mjs`.** Si algo no funciona, revise la configuración y la tabla de
    problemas. Son iguales para todo el salón y ya traen atajadas las fallas que se midieron.
+8. **Cuide los neurons del estudiante.** Entre todas sus pruebas, **no más de 10 mensajes** al modelo
+   (`estado` y `releer` no gastan neurons; cada `mensaje` sí). Si el cupo gratis se pasa, Cloudflare
+   puede dejar la IA de la cuenta bloqueada **más de un día** (sección 10), y el estudiante se queda
+   sin agente para mostrar.
 
 ## 2. Verificar antes de tocar nada
 
@@ -248,11 +252,15 @@ Bórrelo junto con `clave.txt` cuando termine (la clave queda en `config.json` d
 ## 10. Límites que el estudiante debe saber
 
 - **El computador tiene que estar prendido** y sin suspenderse para que el bot conteste.
-- **Workers AI gratis: 10.000 neurons al día por cuenta,** que se recargan a las **7:00 p. m. hora de
-  Colombia** (00:00 UTC). En cada pregunta el modelo lee el informe completo (hasta 18.000 caracteres):
-  del orden de 150 a 300 neurons por pregunta, así que alcanza para unas decenas de mensajes al día.
-  Si se agotan, el bot contesta «El modelo de IA no respondió». **No haga pruebas largas** el mismo día
-  en que el estudiante lo va a mostrar.
+- **Workers AI gratis: 10.000 neurons al día por cuenta.** En cada pregunta el modelo lee el informe
+  completo (hasta 18.000 caracteres): del orden de 150 a 300 neurons por pregunta, así que alcanza para
+  unas decenas de mensajes al día. Si se agotan, el bot contesta «El modelo de IA no respondió».
+- **El cupo no siempre vuelve a la hora que dice Cloudflare.** La documentación dice que se recarga a las
+  00:00 UTC (7:00 p. m. de Colombia). Medido el 15-oct-2026 en la cuenta del docente: Cloudflare cortó
+  tarde (dejó gastar 16.265 neurons, no 10.000) y a las 9:20 p. m. la cuenta **seguía bloqueada** con
+  0 neurons gastados en el día nuevo (error `4006`). En el foro de Cloudflare hay varios reportes iguales.
+  Por eso: **pruebas cortas, y ninguna el día en que el estudiante lo va a mostrar.** La única salida
+  inmediata es el plan de pago de Workers (Workers Paid); si no, esperar.
 - **Navegador de Cloudflare gratis:** 10 minutos al día y un navegador nuevo cada 20 s. Por eso el
   informe se relee cada 15 minutos y el PDF se rehace cada hora.
 - **Si el estudiante cambia su informe**, el agente lo ve a los 15 minutos, o de una con `releer`.
@@ -268,7 +276,7 @@ Bórrelo junto con `clave.txt` cuando termine (la clave queda en `config.json` d
 | `releer` trae el título de otra página | `INFORME_URL` equivocada | Corregir, `npx wrangler deploy`, `releer` |
 | `mensaje` responde 401 | La clave del secreto y la de `config.json` no son la misma | Volver a hacer el paso 4.5 y el 5.2 con la misma clave |
 | `mensaje` responde 500 «Falta el secreto CLAVE_PUENTE» | No se subió el secreto, o aún se propaga | Paso 4.5; esperar 10 s |
-| «El modelo de IA no respondió» | Se acabaron los neurons del día | Esperar a las 7:00 p. m. hora de Colombia |
+| «El modelo de IA no respondió» | Se acabaron los neurons del día (error `4006`) | Esperar: en teoría vuelven a las 7:00 p. m. de Colombia, pero pueden tardar más (sección 10) |
 | ⏳ al pedir el PDF | Límite del navegador gratis | Pedirlo otra vez en un minuto |
 | El panel no abre / «esperando QR» y no aparece | El puente arrancó escondido con Windows | Abrir el ícono «WhatsApp IA» |
 | «reemplazada» en el panel | Dos puentes con la misma sesión | Detener todo y abrir el ícono una sola vez |

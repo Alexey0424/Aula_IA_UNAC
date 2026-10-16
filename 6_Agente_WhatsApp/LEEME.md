@@ -137,9 +137,14 @@ solo la mitad de un pedido doble (ahora revisa si quedó algo pendiente).
 
 - **El computador tiene que estar prendido** y sin suspenderse. Al volver, se reconecta solo.
 - **Workers AI gratis: 10.000 neurons al día** por cuenta `[V]` (developers.cloudflare.com/workers-ai/platform/pricing),
-  se recargan a las 00:00 UTC = 7:00 p. m. de Colombia. El LLM cobra 26.668 neurons por millón de
-  tokens de entrada y 204.805 por millón de salida `[V]`, y en cada mensaje lee el informe completo
-  (hasta 18.000 caracteres): del orden de 150 a 300 neurons por pregunta `[SV, estimado]`.
+  y según la documentación se recargan a las 00:00 UTC = 7:00 p. m. de Colombia. El LLM cobra 26.668
+  neurons por millón de tokens de entrada y 204.805 por millón de salida `[V]`, y en cada mensaje lee
+  el informe completo (hasta 18.000 caracteres): del orden de 150 a 300 neurons por pregunta
+  `[SV, estimado]`; medido el 15-oct: 171 por llamada en promedio (62 llamadas) `[M]`.
+- **Ojo: el corte llega tarde y el bloqueo puede durar más** `[M, 15-oct-2026]`. La cuenta del docente
+  gastó 16.265 neurons antes de que Cloudflare la cortara, y a las 9:20 p. m. de Colombia seguía
+  bloqueada (error `4006`) con 0 neurons gastados en el día nuevo. Hay varios reportes iguales en el
+  foro de Cloudflare. Pruebas cortas, y ninguna el día de mostrarlo.
 - **Navegador de Cloudflare gratis:** 10 minutos al día, un navegador nuevo cada 20 s `[V]`
   (developers.cloudflare.com/browser-rendering/limits).
 - **Lo que una gráfica pinta sin el número escrito no se puede leer.** Sí se leen las tarjetas,
